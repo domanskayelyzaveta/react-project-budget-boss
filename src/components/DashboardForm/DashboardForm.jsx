@@ -6,12 +6,12 @@ import { fetchExpenseCategories, fetchIncomeCategories } from 'service/Api';
 import { StyledWrapper } from './DashboardForm.styled';
 
 const DashboardForm = () => {
-  const token = useSelector(state => state.user.accessToken);
-  useEffect(() => {
-    const res = fetchIncomeCategories(token);
-    const res2=fetchExpenseCategories(token)
-    // console.log(res)
-  }, [token]);
+  // const token = useSelector(state => state.user.accessToken);
+  // useEffect(() => {
+  //   const res = fetchIncomeCategories(token);
+  //   const res2=fetchExpenseCategories(token)
+  //   // console.log(res)
+  // }, [token]);
   const { register, handleSubmit } = useForm();
   const onSubmit = data => console.log(data);
   return (
