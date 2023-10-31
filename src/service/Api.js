@@ -5,11 +5,9 @@ const $instance = axios.create({
   baseURL: BASE_URL,
 });
 
-
 // export const setToken = token => {
 //   $instance.defaults.headers.Authorization = `Bearer ${token}`;
 // };
-
 
 // const clearToken = () => {
 //   $instance.defaults.headers.Authorization = '';
@@ -25,22 +23,6 @@ export const fetchLogin = async userData => {
   // setToken(data.token);
   return data;
 };
-
-export const fetchIncomeCategories = async () => {
-  const { data } = await $instance.get(
-    'transaction/income-categories'
-    //   , {
-    //   headers: {
-    //     Authorization:
-    //       'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTQxNmUyOTc0ZWVhNTJkNTZiZDFjZjIiLCJzaWQiOiI2NTQxNmUyOTc0ZWVhNTJkNTZiZDFjZjMiLCJpYXQiOjE2OTg3ODY4NTcsImV4cCI6MTY5ODc5MDQ1N30.8KT6bJZJgnUaaSFnoDtmB_J8bJoxNStSd8CAYY_dlPQ',
-    //   },
-    // });
-  );
-  return data;
-};
-
-fetchIncomeCategories();
-console.log(fetchIncomeCategories());
 
 // export const fetchLogout = async () => {
 //   const { data } = $instance.post('/users/logout');
@@ -71,15 +53,25 @@ console.log(fetchIncomeCategories());
 │     Dashboard queries
 │ =========================
 */
-export const fetchIncomeCategories = async(token) => {
-  const { data } = await $instance.get('transaction/income-categories', {headers:{'Authorization':`Bearer ${token}`}})
-  console.log(data)
-  return data;
-}
+// export const fetchIncomeCategories = async token => {
+//   const { data } = await $instance.get('transaction/income-categories', {
+//     headers: { Authorization: `Bearer ${token}` },
+//   });
+//   console.log(data);
+//   return data;
+// };
 
-export const fetchExpenseCategories = async(token) => {
-  const { data } = await $instance.get('/transaction/expense-categories', {headers:{'Authorization':`Bearer ${token}`}})
-  console.log(data)
-  return data;
-}
+// export const fetchExpenseCategories = async token => {
+//   const { data } = await $instance.get('/transaction/expense-categories', {
+//     headers: { Authorization: `Bearer ${token}` },
+//   });
+//   console.log(data);
+//   return data;
+// };
 
+export async function fetchCategories() {
+  const response = await $instance.get('/transaction/', {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  return response.data;
+}
