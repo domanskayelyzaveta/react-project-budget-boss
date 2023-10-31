@@ -1,13 +1,12 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { Div } from './Layout.styled';
 
 const Layout = () => {
   return (
-    <Div>
+    <div>
       Layout
       <Outlet />
-    </Div>
+    </div>
   );
 };
 
