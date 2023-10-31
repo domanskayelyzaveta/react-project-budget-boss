@@ -20,7 +20,7 @@ const DashboardTable = () => {
         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
         size="small"
         aria-label="a dense table"
-        borderAxis="none"
+        // borderAxis="none"
         variant="plain"
       >
         <TableHead>
