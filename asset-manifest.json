@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-project-budget-boss/static/css/main.7acaea2f.css",
+    "main.js": "/react-project-budget-boss/static/js/main.07d3183d.js",
+    "index.html": "/react-project-budget-boss/index.html",
+    "main.7acaea2f.css.map": "/react-project-budget-boss/static/css/main.7acaea2f.css.map",
+    "main.07d3183d.js.map": "/react-project-budget-boss/static/js/main.07d3183d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.07d3183d.js"
+  ]
+}
