@@ -5,9 +5,11 @@ const $instance = axios.create({
   baseURL: BASE_URL,
 });
 
+
 // export const setToken = token => {
 //   $instance.defaults.headers.Authorization = `Bearer ${token}`;
 // };
+
 
 // const clearToken = () => {
 //   $instance.defaults.headers.Authorization = '';
@@ -16,7 +18,6 @@ const $instance = axios.create({
 export const fetchRegister = async userData => {
   const { data } = await $instance.post('/auth/register', userData);
   // setToken(data.token);
-  return data;
 };
 
 export const fetchLogin = async userData => {
@@ -25,12 +26,27 @@ export const fetchLogin = async userData => {
   return data;
 };
 
+export const fetchIncomeCategories = async () => {
+  const { data } = await $instance.get(
+    'transaction/income-categories'
+    //   , {
+    //   headers: {
+    //     Authorization:
+    //       'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTQxNmUyOTc0ZWVhNTJkNTZiZDFjZjIiLCJzaWQiOiI2NTQxNmUyOTc0ZWVhNTJkNTZiZDFjZjMiLCJpYXQiOjE2OTg3ODY4NTcsImV4cCI6MTY5ODc5MDQ1N30.8KT6bJZJgnUaaSFnoDtmB_J8bJoxNStSd8CAYY_dlPQ',
+    //   },
+    // });
+  );
+  return data;
+};
+
+fetchIncomeCategories();
+console.log(fetchIncomeCategories());
+
 // export const fetchLogout = async () => {
 //   const { data } = $instance.post('/users/logout');
 //   clearToken();
 //   return data;
 // };
-
 // export const fetchCurrentUser = async () => {
 //   const { data } = await $instance.get('/users/current');
 //   console.log(data);
@@ -66,3 +82,4 @@ export const fetchExpenseCategories = async(token) => {
   console.log(data)
   return data;
 }
+
