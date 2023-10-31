@@ -30,15 +30,16 @@ const Auth = () => {
     const submit = e.nativeEvent.submitter.name;
     console.log(submit);
 
-    if (inputPassword && inputEmaill)
+    if (inputPassword && inputEmaill) {
       submit === 'Log in'
         ? dispatch(loginThunk(userData))
-        : dispatch(registerThunk(userData)) &&
-          setTimeout(() => {
-            dispatch(loginThunk(userData));
-          }, 500);
-
-    // form.reset();
+        : dispatch(registerThunk(userData))
+            .unwrap()
+            .then(() => {
+              dispatch(loginThunk(userData));
+              form.reset();
+            });
+    }
   };
 
   const userPassword = e => {
