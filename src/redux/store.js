@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { usersReducer } from './usersReducer';
+import { userReducer } from './userReducer';
 import storage from 'redux-persist/lib/storage';
 
 import {
@@ -21,9 +21,10 @@ const userPersistConfig = {
 
 const store = configureStore({
   reducer: {
-    user: persistReducer(userPersistConfig, usersReducer),
+    user: persistReducer(userPersistConfig, userReducer),
     // expenses: expensesReducer,
     // income: incomeReducer,
+    // user: userReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
