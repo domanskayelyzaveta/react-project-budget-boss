@@ -14,7 +14,7 @@ import {
 } from 'redux-persist';
 
 const userPersistConfig = {
-  key: 'user', //локал стор токен auth
+  key: 'user',
   storage,
   whitelist: ['accessToken'],
 };
@@ -24,7 +24,6 @@ const store = configureStore({
     user: persistReducer(userPersistConfig, userReducer),
     // expenses: expensesReducer,
     // income: incomeReducer,
-    // user: userReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

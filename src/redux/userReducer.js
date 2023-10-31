@@ -1,5 +1,5 @@
 const { createSlice } = require('@reduxjs/toolkit');
-const { registerThunk } = require('./thunks');
+const { registerThunk, loginThunk } = require('./thunks');
 
 const initialState = {
   userData: null,
@@ -29,6 +29,22 @@ const userSlice = createSlice({
         state.userData = action.payload.user;
       })
       .addCase(registerThunk.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+
+      //------------- Log in ---------------
+
+      .addCase(loginThunk.pending, state => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(loginThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.userData = action.payload.user;
+        state.accessToken = action.payload.accessToken;
+      })
+      .addCase(loginThunk.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });
