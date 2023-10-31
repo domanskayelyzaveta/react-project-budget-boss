@@ -1,4 +1,4 @@
-const initialState = {
-  incomes: [],
-  monthStats: null,
-};
+// const initialState = {
+//   incomes: [],
+//   monthStats: null,
+// };

@@ -5,10 +5,12 @@ import Dashboard from 'pages/Dashboard/DashboardPage';
 import Reports from 'pages/Reports/ReportsPage';
 import Auth from 'pages/Auth/AuthPage';
 import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
+import { Loader } from './Loader/Loader';
 
 export const App = () => {
   return (
     <>
+      <Loader />
       <Routes>
         <Route path="/auth" element={<Auth />} />
         <Route path="/" element={<Layout />}>
