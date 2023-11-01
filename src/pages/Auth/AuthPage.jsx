@@ -3,9 +3,12 @@ import { useDispatch } from 'react-redux';
 import { loginThunk, registerThunk } from 'redux/thunks';
 import { useForm } from 'react-hook-form';
 import GoogleAuthButton from 'components/GoogleAuthBtn/GoogleAuthBtn';
+import money from '../../images/desktop/money-desktop-1x.webp';
+import ellipse from '../../images/desktop/ellipse-desktop-1x.webp';
 import {
   Form,
   FormWrapper,
+  Img,
   InputEmail,
   InputPassword,
   Label,
@@ -45,6 +48,9 @@ const Auth = () => {
 
   return (
     <FormWrapper>
+      <div>
+        <Img src={money} alt="wallet"></Img>
+      </div>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Title>You can log in with your Google Account:</Title>
         <GoogleAuthButton />
