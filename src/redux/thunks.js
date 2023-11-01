@@ -1,5 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
+  addTransaction,
+  deleteTransaction,
   fetchExpenseCategories,
   fetchIncomeCategories,
   fetchLogin,
@@ -65,32 +67,26 @@ export const requestExpenseCategories = createAsyncThunk(
 );
 //--------------- Dashboard queries------------------//
 
-// export const fetchIncomeCategoriesThunk = createAsyncThunk(
-//   'incomeCategories/fetchAll',
-//   async (_, thunkAPI) => {
+// export const addTransactionThunk = createAsyncThunk(
+//   'transaction/addTransaction',
+//   async (data, thunkAPI) => {
 //     const token = thunkAPI.getState().user.accessToken;
 //     try {
-//       const incomeCategories = await fetchCategories(
-//         'expense-categories',
-//         token
-//       );
-//       return incomeCategories;
+//       const addNewTransaction = addTransaction(data, token);
+//       return addNewTransaction;
 //     } catch (error) {
 //       return thunkAPI.rejectWithValue(error.message);
 //     }
 //   }
 // );
 
-// export const fetchExpenseCategoriesThunk = createAsyncThunk(
-//   'expenseCategories/fetchAll',
-//   async (_, thunkAPI) => {
+// export const deleteTransactionThunk = createAsyncThunk(
+//   'transaction/deleteTransaction',
+//   async (id, thunkAPI) => {
 //     const token = thunkAPI.getState().user.accessToken;
 //     try {
-//       const incomeCategories = await fetchCategories(
-//         'expense-categories',
-//         token
-//       );
-//       return incomeCategories;
+//       const delTransaction = await deleteTransaction(id, token);
+//       return delTransaction;
 //     } catch (error) {
 //       return thunkAPI.rejectWithValue(error.message);
 //     }
