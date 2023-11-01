@@ -76,3 +76,9 @@ export const fetchLogin = async userData => {
 //   });
 //   return response.data;
 // }
+
+export const GoogleAuth = async () => {
+  const { data } = await $instance.get('/auth/google');
+  return data;
+};
+

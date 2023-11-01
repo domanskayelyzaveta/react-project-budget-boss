@@ -2,6 +2,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { loginThunk, registerThunk } from 'redux/thunks';
 import { useForm } from 'react-hook-form';
+import GoogleAuthButton from 'components/GoogleAuthBtn/GoogleAuthBtn';
+
 
 const Auth = () => {
   const dispatch = useDispatch();
@@ -32,6 +34,7 @@ const Auth = () => {
   return (
     <div>
       AuthForm
+      <GoogleAuthButton />
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>Email:</label>
         <input
