@@ -7,7 +7,12 @@ import Navigation from '../Navigation/Navigation';
 export const Layout = () => {
   return (
     <>
-      <Navigation />
+      <header>
+        <Navigation />
+      </header>
+      <main>
+        <Outlet />
+      </main>
       <Suspense fallback={null}>
         <Outlet />
       </Suspense>

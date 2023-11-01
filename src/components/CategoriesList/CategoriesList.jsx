@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import css from './CategoriesList.module.css';
+import sprite from '../../images/sprite.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   requestExpenseCategories,
@@ -42,7 +43,9 @@ export const CategoriesList = () => {
           onClick={handleRequestIncome}
           className={css.buttonCategory}
         >
-          ❮
+          <svg width="16" height="16">
+            <use href={`${sprite}#arrow-toleft`} />
+          </svg>
         </button>
         {currentCategoryType === 'income' ? <p>Income</p> : <p>Expense</p>}
         <button
@@ -50,7 +53,9 @@ export const CategoriesList = () => {
           onClick={handleRequestExpense}
           className={css.buttonCategory}
         >
-          ❯
+          <svg width="16" height="16">
+            <use href={`${sprite}#arrow-toright`} />
+          </svg>
         </button>
       </div>
 
