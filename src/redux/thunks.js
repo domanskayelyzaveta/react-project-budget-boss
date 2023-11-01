@@ -15,6 +15,7 @@ export const registerThunk = createAsyncThunk(
     }
   }
 );
+//---------------AUTO-login------------------//
 
 //---------------login------------------//
 

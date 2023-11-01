@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Layout from './Layout/Layout';
+import { Layout } from './Layout/Layout';
 import Dashboard from 'pages/Dashboard/DashboardPage';
 import Reports from 'pages/Reports/ReportsPage';
 import Auth from 'pages/Auth/AuthPage';
