@@ -84,7 +84,7 @@ export const fetchExpenseCategories = async token => {
 export async function addTransaction(data, token) {
   const response = await $instance.post(
     `/transaction/${data.category}`,
-    data.data,
+    data.dataToDispatch,
     {
       headers: { Authorization: `Bearer ${token}` },
     }
