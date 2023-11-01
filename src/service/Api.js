@@ -79,28 +79,25 @@ export const fetchExpenseCategories = async token => {
 │     Dashboard queries
 │ =========================
 */
-// export const fetchIncomeCategories = async token => {
-//   const { data } = await $instance.get('transaction/income-categories', {
-//     headers: { Authorization: `Bearer ${token}` },
-//   });
-//   console.log(data);
-//   return data;
-// };
 
-// export const fetchExpenseCategories = async token => {
-//   const { data } = await $instance.get('/transaction/expense-categories', {
-//     headers: { Authorization: `Bearer ${token}` },
-//   });
-//   console.log(data);
-//   return data;
-// };
+// export async function addTransaction(data, token) {
+//   const response = await $instance.post(
+//     '/transaction/',
+//     { data },
+//     {
+//       headers: { Authorization: `Bearer ${token}` },
+//     }
+//   );
+//   return response.data;
+// }
 
-// export async function fetchCategories() {
-//   const response = await $instance.get('/transaction/', {
+// export async function deleteTransaction(id, token) {
+//   const response = await $instance.post(`/transaction/${id}`, {
 //     headers: { Authorization: `Bearer ${token}` },
 //   });
 //   return response.data;
 // }
+
 
 export const GoogleAuth = async () => {
   const { data } = await $instance.get('/auth/google');
@@ -111,3 +108,9 @@ export const fetchPeriodData = async (date) => {
   const { data } = await $instance.get(`/transaction/period-data?date=${date}`);
   return data;
 }
+
+// export const GoogleAuth = async () => {
+//   const { data } = await $instance.get('/auth/google');
+//   return data;
+// };
+
