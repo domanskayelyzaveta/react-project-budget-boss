@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/react-project-budget-boss/static/css/main.121029a2.css",
-    "main.js": "/react-project-budget-boss/static/js/main.8bc3e976.js",
+    "main.js": "/react-project-budget-boss/static/js/main.a3aa1132.js",
     "static/media/sprite.svg": "/react-project-budget-boss/static/media/sprite.340a523b05eff4c79e96b4e1507f2dbb.svg",
     "static/media/logo-mobile-1x.webp": "/react-project-budget-boss/static/media/logo-mobile-1x.82c0eaf8ca0347dc2f1a.webp",
     "index.html": "/react-project-budget-boss/index.html",
     "main.121029a2.css.map": "/react-project-budget-boss/static/css/main.121029a2.css.map",
-    "main.8bc3e976.js.map": "/react-project-budget-boss/static/js/main.8bc3e976.js.map"
+    "main.a3aa1132.js.map": "/react-project-budget-boss/static/js/main.a3aa1132.js.map"
   },
   "entrypoints": [
     "static/css/main.121029a2.css",
-    "static/js/main.8bc3e976.js"
+    "static/js/main.a3aa1132.js"
   ]
 }
