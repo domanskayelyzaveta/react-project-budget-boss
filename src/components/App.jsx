@@ -16,11 +16,11 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/auth" element={<Auth />} />
-          <Route path="/" element={<PrivateRoute />}>
+          {/* <Route path="/" element={<PrivateRoute />}> */}
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/reports" element={<Reports />} />
           </Route>
-        </Route>
+        {/* </Route> */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <StatisticsByCategory />

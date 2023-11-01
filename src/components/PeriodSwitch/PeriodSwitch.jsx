@@ -2,23 +2,30 @@ import React, { useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Ballance from 'components/Ballance/Ballance';
 import sprite from '../../images/sprite.svg';
+import { requestPeriodData } from 'redux/thunks';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectToken } from 'redux/selectors';
 
 const PeriodSwitch = () => {
   const [Period, setPeriod] = useState(new Date());
   const location = useLocation();
   const backLinkRef = useRef(location?.state?.from ?? '/dashboard');
+  const dispatch = useDispatch();
+  const token = useSelector(selectToken);
 
-    const handlePrevMonthClick = () => {
-      const newDate = new Date(Period);
-      newDate.setMonth(newDate.getMonth() - 1);
-      setPeriod(newDate);
-    };
+  const handlePrevMonthClick = () => {
+    const newDate = new Date(Period);
+    newDate.setMonth(newDate.getMonth() - 1);
+    setPeriod(newDate);
+    dispatch(requestPeriodData({ newDate, token }));
+  };
 
-    const handleNextMonthClick = () => {
-      const newDate = new Date(Period);
-      newDate.setMonth(newDate.getMonth() + 1);
-      setPeriod(newDate);
-    };
+  const handleNextMonthClick = () => {
+    const newDate = new Date(Period);
+    newDate.setMonth(newDate.getMonth() + 1);
+    setPeriod(newDate);
+    dispatch(requestPeriodData({ newDate, token }));
+  };
 
   return (
     <div>
