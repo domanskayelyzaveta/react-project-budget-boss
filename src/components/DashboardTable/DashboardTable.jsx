@@ -7,8 +7,6 @@ import {
   TableRow,
 } from '@mui/material';
 import { StyledTable } from './DashboardTable.styled';
-import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
 
 // function createData(DES, calories, fat, carbs) {
 //   return { name, calories, fat, carbs };
@@ -21,15 +19,7 @@ import { useEffect } from 'react';
 //   createData('Cupcake', 305, 3.7, 67),
 //   createData('Gingerbread', 356, 16.0, 49),
 // ];
-const DashboardTable = ({ category }) => {
-  let rows = null;
-  const expensesList = useSelector(state => state.expenses.expenses);
-  const incomeList = useSelector(state => state.income.incomes);
-
-  useEffect(() => {
-    category === 'income' ? (rows = incomeList) : (rows = expensesList);
-  }, [expensesList, incomeList]);
-
+const DashboardTable = ({ data }) => {
   return (
     <TableContainer component={Paper}>
       <StyledTable
@@ -40,23 +30,23 @@ const DashboardTable = ({ category }) => {
       >
         <TableHead>
           <TableRow>
-            <TableCell>Date</TableCell>
-            <TableCell align="left">DATE</TableCell>
+            <TableCell>DATE</TableCell>
+            {/* <TableCell align="left">DATE</TableCell> */}
             <TableCell align="left">DESCRIPTION</TableCell>
             <TableCell align="left">CATEGORY</TableCell>
             <TableCell align="left">SUM</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(row => (
+          {data?.map(row => (
             <TableRow
-              key={row.name}
+              key={row._id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {row.name}
+                {row.date}
               </TableCell>
-              <TableCell align="left">{row.date}</TableCell>
+              {/* <TableCell align="left">{row.date}</TableCell> */}
               <TableCell align="left">{row.description}</TableCell>
               <TableCell align="left">{row.category}</TableCell>
               <TableCell align="left">{row.amount}</TableCell>

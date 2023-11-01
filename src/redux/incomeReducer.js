@@ -7,7 +7,7 @@ import {
 
 const initialState = {
   incomes: null,
-  monthStats: null,
+  monthsStats: null,
 };
 
 export const incomeSlice = createSlice({
@@ -18,7 +18,7 @@ export const incomeSlice = createSlice({
       // ------------GET TRANSACTIONS------------
       .addCase(getIncomeTransactionsThunk.fulfilled, (state, { payload }) => {
         state.incomes = payload.incomes;
-        state.monthStats = payload.monthStats
+        state.monthsStats = payload.monthsStats
       })
 
       // ------------ADD TRANSACTION------------

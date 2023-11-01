@@ -25,6 +25,8 @@ const Dashboard = () => {
 
   const incomeCategoriesList = useSelector(state => state.categories.incomeCategories);
   const expenseCategoriesList = useSelector(state => state.categories.expenseCategories);
+  const expensesList = useSelector(state => state.expenses.expenses);
+  const incomeList = useSelector(state => state.income.incomes);
 
 
   const items = [
@@ -36,7 +38,7 @@ const Dashboard = () => {
           <Ballance />
           <DashboardForm categoriesList={expenseCategoriesList} category={'expense'}/>
           <DataWrapper>
-            <DashboardTable category={'expense'}/>
+            <DashboardTable data={expensesList}/>
             <DashboardSummary />
           </DataWrapper>
         </>
@@ -51,7 +53,7 @@ const Dashboard = () => {
           <IncomeWrapper>
             <DashboardForm categoriesList={incomeCategoriesList} category={'income'}/>
             <DataWrapper>
-              <DashboardTable category={'income'} />
+              <DashboardTable data={incomeList} />
               <DashboardSummary />
             </DataWrapper>
           </IncomeWrapper>

@@ -85,7 +85,7 @@ export const requestPeriodData = createAsyncThunk(
 //--------------- Dashboard queries------------------//
 
 export const addIncomeTransactionThunk = createAsyncThunk(
-  'transaction/addTransaction',
+  'transaction/addIncomeTransaction',
   async (data, thunkAPI) => {
     const token = thunkAPI.getState().user.accessToken;
     try {
@@ -97,7 +97,7 @@ export const addIncomeTransactionThunk = createAsyncThunk(
   }
 );
 export const addExpenseTransactionThunk = createAsyncThunk(
-  'transaction/addTransaction',
+  'transaction/addExpenseTransaction',
   async (data, thunkAPI) => {
     const token = thunkAPI.getState().user.accessToken;
     try {
