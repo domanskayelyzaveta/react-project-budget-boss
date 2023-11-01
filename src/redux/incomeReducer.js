@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchIncomeCategories } from 'service/Api';
-import { addTransactionThunk, deleteTransactionThunk, requestIncomeCategories } from './thunks';
+import { addTransactionThunk, deleteTransactionThunk, requestIncomeCategoriesThunk } from './thunks';
 
 const initialState = {
   incomes: [],
@@ -13,7 +12,7 @@ export const incomeSlice = createSlice({
   extraReducers: builder =>
     builder
       // ------------GET CATEGORIES------------
-      .addCase(requestIncomeCategories.fulfilled, (state, { payload }) => {
+      .addCase(requestIncomeCategoriesThunk.fulfilled, (state, { payload }) => {
         state.incomes = payload;
       })
 

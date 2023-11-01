@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import {
   addTransactionThunk,
   deleteTransactionThunk,
-  requestExpenseCategories,
+  requestExpenseCategoriesThunk
 } from './thunks';
 
 const initialState = {
@@ -16,7 +16,7 @@ export const expensesSlice = createSlice({
   extraReducers: builder =>
     builder
       // ------------GET CATEGORIES------------
-      .addCase(requestExpenseCategories.fulfilled, (state, { payload }) => {
+      .addCase(requestExpenseCategoriesThunk.fulfilled, (state, { payload }) => {
         // state.expenses = payload;
       })
 

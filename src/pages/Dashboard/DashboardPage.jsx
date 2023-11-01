@@ -4,21 +4,21 @@ import DashboardForm from 'components/DashboardForm/DashboardForm';
 import DashboardSummary from 'components/DashboardSummary/DashboardSummary';
 import DashboardTable from 'components/DashboardTable/DashboardTable';
 import { useEffect, useState } from 'react';
-import { DataWrapper, IncomeWrapper } from './DashboardPage.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { getTransactionsThunk, requestExpenseCategories, requestIncomeCategories } from 'redux/thunks';
+import { getTransactionsThunk, requestExpenseCategoriesThunk, requestIncomeCategoriesThunk } from 'redux/thunks';
+import { DataWrapper, IncomeWrapper } from './DashboardPage.styled';
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState('1');
 
   const dispatch = useDispatch();
   const token = useSelector(state => state.user.accessToken);
-  const totalIncomeList = useSelector(state => state.user.accessToken);
-  const totalExpensesList = useSelector(state => state.user.accessToken);
+  // const totalIncomeList = useSelector(state => state.user.accessToken);
+  // const totalExpensesList = useSelector(state => state.user.accessToken);
 
   useEffect(() => {
-    dispatch(requestIncomeCategories(token));
-    dispatch(requestExpenseCategories(token));
+    dispatch(requestIncomeCategoriesThunk(token));
+    dispatch(requestExpenseCategoriesThunk(token));
     dispatch(getTransactionsThunk('expense'))
     dispatch(getTransactionsThunk('income'))
   }, [dispatch, token]);
