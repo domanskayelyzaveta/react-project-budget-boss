@@ -1,4 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+import { requestExpenseCategories } from './thunks';
 
 const initialState = {
   incomes: [],
@@ -11,7 +12,7 @@ export const contactsSlice = createSlice({
   extraReducers: builder =>
     builder
       // ------------GET CATEGORIES------------
-      .addCase(fetchExpenseCategoriesThunk.fulfilled, (state, { payload }) => {
+      .addCase(requestExpenseCategories.fulfilled, (state, { payload }) => {
         state.incomes = payload;
       })
 
