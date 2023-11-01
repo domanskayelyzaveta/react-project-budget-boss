@@ -1,14 +1,21 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+// import axios from 'axios';
+
 import {
   // addTransaction,
   // deleteTransaction,
   fetchExpenseCategories,
   fetchIncomeCategories,
   fetchLogin,
+<<<<<<< Updated upstream
   fetchPeriodData,
+=======
+  fetchLogout,
+>>>>>>> Stashed changes
   fetchRegister,
   getTransactions,
 } from 'service/Api';
+// import { selectToken } from './selectors';
 
 //---------------registration------------------//
 
@@ -26,6 +33,21 @@ export const registerThunk = createAsyncThunk(
 );
 //---------------AUTO-login------------------//
 
+//---------------logout------------------//
+// const clearAuthHeader = () => {
+//   axios.defaults.headers.common.Authorization = '';
+// };
+export const logoutThunk = createAsyncThunk(
+  'user/logoutThunk',
+  async (token, thunkAPI) => {
+    try {
+      await fetchLogout(token);
+      // clearAuthHeader();
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 //---------------login------------------//
 
 export const loginThunk = createAsyncThunk(
@@ -39,7 +61,6 @@ export const loginThunk = createAsyncThunk(
     }
   }
 );
-
 //---------------RequestIncomeCategories------------------//
 export const requestIncomeCategoriesThunk = createAsyncThunk(
   'transaction/requestIncomeCategories',
