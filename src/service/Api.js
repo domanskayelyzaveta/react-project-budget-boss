@@ -80,25 +80,25 @@ export const fetchExpenseCategories = async token => {
 │ =========================
 */
 
-export async function addTransaction(data, token) {
-  const response = await $instance.post(
-    '/transaction/',
-    { data },
-    {
-      headers: { Authorization: `Bearer ${token}` },
-    }
-  );
-  return response.data;
-}
+// export async function addTransaction(data, token) {
+//   const response = await $instance.post(
+//     '/transaction/',
+//     { data },
+//     {
+//       headers: { Authorization: `Bearer ${token}` },
+//     }
+//   );
+//   return response.data;
+// }
 
-export async function deleteTransaction(id, token) {
-  const response = await $instance.post(`/transaction/${id}`, {
-    headers: { Authorization: `Bearer ${token}` },
-  });
-  return response.data;
-}
+// export async function deleteTransaction(id, token) {
+//   const response = await $instance.post(`/transaction/${id}`, {
+//     headers: { Authorization: `Bearer ${token}` },
+//   });
+//   return response.data;
+// }
 
-export const GoogleAuth = async () => {
-  const { data } = await $instance.get('/auth/google');
-  return data;
-};
+// export const GoogleAuth = async () => {
+//   const { data } = await $instance.get('/auth/google');
+//   return data;
+// };
