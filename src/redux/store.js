@@ -15,6 +15,7 @@ import {
 import { categoriesReducer } from './categoriesReducer';
 import { expensesReducer } from './expensesReducer';
 import { incomeReducer } from './incomeReducer';
+import { periodDataReducer } from './periodDataReducer';
 
 const userPersistConfig = {
   key: 'user',
@@ -28,6 +29,7 @@ const store = configureStore({
     income: incomeReducer,
     expenses: expensesReducer,
     categories: categoriesReducer,
+    date: periodDataReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

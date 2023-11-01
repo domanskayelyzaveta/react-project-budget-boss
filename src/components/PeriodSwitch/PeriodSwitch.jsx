@@ -7,33 +7,40 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectToken } from 'redux/selectors';
 
 const PeriodSwitch = () => {
-  const [Period, setPeriod] = useState(new Date());
+  const currentDate = new Date();
+  const [selectedDate, setSelectedDate] = useState(currentDate);
   const location = useLocation();
   const backLinkRef = useRef(location?.state?.from ?? '/dashboard');
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
+  const formatPeriod = date => {
+    return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(
+      2,
+      '0'
+    )}`;
+  };
+  console.log(formatPeriod(currentDate));
 
   const handlePrevMonthClick = () => {
-    const newDate = new Date(Period);
+    const newDate = new Date(selectedDate);
     newDate.setMonth(newDate.getMonth() - 1);
-    setPeriod(newDate);
-    dispatch(requestPeriodData({ newDate, token }));
+    setSelectedDate(newDate);
+    const result = formatPeriod(newDate);
+    dispatch(requestPeriodData({ date: result, token }));
   };
 
   const handleNextMonthClick = () => {
-    const newDate = new Date(Period);
+    const newDate = new Date(selectedDate);
     newDate.setMonth(newDate.getMonth() + 1);
-    setPeriod(newDate);
-    dispatch(requestPeriodData({ newDate, token }));
+    setSelectedDate(newDate);
+    const result = formatPeriod(newDate);
+    dispatch(requestPeriodData({ date: result, token }));
   };
 
   return (
     <div>
       <Link to={backLinkRef.current}>Main page</Link>
-      <div>
-        <h2>Balance:</h2>
-        <Ballance />
-      </div>
+      <Ballance />
       <div>
         <h3>Current period:</h3>
         <div>
@@ -42,9 +49,7 @@ const PeriodSwitch = () => {
               <use href={`${sprite}#arrow-toleft`} />
             </svg>
           </button>
-          <div>
-            {Period.getFullYear()}-{Period.getMonth() + 1}
-          </div>
+          <div>{formatPeriod(selectedDate)}</div>
           <button onClick={handleNextMonthClick}>
             <svg width="16" height="16">
               <use href={`${sprite}#arrow-toright`} />
