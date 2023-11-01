@@ -12,6 +12,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+import { categoriesReducer } from './categoriesReducer';
 
 const userPersistConfig = {
   key: 'user',
@@ -24,6 +25,7 @@ const store = configureStore({
     user: persistReducer(userPersistConfig, userReducer),
     // expenses: expensesReducer,
     // income: incomeReducer,
+    categories: categoriesReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

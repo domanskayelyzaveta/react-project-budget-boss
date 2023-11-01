@@ -1,7 +1,12 @@
+import CategoriesList from 'components/CategoriesList/CategoriesList';
 import React from 'react';
 
 const Reports = () => {
-  return <div>Reports</div>;
+  return (
+    <div>
+      <CategoriesList />
+    </div>
+  );
 };
 
 export default Reports;
