@@ -4,6 +4,7 @@ import { loginThunk, registerThunk } from 'redux/thunks';
 import { useForm } from 'react-hook-form';
 import GoogleAuthButton from 'components/GoogleAuthBtn/GoogleAuthBtn';
 
+
 const Auth = () => {
   const dispatch = useDispatch();
   const {
