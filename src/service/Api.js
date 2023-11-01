@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { calcLength } from 'framer-motion';
+// import { calcLength } from 'framer-motion';
 
 const BASE_URL = 'https://kapusta-backend.p.goit.global/';
 const $instance = axios.create({
@@ -106,4 +106,3 @@ export const GoogleAuth = async () => {
   const { data } = await $instance.get('/auth/google');
   return data;
 };
-
