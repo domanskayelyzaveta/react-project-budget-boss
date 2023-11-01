@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Div = styled.div`
@@ -29,4 +30,8 @@ const Auth = styled.div`
   gap: 16px;
 `;
 const LogOut = styled.div``;
-export { Div, Nav, Ellipse, LogOut, Auth };
+
+const StyledComponent = styled(NavLink)`
+  text-decoration: none;
+`;
+export { Div, Nav, Ellipse, LogOut, Auth, StyledComponent };
