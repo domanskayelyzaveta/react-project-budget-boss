@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { usersReducer } from './usersReducer';
+import { userReducer } from './userReducer';
 import storage from 'redux-persist/lib/storage';
 
 import {
@@ -12,18 +12,20 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+import { categoriesReducer } from './categoriesReducer';
 
 const userPersistConfig = {
-  key: 'user', //локал стор токен auth
+  key: 'user',
   storage,
   whitelist: ['accessToken'],
 };
 
 const store = configureStore({
   reducer: {
-    user: persistReducer(userPersistConfig, usersReducer),
+    user: persistReducer(userPersistConfig, userReducer),
     // expenses: expensesReducer,
     // income: incomeReducer,
+    categories: categoriesReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
