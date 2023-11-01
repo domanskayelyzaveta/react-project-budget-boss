@@ -16,6 +16,7 @@ const $instance = axios.create({
 export const fetchRegister = async userData => {
   const { data } = await $instance.post('/auth/register', userData);
   // setToken(data.token);
+  return data;
 };
 
 export const fetchLogin = async userData => {
@@ -75,3 +76,9 @@ export const fetchLogin = async userData => {
 //   });
 //   return response.data;
 // }
+
+export const GoogleAuth = async () => {
+  const { data } = await $instance.get('/auth/google');
+  return data;
+};
+

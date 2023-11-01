@@ -1,81 +1,63 @@
 import React from 'react';
-// import { useEffect } from 'react';
-import { useState } from 'react';
-import {
-  useDispatch,
-  // useSelector
-} from 'react-redux';
-// import { selectId } from 'redux/selectors';
+import { useDispatch } from 'react-redux';
 import { loginThunk, registerThunk } from 'redux/thunks';
-// import { fetchLogin, fetchRegister } from 'service/Api';
+import { useForm } from 'react-hook-form';
+import GoogleAuthButton from 'components/GoogleAuthBtn/GoogleAuthBtn';
+
 
 const Auth = () => {
-  const [inputPassword, setInputPassword] = useState('');
-  const [inputEmaill, setInputEmaill] = useState('');
-  // const responsId = useSelector(selectId);
-
   const dispatch = useDispatch();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  const handleSubmit = e => {
+  const onSubmit = (data, e) => {
     e.preventDefault();
-    // console.dir(e.currentTarget);
-    // console.log(e.submitter.name);
+
     const form = e.currentTarget;
-
-    const userData = {
-      email: form.elements.email.value,
-      password: form.elements.password.value,
-    };
-
     const submit = e.nativeEvent.submitter.name;
-    console.log(submit);
 
-    if (inputPassword && inputEmaill) {
+    if (data) {
       submit === 'Log in'
-        ? dispatch(loginThunk(userData))
-        : dispatch(registerThunk(userData))
+        ? dispatch(loginThunk(data))
+        : dispatch(registerThunk(data))
             .unwrap()
             .then(() => {
-              dispatch(loginThunk(userData));
+              dispatch(loginThunk(data));
               form.reset();
             });
     }
   };
 
-  const userPassword = e => {
-    const inputValue = e.target.value;
-    setInputPassword(inputValue);
-  };
-
-  const userEmaill = e => {
-    const inputValue = e.target.value;
-    setInputEmaill(inputValue);
-  };
-
-  // useEffect(() => {
-  //   dispatch(loginThunk({ email: inputEmaill, password: inputPassword }));
-  // }, [responsId, dispatch]);
-
   return (
     <div>
       AuthForm
-      <form onSubmit={handleSubmit}>
+      <GoogleAuthButton />
+      <form onSubmit={handleSubmit(onSubmit)}>
         <label>Email:</label>
         <input
-          onChange={userEmaill}
           type="email"
-          name="email"
-          placeholder="your@email.com"
-          //   value={email}
+          placeholder="Email"
+          {...register('email', {
+            required: { value: true, message: 'This field is required' },
+            minLength: { value: 3, message: 'Minimum 3 characters' },
+            pattern: /^\S+@\S+$/i,
+          })}
         />
+        {errors.email && <p>{errors.email.message}</p>}
         <label>Password:</label>
         <input
-          onChange={userPassword}
           type="password"
-          name="password"
           placeholder="Password"
-          //   value={password}
+          {...register('password', {
+            required: { value: true, message: 'This field is required' },
+            minLength: { value: 8, message: 'Minimum 8 characters' },
+          })}
         />
+        {errors.password && <p>{errors.password.message}</p>}
+
         <button name="Log in" type="submit">
           Log in
         </button>

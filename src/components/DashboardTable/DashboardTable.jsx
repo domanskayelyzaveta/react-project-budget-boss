@@ -1,6 +1,12 @@
-import { Paper, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
-import { StyledTable } from "./DashboardTable.styled";
-
+import {
+  Paper,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from '@mui/material';
+import { StyledTable } from './DashboardTable.styled';
 
 function createData(name, calories, fat, carbs) {
   return { name, calories, fat, carbs };
