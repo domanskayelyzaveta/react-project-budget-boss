@@ -3,7 +3,19 @@ import { useDispatch } from 'react-redux';
 import { loginThunk, registerThunk } from 'redux/thunks';
 import { useForm } from 'react-hook-form';
 import GoogleAuthButton from 'components/GoogleAuthBtn/GoogleAuthBtn';
-import { Form, FormWrapper, Title } from './AuthPage.styled';
+import {
+  Form,
+  FormWrapper,
+  InputEmail,
+  InputPassword,
+  Label,
+  LogInBtn,
+  Paragraph,
+  RegisterBtn,
+  RequiredP,
+  Span,
+  Title,
+} from './AuthPage.styled';
 
 const Auth = () => {
   const dispatch = useDispatch();
@@ -36,9 +48,13 @@ const Auth = () => {
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Title>You can log in with your Google Account:</Title>
         <GoogleAuthButton />
-        <p>Or log in using an email and password, after registration </p>
-        <label>Email:</label>
-        <input
+        <Paragraph>
+          Or log in using an email and password, after registration{' '}
+        </Paragraph>
+        <div>
+          <Label>{errors.email && <Span>*</Span>}Email:</Label>
+        </div>
+        <InputEmail
           type="email"
           placeholder="Email"
           {...register('email', {
@@ -47,9 +63,11 @@ const Auth = () => {
             pattern: /^\S+@\S+$/i,
           })}
         />
-        {errors.email && <p>{errors.email.message}</p>}
-        <label>Password:</label>
-        <input
+        {errors.email && <RequiredP>{errors.email.message}</RequiredP>}
+        <div>
+          <Label>{errors.password && <Span>*</Span>}Password:</Label>
+        </div>
+        <InputPassword
           type="password"
           placeholder="Password"
           {...register('password', {
@@ -57,14 +75,13 @@ const Auth = () => {
             minLength: { value: 8, message: 'Minimum 8 characters' },
           })}
         />
-        {errors.password && <p>{errors.password.message}</p>}
-
-        <button name="Log in" type="submit">
+        {errors.password && <RequiredP>{errors.password.message}</RequiredP>}
+        <LogInBtn name="Log in" type="submit">
           Log in
-        </button>
-        <button name="Registration" type="submit">
+        </LogInBtn>
+        <RegisterBtn name="Registration" type="submit">
           Registration
-        </button>
+        </RegisterBtn>
       </Form>
     </FormWrapper>
   );

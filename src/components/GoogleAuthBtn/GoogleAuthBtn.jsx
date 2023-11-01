@@ -1,6 +1,6 @@
 import React from 'react';
 // import { GoogleLogin } from '@react-oauth/google';
-import { Button } from './GoogleAuthBtn.styled';
+import { Button, Container } from './GoogleAuthBtn.styled';
 
 const GoogleAuthButton = () => {
   const handleGoogleLogin = () => {
@@ -8,9 +8,9 @@ const GoogleAuthButton = () => {
   };
 
   return (
-    <div>
+    <Container>
       <Button type="button" onClick={handleGoogleLogin}>
-        Google Button
+        Google
       </Button>
       {/* <GoogleLogin
         onSuccess={credentialResponse => {
@@ -22,7 +22,7 @@ const GoogleAuthButton = () => {
       >
         Google Login
       </GoogleLogin> */}
-    </div>
+    </Container>
   );
 };
 
