@@ -62,3 +62,36 @@ export const requestExpenseCategories = createAsyncThunk(
     }
   }
 );
+//--------------- Dashboard queries------------------//
+
+// export const fetchIncomeCategoriesThunk = createAsyncThunk(
+//   'incomeCategories/fetchAll',
+//   async (_, thunkAPI) => {
+//     const token = thunkAPI.getState().user.accessToken;
+//     try {
+//       const incomeCategories = await fetchCategories(
+//         'expense-categories',
+//         token
+//       );
+//       return incomeCategories;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
+
+// export const fetchExpenseCategoriesThunk = createAsyncThunk(
+//   'expenseCategories/fetchAll',
+//   async (_, thunkAPI) => {
+//     const token = thunkAPI.getState().user.accessToken;
+//     try {
+//       const incomeCategories = await fetchCategories(
+//         'expense-categories',
+//         token
+//       );
+//       return incomeCategories;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
