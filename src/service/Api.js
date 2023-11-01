@@ -106,3 +106,8 @@ export const GoogleAuth = async () => {
   const { data } = await $instance.get('/auth/google');
   return data;
 };
+
+export const fetchPeriodData = async (date) => { 
+  const { data } = await $instance.get(`/transaction/period-data?date=${date}`);
+  return data;
+}

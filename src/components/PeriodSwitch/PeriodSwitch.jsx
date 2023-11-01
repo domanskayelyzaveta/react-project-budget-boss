@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Ballance from 'components/Ballance/Ballance';
+import sprite from '../../images/sprite.svg';
 
 const PeriodSwitch = () => {
   const [Period, setPeriod] = useState(new Date());
@@ -29,14 +30,18 @@ const PeriodSwitch = () => {
       <div>
         <h3>Current period:</h3>
         <div>
-          <button id="prevMonthButton" onClick={handlePrevMonthClick}>
-            -
+          <button onClick={handlePrevMonthClick}>
+            <svg width="16" height="16">
+              <use href={`${sprite}#arrow-toleft`} />
+            </svg>
           </button>
-          <div id="Period">
+          <div>
             {Period.getFullYear()}-{Period.getMonth() + 1}
           </div>
-          <button id="nextMonthButton" onClick={handleNextMonthClick}>
-            +
+          <button onClick={handleNextMonthClick}>
+            <svg width="16" height="16">
+              <use href={`${sprite}#arrow-toright`} />
+            </svg>
           </button>
         </div>
       </div>
