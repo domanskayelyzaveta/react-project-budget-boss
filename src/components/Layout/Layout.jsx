@@ -1,54 +1,27 @@
-import React from 'react';
+import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
-import logo from '../../images/mobile/logo-mobile-1x.webp';
-import sprite from '../../images/sprite.svg';
-import {
-  Div,
-  Nav,
-  Ellipse,
-  LogOut,
-  Auth,
-  StyledComponent,
-} from './Layout.styled';
-import { useSelector } from 'react-redux';
+import { Toaster } from 'react-hot-toast';
 
-const Layout = () => {
-  const isSignedIn = useSelector(state => state.user.isSignedIn);
+import Navigation from '../Navigation/Navigation';
 
+export const Layout = () => {
   return (
-    <Div>
+    <>
       <header>
-        <Nav>
-          {isSignedIn ? ( // Conditionally render based on isSignedIn value
-            <Auth>
-              <NavLink to="/" end>
-                <img src={logo} alt="Logo" />
-              </NavLink>
-              <StyledComponent to="/" end>
-                <Ellipse>U</Ellipse>
-              </StyledComponent>
-              <NavLink to="/" end>
-                <LogOut>
-                  <svg width="16" height="16">
-                    <use href={`${sprite}#icon-logout`} />
-                  </svg>
-                </LogOut>
-              </NavLink>
-            </Auth>
-          ) : (
-            <NavLink to="/" end>
-              <img src={logo} alt="Logo" />
-            </NavLink>
-          )}
-        </Nav>
+        <Navigation />
       </header>
-
       <main>
         <Outlet />
       </main>
-    </Div>
+      <Suspense fallback={null}>
+        <Outlet />
+      </Suspense>
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          duration: 4000,
+        }}
+      />
+    </>
   );
 };
-
-export default Layout;

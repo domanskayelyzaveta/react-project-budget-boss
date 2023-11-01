@@ -1,5 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { fetchCategories, fetchLogin, fetchRegister } from 'service/Api';
+import {
+  fetchExpenseCategories,
+  fetchIncomeCategories,
+  fetchLogin,
+  fetchRegister,
+} from 'service/Api';
 
 //---------------registration------------------//
 
@@ -15,6 +20,7 @@ export const registerThunk = createAsyncThunk(
     }
   }
 );
+//---------------AUTO-login------------------//
 
 //---------------login------------------//
 
@@ -30,6 +36,33 @@ export const loginThunk = createAsyncThunk(
   }
 );
 
+//---------------RequestIncomeCategories------------------//
+export const requestIncomeCategories = createAsyncThunk(
+  'transaction/requestIncomeCategories',
+  async (token, thunkAPI) => {
+    try {
+      const response = await fetchIncomeCategories(token);
+      console.log(response);
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+//---------------RequestExpenseCategories------------------//
+export const requestExpenseCategories = createAsyncThunk(
+  'transaction/requestExpenseCategories',
+  async (token, thunkAPI) => {
+    try {
+      const response = await fetchExpenseCategories(token);
+      console.log(response);
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 //--------------- Dashboard queries------------------//
 
 // export const fetchIncomeCategoriesThunk = createAsyncThunk(
