@@ -2,13 +2,9 @@ import StyledDatepicker from 'components/DatePicker/StyledDatepicker';
 import { useForm } from 'react-hook-form';
 import { StyledWrapper } from './DashboardForm.styled';
 
-const DashboardForm = () => {
-  // const token = useSelector(state => state.user.accessToken);
-  // useEffect(() => {
-  //   const res = fetchIncomeCategories(token);
-  //   const res2=fetchExpenseCategories(token)
-  //   // console.log(res)
-  // }, [token]);
+const DashboardForm = ({categotiesList}) => {
+
+
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = data => {console.log(data); reset()};
   return (
@@ -17,6 +13,7 @@ const DashboardForm = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <input {...register('description')} />
         <select {...register('category')}>
+          {/* //TODO змепити категорії */}
           <option value="-">Category</option>
           <option value="products">Products</option>
           <option value="car">Car</option>

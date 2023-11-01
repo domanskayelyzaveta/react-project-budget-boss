@@ -42,7 +42,7 @@ export const requestIncomeCategories = createAsyncThunk(
   async (token, thunkAPI) => {
     try {
       const response = await fetchIncomeCategories(token);
-      console.log(response);
+      // console.log(response);
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -56,7 +56,7 @@ export const requestExpenseCategories = createAsyncThunk(
   async (token, thunkAPI) => {
     try {
       const response = await fetchExpenseCategories(token);
-      console.log(response);
+      // console.log(response);
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

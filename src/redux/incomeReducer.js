@@ -1,4 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+import { fetchIncomeCategories } from 'service/Api';
 
 const initialState = {
   incomes: [],
@@ -11,7 +12,7 @@ export const contactsSlice = createSlice({
   extraReducers: builder =>
     builder
       // ------------GET CATEGORIES------------
-      .addCase(fetchIncomeCategoriesThunk.fulfilled, (state, { payload }) => {
+      .addCase(fetchIncomeCategories.fulfilled, (state, { payload }) => {
         state.incomes = payload;
       })
 

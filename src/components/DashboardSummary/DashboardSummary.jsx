@@ -1,8 +1,10 @@
 import React from 'react';
+import { SummaryWrapper } from './DashboardSummary.styled';
+
 
 const DashboardSummary = () => {
   return (
-    <>
+    <SummaryWrapper>
       <h3>Summary</h3>
       <ul>
         <li>
@@ -30,7 +32,7 @@ const DashboardSummary = () => {
           </div>
         </li>
       </ul>
-    </>
+    </SummaryWrapper>
   );
 };
 
