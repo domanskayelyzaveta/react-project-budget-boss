@@ -16,6 +16,7 @@ const $instance = axios.create({
 export const fetchRegister = async userData => {
   const { data } = await $instance.post('/auth/register', userData);
   // setToken(data.token);
+  return data;
 };
 
 export const fetchLogin = async userData => {
@@ -69,9 +70,9 @@ export const fetchLogin = async userData => {
 //   return data;
 // };
 
-export async function fetchCategories() {
-  const response = await $instance.get('/transaction/', {
-    headers: { Authorization: `Bearer ${token}` },
-  });
-  return response.data;
-}
+// export async function fetchCategories() {
+//   const response = await $instance.get('/transaction/', {
+//     headers: { Authorization: `Bearer ${token}` },
+//   });
+//   return response.data;
+// }
