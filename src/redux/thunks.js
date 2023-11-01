@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
-  addTransaction,
-  deleteTransaction,
+  // addTransaction,
+  // deleteTransaction,
   fetchExpenseCategories,
   fetchIncomeCategories,
   fetchLogin,
