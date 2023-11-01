@@ -13,9 +13,7 @@ export const Layout = () => {
       <main>
         <Outlet />
       </main>
-      <Suspense fallback={null}>
-        <Outlet />
-      </Suspense>
+      <Suspense fallback={null}></Suspense>
       <Toaster
         position="top-center"
         toastOptions={{

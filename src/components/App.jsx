@@ -14,9 +14,9 @@ export const App = () => {
     <>
       <Loader />
       <Routes>
-        <Route path="/auth" element={<Auth />} />
-        <Route path="/" element={<PrivateRoute />}>
-          <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Layout />}>
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/" element={<PrivateRoute />}>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/reports" element={<Reports />} />
           </Route>
