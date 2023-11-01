@@ -1,8 +1,5 @@
 import StyledDatepicker from 'components/DatePicker/StyledDatepicker';
-import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useSelector } from 'react-redux';
-import { fetchExpenseCategories, fetchIncomeCategories } from 'service/Api';
 import { StyledWrapper } from './DashboardForm.styled';
 
 const DashboardForm = () => {
@@ -12,8 +9,8 @@ const DashboardForm = () => {
   //   const res2=fetchExpenseCategories(token)
   //   // console.log(res)
   // }, [token]);
-  const { register, handleSubmit } = useForm();
-  const onSubmit = data => console.log(data);
+  const { register, handleSubmit, reset } = useForm();
+  const onSubmit = data => {console.log(data); reset()};
   return (
     <StyledWrapper>
       <StyledDatepicker />

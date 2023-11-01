@@ -69,9 +69,9 @@ export const fetchLogin = async userData => {
 //   return data;
 // };
 
-export async function fetchCategories() {
-  const response = await $instance.get('/transaction/', {
-    headers: { Authorization: `Bearer ${token}` },
-  });
-  return response.data;
-}
+// export async function fetchCategories() {
+//   const response = await $instance.get('/transaction/', {
+//     headers: { Authorization: `Bearer ${token}` },
+//   });
+//   return response.data;
+// }
