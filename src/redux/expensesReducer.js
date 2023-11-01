@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
-  addTransactionThunk,
+  addExpenseTransactionThunk,
   deleteTransactionThunk,
-  requestExpenseCategoriesThunk
+  getExpensesTransactionsThunk,
 } from './thunks';
 
 const initialState = {
-  expenses: [],
+  expenses: null,
   monthStats: null,
 };
 
@@ -15,13 +15,16 @@ export const expensesSlice = createSlice({
   initialState,
   extraReducers: builder =>
     builder
-      // ------------GET CATEGORIES------------
-      .addCase(requestExpenseCategoriesThunk.fulfilled, (state, { payload }) => {
-        // state.expenses = payload;
+      // ------------GET TRANSACTIONS------------
+      .addCase(getExpensesTransactionsThunk.fulfilled, (state, { payload }) => {
+        // state.expenses = payload.expenses;
+        // state.expenses.monthsStats = payload.monthsStats;
+        state.expenses = payload.expenses;
+        state.monthStats = payload.monthsStats;
       })
 
       // ------------ADD TRANSACTION------------
-      .addCase(addTransactionThunk.fulfilled, (state, { payload }) => {
+      .addCase(addExpenseTransactionThunk.fulfilled, (state, { payload }) => {
         state.expenses.push(payload.transaction);
       })
 
@@ -29,43 +32,6 @@ export const expensesSlice = createSlice({
       .addCase(deleteTransactionThunk.fulfilled, (state, { payload }) => {
         state.expenses = state.expenses.filter(item => item.id !== payload);
       }),
-
-  // .addMatcher(
-  //   isAnyOf(
-  //     fetchExpenseCategoriesThunk.pending,
-  //     addTransactionThunk.pending,
-  //     deleteTransactionThunk.pending
-  //   ),
-
-  //   state => {
-  //     state.contacts.isLoading = true;
-  //     state.contacts.error = null;
-  //   }
-  // )
-  // .addMatcher(
-  //   isAnyOf(
-  //     fetchExpenseCategoriesThunk.rejected,
-  //     addTransactionThunk.rejected,
-  //     deleteTransactionThunk.rejected
-  //   ),
-
-  //   (state, { payload }) => {
-  //     state.contacts.isLoading = false;
-  //     state.contacts.error = payload;
-  //   }
-  // )
-  // .addMatcher(
-  //   isAnyOf(
-  //     fetchExpenseCategoriesThunk.fulfilled,
-  //     addTransactionThunk.fulfilled,
-  //     deleteTransactionThunk.fulfilled
-  //   ),
-
-  //   state => {
-  //     state.contacts.isLoading = false;
-  //     state.contacts.error = null;
-  //   }
-  // ),
 });
 
 export const expensesReducer = expensesSlice.reducer;

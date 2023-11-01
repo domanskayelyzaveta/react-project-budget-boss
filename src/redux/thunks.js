@@ -104,8 +104,20 @@ export const requestPeriodData = createAsyncThunk(
 
 //--------------- Dashboard queries------------------//
 
-export const addTransactionThunk = createAsyncThunk(
-  'transaction/addTransaction',
+export const addIncomeTransactionThunk = createAsyncThunk(
+  'transaction/addIncomeTransaction',
+  async (data, thunkAPI) => {
+    const token = thunkAPI.getState().user.accessToken;
+    try {
+      const addNewTransaction = addTransaction(data, token);
+      return addNewTransaction;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+export const addExpenseTransactionThunk = createAsyncThunk(
+  'transaction/addExpenseTransaction',
   async (data, thunkAPI) => {
     const token = thunkAPI.getState().user.accessToken;
     try {
@@ -130,8 +142,20 @@ export const deleteTransactionThunk = createAsyncThunk(
   }
 );
 
-export const getTransactionsThunk = createAsyncThunk(
-  'transaction/getTransactions',
+export const getIncomeTransactionsThunk = createAsyncThunk(
+  'transaction/getIncomeTransactions',
+  async (category, thunkAPI) => {
+    const token = thunkAPI.getState().user.accessToken;
+    try {
+      const getAllTransactions = await getTransactions(category, token);
+      return getAllTransactions;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+)
+export const getExpensesTransactionsThunk = createAsyncThunk(
+  'transaction/getExpensesTransactions',
   async (category, thunkAPI) => {
     const token = thunkAPI.getState().user.accessToken;
     try {

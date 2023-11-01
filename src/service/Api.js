@@ -103,8 +103,8 @@ export async function deleteTransaction(id, token) {
   return response.data;
 }
 
-export const getTransactions = async token => {
-  const { data } = await $instance.get('/transaction/', {
+export const getTransactions = async (category, token) => {
+  const { data } = await $instance.get(`/transaction/${category}`, {
     headers: { Authorization: `Bearer ${token}` },
   });
   // setToken(data.token);
