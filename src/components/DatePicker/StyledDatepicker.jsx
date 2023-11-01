@@ -21,6 +21,7 @@ const StyledDatepicker = () => {
       <DatePicker
         selected={selectedDate}
         onChange={(date) => {
+          // console.log(date)
           setSelectedDate(date);
         }}
         customInput={<CustomInput />}
