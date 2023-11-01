@@ -33,7 +33,7 @@ const Auth = () => {
     <div>
       AuthForm
       <form onSubmit={handleSubmit(onSubmit)}>
-        <label>Email:</label>
+        <label>{errors.email && <span>*</span>}Email:</label>
         <input
           type="email"
           placeholder="Email"
@@ -44,7 +44,7 @@ const Auth = () => {
           })}
         />
         {errors.email && <p>{errors.email.message}</p>}
-        <label>Password:</label>
+        <label>{errors.password && <span>*</span>}Password:</label>
         <input
           type="password"
           placeholder="Password"
