@@ -3,13 +3,19 @@ import css from './CategoriesList.module.css';
 import sprite from '../../images/sprite.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  requestExpenseCategories,
-  requestIncomeCategories,
+  requestExpenseCategoriesThunk,
+  requestIncomeCategoriesThunk,
 } from 'redux/thunks';
+import Products from '../../images/icons/Products.webp';
+import Alcohol from '../../images/icons/Alcohol.webp';
+import Health from '../../images/icons/Health.webp';
 
 export const CategoriesList = () => {
+  const [currentCategoryType, setCurrentCategoryType] = useState('');
+
   const dispatch = useDispatch();
   const token = useSelector(state => state.user.accessToken);
+  const arrayOfImages = [Products, Alcohol, Health];
 
   const incomeCategoriesArray = useSelector(
     state => state.categories.incomeCategories
@@ -18,22 +24,15 @@ export const CategoriesList = () => {
     state => state.categories.expenseCategories
   );
 
-  const [currentCategoryType, setCurrentCategoryType] = useState('income');
-
   const handleRequestIncome = () => {
+    dispatch(requestIncomeCategoriesThunk(token));
     setCurrentCategoryType('income');
-    dispatch(requestIncomeCategories(token));
   };
-
+  
   const handleRequestExpense = () => {
+    dispatch(requestExpenseCategoriesThunk(token));
     setCurrentCategoryType('expense');
-    dispatch(requestExpenseCategories(token));
   };
-
-  const visibleCategoriesArray =
-    currentCategoryType === 'income'
-      ? incomeCategoriesArray
-      : expenseCategoriesArray;
 
   return (
     <div className={css.categoriesListContainer}>
@@ -58,11 +57,23 @@ export const CategoriesList = () => {
           </svg>
         </button>
       </div>
-
       <ul>
-        {visibleCategoriesArray && visibleCategoriesArray.length > 0
-          ? visibleCategoriesArray.map((category, index) => (
-              <li key={index}>{category}</li>
+        {currentCategoryType === 'income' && incomeCategoriesArray !== null
+          ? incomeCategoriesArray.map((element, index) => (
+              <li key={index}>
+                <p>{element}</p>
+                <img src="" alt="" />
+              </li>
+            ))
+          : null}
+      </ul>
+      <ul>
+        {currentCategoryType === 'expense' && expenseCategoriesArray !== null
+          ? arrayOfImages.map((element, index) => (
+              <li key={index}>
+                <p>{expenseCategoriesArray[index]}</p>
+                <img src={element} alt={`${element} icon`} />
+              </li>
             ))
           : null}
       </ul>
