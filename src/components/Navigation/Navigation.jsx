@@ -18,35 +18,29 @@ const Navigation = () => {
 
   return (
     <Div>
-      <header>
-        <Nav>
-          {isSignedIn ? (
-            <Auth>
-              <NavLink to="/" end>
-                <img src={logo} alt="Logo" />
-              </NavLink>
-              <StyledComponent to="/" end>
-                <Ellipse>U</Ellipse>
-              </StyledComponent>
-              <NavLink to="/" end>
-                <LogOut>
-                  <svg width="16" height="16">
-                    <use href={`${sprite}#icon-logout`} />
-                  </svg>
-                </LogOut>
-              </NavLink>
-            </Auth>
-          ) : (
+      <Nav>
+        {isSignedIn ? (
+          <Auth>
             <NavLink to="/" end>
               <img src={logo} alt="Logo" />
             </NavLink>
-          )}
-        </Nav>
-      </header>
-
-      <main>
-        <Outlet />
-      </main>
+            <StyledComponent to="/" end>
+              <Ellipse>U</Ellipse>
+            </StyledComponent>
+            <NavLink to="/" end>
+              <LogOut>
+                <svg width="16" height="16">
+                  <use href={`${sprite}#icon-logout`} />
+                </svg>
+              </LogOut>
+            </NavLink>
+          </Auth>
+        ) : (
+          <NavLink to="/" end>
+            <img src={logo} alt="Logo" />
+          </NavLink>
+        )}
+      </Nav>
     </Div>
   );
 };
