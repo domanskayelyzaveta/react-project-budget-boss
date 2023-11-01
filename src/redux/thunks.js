@@ -40,7 +40,7 @@ export const loginThunk = createAsyncThunk(
 );
 
 //---------------RequestIncomeCategories------------------//
-export const requestIncomeCategories = createAsyncThunk(
+export const requestIncomeCategoriesThunk = createAsyncThunk(
   'transaction/requestIncomeCategories',
   async (token, thunkAPI) => {
     try {
@@ -54,7 +54,7 @@ export const requestIncomeCategories = createAsyncThunk(
 );
 
 //---------------RequestExpenseCategories------------------//
-export const requestExpenseCategories = createAsyncThunk(
+export const requestExpenseCategoriesThunk = createAsyncThunk(
   'transaction/requestExpenseCategories',
   async (token, thunkAPI) => {
     try {
