@@ -6,24 +6,26 @@ import DashboardTable from 'components/DashboardTable/DashboardTable';
 import { useEffect, useState } from 'react';
 import { DataWrapper, IncomeWrapper } from './DashboardPage.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { requestExpenseCategories, requestIncomeCategories } from 'redux/thunks';
+import { getTransactionsThunk, requestExpenseCategories, requestIncomeCategories } from 'redux/thunks';
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState('1');
 
   const dispatch = useDispatch();
   const token = useSelector(state => state.user.accessToken);
+  const totalIncomeList = useSelector(state => state.user.accessToken);
+  const totalExpensesList = useSelector(state => state.user.accessToken);
 
   useEffect(() => {
     dispatch(requestIncomeCategories(token));
     dispatch(requestExpenseCategories(token));
+    dispatch(getTransactionsThunk('expense'))
+    dispatch(getTransactionsThunk('income'))
   }, [dispatch, token]);
 
   const incomeCategoriesList = useSelector(state => state.categories.incomeCategories);
   const expenseCategoriesList = useSelector(state => state.categories.expenseCategories);
 
-  console.log(incomeCategoriesList)
-  console.log(expenseCategoriesList)
 
   const items = [
     {
@@ -32,7 +34,7 @@ const Dashboard = () => {
       children: (
         <>
           <Ballance />
-          <DashboardForm categoriesList={expenseCategoriesList}/>
+          <DashboardForm categoriesList={expenseCategoriesList} category={'expense'}/>
           <DataWrapper>
             <DashboardTable />
             <DashboardSummary />
@@ -47,7 +49,7 @@ const Dashboard = () => {
         <>
           <Ballance />
           <IncomeWrapper>
-            <DashboardForm categoriesList={incomeCategoriesList}/>
+            <DashboardForm categoriesList={incomeCategoriesList} category={'income'}/>
             <DataWrapper>
               <DashboardTable />
               <DashboardSummary />
