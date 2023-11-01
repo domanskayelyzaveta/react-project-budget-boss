@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import css from '../../index.css';
 import 'chartjs-plugin-datalabels';
 import React, { useEffect, useState } from 'react';
 import {
@@ -23,6 +22,7 @@ ChartJS.register(
 );
 
 export const options = {
+  maintainAspectRatio: false,
   responsive: true,
   indexAxis: 'y',
   elements: {
@@ -42,24 +42,37 @@ export const options = {
     },
   },
 
-  // layout: {
-  //   padding: 20,
-  // },
   scales: {
     x: {
       grid: {
         display: false,
       },
     },
+
     y: {
       grid: {
         display: false,
       },
     },
   },
+  categoryPercentage: 1,
+  barThickness: 'flex',
+  barPercentage: 0.6,
 };
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+const labels = [
+  'Orange',
+  'Pear',
+  'Kiwi',
+  'Watermelon',
+  'Mango',
+  'Peach',
+  'Pineapple',
+  'Raspberry',
+  'Cherry',
+  'Blackberry',
+  'Cantaloupe',
+];
 const horizontalGradient = document.createElement('canvas').getContext('2d');
 const gradient = horizontalGradient.createLinearGradient(0, 0, 400, 0);
 gradient.addColorStop(0, '#020202');
@@ -82,28 +95,22 @@ export const data = {
   ],
 };
 const ChartContainer = styled.div`
-  background-color: #00c3ff58;
-
-  /* @media screen and (min-width: 320px) {
-    .container {
-      width: 320px;
-
-      margin-left: auto;
-      margin-right: auto;
-    }
+  background-color: #5a6a6e30;
+  @media screen and (min-width: 320px) {
+    width: 320px;
+    min-height: 90px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   @media screen and (min-width: 768px) {
-    .container {
-      width: 704px;
-    }
+    width: 704px;
+    height: 420px;
   }
 
   @media screen and (min-width: 1280px) {
-    .container {
-      width: 1098px;
-    }
-  } */
+    width: 1098px;
+  }
 `;
 
 export function StatisticsByCategory() {
@@ -128,7 +135,7 @@ export function StatisticsByCategory() {
     indexAxis: indexAxis,
   };
   return (
-    <ChartContainer className="container">
+    <ChartContainer>
       <Bar options={dynamicOptions} data={data} />
     </ChartContainer>
   );

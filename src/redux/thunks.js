@@ -5,6 +5,7 @@ import {
   fetchExpenseCategories,
   fetchIncomeCategories,
   fetchLogin,
+  fetchPeriodData,
   fetchRegister,
   getTransactions,
 } from 'service/Api';
@@ -40,7 +41,7 @@ export const loginThunk = createAsyncThunk(
 );
 
 //---------------RequestIncomeCategories------------------//
-export const requestIncomeCategories = createAsyncThunk(
+export const requestIncomeCategoriesThunk = createAsyncThunk(
   'transaction/requestIncomeCategories',
   async (token, thunkAPI) => {
     try {
@@ -54,7 +55,7 @@ export const requestIncomeCategories = createAsyncThunk(
 );
 
 //---------------RequestExpenseCategories------------------//
-export const requestExpenseCategories = createAsyncThunk(
+export const requestExpenseCategoriesThunk = createAsyncThunk(
   'transaction/requestExpenseCategories',
   async (token, thunkAPI) => {
     try {
@@ -66,6 +67,21 @@ export const requestExpenseCategories = createAsyncThunk(
     }
   }
 );
+
+//---------------RequestPeriodData------------------//
+export const requestPeriodData = createAsyncThunk(
+  'transaction/requestPeriodData',
+  async (date, thunkAPI) => {
+    try {
+      const response = await fetchPeriodData(date);
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+
 //--------------- Dashboard queries------------------//
 
 export const addTransactionThunk = createAsyncThunk(
