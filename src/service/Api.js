@@ -26,6 +26,14 @@ export const fetchLogin = async userData => {
   return data;
 };
 
+export const fetchLogout = async token => {
+  const { data } = await $instance.post('/auth/logout', null, {
+    headers: { Authorization: `Bearer ${token}`, test: `dsf` },
+  });
+
+  return data;
+};
+
 export const fetchIncomeCategories = async token => {
   const { data } = await $instance.get('/transaction/income-categories', {
     headers: { Authorization: `Bearer ${token}` },
@@ -51,11 +59,6 @@ export const fetchExpenseCategories = async token => {
 //   return data;
 // };
 
-// export const fetchLogout = async () => {
-//   const { data } = $instance.post('/users/logout');
-//   clearToken();
-//   return data;
-// };
 // export const fetchCurrentUser = async () => {
 //   const { data } = await $instance.get('/users/current');
 //   console.log(data);

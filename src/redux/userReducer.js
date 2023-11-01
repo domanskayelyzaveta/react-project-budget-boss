@@ -1,5 +1,5 @@
 const { createSlice } = require('@reduxjs/toolkit');
-const { registerThunk, loginThunk } = require('./thunks');
+const { registerThunk, loginThunk, logoutThunk } = require('./thunks');
 
 const initialState = {
   userData: null,
@@ -46,6 +46,21 @@ const userSlice = createSlice({
         state.accessToken = action.payload.accessToken;
       })
       .addCase(loginThunk.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isSignedIn = false;
+        state.error = action.payload;
+      })
+      //------------- Log out ---------------
+      .addCase(logoutThunk.pending, state => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(logoutThunk.fulfilled, (state, action) => {
+        return {
+          ...initialState,
+        };
+      })
+      .addCase(logoutThunk.rejected, (state, action) => {
         state.isLoading = false;
         state.isSignedIn = false;
         state.error = action.payload;
