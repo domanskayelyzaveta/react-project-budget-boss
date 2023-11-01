@@ -6,6 +6,7 @@ import Reports from 'pages/Reports/ReportsPage';
 import Auth from 'pages/Auth/AuthPage';
 import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 import { Loader } from './Loader/Loader';
+import { StatisticsByCategory } from './StatisticsByCategory/StatisticsByCategory';
 
 export const App = () => {
   return (
@@ -19,6 +20,7 @@ export const App = () => {
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      <StatisticsByCategory />
     </>
   );
 };
