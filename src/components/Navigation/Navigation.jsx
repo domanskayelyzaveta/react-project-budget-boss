@@ -1,5 +1,4 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import logo from '../../images/mobile/logo-mobile-1x.webp';
 import sprite from '../../images/sprite.svg';
