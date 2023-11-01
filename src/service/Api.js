@@ -1,5 +1,4 @@
 import axios from 'axios';
-// import { calcLength } from 'framer-motion';
 
 const BASE_URL = 'https://kapusta-backend.p.goit.global/';
 const $instance = axios.create({
