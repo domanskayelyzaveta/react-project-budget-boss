@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
-  addTransactionThunk,
+  addExpenseTransactionThunk,
   deleteTransactionThunk,
-  requestExpenseCategoriesThunk
+  getExpensesTransactionsThunk
 } from './thunks';
 
 const initialState = {
-  expenses: [],
+  expenses: null,
   monthStats: null,
 };
 
@@ -15,20 +15,21 @@ export const expensesSlice = createSlice({
   initialState,
   extraReducers: builder =>
     builder
-      // ------------GET CATEGORIES------------
-      .addCase(requestExpenseCategoriesThunk.fulfilled, (state, { payload }) => {
-        // state.expenses = payload;
+      // ------------GET TRANSACTIONS------------
+      .addCase(getExpensesTransactionsThunk.fulfilled, (state, { payload }) => {
+        state.expenses = payload.expenses;
+        state.monthStats = payload.monthStats
       })
 
       // ------------ADD TRANSACTION------------
-      .addCase(addTransactionThunk.fulfilled, (state, { payload }) => {
+      .addCase(addExpenseTransactionThunk.fulfilled, (state, { payload }) => {
         state.expenses.push(payload.transaction);
       })
 
       // ------------DELETE TRANSACTION------------
       .addCase(deleteTransactionThunk.fulfilled, (state, { payload }) => {
         state.expenses = state.expenses.filter(item => item.id !== payload);
-      }),
+      })
 
   // .addMatcher(
   //   isAnyOf(
@@ -56,7 +57,7 @@ export const expensesSlice = createSlice({
   // )
   // .addMatcher(
   //   isAnyOf(
-  //     fetchExpenseCategoriesThunk.fulfilled,
+  //     requestIncomeCategoriesThunk.fulfilled,
   //     addTransactionThunk.fulfilled,
   //     deleteTransactionThunk.fulfilled
   //   ),

@@ -70,7 +70,7 @@ import { Controller, useForm } from 'react-hook-form';
 import 'react-datepicker/dist/react-datepicker.css';
 import { StyledForm } from './DashboardForm.styled';
 import { useDispatch } from 'react-redux';
-import { addTransactionThunk } from 'redux/thunks';
+import { addExpenseTransactionThunk, addIncomeTransactionThunk, addTransactionThunk } from 'redux/thunks';
 import formatDate from 'service/helpers';
 // import {formatDate} from '../../service/helpers'
 
@@ -90,7 +90,12 @@ const FormFields = ({categoriesList, category})=> {
   const onSubmit = data => {
     const dataToDispatch = {...data}
     dataToDispatch.date = formatDate(dataToDispatch.date)
-    dispatch(addTransactionThunk({ dataToDispatch, category }));
+    if (category === 'income') {
+      dispatch(addIncomeTransactionThunk({dataToDispatch, category}))
+    } else {
+      dispatch(addExpenseTransactionThunk({dataToDispatch, category}))
+    }
+    // dispatch(addTransactionThunk({ dataToDispatch, category }));
     reset()
   };
 

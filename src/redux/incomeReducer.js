@@ -1,8 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addTransactionThunk, deleteTransactionThunk, requestIncomeCategoriesThunk } from './thunks';
+import {
+  addIncomeTransactionThunk,
+  deleteTransactionThunk,
+  getIncomeTransactionsThunk
+} from './thunks';
 
 const initialState = {
-  incomes: [],
+  incomes: null,
   monthStats: null,
 };
 
@@ -11,57 +15,59 @@ export const incomeSlice = createSlice({
   initialState,
   extraReducers: builder =>
     builder
-      // ------------GET CATEGORIES------------
-      .addCase(requestIncomeCategoriesThunk.fulfilled, (state, { payload }) => {
-        state.incomes = payload;
+      // ------------GET TRANSACTIONS------------
+      .addCase(getIncomeTransactionsThunk.fulfilled, (state, { payload }) => {
+        state.incomes = payload.incomes;
+        state.monthStats = payload.monthStats
       })
 
       // ------------ADD TRANSACTION------------
-      .addCase(addTransactionThunk.fulfilled, (state, { payload }) => {
+      .addCase(addIncomeTransactionThunk.fulfilled, (state, { payload }) => {
+        console.log(state)
         state.incomes.push(payload.transaction);
       })
 
       // ------------DELETE TRANSACTION------------
       .addCase(deleteTransactionThunk.fulfilled, (state, { payload }) => {
         state.incomes = state.incomes.filter(item => item.id !== payload);
-      }),
+      })
 
-  // .addMatcher(
-  //   isAnyOf(
-  //     fetchIncomeCategoriesThunk.pending,
-  //     addTransactionThunk.pending,
-  //     deleteTransactionThunk.pending
-  //   ),
+      // .addMatcher(
+      //   isAnyOf(
+      //     fetchIncomeCategoriesThunk.pending,
+      //     addTransactionThunk.pending,
+      //     deleteTransactionThunk.pending
+      //   ),
 
-  //   state => {
-  //     state.contacts.isLoading = true;
-  //     state.contacts.error = null;
-  //   }
-  // )
-  // .addMatcher(
-  //   isAnyOf(
-  //     fetchIncomeCategoriesThunk.rejected,
-  //     addTransactionThunk.rejected,
-  //     deleteTransactionThunk.rejected
-  //   ),
+      //   state => {
+      //     state.contacts.isLoading = true;
+      //     state.contacts.error = null;
+      //   }
+      // )
+      // .addMatcher(
+      //   isAnyOf(
+      //     fetchIncomeCategoriesThunk.rejected,
+      //     addTransactionThunk.rejected,
+      //     deleteTransactionThunk.rejected
+      //   ),
 
-  //   (state, { payload }) => {
-  //     state.contacts.isLoading = false;
-  //     state.contacts.error = payload;
-  //   }
-  // )
-  // .addMatcher(
-  //   isAnyOf(
-  //     fetchIncomeCategoriesThunk.fulfilled,
-  //     addTransactionThunk.fulfilled,
-  //     deleteTransactionThunk.fulfilled
-  //   ),
+      //   (state, { payload }) => {
+      //     state.contacts.isLoading = false;
+      //     state.contacts.error = payload;
+      //   }
+      // )
+      // .addMatcher(
+      //   isAnyOf(
+      //     requestIncomeCategoriesThunk.fulfilled,
+      //     addTransactionThunk.fulfilled,
+      //     deleteTransactionThunk.fulfilled
+      //   ),
 
-  //   state => {
-  //     state.contacts.isLoading = false;
-  //     state.contacts.error = null;
-  //   }
-  // ),
+      //   state => {
+      //     state.contacts.isLoading = false;
+      //     state.contacts.error = null;
+      //   }
+      // ),
 });
 
 export const incomeReducer = incomeSlice.reducer;
