@@ -36,12 +36,12 @@ export const loginThunk = createAsyncThunk(
 );
 
 //---------------RequestIncomeCategories------------------//
-export const requestIncomeCategories = createAsyncThunk(
+export const requestIncomeCategoriesThunk = createAsyncThunk(
   'transaction/requestIncomeCategories',
   async (token, thunkAPI) => {
     try {
       const response = await fetchIncomeCategories(token);
-      console.log(response);
+      // console.log(response);
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -50,12 +50,12 @@ export const requestIncomeCategories = createAsyncThunk(
 );
 
 //---------------RequestExpenseCategories------------------//
-export const requestExpenseCategories = createAsyncThunk(
+export const requestExpenseCategoriesThunk = createAsyncThunk(
   'transaction/requestExpenseCategories',
   async (token, thunkAPI) => {
     try {
       const response = await fetchExpenseCategories(token);
-      console.log(response);
+      // console.log(response);
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

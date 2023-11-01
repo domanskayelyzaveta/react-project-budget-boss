@@ -1,7 +1,7 @@
 const { createSlice } = require('@reduxjs/toolkit');
 const {
-  requestIncomeCategories,
-  requestExpenseCategories,
+  requestIncomeCategoriesThunk,
+  requestExpenseCategoriesThunk,
 } = require('./thunks');
 
 const initialState = {
@@ -19,32 +19,32 @@ const categoriesSlice = createSlice({
     builder
       //------------ IncomeCategories ---------------
 
-      .addCase(requestIncomeCategories.pending, state => {
+      .addCase(requestIncomeCategoriesThunk.pending, state => {
         state.error = null;
         state.isLoading = true;
       })
-      .addCase(requestIncomeCategories.fulfilled, (state, action) => {
+      .addCase(requestIncomeCategoriesThunk.fulfilled, (state, action) => {
         state.error = null;
         state.isLoading = false;
         state.isSignedIn = true;
         state.incomeCategories = action.payload;
       })
-      .addCase(requestIncomeCategories.rejected, (state, action) => {
+      .addCase(requestIncomeCategoriesThunk.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       })
       //------------ ExpenseCategories ---------------
-      .addCase(requestExpenseCategories.pending, state => {
+      .addCase(requestExpenseCategoriesThunk.pending, state => {
         state.error = null;
         state.isLoading = true;
       })
-      .addCase(requestExpenseCategories.fulfilled, (state, action) => {
+      .addCase(requestExpenseCategoriesThunk.fulfilled, (state, action) => {
         state.error = null;
         state.isLoading = false;
         state.isSignedIn = true;
         state.expenseCategories = action.payload;
       })
-      .addCase(requestExpenseCategories.rejected, (state, action) => {
+      .addCase(requestExpenseCategoriesThunk.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });
