@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { loginThunk, registerThunk } from 'redux/thunks';
 import { useForm } from 'react-hook-form';
 import GoogleAuthButton from 'components/GoogleAuthBtn/GoogleAuthBtn';
-
+import { Form, FormWrapper, Title } from './AuthPage.styled';
 
 const Auth = () => {
   const dispatch = useDispatch();
@@ -32,10 +32,11 @@ const Auth = () => {
   };
 
   return (
-    <div>
-      AuthForm
-      <GoogleAuthButton />
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <FormWrapper>
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <Title>You can log in with your Google Account:</Title>
+        <GoogleAuthButton />
+        <p>Or log in using an email and password, after registration </p>
         <label>Email:</label>
         <input
           type="email"
@@ -64,8 +65,8 @@ const Auth = () => {
         <button name="Registration" type="submit">
           Registration
         </button>
-      </form>
-    </div>
+      </Form>
+    </FormWrapper>
   );
 };
 
