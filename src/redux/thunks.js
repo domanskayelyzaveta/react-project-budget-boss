@@ -92,7 +92,7 @@ export const requestExpenseCategoriesThunk = createAsyncThunk(
 //---------------RequestPeriodData------------------//
 export const requestPeriodData = createAsyncThunk(
   'transaction/requestPeriodData',
-  async ({date, token}, thunkAPI) => {
+  async ({ date, token }, thunkAPI) => {
     try {
       const response = await fetchPeriodData(date, token);
       return response;
@@ -101,7 +101,6 @@ export const requestPeriodData = createAsyncThunk(
     }
   }
 );
-
 
 //--------------- Dashboard queries------------------//
 
@@ -142,4 +141,4 @@ export const getTransactionsThunk = createAsyncThunk(
       return thunkAPI.rejectWithValue(error.message);
     }
   }
-)
+);

@@ -34,6 +34,10 @@
 body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--background);
+    background-image: url("./images/desktop/rectangle-desktop-1x.webp"), url("./images/desktop/ellipse-desktop-1x.webp");
+    background-repeat: no-repeat, no-repeat;
+    background-size: 1350px 958px;
+    background-position: top left, top right;
 }
 
 

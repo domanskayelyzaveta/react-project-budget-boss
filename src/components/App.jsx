@@ -5,12 +5,12 @@ import Reports from 'pages/Reports/ReportsPage';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
 import { Loader } from './Loader/Loader';
-import PrivateRoute from './PrivateRoute/PrivateRoute';
+//import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 export const App = () => {
   return (
     <>
-      <Loader />
+      {/* <Loader /> */}
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/auth" element={<Auth />} />

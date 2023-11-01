@@ -6,6 +6,9 @@ export const Container = styled.div`
 `;
 
 export const Button = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
   width: 120px;
   height: 40px;
   padding: 10px;
@@ -22,4 +25,8 @@ export const Button = styled.button`
   &:focus {
     background-color: var(--white-1);
   }
+`;
+
+export const Svg = styled.svg`
+  margin-right: 10px;
 `;

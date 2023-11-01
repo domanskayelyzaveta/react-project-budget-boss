@@ -2,12 +2,16 @@ import styled from '@emotion/styled';
 
 export const FormWrapper = styled.div`
   display: flex;
-  justify-content: center;
+  margin-top: 120px;
+  margin-right: 125px;
+  justify-content: flex-end;
+  // background-image: url('../../images/desktop/ellipse-desktop-1x.webp');
 `;
 
 export const Span = styled.span`
   color: var(--red);
 `;
+
 export const RequiredP = styled.p`
   font-size: 10px;
   font-weight: 400;
@@ -144,4 +148,8 @@ export const RegisterBtn = styled.button`
   @media screen and (min-width: 1280px) {
     width: 136px;
   }
+`;
+
+export const Img = styled.img`
+  margin-right: 42px;
 `;
