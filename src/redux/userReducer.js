@@ -47,6 +47,7 @@ const userSlice = createSlice({
       })
       .addCase(loginThunk.rejected, (state, action) => {
         state.isLoading = false;
+        state.isSignedIn = false;
         state.error = action.payload;
       });
   },

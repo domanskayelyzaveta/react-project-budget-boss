@@ -7,6 +7,7 @@ import Auth from 'pages/Auth/AuthPage';
 import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 import { Loader } from './Loader/Loader';
 import { StatisticsByCategory } from './StatisticsByCategory/StatisticsByCategory';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 export const App = () => {
   return (
@@ -14,9 +15,11 @@ export const App = () => {
       <Loader />
       <Routes>
         <Route path="/auth" element={<Auth />} />
-        <Route path="/" element={<Layout />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/reports" element={<Reports />} />
+        <Route path="/" element={<PrivateRoute />}>
+          <Route path="/" element={<Layout />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/reports" element={<Reports />} />
+          </Route>
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
