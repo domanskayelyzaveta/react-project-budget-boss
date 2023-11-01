@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { fetchLogin, fetchRegister } from 'service/Api';
+import { fetchCategories, fetchLogin, fetchRegister } from 'service/Api';
 
 //---------------registration------------------//
 
