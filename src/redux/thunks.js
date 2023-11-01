@@ -70,7 +70,7 @@ export const requestExpenseCategories = createAsyncThunk(
 export const addTransactionThunk = createAsyncThunk(
   'transaction/addTransaction',
   async (data, thunkAPI) => {
-    const token = null;
+    const token = thunkAPI.getState().user.accessToken;
     try {
       const addNewTransaction = addTransaction(data, token);
       return addNewTransaction;
@@ -83,7 +83,7 @@ export const addTransactionThunk = createAsyncThunk(
 export const deleteTransactionThunk = createAsyncThunk(
   'transaction/deleteTransaction',
   async (id, thunkAPI) => {
-    const token = null;
+    const token = thunkAPI.getState().user.accessToken;
     try {
       const delTransaction = await deleteTransaction(id, token);
       return delTransaction;
