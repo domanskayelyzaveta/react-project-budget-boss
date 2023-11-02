@@ -61,7 +61,6 @@
 
 // export default DashboardForm;
 
-
 import React from 'react';
 
 import DatePicker from 'react-datepicker';
@@ -69,7 +68,10 @@ import { Controller, useForm } from 'react-hook-form';
 
 import 'react-datepicker/dist/react-datepicker.css';
 import { useDispatch } from 'react-redux';
-import { addExpenseTransactionThunk, addIncomeTransactionThunk } from 'redux/thunks';
+import {
+  addExpenseTransactionThunk,
+  addIncomeTransactionThunk,
+} from 'redux/thunks';
 import formatDate from 'service/helpers';
 import { StyledForm } from './DashboardForm.styled';
 // import {formatDate} from '../../service/helpers'
@@ -80,22 +82,23 @@ const DashboardForm = ({ categoriesList, category }) => {
       <FormFields categoriesList={categoriesList} category={category} />
     </div>
   );
-}
+};
 
-const FormFields = ({categoriesList, category})=> {
-  const { register, handleSubmit, control, setValue,reset } = useForm();
+const FormFields = ({ categoriesList, category }) => {
+  const { register, handleSubmit, control, setValue, reset } = useForm();
   const [date, setDate] = React.useState(new Date(formatDate(Date.now())));
   const dispatch = useDispatch();
 
   const onSubmit = data => {
-    const dataToDispatch = {...data}
-    dataToDispatch.date = formatDate(dataToDispatch.date)
+    const dataToDispatch = { ...data };
+    dataToDispatch.date = formatDate(dataToDispatch.date);
+    dataToDispatch.amount = +dataToDispatch.amount;
     if (category === 'income') {
-      dispatch(addIncomeTransactionThunk({dataToDispatch, category}))
+      dispatch(addIncomeTransactionThunk({ dataToDispatch, category }));
     } else {
-      dispatch(addExpenseTransactionThunk({dataToDispatch, category}))
+      dispatch(addExpenseTransactionThunk({ dataToDispatch, category }));
     }
-    reset()
+    reset();
   };
 
   const handleChange = dateChange => {
@@ -139,8 +142,6 @@ const FormFields = ({categoriesList, category})=> {
       </StyledForm>
     </div>
   );
-}
-
-
+};
 
 export default DashboardForm;

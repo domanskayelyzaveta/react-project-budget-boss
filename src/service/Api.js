@@ -88,16 +88,18 @@ export async function addTransaction(data, token) {
 }
 
 export async function deleteTransaction(id, token) {
-  const response = await $instance.delete(`/transaction/${id}`, {
-    headers: { Authorization: `Bearer ${token}` },
-  });
+  const response = await $instance.delete(`/transaction/${id}`);
+  // const response = await $instance.delete(`/transaction/${id}`, {
+  //   headers: { Authorization: `Bearer ${token}` },
+  // });
   return response.data;
 }
 
 export const getTransactions = async (category, token) => {
-  const { data } = await $instance.get(`/transaction/${category}`, {
-    headers: { Authorization: `Bearer ${token}` },
-  });
+  const { data } = await $instance.get(`/transaction/${category}`);
+  // const { data } = await $instance.get(`/transaction/${category}`, {
+  //   headers: { Authorization: `Bearer ${token}` },
+  // });
   return data;
 };
 
