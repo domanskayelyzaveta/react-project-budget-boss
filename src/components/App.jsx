@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux';
 import { userThunk } from 'redux/thunks';
 // import { Loader } from './Loader/Loader';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
-import PublicRoute from './AutoAuth/PublicRoute/PublicRoute';
+import PublicRoute from './PublicRoute/PublicRoute';
 
 export const App = () => {
   const dispatch = useDispatch();

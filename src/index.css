@@ -1,6 +1,7 @@
 @import-normalize;
 /* bring in normalize.css styles */
 
+
 :root {
     --background: #1F1F27;
     --text-color: #F6F7FB;
@@ -34,11 +35,19 @@
 body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--background);
-    background-image: url("./images/desktop/rectangle-desktop-1x.webp");
     background-repeat: no-repeat, no-repeat;
     background-size: 1350px 958px;
     background-position: top left, top right;
+    background-image: url("./images/desktop/rectangle-desktop-1x.webp"), url("./images/mobile/ellipse-mobile-1x.webp");
+
+    
+    @media screen and (min-width: 1280px) {
+        background-image: url("./images/desktop/ellipse-desktop-1x.webp"), url("./images/desktop/rectangle-desktop-1x.webp");
+    }
+   
 }
+
+
 
 
 html {
@@ -88,6 +97,7 @@ button {
         margin-left: auto;
         margin-right: auto;
     }
+   
 }
 
 @media screen and (min-width: 768px) {
@@ -99,5 +109,6 @@ button {
 @media screen and (min-width: 1280px) {
     .container {
         width: 1098px;
+        
     }
 }
