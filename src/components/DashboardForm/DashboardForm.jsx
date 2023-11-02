@@ -99,6 +99,7 @@ const FormFields = ({ categoriesList, category }) => {
       dispatch(addExpenseTransactionThunk({ dataToDispatch, category }));
     }
     reset();
+    setDate(null)
   };
 
   const handleChange = dateChange => {
