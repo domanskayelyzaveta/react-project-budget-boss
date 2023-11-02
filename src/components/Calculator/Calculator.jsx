@@ -130,7 +130,7 @@ const Calculator = () => {
     console.log('Accept');
   };
   const closeHandler = () => {
-    resetClickHandler()
+    resetClickHandler();
     console.log('Close');
   };
 
@@ -144,12 +144,12 @@ const Calculator = () => {
               key={i}
               className={
                 btn === '='
-                  ? 'equals'
+                  ? 'equals calc-btn'
                   : btn === 'Accept'
-                  ? 'accept'
+                  ? 'accept  calc-btn'
                   : btn === 'Close'
-                  ? 'close'
-                  : ''
+                  ? 'close  calc-btn'
+                  : 'calc-btn'
               }
               value={btn}
               onClick={

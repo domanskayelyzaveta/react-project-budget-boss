@@ -3,8 +3,10 @@ import Ballance from 'components/Ballance/Ballance';
 import DashboardForm from 'components/DashboardForm/DashboardForm';
 import DashboardSummary from 'components/DashboardSummary/DashboardSummary';
 import DashboardTable from 'components/DashboardTable/DashboardTable';
+import IconWithButton from 'components/IconWithButton/IconWithButton';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {
   getExpensesTransactionsThunk,
   getIncomeTransactionsThunk,
@@ -17,11 +19,7 @@ import {
   StyledBalanceWrapper,
   StyledLinkWrapper,
   StyledTop,
-  StyledTopWrapper,
 } from './DashboardPage.styled';
-import { Link } from 'react-router-dom';
-import IconWithButton from 'components/IconWithButton/IconWithButton';
-import Calculator from 'components/Calculator/Calculator';
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState('1');
@@ -75,7 +73,7 @@ const Dashboard = () => {
               category={'income'}
             />
             <DataWrapper>
-              <DashboardTable data={incomeList} category="income" />
+              <DashboardTable data={incomeList} category={'income'} />
               {incomeSummary && <DashboardSummary data={incomeSummary} />}
             </DataWrapper>
           </IncomeWrapper>
