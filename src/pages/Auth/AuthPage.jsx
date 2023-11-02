@@ -4,7 +4,7 @@ import { loginThunk, registerThunk } from 'redux/thunks';
 import { useForm } from 'react-hook-form';
 import GoogleAuthButton from 'components/GoogleAuthBtn/GoogleAuthBtn';
 import money from '../../images/desktop/money-desktop-1x.webp';
-import ellipse from '../../images/desktop/ellipse-desktop-1x.webp';
+//import ellipse from '../../images/desktop/ellipse-desktop-1x.webp';
 import {
   Form,
   FormWrapper,

@@ -6,13 +6,19 @@ const $instance = axios.create({
   baseURL: BASE_URL,
 });
 
-// export const setToken = token => {
-//   $instance.defaults.headers.Authorization = `Bearer ${token}`;
-// };
+export const setToken = token => {
+  $instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  console.log($instance.defaults.headers);
+};
 
 // const clearToken = () => {
 //   $instance.defaults.headers.Authorization = '';
 // };
+
+export const fetchUser = async () => {
+  const { data } = await $instance.get('/user');
+  return data;
+};
 
 export const fetchRegister = async userData => {
   const { data } = await $instance.post('/auth/register', userData);
@@ -22,34 +28,43 @@ export const fetchRegister = async userData => {
 
 export const fetchLogin = async userData => {
   const { data } = await $instance.post('auth/login', userData);
-  // setToken(data.token);
+  setToken(data.accessToken);
   return data;
 };
 
 export const fetchLogout = async token => {
-  const { data } = await $instance.post('/auth/logout', null, {
-    headers: { Authorization: `Bearer ${token}`, test: `dsf` },
-  });
+  const { data } = await $instance.post(
+    '/auth/logout'
+    //   , null, {
+    //   headers: { Authorization: `Bearer ${token}`, test: `dsf` },
+    // }
+  );
 
   return data;
 };
 
 export const fetchIncomeCategories = async token => {
-  const { data } = await $instance.get('/transaction/income-categories', {
-    headers: { Authorization: `Bearer ${token}` },
-  });
-  // setToken(data.token);
+  const { data } = await $instance.get(
+    '/transaction/income-categories'
+    // , {
+    // headers: { Authorization: `Bearer ${token}` },
+    // }
+  );
+
   return data;
 };
 
 export const fetchExpenseCategories = async token => {
-  const { data } = await $instance.get('/transaction/expense-categories', {
-    headers: { Authorization: `Bearer ${token}` },
-  });
+  console.log($instance.defaults.headers);
+  const { data } = await $instance.get(
+    '/transaction/expense-categories'
+    // , {
+    // headers: { Authorization: `Bearer ${token}` },
+    // }
+  );
   // setToken(data.token);
   return data;
 };
-
 
 // export const fetchExpenseCategories = async token => {
 //   const { data } = await $instance.get('/transaction/expense-categories', {
@@ -87,14 +102,13 @@ export const fetchExpenseCategories = async token => {
 export async function addTransaction(data, token) {
   const response = await $instance.post(
     `/transaction/${data.category}`,
-    data.dataToDispatch,
-    {
-      headers: { Authorization: `Bearer ${token}` },
-    }
+    data.dataToDispatch
+    // {
+    //   headers: { Authorization: `Bearer ${token}` },
+    // }
   );
   return response.data;
 }
-
 
 export async function deleteTransaction(id, token) {
   const response = await $instance.delete(`/transaction/${id}`, {
