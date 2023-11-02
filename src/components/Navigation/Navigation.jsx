@@ -20,8 +20,6 @@ const Navigation = () => {
   const userEmail = useSelector(selectEmail);
   const token = useSelector(selectToken);
   const userInitial = userEmail?.charAt(0).toUpperCase();
-  // console.log(userInitial);
-
   const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(logoutThunk(token));
