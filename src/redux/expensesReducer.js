@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
   addExpenseTransactionThunk,
-  deleteTransactionThunk,
-  getExpensesTransactionsThunk,
+  deleteExpenseTransactionThunk,
+  getExpensesTransactionsThunk
 } from './thunks';
 
 const initialState = {
   expenses: null,
-  monthStats: null,
+  monthsStats: null,
 };
 
 export const expensesSlice = createSlice({
@@ -20,7 +20,7 @@ export const expensesSlice = createSlice({
         // state.expenses = payload.expenses;
         // state.expenses.monthsStats = payload.monthsStats;
         state.expenses = payload.expenses;
-        state.monthStats = payload.monthsStats;
+        state.monthsStats = payload.monthsStats;
       })
 
       // ------------ADD TRANSACTION------------
@@ -29,8 +29,9 @@ export const expensesSlice = createSlice({
       })
 
       // ------------DELETE TRANSACTION------------
-      .addCase(deleteTransactionThunk.fulfilled, (state, { payload }) => {
-        state.expenses = state.expenses.filter(item => item.id !== payload);
+      .addCase(deleteExpenseTransactionThunk.fulfilled, (state, { payload }) => {
+        console.log(payload)
+        state.expenses = state.expenses.filter(item => item._id !== payload);
       }),
 });
 
