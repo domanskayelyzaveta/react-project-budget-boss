@@ -11,6 +11,8 @@ import {
   fetchLogout,
   fetchRegister,
   getTransactions,
+  fetchUser,
+  setToken,
 } from 'service/Api';
 // import { selectToken } from './selectors';
 
@@ -58,6 +60,23 @@ export const loginThunk = createAsyncThunk(
     }
   }
 );
+
+//-----------------user-----------------//
+
+export const userThunk = createAsyncThunk(
+  'user/fetchThunk',
+  async (_, thunkAPI) => {
+    const token = thunkAPI.getState().user.accessToken;
+    setToken(token);
+    try {
+      const response = await fetchUser();
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 //---------------RequestIncomeCategories------------------//
 export const requestIncomeCategoriesThunk = createAsyncThunk(
   'transaction/requestIncomeCategories',
@@ -150,7 +169,7 @@ export const getIncomeTransactionsThunk = createAsyncThunk(
       return thunkAPI.rejectWithValue(error.message);
     }
   }
-)
+);
 export const getExpensesTransactionsThunk = createAsyncThunk(
   'transaction/getExpensesTransactions',
   async (category, thunkAPI) => {
