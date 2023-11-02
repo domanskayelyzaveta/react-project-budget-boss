@@ -90,6 +90,7 @@ const FormFields = ({categoriesList, category})=> {
   const onSubmit = data => {
     const dataToDispatch = {...data}
     dataToDispatch.date = formatDate(dataToDispatch.date)
+    dataToDispatch.amount = +dataToDispatch.amount;
     if (category === 'income') {
       dispatch(addIncomeTransactionThunk({dataToDispatch, category}))
     } else {
