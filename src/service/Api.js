@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
 
 
 const BASE_URL = 'https://kapusta-backend.p.goit.global/';
