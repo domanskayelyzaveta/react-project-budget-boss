@@ -1,5 +1,4 @@
 import axios from 'axios';
-// import { calcLength } from 'framer-motion';
 
 const BASE_URL = 'https://kapusta-backend.p.goit.global/';
 const $instance = axios.create({
@@ -22,7 +21,6 @@ export const fetchUser = async () => {
 
 export const fetchRegister = async userData => {
   const { data } = await $instance.post('/auth/register', userData);
-  // setToken(data.token);
   return data;
 };
 
@@ -33,36 +31,18 @@ export const fetchLogin = async userData => {
 };
 
 export const fetchLogout = async token => {
-  const { data } = await $instance.post(
-    '/auth/logout'
-    //   , null, {
-    //   headers: { Authorization: `Bearer ${token}`, test: `dsf` },
-    // }
-  );
-
+  const { data } = await $instance.post('/auth/logout');
   return data;
 };
 
 export const fetchIncomeCategories = async token => {
-  const { data } = await $instance.get(
-    '/transaction/income-categories'
-    // , {
-    // headers: { Authorization: `Bearer ${token}` },
-    // }
-  );
-
+  const { data } = await $instance.get('/transaction/income-categories');
   return data;
 };
 
 export const fetchExpenseCategories = async token => {
   console.log($instance.defaults.headers);
-  const { data } = await $instance.get(
-    '/transaction/expense-categories'
-    // , {
-    // headers: { Authorization: `Bearer ${token}` },
-    // }
-  );
-  // setToken(data.token);
+  const { data } = await $instance.get('/transaction/expense-categories');
   return data;
 };
 
@@ -103,9 +83,6 @@ export async function addTransaction(data, token) {
   const response = await $instance.post(
     `/transaction/${data.category}`,
     data.dataToDispatch
-    // {
-    //   headers: { Authorization: `Bearer ${token}` },
-    // }
   );
   return response.data;
 }
@@ -121,7 +98,6 @@ export const getTransactions = async (category, token) => {
   const { data } = await $instance.get(`/transaction/${category}`, {
     headers: { Authorization: `Bearer ${token}` },
   });
-  // setToken(data.token);
   return data;
 };
 
