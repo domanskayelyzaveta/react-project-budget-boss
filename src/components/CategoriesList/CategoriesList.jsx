@@ -17,7 +17,7 @@ import AdditionalIncome from '../../images/icons/Additional-income.webp';
 
 export const CategoriesList = ({ data }) => {
   const [currentCategoryType, setCurrentCategoryType] = useState('expense');
-  const arrayOfImagesExpense = {
+  const [arrayOfImagesExpense] = useState({
     Products: Products,
     Alcohol: Alcohol,
     Entertainment: Entertainment,
@@ -29,40 +29,33 @@ export const CategoriesList = ({ data }) => {
     'Sports and hobby': SportsAndHobby,
     Education: Education,
     Other: Other,
-  };
-  const arrayOfImagesIncom = {
+  });
+
+  const [arrayOfImagesIncom] = useState({
     Salary: Salary,
     'Additional income': AdditionalIncome,
-  };
+  });
 
-  const expensesArray = Object.entries(data?.expenses.expensesData)
-    .map(([categories, data]) => ({
-      categories,
-      ...data,
+  const expensesArray = Object.entries(arrayOfImagesExpense)
+    .map(([category, image]) => ({
+      categories: category,
+      total: data?.expenses.expensesData[category]?.total || 0,
+      image: image,
     }))
     .sort((a, b) => b.total - a.total);
 
-  const incomesArray = Object.entries(data?.incomes.incomesData)
-    .map(([categories, data]) => ({
-      categories,
-      ...data,
+  const incomesArray = Object.entries(arrayOfImagesIncom)
+    .map(([category, image]) => ({
+      categories: category,
+      total: data?.incomes.incomesData[category]?.total || 0,
+      image: image,
     }))
     .sort((a, b) => b.total - a.total);
 
-  // const incomesData = Object.keys(object.expenses.expensesData)
-  //   .map(key => {
-  //     object.expenses.expensesData[key].categories = key;
-  //     return object.expenses.expensesData[key];
-  //   })
-  //   .sort((a, b) => b.total - a.total);
-  // console.log(incomesData);
-
-  const handleRequestIncome = () => {
-    setCurrentCategoryType('income');
-  };
-
-  const handleRequestExpense = () => {
-    setCurrentCategoryType('expense');
+  const handleToggleCategoryType = () => {
+    setCurrentCategoryType(
+      currentCategoryType === 'expense' ? 'income' : 'expense'
+    );
   };
 
   return (
@@ -70,17 +63,17 @@ export const CategoriesList = ({ data }) => {
       <div className={css.buttonsContainer}>
         <button
           type="button"
-          onClick={handleRequestIncome}
+          onClick={handleToggleCategoryType}
           className={css.buttonCategory}
         >
           <svg width="16" height="16">
             <use href={`${sprite}#arrow-toleft`} />
           </svg>
         </button>
-        {currentCategoryType === 'income' ? <p>INCOME</p> : <p>EXPENSE</p>}
+        {currentCategoryType === 'income' ? <p>INCOME:</p> : <p>EXPENSE:</p>}
         <button
           type="button"
-          onClick={handleRequestExpense}
+          onClick={handleToggleCategoryType}
           className={css.buttonCategory}
         >
           <svg width="16" height="16">
@@ -90,32 +83,34 @@ export const CategoriesList = ({ data }) => {
       </div>
       <div className={css.ulContainer}>
         <ul className={css.categoriesList}>
-          {currentCategoryType === 'expense' && expensesArray !== null
+          {currentCategoryType === 'expense'
             ? expensesArray.map((element, index) => {
                 return (
                   <li key={index} className={css.categoriesListItem}>
                     <p className={css.total}>{element.total}.00</p>
-                    <img
-                      src={arrayOfImagesExpense[element.categories]}
-                      alt=""
-                    />
+                    <img src={element.image} alt="" className={css.image} />
                     <p className={css.categoryName}>
                       {element.categories.toUpperCase()}
                     </p>
                   </li>
                 );
               })
-            : incomesArray.map((element, index) => {
+            : null}
+        </ul>
+        <ul className={css.categoriesList}>
+          {currentCategoryType === 'income'
+            ? incomesArray.map((element, index) => {
                 return (
                   <li key={index} className={css.categoriesListItem}>
                     <p className={css.total}>{element.total}.00</p>
-                    <img src={arrayOfImagesIncom[element.categories]} alt="" />
+                    <img src={element.image} alt="" className={css.image} />
                     <p className={css.categoryName}>
                       {element.categories.toUpperCase()}
                     </p>
                   </li>
                 );
-              })}
+              })
+            : null}
         </ul>
       </div>
     </div>
@@ -123,3 +118,11 @@ export const CategoriesList = ({ data }) => {
 };
 
 export default CategoriesList;
+
+// const incomesData = Object.keys(object.expenses.expensesData)
+//   .map(key => {
+//     object.expenses.expensesData[key].categories = key;
+//     return object.expenses.expensesData[key];
+//   })
+//   .sort((a, b) => b.total - a.total);
+// console.log(incomesData);
