@@ -20,7 +20,8 @@ import {
   StyledTopWrapper,
 } from './DashboardPage.styled';
 import { Link } from 'react-router-dom';
-import IconWithButton from 'IconWithButton/IconWithButton';
+import IconWithButton from 'components/IconWithButton/IconWithButton';
+import Calculator from 'components/Calculator/Calculator';
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState('1');
@@ -95,6 +96,7 @@ const Dashboard = () => {
           </Link>
         </StyledLinkWrapper>
       </StyledTop>
+      {/* <Calculator/> */}
       <Tabs
         activeKey={activeTab}
         onChange={key => {

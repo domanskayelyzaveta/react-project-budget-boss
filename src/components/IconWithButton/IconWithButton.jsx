@@ -1,5 +1,5 @@
 import React from 'react';
-import sprite from '../images/sprite.svg';
+import sprite from '../../images/sprite.svg';
 import styled from 'styled-components';
 
 function IconWithButton({ iconName, onClick }) {
