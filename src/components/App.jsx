@@ -4,7 +4,7 @@ import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 import Reports from 'pages/Reports/ReportsPage';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
-import { Loader } from './Loader/Loader';
+// import { Loader } from './Loader/Loader';
 //import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 export const App = () => {
@@ -21,7 +21,7 @@ export const App = () => {
         {/* </Route> */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-      {/* <StatisticsByCategory /> */}
+      
     </>
   );
 };
