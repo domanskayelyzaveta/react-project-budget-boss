@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
   addExpenseTransactionThunk,
-  deleteTransactionThunk,
-  getExpensesTransactionsThunk,
+  deleteExpenseTransactionThunk,
+  getExpensesTransactionsThunk
 } from './thunks';
 
 const initialState = {
@@ -29,8 +29,8 @@ export const expensesSlice = createSlice({
       })
 
       // ------------DELETE TRANSACTION------------
-      .addCase(deleteTransactionThunk.fulfilled, (state, { payload }) => {
-        state.expenses = state.expenses.filter(item => item.id !== payload);
+      .addCase(deleteExpenseTransactionThunk.fulfilled, (state, { payload }) => {
+        state.expenses = state.expenses.filter(item => item._id !== payload.id);
       }),
 });
 
