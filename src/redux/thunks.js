@@ -7,11 +7,8 @@ import {
   fetchExpenseCategories,
   fetchIncomeCategories,
   fetchLogin,
-<<<<<<< Updated upstream
   fetchPeriodData,
-=======
   fetchLogout,
->>>>>>> Stashed changes
   fetchRegister,
   getTransactions,
 } from 'service/Api';
