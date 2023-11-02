@@ -7,7 +7,7 @@ import {
 
 const initialState = {
   expenses: null,
-  monthStats: null,
+  monthsStats: null,
 };
 
 export const expensesSlice = createSlice({
@@ -20,7 +20,7 @@ export const expensesSlice = createSlice({
         // state.expenses = payload.expenses;
         // state.expenses.monthsStats = payload.monthsStats;
         state.expenses = payload.expenses;
-        state.monthStats = payload.monthsStats;
+        state.monthsStats = payload.monthsStats;
       })
 
       // ------------ADD TRANSACTION------------

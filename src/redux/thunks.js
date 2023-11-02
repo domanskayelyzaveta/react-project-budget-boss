@@ -157,6 +157,18 @@ export const deleteTransactionThunk = createAsyncThunk(
     }
   }
 );
+// export const deleteExpenseTransactionThunk = createAsyncThunk(
+//   'transaction/deleteTransaction',
+//   async (id, thunkAPI) => {
+//     const token = thunkAPI.getState().user.accessToken;
+//     try {
+//       const delTransaction = await deleteTransaction(id, token);
+//       return delTransaction;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
 
 export const getIncomeTransactionsThunk = createAsyncThunk(
   'transaction/getIncomeTransactions',
