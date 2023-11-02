@@ -1,4 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+// import axios from 'axios';
+
 import {
   addTransaction,
   deleteTransaction,
@@ -6,8 +8,11 @@ import {
   fetchIncomeCategories,
   fetchLogin,
   fetchPeriodData,
+  fetchLogout,
   fetchRegister,
+  getTransactions,
 } from 'service/Api';
+// import { selectToken } from './selectors';
 
 //---------------registration------------------//
 
@@ -25,6 +30,21 @@ export const registerThunk = createAsyncThunk(
 );
 //---------------AUTO-login------------------//
 
+//---------------logout------------------//
+// const clearAuthHeader = () => {
+//   axios.defaults.headers.common.Authorization = '';
+// };
+export const logoutThunk = createAsyncThunk(
+  'user/logoutThunk',
+  async (token, thunkAPI) => {
+    try {
+      await fetchLogout(token);
+      // clearAuthHeader();
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 //---------------login------------------//
 
 export const loginThunk = createAsyncThunk(
@@ -38,9 +58,8 @@ export const loginThunk = createAsyncThunk(
     }
   }
 );
-
 //---------------RequestIncomeCategories------------------//
-export const requestIncomeCategories = createAsyncThunk(
+export const requestIncomeCategoriesThunk = createAsyncThunk(
   'transaction/requestIncomeCategories',
   async (token, thunkAPI) => {
     try {
@@ -54,7 +73,7 @@ export const requestIncomeCategories = createAsyncThunk(
 );
 
 //---------------RequestExpenseCategories------------------//
-export const requestExpenseCategories = createAsyncThunk(
+export const requestExpenseCategoriesThunk = createAsyncThunk(
   'transaction/requestExpenseCategories',
   async (token, thunkAPI) => {
     try {
@@ -70,9 +89,9 @@ export const requestExpenseCategories = createAsyncThunk(
 //---------------RequestPeriodData------------------//
 export const requestPeriodData = createAsyncThunk(
   'transaction/requestPeriodData',
-  async (date, thunkAPI) => {
+  async ({ date, token }, thunkAPI) => {
     try {
-      const response = await fetchPeriodData(date);
+      const response = await fetchPeriodData(date, token);
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -80,31 +99,67 @@ export const requestPeriodData = createAsyncThunk(
   }
 );
 
-
 //--------------- Dashboard queries------------------//
 
-// export const addTransactionThunk = createAsyncThunk(
-//   'transaction/addTransaction',
-//   async (data, thunkAPI) => {
-//     const token = thunkAPI.getState().user.accessToken;
-//     try {
-//       const addNewTransaction = addTransaction(data, token);
-//       return addNewTransaction;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
+export const addIncomeTransactionThunk = createAsyncThunk(
+  'transaction/addIncomeTransaction',
+  async (data, thunkAPI) => {
+    const token = thunkAPI.getState().user.accessToken;
+    try {
+      const addNewTransaction = addTransaction(data, token);
+      return addNewTransaction;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+export const addExpenseTransactionThunk = createAsyncThunk(
+  'transaction/addExpenseTransaction',
+  async (data, thunkAPI) => {
+    const token = thunkAPI.getState().user.accessToken;
+    try {
+      const addNewTransaction = addTransaction(data, token);
+      return addNewTransaction;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
-// export const deleteTransactionThunk = createAsyncThunk(
-//   'transaction/deleteTransaction',
-//   async (id, thunkAPI) => {
-//     const token = thunkAPI.getState().user.accessToken;
-//     try {
-//       const delTransaction = await deleteTransaction(id, token);
-//       return delTransaction;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
+export const deleteTransactionThunk = createAsyncThunk(
+  'transaction/deleteTransaction',
+  async (id, thunkAPI) => {
+    const token = thunkAPI.getState().user.accessToken;
+    try {
+      const delTransaction = await deleteTransaction(id, token);
+      return delTransaction;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getIncomeTransactionsThunk = createAsyncThunk(
+  'transaction/getIncomeTransactions',
+  async (category, thunkAPI) => {
+    const token = thunkAPI.getState().user.accessToken;
+    try {
+      const getAllTransactions = await getTransactions(category, token);
+      return getAllTransactions;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+)
+export const getExpensesTransactionsThunk = createAsyncThunk(
+  'transaction/getExpensesTransactions',
+  async (category, thunkAPI) => {
+    const token = thunkAPI.getState().user.accessToken;
+    try {
+      const getAllTransactions = await getTransactions(category, token);
+      return getAllTransactions;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

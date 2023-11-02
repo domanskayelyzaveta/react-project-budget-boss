@@ -1,24 +1,30 @@
-import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { fetchIncomeCategories } from 'service/Api';
+import { createSlice } from '@reduxjs/toolkit';
+import {
+  addIncomeTransactionThunk,
+  deleteTransactionThunk,
+  getIncomeTransactionsThunk
+} from './thunks';
 
 const initialState = {
-  incomes: [],
-  monthStats: null,
+  incomes: null,
+  monthsStats: null,
 };
 
-export const contactsSlice = createSlice({
+export const incomeSlice = createSlice({
   name: 'income',
   initialState,
   extraReducers: builder =>
     builder
-      // ------------GET CATEGORIES------------
-      .addCase(fetchIncomeCategories.fulfilled, (state, { payload }) => {
-        state.incomes = payload;
+      // ------------GET TRANSACTIONS------------
+      .addCase(getIncomeTransactionsThunk.fulfilled, (state, { payload }) => {
+        state.incomes = payload.incomes;
+        state.monthsStats = payload.monthsStats
       })
 
       // ------------ADD TRANSACTION------------
-      .addCase(addTransactionThunk.fulfilled, (state, { payload }) => {
-        state.incomes.push(payload);
+      .addCase(addIncomeTransactionThunk.fulfilled, (state, { payload }) => {
+        console.log(state)
+        state.incomes.push(payload.transaction);
       })
 
       // ------------DELETE TRANSACTION------------
@@ -52,7 +58,7 @@ export const contactsSlice = createSlice({
       // )
       // .addMatcher(
       //   isAnyOf(
-      //     fetchIncomeCategoriesThunk.fulfilled,
+      //     requestIncomeCategoriesThunk.fulfilled,
       //     addTransactionThunk.fulfilled,
       //     deleteTransactionThunk.fulfilled
       //   ),
@@ -63,3 +69,5 @@ export const contactsSlice = createSlice({
       //   }
       // ),
 });
+
+export const incomeReducer = incomeSlice.reducer;

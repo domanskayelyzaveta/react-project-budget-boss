@@ -1,6 +1,7 @@
 import React from 'react';
 // import { GoogleLogin } from '@react-oauth/google';
-import { Button } from './GoogleAuthBtn.styled';
+import { Button, Container, Svg } from './GoogleAuthBtn.styled';
+import sprite from '../../images/sprite.svg';
 
 const GoogleAuthButton = () => {
   const handleGoogleLogin = () => {
@@ -8,9 +9,12 @@ const GoogleAuthButton = () => {
   };
 
   return (
-    <div>
+    <Container>
       <Button type="button" onClick={handleGoogleLogin}>
-        Google Button
+        <Svg width="18" height="17">
+          <use href={`${sprite}#icon-google-symbol`} />
+        </Svg>
+        Google
       </Button>
       {/* <GoogleLogin
         onSuccess={credentialResponse => {
@@ -22,7 +26,7 @@ const GoogleAuthButton = () => {
       >
         Google Login
       </GoogleLogin> */}
-    </div>
+    </Container>
   );
 };
 

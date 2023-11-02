@@ -10,10 +10,22 @@ import {
   Auth,
   StyledComponent,
 } from './Navigation.styled';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { logoutThunk } from 'redux/thunks';
+import { selectEmail, selectToken } from 'redux/selectors';
 
 const Navigation = () => {
   const isSignedIn = useSelector(state => state.user.isSignedIn);
+
+  const userEmail = useSelector(selectEmail);
+  const token = useSelector(selectToken);
+  const userInitial = userEmail?.charAt(0).toUpperCase();
+  // console.log(userInitial);
+
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(logoutThunk(token));
+  };
 
   return (
     <Div>
@@ -24,10 +36,10 @@ const Navigation = () => {
               <img src={logo} alt="Logo" />
             </NavLink>
             <StyledComponent to="/" end>
-              <Ellipse>U</Ellipse>
+              <Ellipse>{userInitial}</Ellipse>
             </StyledComponent>
             <NavLink to="/" end>
-              <LogOut>
+              <LogOut onClick={handleLogout}>
                 <svg width="16" height="16">
                   <use href={`${sprite}#icon-logout`} />
                 </svg>

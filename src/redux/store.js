@@ -13,6 +13,9 @@ import {
   REGISTER,
 } from 'redux-persist';
 import { categoriesReducer } from './categoriesReducer';
+import { expensesReducer } from './expensesReducer';
+import { incomeReducer } from './incomeReducer';
+import { periodDataReducer } from './periodDataReducer';
 
 const userPersistConfig = {
   key: 'user',
@@ -23,9 +26,10 @@ const userPersistConfig = {
 const store = configureStore({
   reducer: {
     user: persistReducer(userPersistConfig, userReducer),
-    // expenses: expensesReducer,
-    // income: incomeReducer,
+    income: incomeReducer,
+    expenses: expensesReducer,
     categories: categoriesReducer,
+    date: periodDataReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
