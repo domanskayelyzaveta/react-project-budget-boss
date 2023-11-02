@@ -30,7 +30,8 @@ export const expensesSlice = createSlice({
 
       // ------------DELETE TRANSACTION------------
       .addCase(deleteExpenseTransactionThunk.fulfilled, (state, { payload }) => {
-        state.expenses = state.expenses.filter(item => item._id !== payload.id);
+        console.log(payload)
+        state.expenses = state.expenses.filter(item => item._id !== payload);
       }),
 });
 
