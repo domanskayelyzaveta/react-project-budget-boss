@@ -9,3 +9,10 @@ border-radius: 0 20px 20px 20px;
 background: linear-gradient(115.74deg, #383847 23.54%, rgba(56, 56, 71, 0.29) 107.94%);
 
 `
+export const StyledTop = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+
+export const StyledBalanceWrapper = styled.div`margin-right: auto;margin-left:50%`
+export const StyledLinkWrapper = styled.div``
