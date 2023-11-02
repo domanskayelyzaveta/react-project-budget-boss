@@ -1,26 +1,21 @@
 import React from 'react';
 // import { GoogleLogin } from '@react-oauth/google';
-import {
-  // Button,
-  Container,
-  // Svg
-} from './GoogleAuthBtn.styled';
-// import sprite from '../../images/sprite.svg';
+import { Button, Container, Svg } from './GoogleAuthBtn.styled';
+import sprite from '../../images/sprite.svg';
 
 const GoogleAuthButton = () => {
-  // const handleGoogleLogin = () => {
-  //   window.location.href = 'https://kapusta-backend.p.goit.global/auth/google';
-  // };
+  const handleGoogleLogin = () => {
+    window.location.href = 'https://kapusta-backend.p.goit.global/auth/google';
+  };
 
   return (
     <Container>
-      <a href="https://kapusta-backend.p.goit.global/auth/google">Google</a>
-      {/* //   <Button type="button" onClick={handleGoogleLogin}>
-    //     <Svg width="18" height="17">
-    //       <use href={`${sprite}#icon-google-symbol`} />
-    //     </Svg>
-    //     Google
-    //   </Button> */}
+      <Button type="button" onClick={handleGoogleLogin}>
+        <Svg width="18" height="17">
+          <use href={`${sprite}#icon-google-symbol`} />
+        </Svg>
+        Google
+      </Button>
       {/* <GoogleLogin
         onSuccess={credentialResponse => {
           console.log(credentialResponse);
