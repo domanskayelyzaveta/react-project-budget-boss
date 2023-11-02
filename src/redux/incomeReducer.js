@@ -30,7 +30,7 @@ export const incomeSlice = createSlice({
 
       // ------------DELETE TRANSACTION------------
       .addCase(deleteIncomeTransactionThunk.fulfilled, (state, { payload }) => {
-        state.incomes = state.incomes.filter(item => item.id !== payload);
+        state.incomes = state.incomes.filter(item => item._id !== payload);
       })
 
       // .addMatcher(
