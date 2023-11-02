@@ -18,7 +18,6 @@ const Navigation = () => {
   const isSignedIn = useSelector(state => state.user.isSignedIn);
 
   const userEmail = useSelector(selectEmail);
-  console.log(userEmail);
   const token = useSelector(selectToken);
   const userInitial = userEmail?.charAt(0).toUpperCase();
   // console.log(userInitial);
