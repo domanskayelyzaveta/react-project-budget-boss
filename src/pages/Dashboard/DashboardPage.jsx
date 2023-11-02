@@ -11,15 +11,26 @@ import {
   requestExpenseCategoriesThunk,
   requestIncomeCategoriesThunk,
 } from 'redux/thunks';
-import { DataWrapper, IncomeWrapper } from './DashboardPage.styled';
+import {
+  DataWrapper,
+  IncomeWrapper,
+  StyledBalanceWrapper,
+  StyledLinkWrapper,
+  StyledTop,
+  StyledTopWrapper,
+} from './DashboardPage.styled';
+import { Link } from 'react-router-dom';
+import IconWithButton from 'IconWithButton/IconWithButton';
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState('1');
+  const expensesList = useSelector(state => state.expenses.expenses);
+  const incomeList = useSelector(state => state.income.incomes);
+  const expensesSummary = useSelector(state => state.expenses.monthsStats);
+  const incomeSummary = useSelector(state => state.income.monthsStats);
 
   const dispatch = useDispatch();
   const token = useSelector(state => state.user.accessToken);
-  // const totalIncomeList = useSelector(state => state.user.accessToken);
-  // const totalExpensesList = useSelector(state => state.user.accessToken);
 
   useEffect(() => {
     dispatch(requestIncomeCategoriesThunk(token));
@@ -34,10 +45,6 @@ const Dashboard = () => {
   const expenseCategoriesList = useSelector(
     state => state.categories.expenseCategories
   );
-  const expensesList = useSelector(state => state.expenses.expenses);
-  const incomeList = useSelector(state => state.income.incomes);
-  const expensesSummary = useSelector(state => state.expenses.monthsStats);
-  const incomeSummary = useSelector(state => state.income.monthsStats);
 
   const items = [
     {
@@ -45,7 +52,6 @@ const Dashboard = () => {
       label: 'EXPENSES',
       children: (
         <>
-          <Ballance />
           <DashboardForm
             categoriesList={expenseCategoriesList}
             category={'expense'}
@@ -62,7 +68,6 @@ const Dashboard = () => {
       label: 'INCOME',
       children: (
         <>
-          <Ballance />
           <IncomeWrapper>
             <DashboardForm
               categoriesList={incomeCategoriesList}
@@ -79,15 +84,27 @@ const Dashboard = () => {
   ];
 
   return (
-    <Tabs
-      activeKey={activeTab}
-      onChange={key => {
-        setActiveTab(key);
-        console.log(key);
-      }}
-      defaultActiveKey="1"
-      items={items}
-    />
+    <>
+      <StyledTop>
+        <StyledBalanceWrapper>
+          <Ballance />
+        </StyledBalanceWrapper>
+        <StyledLinkWrapper>
+          <Link to="/reports">
+            <IconWithButton />
+          </Link>
+        </StyledLinkWrapper>
+      </StyledTop>
+      <Tabs
+        activeKey={activeTab}
+        onChange={key => {
+          setActiveTab(key);
+          console.log(key);
+        }}
+        defaultActiveKey="1"
+        items={items}
+      />
+    </>
   );
 };
 
