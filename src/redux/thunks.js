@@ -1,5 +1,4 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { useDispatch } from 'react-redux';
 // import axios from 'axios';
 
 import {
@@ -8,13 +7,13 @@ import {
   fetchExpenseCategories,
   fetchIncomeCategories,
   fetchLogin,
-  fetchPeriodData,
   fetchLogout,
+  fetchPeriodData,
   fetchRegister,
-  getTransactions,
   fetchUser,
-  setToken,
+  getTransactions,
   setBalance,
+  setToken,
 } from 'service/Api';
 // import { selectToken } from './selectors';
 
