@@ -15,8 +15,6 @@ import { logoutThunk } from 'redux/thunks';
 import { selectEmail, selectToken } from 'redux/selectors';
 
 const Navigation = () => {
-  const isSignedIn = useSelector(state => state.user.isSignedIn);
-
   const userEmail = useSelector(selectEmail);
   const token = useSelector(selectToken);
   const userInitial = userEmail?.charAt(0).toUpperCase();
@@ -28,7 +26,7 @@ const Navigation = () => {
   return (
     <Div>
       <Nav>
-        {isSignedIn ? (
+        {token ? (
           <Auth>
             <NavLink to="/" end>
               <img src={logo} alt="Logo" />
