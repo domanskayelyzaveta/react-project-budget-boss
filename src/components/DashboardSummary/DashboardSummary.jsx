@@ -1,37 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { SummaryWrapper } from './DashboardSummary.styled';
 
+const DashboardSummary = ({ data }) => {
+  const [listItems, setListItems] = useState([]);
 
-const DashboardSummary = () => {
+  useEffect(() => {
+    const items = Object.entries(data).map(([month, value]) => (
+      <li key={month}>
+        {month}: {value === 'N/A' ? 0 : value}
+      </li>
+    ));
+    setListItems(items);
+  }, [data]);
+
   return (
     <SummaryWrapper>
       <h3>Summary</h3>
-      <ul>
-        <li>
-          <div>
-            <p>September</p>
-            <p>1000</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <p>November</p>
-            <p>2000</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <p>December</p>
-            <p>3000</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <p></p>
-            <p></p>
-          </div>
-        </li>
-      </ul>
+      <ul>{listItems}</ul>
     </SummaryWrapper>
   );
 };

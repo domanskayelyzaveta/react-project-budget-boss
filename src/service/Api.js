@@ -7,7 +7,6 @@ const $instance = axios.create({
 
 export const setToken = token => {
   $instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-  console.log($instance.defaults.headers);
 };
 
 // const clearToken = () => {
@@ -35,13 +34,12 @@ export const fetchLogout = async token => {
   return data;
 };
 
-export const fetchIncomeCategories = async token => {
+export const fetchIncomeCategories = async () => {
   const { data } = await $instance.get('/transaction/income-categories');
   return data;
 };
 
-export const fetchExpenseCategories = async token => {
-  console.log($instance.defaults.headers);
+export const fetchExpenseCategories = async () => {
   const { data } = await $instance.get('/transaction/expense-categories');
   return data;
 };
@@ -88,16 +86,19 @@ export async function addTransaction(data, token) {
 }
 
 export async function deleteTransaction(id, token) {
-  const response = await $instance.delete(`/transaction/${id}`, {
-    headers: { Authorization: `Bearer ${token}` },
-  });
-  return response.data;
+  const response = await $instance.delete(`/transaction/${id}`);
+  console.log(response)
+  // const response = await $instance.delete(`/transaction/${id}`, {
+  //   headers: { Authorization: `Bearer ${token}` },
+  // });
+  return id//response.data;
 }
 
 export const getTransactions = async (category, token) => {
-  const { data } = await $instance.get(`/transaction/${category}`, {
-    headers: { Authorization: `Bearer ${token}` },
-  });
+  const { data } = await $instance.get(`/transaction/${category}`);
+  // const { data } = await $instance.get(`/transaction/${category}`, {
+  //   headers: { Authorization: `Bearer ${token}` },
+  // });
   return data;
 };
 
@@ -111,10 +112,7 @@ export const getTransactions = async (category, token) => {
 //   return data;
 // };
 
-export const fetchPeriodData = async (date, token) => {
-  const { data } = await $instance.get(
-    `/transaction/period-data?date=${date}`,
-    { headers: { Authorization: `Bearer ${token}` } }
-  );
+export const fetchPeriodData = async date => {
+  const { data } = await $instance.get(`/transaction/period-data?date=${date}`);
   return data;
 };

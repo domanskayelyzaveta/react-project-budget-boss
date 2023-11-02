@@ -1,5 +1,10 @@
 const { createSlice } = require('@reduxjs/toolkit');
-const { registerThunk, loginThunk, logoutThunk } = require('./thunks');
+const {
+  registerThunk,
+  loginThunk,
+  logoutThunk,
+  userThunk,
+} = require('./thunks');
 
 const initialState = {
   userData: null,
@@ -8,6 +13,7 @@ const initialState = {
   accessToken: null,
   isSignedIn: false,
   id: null,
+  balance: null,
 };
 
 const userSlice = createSlice({
@@ -15,7 +21,7 @@ const userSlice = createSlice({
   initialState,
   extraReducers: builder => {
     builder
-      //------------ Registration ---------------
+      //------------ Registration -------------//
 
       .addCase(registerThunk.pending, state => {
         state.error = null;
@@ -33,7 +39,7 @@ const userSlice = createSlice({
         state.error = action.payload;
       })
 
-      //------------- Log in ---------------
+      //------------- Log in ------------------//
 
       .addCase(loginThunk.pending, state => {
         state.isLoading = true;
@@ -50,7 +56,9 @@ const userSlice = createSlice({
         state.isSignedIn = false;
         state.error = action.payload;
       })
-      //------------- Log out ---------------
+
+      //------------- Log out -----------------//
+
       .addCase(logoutThunk.pending, state => {
         state.isLoading = true;
         state.error = null;
@@ -63,6 +71,22 @@ const userSlice = createSlice({
       .addCase(logoutThunk.rejected, (state, action) => {
         state.isLoading = false;
         state.isSignedIn = false;
+        state.error = action.payload;
+      })
+      //---------- User Info -----------------//
+
+      .addCase(userThunk.pending, state => {
+        state.error = null;
+        state.isLoading = true;
+      })
+      .addCase(userThunk.fulfilled, (state, action) => {
+        state.error = null;
+        state.isLoading = false;
+        state.isSignedIn = true;
+        state.balance = action.payload.balance;
+      })
+      .addCase(userThunk.rejected, (state, action) => {
+        state.isLoading = false;
         state.error = action.payload;
       });
   },

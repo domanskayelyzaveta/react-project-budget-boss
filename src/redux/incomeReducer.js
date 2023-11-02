@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
   addIncomeTransactionThunk,
+  deleteIncomeTransactionThunk,
   deleteTransactionThunk,
   getIncomeTransactionsThunk
 } from './thunks';
@@ -23,13 +24,13 @@ export const incomeSlice = createSlice({
 
       // ------------ADD TRANSACTION------------
       .addCase(addIncomeTransactionThunk.fulfilled, (state, { payload }) => {
-        console.log(state)
+        console.log(payload.transaction)
         state.incomes.push(payload.transaction);
       })
 
       // ------------DELETE TRANSACTION------------
-      .addCase(deleteTransactionThunk.fulfilled, (state, { payload }) => {
-        state.incomes = state.incomes.filter(item => item.id !== payload);
+      .addCase(deleteIncomeTransactionThunk.fulfilled, (state, { payload }) => {
+        state.incomes = state.incomes.filter(item => item._id !== payload);
       })
 
       // .addMatcher(

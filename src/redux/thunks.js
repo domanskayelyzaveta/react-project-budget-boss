@@ -80,10 +80,9 @@ export const userThunk = createAsyncThunk(
 //---------------RequestIncomeCategories------------------//
 export const requestIncomeCategoriesThunk = createAsyncThunk(
   'transaction/requestIncomeCategories',
-  async (token, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
-      const response = await fetchIncomeCategories(token);
-      // console.log(response);
+      const response = await fetchIncomeCategories();
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -94,10 +93,9 @@ export const requestIncomeCategoriesThunk = createAsyncThunk(
 //---------------RequestExpenseCategories------------------//
 export const requestExpenseCategoriesThunk = createAsyncThunk(
   'transaction/requestExpenseCategories',
-  async (token, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
-      const response = await fetchExpenseCategories(token);
-      // console.log(response);
+      const response = await fetchExpenseCategories();
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -108,9 +106,9 @@ export const requestExpenseCategoriesThunk = createAsyncThunk(
 //---------------RequestPeriodData------------------//
 export const requestPeriodData = createAsyncThunk(
   'transaction/requestPeriodData',
-  async ({ date, token }, thunkAPI) => {
+  async (date, thunkAPI) => {
     try {
-      const response = await fetchPeriodData(date, token);
+      const response = await fetchPeriodData(date);
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -145,8 +143,20 @@ export const addExpenseTransactionThunk = createAsyncThunk(
   }
 );
 
-export const deleteTransactionThunk = createAsyncThunk(
-  'transaction/deleteTransaction',
+export const deleteIncomeTransactionThunk = createAsyncThunk(
+  'transaction/deleteIncomeTransaction',
+  async (id, thunkAPI) => {
+    const token = thunkAPI.getState().user.accessToken;
+    try {
+      const delTransaction = await deleteTransaction(id, token);
+      return delTransaction;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+export const deleteExpenseTransactionThunk = createAsyncThunk(
+  'transaction/deleteExpenseTransaction',
   async (id, thunkAPI) => {
     const token = thunkAPI.getState().user.accessToken;
     try {

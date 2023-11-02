@@ -2,13 +2,13 @@ import { createSlice } from '@reduxjs/toolkit';
 import { requestPeriodData } from './thunks';
 
 const initialState = {
-  date: null,
+  periodInfo: null,
   isLoading: false,
   error: null,
 };
 
-const dateSlice = createSlice({
-  name: 'date',
+const periodSlice = createSlice({
+  name: 'period',
   initialState,
   extraReducers: builder => {
     builder
@@ -19,7 +19,7 @@ const dateSlice = createSlice({
       .addCase(requestPeriodData.fulfilled, (state, action) => {
         state.error = null;
         state.isLoading = false;
-        state.date = action.payload;
+        state.periodInfo = action.payload;
       })
       .addCase(requestPeriodData.rejected, (state, action) => {
         state.isLoading = false;
@@ -28,4 +28,4 @@ const dateSlice = createSlice({
   },
 });
 
-export const periodDataReducer = dateSlice.reducer;
+export const periodInfoReducer = periodSlice.reducer;
