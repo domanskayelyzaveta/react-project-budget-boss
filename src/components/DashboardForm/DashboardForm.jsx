@@ -68,10 +68,10 @@ import DatePicker from 'react-datepicker';
 import { Controller, useForm } from 'react-hook-form';
 
 import 'react-datepicker/dist/react-datepicker.css';
-import { StyledForm } from './DashboardForm.styled';
 import { useDispatch } from 'react-redux';
-import { addExpenseTransactionThunk, addIncomeTransactionThunk, addTransactionThunk } from 'redux/thunks';
+import { addExpenseTransactionThunk, addIncomeTransactionThunk } from 'redux/thunks';
 import formatDate from 'service/helpers';
+import { StyledForm } from './DashboardForm.styled';
 // import {formatDate} from '../../service/helpers'
 
 const DashboardForm = ({ categoriesList, category }) => {
@@ -95,7 +95,6 @@ const FormFields = ({categoriesList, category})=> {
     } else {
       dispatch(addExpenseTransactionThunk({dataToDispatch, category}))
     }
-    // dispatch(addTransactionThunk({ dataToDispatch, category }));
     reset()
   };
 
