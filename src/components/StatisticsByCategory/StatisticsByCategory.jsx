@@ -250,13 +250,14 @@ export const data = {
   ],
 };
 const ChartContainer = styled.div`
-  background-color: #5a6a6e30;
-
   @media screen and (min-width: 320px) {
     width: 320px;
     min-height: 90px;
     margin-left: auto;
     margin-right: auto;
+    background-color: rgba(56, 56, 71, 0.6);
+    box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
   }
 
   @media screen and (min-width: 768px) {
