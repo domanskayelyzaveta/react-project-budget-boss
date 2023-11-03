@@ -1,26 +1,21 @@
 import React from 'react';
 import sprite from '../../images/sprite.svg';
 import styled from 'styled-components';
+import { StyledBtn } from './IconWithButton.styled';
 
-function IconWithButton({ iconName, onClick }) {
+const IconWithButton = ({ iconName}) => {
   return (
-    <StyledToReportsBtn onClick={onClick}>
+    <StyledBtn>
       <div>
         Reports
         <svg width="16" height="16">
-          <use href={`${sprite}#icon-bar_chart-24px`} />
+          <use href={`${sprite}${iconName}`} />
         </svg>
       </div>
-    </StyledToReportsBtn>
+    </StyledBtn>
   );
-}
+};
 
 export default IconWithButton;
 
-const StyledToReportsBtn = styled.button`
-border:none;
-background:transparent;
-color: var(--text-color);
 
-
-`
