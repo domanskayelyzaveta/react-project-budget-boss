@@ -6,7 +6,8 @@ import {
   ExpenseTotal,
   IncomeTotal,
   StatisticsText,
-  StatisticsWrap,
+  StatisticsWrapLeft,
+  StatisticsWrapRight,
 } from './TotalStatistics.styled';
 
 const TotalStatistics = () => {
@@ -23,23 +24,14 @@ const TotalStatistics = () => {
 
   return (
     <Container>
-      <StatisticsWrap>
+      <StatisticsWrapLeft>
         <StatisticsText>Expenses:</StatisticsText>
         <ExpenseTotal>&#x2212;&#32;{expenseTotal}</ExpenseTotal>
-      </StatisticsWrap>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="2"
-        height="70"
-        viewBox="0 0 2 70"
-        fill="none"
-      >
-        <path d="M1 0V70" stroke="#474759" />
-      </svg>
-      <StatisticsWrap>
+      </StatisticsWrapLeft>
+      <StatisticsWrapRight>
         <StatisticsText>Income:</StatisticsText>
         <IncomeTotal>&#x2b;&#32;{incomeTotal}</IncomeTotal>
-      </StatisticsWrap>
+      </StatisticsWrapRight>
     </Container>
   );
 };
