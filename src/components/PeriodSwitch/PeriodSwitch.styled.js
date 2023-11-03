@@ -1,7 +1,18 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+const media = {
+  tablet: '(min-width: 768px)',
+  mobile: '(max-width: 767px)',
+};
+
 export const Container = styled.div`
+  @media ${media.mobile} {
+    display: flex;
+    flex-direction: column-reverse;
+    max-width: 767px;
+    margin-top: 32px;
+  }
   max-width: 1034px;
   display: flex;
   justify-content: space-between;
@@ -12,6 +23,9 @@ export const Container = styled.div`
 `;
 
 export const BackBtn = styled(Link)`
+  @media ${media.mobile} {
+    display: none;
+  }
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -26,36 +40,49 @@ export const Back = styled.svg`
 
 export const BackText = styled.span`
   font-size: 12px;
-  font-style: normal;
   font-weight: 400;
   line-height: normal;
   letter-spacing: 0.48px;
   color: var(--white-DC);
 `;
 
-export const BalanceWrap = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
+export const MobileWrapPeriod = styled.div`
+  @media ${media.mobile} {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 32px;
+  }
 `;
 
-export const BalanceTitle = styled.h2`
-  margin-right: 20px;
-  text-align: center;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  letter-spacing: 0.24px;
-  color: rgba(199, 204, 220, 0.5);
-`;
+// export const BalanceWrap = styled.div`
+//   @media ${media.mobile} {
+//     display: flex;
+//     flex-direction: column;
+//     gap: 8px;
+//   }
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   flex-direction: row;
+// `;
+
+// export const BalanceTitle = styled.h2`
+//   @media ${media.mobile} {
+//     margin-right: 0;
+//   }
+//   margin-right: 20px;
+//   text-align: center;
+//   font-size: 12px;
+//   font-weight: 500;
+//   line-height: normal;
+//   letter-spacing: 0.24px;
+//   color: rgba(199, 204, 220, 0.5);
+// `;
 
 export const PeriodTitle = styled.h3`
   margin-bottom: 5px;
   text-align: center;
   font-size: 12px;
-  font-style: normal;
   font-weight: 400;
   line-height: normal;
   letter-spacing: 0.48px;
@@ -84,10 +111,9 @@ export const PeriodArrow = styled.svg`
 `;
 
 export const PeriodText = styled.div`
-  width: 128px;
+  width: 132px;
   text-align: center;
   font-size: 14px;
-  font-style: normal;
   font-weight: 700;
   line-height: normal;
   letter-spacing: 0.28px;

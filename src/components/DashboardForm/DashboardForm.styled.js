@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 export const StyledWrapper = styled.div`
   display: flex;
@@ -25,23 +26,24 @@ export const StyledDescrInput = styled.input`
   /* border: none; */
   border-right: 2px solid var(--grey, #474759);
   border-top: none;
+  margin: 0;
   border-left: none;
   border-bottom: none;
   background: transparent;
 `;
-export const CustomSelect = styled.select`
-  width: 100%;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin: 15px 0;
-  border-right: 2px solid var(--grey, #474759);
-  border-top: none;
-  border-left: none;
-  border-bottom: none;
-  color: red;
-  background: transparent;
-  color: var(--white-DC);
-`;
+// export const CustomSelect = styled.select`
+//   width: 100%;
+//   padding-left: 20px;
+//   padding-right: 20px;
+//   margin: 15px 0;
+//   border-right: 2px solid var(--grey, #474759);
+//   border-top: none;
+//   border-left: none;
+//   border-bottom: none;
+//   color: red;
+//   background: transparent;
+//   color: var(--white-DC);
+// `;
 
 export const StyledOption = styled.option`
   background-color: #f9f9f9;
@@ -49,7 +51,6 @@ export const StyledOption = styled.option`
 `;
 
 export const StyledSumInput = styled.input`
-
   color: var(--white-DC);
   padding-left: 20px;
   padding-right: 20px;
@@ -61,10 +62,12 @@ export const StyledSumInput = styled.input`
   line-height: normal;
   letter-spacing: 0.24px;
   border: none;
+  margin: 0;
   background: transparent;
 `;
 
 export const StyledInputWrapper = styled.div`
+  margin-top: 32px;
   display: flex;
   box-sizing: border-box;
   gap: 20px;

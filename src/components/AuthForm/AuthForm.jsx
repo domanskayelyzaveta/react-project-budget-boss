@@ -9,7 +9,7 @@ import {
   RegisterBtn,
   RequiredP,
   Span,
-} from './AuthForm.staled';
+} from './AuthForm.styled';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { loginThunk, registerThunk } from 'redux/thunks';

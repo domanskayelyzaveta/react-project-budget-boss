@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import Ballance from 'components/Ballance/Ballance';
 import sprite from '../../images/sprite.svg';
 import { requestPeriodData } from 'redux/thunks';
@@ -8,9 +8,8 @@ import {
   Back,
   BackBtn,
   BackText,
-  BalanceTitle,
-  BalanceWrap,
   Container,
+  MobileWrapPeriod,
   Period,
   PeriodArrow,
   PeriodBtn,
@@ -89,26 +88,25 @@ const PeriodSwitch = () => {
         </Back>
         <BackText>Main page</BackText>
       </BackBtn>
-      <BalanceWrap>
-        <BalanceTitle>Balance:</BalanceTitle>
+      <>
         <Ballance />
-      </BalanceWrap>
-      <div>
-        <PeriodTitle>Current period:</PeriodTitle>
-        <Period>
-          <PeriodBtn onClick={handlePrevMonthClick}>
-            <PeriodArrow width="15" height="15">
-              <use href={`${sprite}#arrow-toleft`} />
-            </PeriodArrow>
-          </PeriodBtn>
-          <PeriodText>{formatData(selectedDate)}</PeriodText>
-          <PeriodBtn onClick={handleNextMonthClick}>
-            <PeriodArrow width="15" height="15">
-              <use href={`${sprite}#arrow-toright`} />
-            </PeriodArrow>
-          </PeriodBtn>
-        </Period>
-      </div>
+        <MobileWrapPeriod>
+          <PeriodTitle>Current period:</PeriodTitle>
+          <Period>
+            <PeriodBtn onClick={handlePrevMonthClick}>
+              <PeriodArrow width="15" height="15">
+                <use href={`${sprite}#arrow-toleft`} />
+              </PeriodArrow>
+            </PeriodBtn>
+            <PeriodText>{formatData(selectedDate)}</PeriodText>
+            <PeriodBtn onClick={handleNextMonthClick}>
+              <PeriodArrow width="15" height="15">
+                <use href={`${sprite}#arrow-toright`} />
+              </PeriodArrow>
+            </PeriodBtn>
+          </Period>
+        </MobileWrapPeriod>
+      </>
     </Container>
   );
 };
