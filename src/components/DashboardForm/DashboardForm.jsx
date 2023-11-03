@@ -152,10 +152,11 @@ const FormFields = ({ categoriesList, category }) => {
             ))}
           </StyledCategoryInput> */}
           <Controller
-            name="customSelect"
+            name="category"
             control={control}
             render={({ field }) => (
               <CustomSelect {...field}>
+                <option value="-">Category</option>
                 {categoriesList?.map((category, index) => (
                   <StyledOption key={index} value={category}>
                     {category}
@@ -167,6 +168,7 @@ const FormFields = ({ categoriesList, category }) => {
 
           <StyledSumInput
             type="number"
+            step="0.01"
             {...register('amount')}
             placeholder="Сумма"
           />

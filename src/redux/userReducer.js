@@ -6,6 +6,8 @@ const {
   userThunk,
   addIncomeTransactionThunk,
   addExpenseTransactionThunk,
+  deleteExpenseTransactionThunk,
+  deleteIncomeTransactionThunk,
 } = require('./thunks');
 
 const initialState = {
@@ -100,6 +102,15 @@ const userSlice = createSlice({
         state.balance = payload.newBalance;
       })
       .addCase(addExpenseTransactionThunk.fulfilled, (state, { payload }) => {
+        state.balance = payload.newBalance;
+      })
+      .addCase(
+        deleteExpenseTransactionThunk.fulfilled,
+        (state, { payload }) => {
+          state.balance = payload.newBalance;
+        }
+      )
+      .addCase(deleteIncomeTransactionThunk.fulfilled, (state, { payload }) => {
         state.balance = payload.newBalance;
       });
   },
