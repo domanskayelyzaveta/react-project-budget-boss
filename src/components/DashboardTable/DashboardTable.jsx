@@ -137,12 +137,6 @@ const DashboardTable = ({ data, category }) => {
               >
                 {category === 'income' ? `${item.amount.toFixed(2)} UAH` : `- ${item.amount.toFixed(2)} UAH`}
               </TableCell>
-              {/* <TableCell
-                style={{ width: '120px', ...styles.tableCell }}
-                align="center"
-              >
-                {item.amount.toFixed(2)} UAH
-              </TableCell> */}
               <TableCell
                 style={{ width: '100px', ...styles.tableCell }}
                 align="left"

@@ -18,7 +18,7 @@ export const incomeSlice = createSlice({
     builder
       // ------------GET TRANSACTIONS------------
       .addCase(getIncomeTransactionsThunk.fulfilled, (state, { payload }) => {
-        state.incomes = payload.incomes;
+        state.incomes = payload.incomes.reverse();
         state.monthsStats = payload.monthsStats;
       })
 

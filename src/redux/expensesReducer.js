@@ -18,7 +18,7 @@ export const expensesSlice = createSlice({
     builder
       // ------------GET TRANSACTIONS------------
       .addCase(getExpensesTransactionsThunk.fulfilled, (state, { payload }) => {
-        state.expenses = payload.expenses;
+        state.expenses = payload.expenses.reverse();
         state.monthsStats = payload.monthsStats;
       })
 
