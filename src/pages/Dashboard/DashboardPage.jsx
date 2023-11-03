@@ -20,6 +20,8 @@ import {
   StyledLinkWrapper,
   StyledTop,
 } from './DashboardPage.styled';
+import Calculator from 'components/Calculator/Calculator';
+// import Calculator from 'components/Calculator/Calculator';
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState('1');
