@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { SummaryWrapper } from './DashboardSummary.styled';
+import { StyledSummaryHeader, StyledSummaryItem, StyledSummaryList, SummaryWrapper } from './DashboardSummary.styled';
 // import { useSelector } from 'react-redux';
 
 const DashboardSummary = ({ data }) => {
@@ -9,17 +9,17 @@ const DashboardSummary = ({ data }) => {
 
   useEffect(() => {
     const items = Object.entries(data).map(([month, value]) => (
-      <li key={month}>
+      <StyledSummaryItem key={month}>
         {month}: {value === 'N/A' ? 0 : value}
-      </li>
+      </StyledSummaryItem>
     ));
     setListItems(items);
   }, [data]);
 
   return (
     <SummaryWrapper>
-      <h3>Summary</h3>
-      <ul>{listItems}</ul>
+      <StyledSummaryHeader>Summary</StyledSummaryHeader>
+      <StyledSummaryList>{listItems}</StyledSummaryList>
     </SummaryWrapper>
   );
 };

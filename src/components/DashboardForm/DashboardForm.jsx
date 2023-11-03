@@ -73,7 +73,18 @@ import {
   addIncomeTransactionThunk,
 } from 'redux/thunks';
 import formatDate from 'service/helpers';
-import { StyledForm } from './DashboardForm.styled';
+import {
+  CustomSelect,
+  StyledButtonsWrapper,
+  StyledCategoryInput,
+  StyledClearButton,
+  StyledDescrInput,
+  StyledForm,
+  StyledInputButton,
+  StyledInputWrapper,
+  StyledOption,
+  StyledSumInput,
+} from './DashboardForm.styled';
 // import {formatDate} from '../../service/helpers'
 
 const DashboardForm = ({ categoriesList, category }) => {
@@ -99,7 +110,7 @@ const FormFields = ({ categoriesList, category }) => {
       dispatch(addExpenseTransactionThunk({ dataToDispatch, category }));
     }
     reset();
-    setDate(null)
+    setDate(null);
   };
 
   const handleChange = dateChange => {
@@ -125,21 +136,47 @@ const FormFields = ({ categoriesList, category }) => {
             />
           )}
         />
-        <input {...register('description')} placeholder="Описание" />
 
-        <select {...register('category')}>
-          <option value="-">Category</option>
-          {categoriesList?.map(category => (
-            <option key={category} value={category}>
-              {category}
-            </option>
-          ))}
-        </select>
+        <StyledInputWrapper>
+          <StyledDescrInput
+            {...register('description')}
+            placeholder="Описание"
+          />
 
-        <input type="number" {...register('amount')} placeholder="Сумма" />
+          {/* <StyledCategoryInput {...register('category')}>
+            <option value="-">Category</option>
+            {categoriesList?.map(category => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </StyledCategoryInput> */}
+          <Controller
+            name="category"
+            control={control}
+            render={({ field }) => (
+              <CustomSelect {...field}>
+                <option value="-">Category</option>
+                {categoriesList?.map((category, index) => (
+                  <StyledOption key={index} value={category}>
+                    {category}
+                  </StyledOption>
+                ))}
+              </CustomSelect>
+            )}
+          />
 
-        <button type="submit">INPUT</button>
-        <button type="button">CLEAR</button>
+          <StyledSumInput
+            type="number"
+            step="0.01"
+            {...register('amount')}
+            placeholder="Сумма"
+          />
+        </StyledInputWrapper>
+        <StyledButtonsWrapper>
+          <StyledInputButton type="submit">INPUT</StyledInputButton>
+          <StyledClearButton type="button">CLEAR</StyledClearButton>
+        </StyledButtonsWrapper>
       </StyledForm>
     </div>
   );
