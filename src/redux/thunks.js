@@ -137,9 +137,8 @@ export const requestPeriodData = createAsyncThunk(
 export const addIncomeTransactionThunk = createAsyncThunk(
   'transaction/addIncomeTransaction',
   async (data, thunkAPI) => {
-    const token = thunkAPI.getState().user.accessToken;
     try {
-      const addNewTransaction = addTransaction(data, token);
+      const addNewTransaction = await addTransaction(data);
       thunkAPI.dispatch(getIncomeTransactionsThunk('income'));
       return addNewTransaction;
     } catch (error) {
@@ -147,12 +146,12 @@ export const addIncomeTransactionThunk = createAsyncThunk(
     }
   }
 );
+
 export const addExpenseTransactionThunk = createAsyncThunk(
   'transaction/addExpenseTransaction',
   async (data, thunkAPI) => {
-    const token = thunkAPI.getState().user.accessToken;
     try {
-      const addNewTransaction = await addTransaction(data, token);
+      const addNewTransaction = await addTransaction(data);
       thunkAPI.dispatch(getExpensesTransactionsThunk('expense'));
       return addNewTransaction;
     } catch (error) {
@@ -164,9 +163,8 @@ export const addExpenseTransactionThunk = createAsyncThunk(
 export const deleteIncomeTransactionThunk = createAsyncThunk(
   'transaction/deleteIncomeTransaction',
   async (id, thunkAPI) => {
-    const token = thunkAPI.getState().user.accessToken;
     try {
-      const delTransaction = await deleteTransaction(id, token);
+      const delTransaction = await deleteTransaction(id);
       thunkAPI.dispatch(getIncomeTransactionsThunk('income'));
       return delTransaction;
     } catch (error) {
@@ -177,9 +175,8 @@ export const deleteIncomeTransactionThunk = createAsyncThunk(
 export const deleteExpenseTransactionThunk = createAsyncThunk(
   'transaction/deleteExpenseTransaction',
   async (id, thunkAPI) => {
-    const token = thunkAPI.getState().user.accessToken;
     try {
-      const delTransaction = await deleteTransaction(id, token);
+      const delTransaction = await deleteTransaction(id);
       thunkAPI.dispatch(getExpensesTransactionsThunk('expense'));
       return delTransaction;
     } catch (error) {
@@ -191,9 +188,8 @@ export const deleteExpenseTransactionThunk = createAsyncThunk(
 export const getIncomeTransactionsThunk = createAsyncThunk(
   'transaction/getIncomeTransactions',
   async (category, thunkAPI) => {
-    const token = thunkAPI.getState().user.accessToken;
     try {
-      const getAllTransactions = await getTransactions(category, token);
+      const getAllTransactions = await getTransactions(category);
       return getAllTransactions;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -203,9 +199,8 @@ export const getIncomeTransactionsThunk = createAsyncThunk(
 export const getExpensesTransactionsThunk = createAsyncThunk(
   'transaction/getExpensesTransactions',
   async (category, thunkAPI) => {
-    const token = thunkAPI.getState().user.accessToken;
     try {
-      const getAllTransactions = await getTransactions(category, token);
+      const getAllTransactions = await getTransactions(category);
       return getAllTransactions;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

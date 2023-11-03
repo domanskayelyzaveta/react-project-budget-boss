@@ -109,10 +109,15 @@ const FormFields = ({ categoriesList, category }) => {
     dataToDispatch.amount = Number(dataToDispatch.amount);
     dataToDispatch.category = dataToDispatch.category.value;
     if (category === 'income') {
+      console.log(category)
       dispatch(addIncomeTransactionThunk({ dataToDispatch, category }));
     } else {
+      console.log(category)
       dispatch(addExpenseTransactionThunk({ dataToDispatch, category }));
     }
+    // category === 'income'
+    //   ? dispatch(addIncomeTransactionThunk({ dataToDispatch, category }))
+    //   : dispatch(addExpenseTransactionThunk({ dataToDispatch, category }));
     reset();
     setDate(null);
   };

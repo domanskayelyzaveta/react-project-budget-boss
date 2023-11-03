@@ -106,6 +106,7 @@ export const getTransactions = async (category) => {
   // const { data } = await $instance.get(`/transaction/${category}`, {
   //   headers: { Authorization: `Bearer ${token}` },
   // });
+  console.log(data)
   return data;
 };
 
