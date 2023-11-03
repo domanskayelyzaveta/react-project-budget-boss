@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 export const StyledWrapper = styled.div`
   display: flex;
@@ -25,6 +26,7 @@ export const StyledDescrInput = styled.input`
   /* border: none; */
   border-right: 2px solid var(--grey, #474759);
   border-top: none;
+  margin: 0;
   border-left: none;
   border-bottom: none;
   background: transparent;
@@ -60,10 +62,12 @@ export const StyledSumInput = styled.input`
   line-height: normal;
   letter-spacing: 0.24px;
   border: none;
+  margin: 0;
   background: transparent;
 `;
 
 export const StyledInputWrapper = styled.div`
+  margin-top: 32px;
   display: flex;
   box-sizing: border-box;
   gap: 20px;
