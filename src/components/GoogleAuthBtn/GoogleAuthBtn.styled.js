@@ -30,3 +30,46 @@ export const Button = styled.button`
 export const Svg = styled.svg`
   margin-right: 10px;
 `;
+
+export const Title = styled.h2`
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  width: 203px;
+  margin: auto;
+  margin-bottom: 20px;
+  letter-spacing: 0.56px;
+  color: var(--text-color);
+
+  @media screen and (min-width: 768px) {
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 218px;
+    font-size: 16px;
+    line-height: normal;
+    letter-spacing: 0.64px;
+  }
+`;
+
+export const Paragraph = styled.p`
+  width: 240px;
+  height: 28px;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.48px;
+  margin-bottom: 24px;
+  color: var(--text-color);
+
+  @media screen and (min-width: 768px) {
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 288px;
+    height: 32px;
+    font-size: 14px;
+    margin: auto;
+    letter-spacing: 0.56px;
+    margin-bottom: 32px;
+  }
+`;
