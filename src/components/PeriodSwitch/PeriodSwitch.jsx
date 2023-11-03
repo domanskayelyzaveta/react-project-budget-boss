@@ -1,10 +1,22 @@
 import React, { useRef, useState } from 'react';
-import { Link, useFetcher, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Ballance from 'components/Ballance/Ballance';
 import sprite from '../../images/sprite.svg';
 import { requestPeriodData } from 'redux/thunks';
 import { useDispatch } from 'react-redux';
-import { Container } from './PeriodSwitch.styled';
+import {
+  Back,
+  BackBtn,
+  BackText,
+  BalanceTitle,
+  BalanceWrap,
+  Container,
+  Period,
+  PeriodArrow,
+  PeriodBtn,
+  PeriodText,
+  PeriodTitle,
+} from './PeriodSwitch.styled';
 import { useEffect } from 'react';
 
 const PeriodSwitch = () => {
@@ -62,35 +74,40 @@ const PeriodSwitch = () => {
   const handleNextMonthClick = () => {
     const newDate = new Date(selectedDate);
     newDate.setMonth(newDate.getMonth() + 1);
-    setSelectedDate(newDate);
-    const periodData = formatPeriod(newDate);
-    dispatch(requestPeriodData(periodData));
+    if (newDate <= currentDate) {
+      setSelectedDate(newDate);
+      const periodData = formatPeriod(newDate);
+      dispatch(requestPeriodData(periodData));
+    }
   };
 
   return (
     <Container>
-      <Link to={backLinkRef.current}>
-        <svg width="24" height="24">
+      <BackBtn to={backLinkRef.current}>
+        <Back width="24" height="24">
           <use href={`${sprite}#icon-keyboard_backspace-24px`} />
-        </svg>
-        Main page
-      </Link>
-      <Ballance />
+        </Back>
+        <BackText>Main page</BackText>
+      </BackBtn>
+      <BalanceWrap>
+        <BalanceTitle>Balance:</BalanceTitle>
+        <Ballance />
+      </BalanceWrap>
       <div>
-        <h3>Current period:</h3>
-        <div>
-          <button onClick={handlePrevMonthClick}>
-            <svg width="16" height="16">
+        <PeriodTitle>Current period:</PeriodTitle>
+        <Period>
+          <PeriodBtn onClick={handlePrevMonthClick}>
+            <PeriodArrow width="15" height="15">
               <use href={`${sprite}#arrow-toleft`} />
-            </svg>
-          </button>
-          <div>{formatData(selectedDate)}</div>
-          <button onClick={handleNextMonthClick}>
-            <svg width="16" height="16">
+            </PeriodArrow>
+          </PeriodBtn>
+          <PeriodText>{formatData(selectedDate)}</PeriodText>
+          <PeriodBtn onClick={handleNextMonthClick}>
+            <PeriodArrow width="15" height="15">
               <use href={`${sprite}#arrow-toright`} />
-            </svg>
-          </button>
-        </div>
+            </PeriodArrow>
+          </PeriodBtn>
+        </Period>
       </div>
     </Container>
   );
