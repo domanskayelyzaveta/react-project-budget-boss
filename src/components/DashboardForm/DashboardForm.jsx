@@ -85,7 +85,10 @@ import {
   StyledOption,
   StyledSumInput,
 } from './DashboardForm.styled';
+import StyledDatepicker from 'components/DatePicker/StyledDatepicker';
 // import {formatDate} from '../../service/helpers'
+import Select from 'react-select';
+import selectStyles from './DashboardFormStyle';
 
 const DashboardForm = ({ categoriesList, category }) => {
   return (
@@ -104,6 +107,7 @@ const FormFields = ({ categoriesList, category }) => {
     const dataToDispatch = { ...data };
     dataToDispatch.date = formatDate(dataToDispatch.date);
     dataToDispatch.amount = Number(dataToDispatch.amount);
+    dataToDispatch.category = dataToDispatch.category.value
     if (category === 'income') {
       dispatch(addIncomeTransactionThunk({ dataToDispatch, category }));
     } else {
@@ -129,7 +133,7 @@ const FormFields = ({ categoriesList, category }) => {
           control={control}
           defaultValue={date}
           render={() => (
-            <DatePicker
+            <StyledDatepicker
               selected={date}
               placeholderText="Select date"
               onChange={handleChange}
@@ -140,7 +144,7 @@ const FormFields = ({ categoriesList, category }) => {
         <StyledInputWrapper>
           <StyledDescrInput
             {...register('description')}
-            placeholder="Описание"
+            placeholder="Description" autoComplete="off"
           />
 
           {/* <StyledCategoryInput {...register('category')}>
@@ -151,18 +155,19 @@ const FormFields = ({ categoriesList, category }) => {
               </option>
             ))}
           </StyledCategoryInput> */}
-          <Controller
+          <Controller 
             name="category"
             control={control}
             render={({ field }) => (
-              <CustomSelect {...field}>
-                <option value="-">Category</option>
-                {categoriesList?.map((category, index) => (
-                  <StyledOption key={index} value={category}>
-                    {category}
-                  </StyledOption>
-                ))}
-              </CustomSelect>
+              <Select {...register('category')}
+                placeholder="Category"
+                styles={selectStyles}
+                {...field}
+                options={categoriesList?.map((category, index) => ({
+                  value: category,
+                  label: category,
+                }))}
+              />
             )}
           />
 
@@ -170,7 +175,8 @@ const FormFields = ({ categoriesList, category }) => {
             type="number"
             step="0.01"
             {...register('amount')}
-            placeholder="Сумма"
+            placeholder="Enter amount"
+            autoComplete="off"
           />
         </StyledInputWrapper>
         <StyledButtonsWrapper>
