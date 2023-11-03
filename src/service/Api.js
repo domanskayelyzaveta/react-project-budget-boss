@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+
 const BASE_URL = 'https://kapusta-backend.p.goit.global/';
 const $instance = axios.create({
   baseURL: BASE_URL,
@@ -17,6 +18,11 @@ export const fetchUser = async () => {
   const { data } = await $instance.get('/user');
   return data;
 };
+
+export const setBalance = async (balance) => {
+  const { data } = await $instance.patch('/user/balance', balance);
+  return data;
+}
 
 export const fetchRegister = async userData => {
   const { data } = await $instance.post('/auth/register', userData);
@@ -77,25 +83,29 @@ export const fetchExpenseCategories = async () => {
 │ =========================
 */
 
-export async function addTransaction(data, token) {
+export async function addTransaction(data) {
   const response = await $instance.post(
     `/transaction/${data.category}`,
     data.dataToDispatch
   );
+  
   return response.data;
 }
 
-export async function deleteTransaction(id, token) {
-  const response = await $instance.delete(`/transaction/${id}`, {
-    headers: { Authorization: `Bearer ${token}` },
-  });
-  return response.data;
+export async function deleteTransaction(id) {
+  const response = await $instance.delete(`/transaction/${id}`);
+  console.log(response)
+  // const response = await $instance.delete(`/transaction/${id}`, {
+  //   headers: { Authorization: `Bearer ${token}` },
+  // });
+  return {id, response};
 }
 
-export const getTransactions = async (category, token) => {
-  const { data } = await $instance.get(`/transaction/${category}`, {
-    headers: { Authorization: `Bearer ${token}` },
-  });
+export const getTransactions = async (category) => {
+  const { data } = await $instance.get(`/transaction/${category}`);
+  // const { data } = await $instance.get(`/transaction/${category}`, {
+  //   headers: { Authorization: `Bearer ${token}` },
+  // });
   return data;
 };
 

@@ -6,20 +6,20 @@ import {
   TableHead,
   TableRow,
 } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { deleteExpenseTransactionThunk, deleteIncomeTransactionThunk } from 'redux/thunks';
 import { StyledTable } from './DashboardTable.styled';
 
-// function createData(DES, calories, fat, carbs) {
-//   return { name, calories, fat, carbs };
-// }
+const DashboardTable = ({ data, category }) => {
+  const dispatch = useDispatch();
+  const handleDeleteTransaction = id => {
+    if (category === 'income') {
+      dispatch(deleteIncomeTransactionThunk(id));
+    } else {
+      dispatch(deleteExpenseTransactionThunk(id));
+    }
+  };
 
-// const rows = [
-//   createData('Frozen yoghurt', 159, 6.0, 24),
-//   createData('Ice cream sandwich', 237, 9.0, 37),
-//   createData('Eclair', 262, 16.0, 24),
-//   createData('Cupcake', 305, 3.7, 67),
-//   createData('Gingerbread', 356, 16.0, 49),
-// ];
-const DashboardTable = ({ data }) => {
   return (
     <TableContainer component={Paper}>
       <StyledTable
@@ -31,7 +31,6 @@ const DashboardTable = ({ data }) => {
         <TableHead>
           <TableRow>
             <TableCell>DATE</TableCell>
-            {/* <TableCell align="left">DATE</TableCell> */}
             <TableCell align="left">DESCRIPTION</TableCell>
             <TableCell align="left">CATEGORY</TableCell>
             <TableCell align="left">SUM</TableCell>
@@ -46,10 +45,14 @@ const DashboardTable = ({ data }) => {
               <TableCell component="th" scope="row">
                 {row.date}
               </TableCell>
-              {/* <TableCell align="left">{row.date}</TableCell> */}
               <TableCell align="left">{row.description}</TableCell>
               <TableCell align="left">{row.category}</TableCell>
-              <TableCell align="left">{row.amount}</TableCell>
+              <TableCell align="left">
+                {row.amount}
+                <button onClick={() => handleDeleteTransaction(row._id)}>
+                  DELETE
+                </button>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
