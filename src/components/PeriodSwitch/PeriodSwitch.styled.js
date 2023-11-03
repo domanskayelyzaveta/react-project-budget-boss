@@ -40,7 +40,6 @@ export const Back = styled.svg`
 
 export const BackText = styled.span`
   font-size: 12px;
-  font-style: normal;
   font-weight: 400;
   line-height: normal;
   letter-spacing: 0.48px;
@@ -67,25 +66,23 @@ export const MobileWrapPeriod = styled.div`
 //   flex-direction: row;
 // `;
 
-export const BalanceTitle = styled.h2`
-  @media ${media.mobile} {
-    margin-right: 0;
-  }
-  margin-right: 20px;
-  text-align: center;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  letter-spacing: 0.24px;
-  color: rgba(199, 204, 220, 0.5);
-`;
+// export const BalanceTitle = styled.h2`
+//   @media ${media.mobile} {
+//     margin-right: 0;
+//   }
+//   margin-right: 20px;
+//   text-align: center;
+//   font-size: 12px;
+//   font-weight: 500;
+//   line-height: normal;
+//   letter-spacing: 0.24px;
+//   color: rgba(199, 204, 220, 0.5);
+// `;
 
 export const PeriodTitle = styled.h3`
   margin-bottom: 5px;
   text-align: center;
   font-size: 12px;
-  font-style: normal;
   font-weight: 400;
   line-height: normal;
   letter-spacing: 0.48px;
@@ -114,10 +111,9 @@ export const PeriodArrow = styled.svg`
 `;
 
 export const PeriodText = styled.div`
-  width: 128px;
+  width: 132px;
   text-align: center;
   font-size: 14px;
-  font-style: normal;
   font-weight: 700;
   line-height: normal;
   letter-spacing: 0.28px;

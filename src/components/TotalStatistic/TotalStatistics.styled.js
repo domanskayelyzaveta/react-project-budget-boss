@@ -61,7 +61,6 @@ export const StatisticsText = styled.p`
   }
   padding-right: 15px;
   font-size: 14px;
-  font-style: normal;
   font-weight: 700;
   line-height: normal;
   color: #c7ccdc;
@@ -69,7 +68,6 @@ export const StatisticsText = styled.p`
 
 export const ExpenseTotal = styled.p`
   font-size: 14px;
-  font-style: normal;
   font-weight: 700;
   line-height: normal;
   letter-spacing: 0.56px;
@@ -78,7 +76,6 @@ export const ExpenseTotal = styled.p`
 
 export const IncomeTotal = styled.p`
   font-size: 14px;
-  font-style: normal;
   font-weight: 700;
   line-height: normal;
   letter-spacing: 0.56px;
