@@ -6,3 +6,5 @@ display:flex;
 export const StyledForm = styled.form`
 display: flex;
 `
+
+export const StyledInput = styled.input``
