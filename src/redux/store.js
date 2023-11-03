@@ -1,7 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { userReducer } from './userReducer';
 import storage from 'redux-persist/lib/storage';
-
 import {
   persistStore,
   persistReducer,
@@ -20,7 +19,7 @@ import { periodInfoReducer } from './periodDataReducer';
 const userPersistConfig = {
   key: 'user',
   storage,
-  whitelist: ['accessToken'],
+  whitelist: ['accessToken', 'userData'],
 };
 
 const store = configureStore({

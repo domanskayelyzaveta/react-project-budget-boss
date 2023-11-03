@@ -15,11 +15,14 @@ import {
 } from 'redux/thunks';
 import {
   DataWrapper,
+  ExpensesWrapper,
   IncomeWrapper,
   StyledBalanceWrapper,
   StyledLinkWrapper,
   StyledTop,
 } from './DashboardPage.styled';
+import Calculator from 'components/Calculator/Calculator';
+// import Calculator from 'components/Calculator/Calculator';
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState('1');
@@ -51,6 +54,7 @@ const Dashboard = () => {
       label: 'EXPENSES',
       children: (
         <>
+          <ExpensesWrapper>
           <DashboardForm
             categoriesList={expenseCategoriesList}
             category={'expense'}
@@ -59,6 +63,7 @@ const Dashboard = () => {
             <DashboardTable data={expensesList} category={'expense'} />
             {expensesSummary && <DashboardSummary data={expensesSummary} />}
           </DataWrapper>
+          </ExpensesWrapper>
         </>
       ),
     },

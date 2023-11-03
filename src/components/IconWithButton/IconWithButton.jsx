@@ -20,5 +20,7 @@ export default IconWithButton;
 const StyledToReportsBtn = styled.button`
 border:none;
 background:transparent;
+color: var(--text-color);
+
 
 `

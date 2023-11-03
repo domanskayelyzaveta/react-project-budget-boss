@@ -41,6 +41,9 @@ export const CalendarGlobalStyles = createGlobalStyle`
     float: inherit;
     box-sizing: border-box;
   }
+  .react-datepicker__input-container input{
+    background:transparent;
+  }
   .react-datepicker__header {
     position: relative;
     background-color: var(--button);
