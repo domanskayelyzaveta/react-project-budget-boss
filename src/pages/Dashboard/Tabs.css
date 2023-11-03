@@ -1,5 +1,5 @@
 .custom-tabs .ant-tabs-tab {
-  background: linear-gradient(0deg, #2D2D38 -5.39%, #383847 94.01%);
+  background: linear-gradient(0, #2D2D38 -5.39%, #383847 94.01%);
   border: none;
   margin-right: 0;
   border-radius: 18px 18px 0 0;
@@ -20,8 +20,9 @@
   color: var(--button) !important;
 }
 .custom-tabs .ant-tabs-ink-bar {
-  background: transparent ;
-  /* background: var(--button) ; */
+  /* background: transparent ; */
+  background: var(--button) ;
+  filter:blur(4px);
 }
 
 .custom-tabs .ant-tabs-nav::before {
