@@ -25,11 +25,12 @@ const styles = {
     color: 'var(--text-color)',
     border: '2px solid var(--grey-6B)',
     scrollbarColor: 'var(--button)',
+    backgroundColor: 'var(--grey)',
   },
-  filler: {
-    height: '100%', // Заполняющий элемент, который зальет пустое место цветом
-    backgroundColor: 'var(--grey)', // Задаем цвет для заполнения
-  },
+  // filler: {
+  //   height: '50%', // Заполняющий элемент, который зальет пустое место цветом
+  //   backgroundColor: 'var(--grey)', // Задаем цвет для заполнения
+  // },
   tableRow: {
     height: '38px',
     padding: '14px 22px',
@@ -155,7 +156,7 @@ const DashboardTable = ({ data, category }) => {
           ))}
         </TableBody>
       </Table>
-      <div style={styles.filler}></div>
+      {/* <div style={styles.filler}></div> */}
     </TableContainer>
     // <TableContainer
     //   component={Paper}
