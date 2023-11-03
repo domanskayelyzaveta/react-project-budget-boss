@@ -4,6 +4,8 @@ const {
   loginThunk,
   logoutThunk,
   userThunk,
+  addIncomeTransactionThunk,
+  addExpenseTransactionThunk,
 } = require('./thunks');
 
 const initialState = {
@@ -19,6 +21,11 @@ const initialState = {
 const userSlice = createSlice({
   name: 'user',
   initialState,
+  reducers: {
+    setBalance: (state, action) => {
+      state.balance = action.payload;
+    },
+  },
   extraReducers: builder => {
     builder
       //------------ Registration -------------//
@@ -88,8 +95,15 @@ const userSlice = createSlice({
       .addCase(userThunk.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+      })
+      .addCase(addIncomeTransactionThunk.fulfilled, (state, { payload }) => {
+        state.balance = payload.newBalance;
+      })
+      .addCase(addExpenseTransactionThunk.fulfilled, (state, { payload }) => {
+        state.balance = payload.newBalance;
       });
   },
 });
 
+export const { setBalance } = userSlice.actions;
 export const userReducer = userSlice.reducer;
