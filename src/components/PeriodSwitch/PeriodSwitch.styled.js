@@ -1,7 +1,18 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+const media = {
+  tablet: '(min-width: 768px)',
+  mobile: '(max-width: 767px)',
+};
+
 export const Container = styled.div`
+  @media ${media.mobile} {
+    display: flex;
+    flex-direction: column-reverse;
+    max-width: 767px;
+    margin-top: 32px;
+  }
   max-width: 1034px;
   display: flex;
   justify-content: space-between;
@@ -12,6 +23,9 @@ export const Container = styled.div`
 `;
 
 export const BackBtn = styled(Link)`
+  @media ${media.mobile} {
+    display: none;
+  }
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -33,14 +47,30 @@ export const BackText = styled.span`
   color: var(--white-DC);
 `;
 
-export const BalanceWrap = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
+export const MobileWrapPeriod = styled.div`
+  @media ${media.mobile} {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 32px;
+  }
 `;
 
+// export const BalanceWrap = styled.div`
+//   @media ${media.mobile} {
+//     display: flex;
+//     flex-direction: column;
+//     gap: 8px;
+//   }
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   flex-direction: row;
+// `;
+
 export const BalanceTitle = styled.h2`
+  @media ${media.mobile} {
+    margin-right: 0;
+  }
   margin-right: 20px;
   text-align: center;
   font-size: 12px;
