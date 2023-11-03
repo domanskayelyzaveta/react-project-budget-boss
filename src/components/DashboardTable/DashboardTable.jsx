@@ -131,7 +131,7 @@ const DashboardTable = ({ data, category }) => {
                 style={{
                   width: '120px',
                   ...styles.tableCell,
-                  color: category === 'income' ? 'green' : 'red',
+                  color: category === 'income' ? '#60C470' : '#FE4566',
                 }}
                 align="center"
               >

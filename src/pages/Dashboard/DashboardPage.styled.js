@@ -1,3 +1,4 @@
+import { Tabs } from 'antd';
 import styled from 'styled-components';
 
 export const DataWrapper = styled.div`
@@ -35,3 +36,7 @@ export const StyledBalanceWrapper = styled.div`
   margin-left: 50%;
 `;
 export const StyledLinkWrapper = styled.div``;
+
+export const StyledTabs = styled(Tabs)`
+`
+

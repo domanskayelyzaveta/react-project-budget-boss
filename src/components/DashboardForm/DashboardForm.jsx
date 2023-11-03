@@ -88,7 +88,7 @@ import {
 import StyledDatepicker from 'components/DatePicker/StyledDatepicker';
 // import {formatDate} from '../../service/helpers'
 import Select from 'react-select';
-import selectStyles from './DashboardFormStyle';
+import customStyles from './DashboardFormStyle';
 
 const DashboardForm = ({ categoriesList, category }) => {
   return (
@@ -107,7 +107,7 @@ const FormFields = ({ categoriesList, category }) => {
     const dataToDispatch = { ...data };
     dataToDispatch.date = formatDate(dataToDispatch.date);
     dataToDispatch.amount = Number(dataToDispatch.amount);
-    dataToDispatch.category = dataToDispatch.category.value
+    dataToDispatch.category = dataToDispatch.category.value;
     if (category === 'income') {
       dispatch(addIncomeTransactionThunk({ dataToDispatch, category }));
     } else {
@@ -144,7 +144,8 @@ const FormFields = ({ categoriesList, category }) => {
         <StyledInputWrapper>
           <StyledDescrInput
             {...register('description')}
-            placeholder="Description" autoComplete="off"
+            placeholder="Description"
+            autoComplete="off"
           />
 
           {/* <StyledCategoryInput {...register('category')}>
@@ -155,13 +156,14 @@ const FormFields = ({ categoriesList, category }) => {
               </option>
             ))}
           </StyledCategoryInput> */}
-          <Controller 
+          <Controller
             name="category"
             control={control}
             render={({ field }) => (
-              <Select {...register('category')}
+              <Select
+                {...register('category')}
                 placeholder="Category"
-                styles={selectStyles}
+                styles={customStyles}
                 {...field}
                 options={categoriesList?.map((category, index) => ({
                   value: category,
@@ -172,8 +174,9 @@ const FormFields = ({ categoriesList, category }) => {
           />
 
           <StyledSumInput
-            type="number"
-            step="0.01"
+            type="tel"
+            inputMode="numeric"
+            pattern="[0-9]*\.?[0-9]*"
             {...register('amount')}
             placeholder="Enter amount"
             autoComplete="off"
