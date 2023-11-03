@@ -30,11 +30,11 @@ const TotalStatistics = () => {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="2"
-        height="36"
-        viewBox="0 0 2 36"
+        height="70"
+        viewBox="0 0 2 70"
         fill="none"
       >
-        <path d="M1 0V36" stroke="#474759" />
+        <path d="M1 0V70" stroke="#474759" />
       </svg>
       <StatisticsWrap>
         <StatisticsText>Income:</StatisticsText>

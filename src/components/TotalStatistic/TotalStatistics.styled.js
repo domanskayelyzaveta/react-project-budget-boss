@@ -1,6 +1,16 @@
 import styled from 'styled-components';
 
+const media = {
+  tablet: '(min-width: 768px)',
+  mobile: '(max-width: 767px)',
+};
+
 export const Container = styled.div`
+  @media ${media.mobile} {
+    max-width: 767px;
+    padding-top: 20px;
+    padding-bottom: 25px;
+  }
   max-width: 1034px;
   display: flex;
   gap: 20px;
@@ -21,10 +31,19 @@ export const Container = styled.div`
 `;
 
 export const StatisticsWrap = styled.div`
+  @media ${media.mobile} {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
   display: flex;
 `;
 
 export const StatisticsText = styled.p`
+  @media ${media.mobile} {
+    padding-right: 0;
+    text-align: center;
+  }
   padding-right: 15px;
   font-size: 14px;
   font-style: normal;
