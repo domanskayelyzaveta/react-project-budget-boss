@@ -15,6 +15,7 @@ import {
 } from 'redux/thunks';
 import {
   DataWrapper,
+  ExpensesWrapper,
   IncomeWrapper,
   StyledBalanceWrapper,
   StyledLinkWrapper,
@@ -53,6 +54,7 @@ const Dashboard = () => {
       label: 'EXPENSES',
       children: (
         <>
+          <ExpensesWrapper>
           <DashboardForm
             categoriesList={expenseCategoriesList}
             category={'expense'}
@@ -61,6 +63,7 @@ const Dashboard = () => {
             <DashboardTable data={expensesList} category={'expense'} />
             {expensesSummary && <DashboardSummary data={expensesSummary} />}
           </DataWrapper>
+          </ExpensesWrapper>
         </>
       ),
     },

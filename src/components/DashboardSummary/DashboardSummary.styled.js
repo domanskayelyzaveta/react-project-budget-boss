@@ -3,9 +3,10 @@ import styled from 'styled-components';
 export const SummaryWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
   gap: 4px;
   height: 280px;
-  overflow-y: auto;
+  width: 213px;
 
   ::-webkit-scrollbar {
     width: 6px;
@@ -26,6 +27,7 @@ export const SummaryWrapper = styled.div`
 export const StyledSummaryHeader = styled.div`
   display: flex;
   align-items: center;
+  position: sticky;
 
   height: 38px;
   padding: 20px 0;
@@ -54,6 +56,7 @@ export const StyledSummaryList = styled.ul`
   padding: 0;
   list-style: none;
   color: var(--text-color);
+  overflow-y: auto;
 `;
 
 export const StyledSummaryItem = styled.li`

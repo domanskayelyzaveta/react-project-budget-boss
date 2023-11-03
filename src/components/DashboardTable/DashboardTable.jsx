@@ -4,11 +4,17 @@ import {
   TableCell,
   TableContainer,
   TableHead,
-  TableRow,
 } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { deleteExpenseTransactionThunk, deleteIncomeTransactionThunk } from 'redux/thunks';
-import { StyledTable } from './DashboardTable.styled';
+import {
+  deleteExpenseTransactionThunk,
+  deleteIncomeTransactionThunk,
+} from 'redux/thunks';
+import {
+  StyledTable,
+  StyledTableCell,
+  StyledTableRow,
+} from './DashboardTable.styled';
 
 const DashboardTable = ({ data, category }) => {
   const dispatch = useDispatch();
@@ -21,39 +27,59 @@ const DashboardTable = ({ data, category }) => {
   };
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer
+      component={Paper}
+      style={{
+        borderRadius: '12px',
+      }}
+    >
       <StyledTable
-        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+        sx={{
+          '&:last-child td, &:last-child th': { border: 0 },
+        }}
         size="small"
         aria-label="a dense table"
         variant="plain"
       >
-        <TableHead>
-          <TableRow>
+        <TableHead
+          sx={{
+            '& th': {
+              color: 'var(--text-color)',
+              backgroundColor: 'var(--grey-6B)',
+              borderRadius: '8px 8px 0px 0px',
+            },
+          }}
+        >
+          <StyledTableRow>
             <TableCell>DATE</TableCell>
             <TableCell align="left">DESCRIPTION</TableCell>
             <TableCell align="left">CATEGORY</TableCell>
             <TableCell align="left">SUM</TableCell>
-          </TableRow>
+          </StyledTableRow>
         </TableHead>
         <TableBody>
           {data?.map(row => (
-            <TableRow
+            <StyledTableRow
               key={row._id}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              sx={{
+                '&:last-child td, &:last-child th, td': {
+                  border: 0,
+                  color: 'var(--white-DC)',
+                  padding: '0 22px',
+                  height: '38px',
+                },
+              }}
             >
-              <TableCell component="th" scope="row">
-                {row.date}
-              </TableCell>
-              <TableCell align="left">{row.description}</TableCell>
-              <TableCell align="left">{row.category}</TableCell>
+              <TableCell>{row.date}</TableCell>
+              <StyledTableCell align="left">{row.description}</StyledTableCell>
+              <StyledTableCell align="left">{row.category}</StyledTableCell>
               <TableCell align="left">
                 {row.amount}
                 <button onClick={() => handleDeleteTransaction(row._id)}>
                   DELETE
                 </button>
               </TableCell>
-            </TableRow>
+            </StyledTableRow>
           ))}
         </TableBody>
       </StyledTable>
