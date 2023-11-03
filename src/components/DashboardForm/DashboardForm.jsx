@@ -88,7 +88,7 @@ import {
 import StyledDatepicker from 'components/DatePicker/StyledDatepicker';
 // import {formatDate} from '../../service/helpers'
 import Select from 'react-select';
-import selectStyles from './DashboardFormStyle';
+import customStyles from './DashboardFormStyle';
 
 const DashboardForm = ({ categoriesList, category }) => {
   return (
@@ -163,7 +163,7 @@ const FormFields = ({ categoriesList, category }) => {
               <Select
                 {...register('category')}
                 placeholder="Category"
-                styles={selectStyles}
+                styles={customStyles}
                 {...field}
                 options={categoriesList?.map((category, index) => ({
                   value: category,
@@ -174,9 +174,9 @@ const FormFields = ({ categoriesList, category }) => {
           />
 
           <StyledSumInput
-            type="tel" // Изменили тип на "tel"
-            inputMode="numeric" // Установили атрибут inputMode
-            pattern="[0-9]*\.?[0-9]*" // Разрешаем ввод целых и дробных чисел
+            type="tel"
+            inputMode="numeric"
+            pattern="[0-9]*\.?[0-9]*"
             {...register('amount')}
             placeholder="Enter amount"
             autoComplete="off"

@@ -89,10 +89,7 @@ const PeriodSwitch = () => {
         <BackText>Main page</BackText>
       </BackBtn>
       <>
-        {/* <BalanceWrap> */}
-        {/* <BalanceTitle>Balance:</BalanceTitle> */}
         <Ballance />
-        {/* </BalanceWrap> */}
         <MobileWrapPeriod>
           <PeriodTitle>Current period:</PeriodTitle>
           <Period>
