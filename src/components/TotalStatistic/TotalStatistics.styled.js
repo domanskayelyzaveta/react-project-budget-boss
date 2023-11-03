@@ -8,8 +8,8 @@ const media = {
 export const Container = styled.div`
   @media ${media.mobile} {
     max-width: 767px;
-    padding-top: 20px;
-    padding-bottom: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
   max-width: 1034px;
   display: flex;
@@ -17,7 +17,7 @@ export const Container = styled.div`
   margin-top: 32px;
   margin-right: auto;
   margin-left: auto;
-  padding: 15px 0;
+  padding: 8px 0;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -30,7 +30,22 @@ export const Container = styled.div`
   box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.2);
 `;
 
-export const StatisticsWrap = styled.div`
+export const StatisticsWrapLeft = styled.div`
+  @media ${media.mobile} {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  display: flex;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-right: 20px;
+  border-right: 2px solid #474759;
+`;
+
+export const StatisticsWrapRight = styled.div`
   @media ${media.mobile} {
     display: flex;
     flex-direction: column;
