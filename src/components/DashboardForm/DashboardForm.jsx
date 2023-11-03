@@ -107,7 +107,7 @@ const FormFields = ({ categoriesList, category }) => {
     const dataToDispatch = { ...data };
     dataToDispatch.date = formatDate(dataToDispatch.date);
     dataToDispatch.amount = Number(dataToDispatch.amount);
-    dataToDispatch.category = dataToDispatch.category.value
+    dataToDispatch.category = dataToDispatch.category.value;
     if (category === 'income') {
       dispatch(addIncomeTransactionThunk({ dataToDispatch, category }));
     } else {
@@ -144,7 +144,8 @@ const FormFields = ({ categoriesList, category }) => {
         <StyledInputWrapper>
           <StyledDescrInput
             {...register('description')}
-            placeholder="Description" autoComplete="off"
+            placeholder="Description"
+            autoComplete="off"
           />
 
           {/* <StyledCategoryInput {...register('category')}>
@@ -155,11 +156,12 @@ const FormFields = ({ categoriesList, category }) => {
               </option>
             ))}
           </StyledCategoryInput> */}
-          <Controller 
+          <Controller
             name="category"
             control={control}
             render={({ field }) => (
-              <Select {...register('category')}
+              <Select
+                {...register('category')}
                 placeholder="Category"
                 styles={selectStyles}
                 {...field}
@@ -172,8 +174,9 @@ const FormFields = ({ categoriesList, category }) => {
           />
 
           <StyledSumInput
-            type="number"
-            step="0.01"
+            type="tel" // Изменили тип на "tel"
+            inputMode="numeric" // Установили атрибут inputMode
+            pattern="[0-9]*\.?[0-9]*" // Разрешаем ввод целых и дробных чисел
             {...register('amount')}
             placeholder="Enter amount"
             autoComplete="off"

@@ -21,6 +21,7 @@ import {
   StyledLinkWrapper,
   StyledTop,
 } from './DashboardPage.styled';
+import './Tabs.css';
 // import Calculator from 'components/Calculator/Calculator';
 
 const Dashboard = () => {
@@ -54,14 +55,14 @@ const Dashboard = () => {
       children: (
         <>
           <ExpensesWrapper>
-          <DashboardForm
-            categoriesList={expenseCategoriesList}
-            category={'expense'}
-          />
-          <DataWrapper>
-            <DashboardTable data={expensesList} category={'expense'} />
-            {expensesSummary && <DashboardSummary data={expensesSummary} />}
-          </DataWrapper>
+            <DashboardForm
+              categoriesList={expenseCategoriesList}
+              category={'expense'}
+            />
+            <DataWrapper>
+              <DashboardTable data={expensesList} category={'expense'} />
+              {expensesSummary && <DashboardSummary data={expensesSummary} />}
+            </DataWrapper>
           </ExpensesWrapper>
         </>
       ),
@@ -94,12 +95,13 @@ const Dashboard = () => {
         </StyledBalanceWrapper>
         <StyledLinkWrapper>
           <Link to="/reports">
-            <IconWithButton iconName={'#icon-bar_chart-24px'}/>
+            <IconWithButton iconName={'#icon-bar_chart-24px'} />
           </Link>
         </StyledLinkWrapper>
       </StyledTop>
       {/* <Calculator/> */}
       <Tabs
+        className="custom-tabs"
         activeKey={activeTab}
         onChange={key => {
           setActiveTab(key);
