@@ -13,7 +13,7 @@ const Ballance = () => {
 
   return (
     <BalanceWrapper>
-      Ballance{' '}
+      Ballance: {' '}
       <StyledBalanceAmount>
        {balance?.toFixed(2)} UAH
       </StyledBalanceAmount>

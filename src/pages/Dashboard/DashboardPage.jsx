@@ -21,7 +21,6 @@ import {
   StyledLinkWrapper,
   StyledTop,
 } from './DashboardPage.styled';
-import Calculator from 'components/Calculator/Calculator';
 // import Calculator from 'components/Calculator/Calculator';
 
 const Dashboard = () => {
@@ -95,7 +94,7 @@ const Dashboard = () => {
         </StyledBalanceWrapper>
         <StyledLinkWrapper>
           <Link to="/reports">
-            <IconWithButton />
+            <IconWithButton iconName={'#icon-bar_chart-24px'}/>
           </Link>
         </StyledLinkWrapper>
       </StyledTop>
