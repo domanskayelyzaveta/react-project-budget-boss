@@ -176,7 +176,7 @@ const FormFields = ({ categoriesList, category }) => {
           <StyledSumInput
             type="tel"
             inputMode="numeric"
-            pattern="[0-9].?[0-9]"
+            pattern="[0-9]*\.?[0-9]*"
             {...register('amount')}
             placeholder="Enter amount"
             autoComplete="off"
