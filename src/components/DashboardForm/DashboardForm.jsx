@@ -86,6 +86,8 @@ import {
   StyledSumInput,
 } from './DashboardForm.styled';
 // import {formatDate} from '../../service/helpers'
+import Select from 'react-select';
+import selectStyles from './DashboardFormStyle';
 
 const DashboardForm = ({ categoriesList, category }) => {
   return (
@@ -140,7 +142,7 @@ const FormFields = ({ categoriesList, category }) => {
         <StyledInputWrapper>
           <StyledDescrInput
             {...register('description')}
-            placeholder="Описание"
+            placeholder="Description"
           />
 
           {/* <StyledCategoryInput {...register('category')}>
@@ -155,14 +157,15 @@ const FormFields = ({ categoriesList, category }) => {
             name="category"
             control={control}
             render={({ field }) => (
-              <CustomSelect {...field}>
-                <option value="-">Category</option>
-                {categoriesList?.map((category, index) => (
-                  <StyledOption key={index} value={category}>
-                    {category}
-                  </StyledOption>
-                ))}
-              </CustomSelect>
+              <Select
+                placeholder="Category"
+                styles={selectStyles}
+                {...field}
+                options={categoriesList?.map((category, index) => ({
+                  value: category,
+                  label: category,
+                }))}
+              />
             )}
           />
 

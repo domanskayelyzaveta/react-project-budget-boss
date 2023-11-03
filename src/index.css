@@ -91,6 +91,10 @@ button {
     padding-right: 20px;
 }
 
+select:focus {
+    outline: none;
+}
+
 @media screen and (min-width: 320px) {
     .container {
         width: 320px;
