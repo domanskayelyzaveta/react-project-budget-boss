@@ -28,6 +28,7 @@ import customStyles from './DashboardFormStyle';
 
 import { toast } from 'react-toastify';
 import Modal from '../Modal/Modal';
+import MobilDashboardBalanceForm from 'components/MobilDashboardBalanceForm/MobilDashboardBalanceForm';
 
 const DashboardForm = ({ categoriesList, category }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -168,6 +169,7 @@ const DashboardForm = ({ categoriesList, category }) => {
           onCloseModal={handleModalOpen}
         ></Modal>
       )}
+      <MobilDashboardBalanceForm />
     </div>
   );
 };
