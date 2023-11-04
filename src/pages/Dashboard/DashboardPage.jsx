@@ -89,7 +89,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="container">
+      <div>
         <StyledTop>
           <StyledBalanceWrapper>
             <Ballance />

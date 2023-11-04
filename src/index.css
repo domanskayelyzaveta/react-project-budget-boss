@@ -96,8 +96,8 @@ button {
 
 .container {
     width: 100%;
-    padding-left: 91px;
-    padding-right: 91px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 select:focus {
@@ -118,6 +118,8 @@ select:focus {
     .container {
         width: 100%;
         max-width: 768px;
+        padding-left: 32px;
+        padding-right: 32px;
     }
 }
 
@@ -125,6 +127,8 @@ select:focus {
     .container {
         width: 100%;
         min-width: 1280px;
+        padding-left: 91px;
+        padding-right: 91px;
         
     }
 }

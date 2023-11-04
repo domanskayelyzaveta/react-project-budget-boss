@@ -54,8 +54,8 @@ export const StyledSummaryList = styled.ul`
   flex-direction: column;
   gap: 2px;
   padding: 0;
-  list-style: none;
-  color: var(--text-color);
+  text-transform: uppercase;
+  color: var(--white-DC);
   overflow-y: auto;
 `;
 

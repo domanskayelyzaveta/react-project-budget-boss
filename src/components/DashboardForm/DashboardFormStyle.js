@@ -34,7 +34,7 @@ const selectStyles = {
     color: '#C7CCDC80',
     '@media only screen and (max-width: 768px)': {
       height: '44px',
-      width: '280px',
+      width: '170px',
     },
   }),
   valueContainer: (customStyles, state) => ({
@@ -68,8 +68,12 @@ const selectStyles = {
     '@media only screen and (max-width: 768px)': {
       ...styles['@media only screen and (max-width: 768px)'],
       height: '44px',
-      width: '280px',
+      width: '200px',
       borderRadius: '30px',
+    },
+    '@media only screen and (min-width: 1280px)': {
+      ...styles['@media only screen and (min-width: 1280px)'],
+      width: '280px',
     },
   }),
 };

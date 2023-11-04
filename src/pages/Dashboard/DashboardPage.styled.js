@@ -8,8 +8,13 @@ export const DataWrapper = styled.div`
   gap: 75px;
   margin-top: 72px;
   // padding: 60px 34px;
-
   background: transparent;
+
+  @media screen and (min-width: 768px) {
+    flex-wrap: wrap;
+    margin-top: 48px;
+    gap: 40px;
+  }
 `;
 
 export const IncomeWrapper = styled.div`
@@ -32,15 +37,32 @@ export const ExpensesWrapper = styled.div`
   );
 `;
 export const StyledTop = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 40px;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: 40px;
+  }
 `;
 
 export const StyledBalanceWrapper = styled.div`
-  margin-right: auto;
-  margin-left: 50%;
+  @media screen and (min-width: 768px) {
+    // margin-left: 20px;
+    // margin-bottom: 60px;
+
+    margin: 40px 20px 60px 20px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-right: auto;
+    margin-left: 40%;
+  }
 `;
 export const StyledLinkWrapper = styled.div``;
 
