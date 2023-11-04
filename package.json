@@ -9,6 +9,7 @@
     "@mui/material": "^5.14.16",
     "@mui/styled-engine-sc": "^6.0.0-alpha.4",
     "@mui/x-date-pickers": "^6.17.0",
+    "@react-hook/media-query": "^1.1.1",
     "@react-oauth/google": "^0.11.1",
     "@reduxjs/toolkit": "^1.9.7",
     "@testing-library/jest-dom": "^5.16.3",
