@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-
 const BASE_URL = 'https://kapusta-backend.p.goit.global/';
 const $instance = axios.create({
   baseURL: BASE_URL,
@@ -19,10 +18,10 @@ export const fetchUser = async () => {
   return data;
 };
 
-export const setBalance = async (balance) => {
+export const setBalance = async balance => {
   const { data } = await $instance.patch('/user/balance', balance);
   return data;
-}
+};
 
 export const fetchRegister = async userData => {
   const { data } = await $instance.post('/auth/register', userData);
@@ -88,25 +87,25 @@ export async function addTransaction(data) {
     `/transaction/${data.category}`,
     data.dataToDispatch
   );
-  
+
   return response.data;
 }
 
 export async function deleteTransaction(id) {
   const response = await $instance.delete(`/transaction/${id}`);
-  console.log(response)
+  console.log(response);
   // const response = await $instance.delete(`/transaction/${id}`, {
   //   headers: { Authorization: `Bearer ${token}` },
   // });
-  return {id, response};
+  return { id, response };
 }
 
-export const getTransactions = async (category) => {
+export const getTransactions = async category => {
   const { data } = await $instance.get(`/transaction/${category}`);
   // const { data } = await $instance.get(`/transaction/${category}`, {
   //   headers: { Authorization: `Bearer ${token}` },
   // });
-  console.log(data)
+  console.log(data);
   return data;
 };
 
