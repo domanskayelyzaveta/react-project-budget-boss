@@ -7,7 +7,7 @@ import {
   TableHead,
   TableRow,
 } from '@mui/material';
-import IconWithButton from 'components/IconWithButton/IconWithButton';
+import { StyledBtn } from 'components/IconWithButton/IconWithButton.styled';
 import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import {
@@ -15,7 +15,6 @@ import {
   deleteIncomeTransactionThunk,
 } from 'redux/thunks';
 import sprite from '../../images/sprite.svg';
-import { StyledBtn } from 'components/IconWithButton/IconWithButton.styled';
 
 const styles = {
   tableContainer: {
@@ -25,15 +24,15 @@ const styles = {
     color: 'var(--text-color)',
     border: '2px solid var(--grey-6B)',
     scrollbarColor: 'var(--button)',
+    backgroundColor: 'rgba(56, 56, 71, 0.29)',
+    // background: 'linear-gradient(116deg, #383847 23.54%, rgba(56, 56, 71, 0.29) 107.94%)',
+
   },
-  filler: {
-    height: '100%', // Заполняющий элемент, который зальет пустое место цветом
-    backgroundColor: 'var(--grey)', // Задаем цвет для заполнения
-  },
+
   tableRow: {
     height: '38px',
     padding: '14px 22px',
-    backgroundColor: 'var(--grey)',
+    backgroundColor: 'rgba(56, 56, 71, 0.29)',
     borderBottom: '2px solid var(--grey-6B)',
     // borderRight:'none',
     // borderLeft:'none',
@@ -137,12 +136,6 @@ const DashboardTable = ({ data, category }) => {
               >
                 {category === 'income' ? `${item.amount.toFixed(2)} UAH` : `- ${item.amount.toFixed(2)} UAH`}
               </TableCell>
-              {/* <TableCell
-                style={{ width: '120px', ...styles.tableCell }}
-                align="center"
-              >
-                {item.amount.toFixed(2)} UAH
-              </TableCell> */}
               <TableCell
                 style={{ width: '100px', ...styles.tableCell }}
                 align="left"
@@ -161,7 +154,7 @@ const DashboardTable = ({ data, category }) => {
           ))}
         </TableBody>
       </Table>
-      <div style={styles.filler}></div>
+      {/* <div style={styles.filler}></div> */}
     </TableContainer>
     // <TableContainer
     //   component={Paper}
