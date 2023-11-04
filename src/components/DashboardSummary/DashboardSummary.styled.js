@@ -61,5 +61,6 @@ export const StyledSummaryList = styled.ul`
 
 export const StyledSummaryItem = styled.li`
   padding: 18px 12px;
-  background-color: var(--grey-6B);
+  background-color: rgba(86, 86, 107, 0.50);
+  
 `;
