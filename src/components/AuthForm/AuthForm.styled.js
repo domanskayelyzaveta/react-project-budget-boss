@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-import money from '../../images/desktop/money-desktop-1x.webp';
+// import money from '../../images/desktop/money-desktop-1x.webp';
 import moneyTab from '../../images/tablet/money-tablet-1x.webp';
-import ellipse from '../../images/tablet/Ellipse_8.webp';
+// import ellipse from '../../images/desktop/ellipse-desktop-1x.webp';
 
 export const FormWrapper = styled.div`
   display: flex;
@@ -10,7 +10,7 @@ export const FormWrapper = styled.div`
   background-repeat: no-repeat;
 
   @media screen and (min-width: 768px) {
-    background-image: url(${moneyTab}), url(${ellipse});
+    background-image: url(${moneyTab});
     background-position: top center;
     padding-top: 294px;
   }
@@ -24,6 +24,16 @@ export const FormWrapper = styled.div`
     // padding-top: 0px;
     padding: 120px 125px;
     background-image: none;
+  }
+`;
+
+export const Img = styled.img`
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+  @media screen and (min-width: 1280px) {
+    display: block;
   }
 `;
 
@@ -42,6 +52,7 @@ export const Form = styled.form`
     padding: 52px;
     border-radius: 30px;
     box-sizing: border-box;
+    margin-bottom: 120px;
   }
 
   @media screen and (min-width: 1280px) {

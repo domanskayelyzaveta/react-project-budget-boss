@@ -42,9 +42,8 @@ body {
     background-position: top left, top right;
     background-image: url("./images/mobile/ellipse-mobile-1x.webp"), url("./images/desktop/rectangle-desktop-1x.webp");
 
-    @media screen and (min-width: 1280px) {
-        background-image: url("./images/desktop/rectangle-desktop-1x.webp"), url("./images/desktop/ellipse-desktop-1x.webp");
-
+    @media screen and (min-width: 768px) {
+        background-image: url("./images/tablet/ellipse-tablet-1x.webp"), url("./images/desktop/rectangle-desktop-1x.webp");
     }
    
 }
@@ -100,7 +99,8 @@ select:focus {
 
 @media screen and (min-width: 320px) {
     .container {
-        width: 320px;
+        width: 100%;
+        max-width: 320px;
         margin-left: 0 auto;
         margin-right: 0 auto;
     }
@@ -109,13 +109,15 @@ select:focus {
 
 @media screen and (min-width: 768px) {
     .container {
-        width: 704px;
+        width: 100%;
+        max-width: 768px;
     }
 }
 
 @media screen and (min-width: 1280px) {
     .container {
-        min-width: 1098px;
+        width: 100%;
+        min-width: 1280px;
         
     }
 }

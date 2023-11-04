@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Form,
   FormWrapper,
+  Img,
   InputEmail,
   InputPassword,
   Label,
@@ -54,7 +55,7 @@ const AuthForm = () => {
 
   return (
     <FormWrapper>
-      <img src={money} alt=""></img>
+      <Img src={money} alt=""></Img>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <GoogleAuthButton />
         <div>
