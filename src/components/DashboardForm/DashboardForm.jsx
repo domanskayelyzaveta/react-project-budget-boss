@@ -89,6 +89,7 @@ import StyledDatepicker from 'components/DatePicker/StyledDatepicker';
 // import {formatDate} from '../../service/helpers'
 import Select from 'react-select';
 import customStyles from './DashboardFormStyle';
+import { toast } from 'react-toastify';
 
 const DashboardForm = ({ categoriesList, category }) => {
   return (
@@ -106,14 +107,47 @@ const FormFields = ({ categoriesList, category }) => {
   const onSubmit = data => {
     const dataToDispatch = { ...data };
     dataToDispatch.date = formatDate(dataToDispatch.date);
+
+    //*DESCRIPTION
+    if (!dataToDispatch.description) {
+      toast.error('Please enter a description before submitting.');
+      return;
+    }
+    //*AMOUNT
+    if (!dataToDispatch.amount || dataToDispatch.amount === 0) {
+      toast.error('Please enter a valid amount before submitting.');
+      return;
+    }
     dataToDispatch.amount = Number(dataToDispatch.amount);
+
+    //*CATEGORY
+    if (!dataToDispatch.category || !dataToDispatch.category.value) {
+      toast.error('Please select a category before submitting.');
+      return;
+    }
     dataToDispatch.category = dataToDispatch.category.value;
+
+    //*====TOASTIFY
     if (category === 'income') {
-      console.log(category)
-      dispatch(addIncomeTransactionThunk({ dataToDispatch, category }));
+      // console.log(category);
+
+      dispatch(addIncomeTransactionThunk({ dataToDispatch, category }))
+        .then(() => {
+          toast.success('Income transaction added successfully');
+        })
+        .catch(error => {
+          console.error('Error adding income transaction:', error);
+          toast.error('Error adding income transaction: ' + error.message);
+        });
     } else {
-      console.log(category)
-      dispatch(addExpenseTransactionThunk({ dataToDispatch, category }));
+      dispatch(addExpenseTransactionThunk({ dataToDispatch, category }))
+        .then(() => {
+          toast.success('Expense transaction added successfully');
+        })
+        .catch(error => {
+          console.error('Error adding expense transaction:', error);
+          toast.error('Error adding expense transaction: ' + error.message);
+        });
     }
     // category === 'income'
     //   ? dispatch(addIncomeTransactionThunk({ dataToDispatch, category }))
