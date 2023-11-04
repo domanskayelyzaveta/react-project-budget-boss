@@ -1,9 +1,5 @@
-<<<<<<< Updated upstream
-import React, { useEffect } from 'react';
-=======
 import DashboardBalanceForm from 'components/DashboardBalanceForm/DashboardBalanceForm';
 import { useEffect } from 'react';
->>>>>>> Stashed changes
 import { useSelector } from 'react-redux';
 import { BalanceWrapper, StyledBalanceAmount } from './Balance.styled';
 import BalanceMessage from './BalanceMessage';
@@ -22,10 +18,10 @@ const Ballance = () => {
       {!balance && (
         <>
           <DashboardBalanceForm />
-          {/* <BalanceMessage /> */}
+          <BalanceMessage />
         </>
       )}
-      {balance >= 0 && (
+      {balance && (
         <StyledBalanceAmount>{balance?.toFixed(2)} UAH</StyledBalanceAmount>
       )}
     </BalanceWrapper>

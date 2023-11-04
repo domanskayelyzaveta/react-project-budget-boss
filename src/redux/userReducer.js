@@ -108,11 +108,11 @@ const userSlice = createSlice({
       .addCase(
         deleteExpenseTransactionThunk.fulfilled,
         (state, { payload }) => {
-          state.balance = payload.newBalance;
+          state.balance = payload.data.newBalance;
         }
       )
       .addCase(deleteIncomeTransactionThunk.fulfilled, (state, { payload }) => {
-        state.balance = payload.newBalance;
+        state.balance = payload.data.newBalance;
       })
       .addCase(userSetBalanceThunk.fulfilled, (state, { payload }) => {
         state.balance = payload.newBalance;
