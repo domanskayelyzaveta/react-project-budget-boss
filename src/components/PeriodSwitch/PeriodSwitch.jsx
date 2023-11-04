@@ -17,6 +17,7 @@ import {
   PeriodTitle,
 } from './PeriodSwitch.styled';
 import { useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 const PeriodSwitch = () => {
   const currentDate = new Date();
@@ -77,6 +78,10 @@ const PeriodSwitch = () => {
       setSelectedDate(newDate);
       const periodData = formatPeriod(newDate);
       dispatch(requestPeriodData(periodData));
+    } else {
+      toast.info(
+        'Sorry, the selected period is in the future and unavailable.'
+      );
     }
   };
 
