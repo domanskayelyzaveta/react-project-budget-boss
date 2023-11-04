@@ -63,3 +63,8 @@ export const StyledSummaryItem = styled.li`
   padding: 12px 12px;
   background-color: rgba(86, 86, 107, 0.5);
 `;
+
+export const DataWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;

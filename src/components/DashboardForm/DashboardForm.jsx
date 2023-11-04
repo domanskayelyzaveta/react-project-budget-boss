@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Controller, useForm } from 'react-hook-form';
 
@@ -27,8 +27,14 @@ import sprite from '../../images/sprite.svg';
 import customStyles from './DashboardFormStyle';
 
 import { toast } from 'react-toastify';
+import Modal from '../Modal/Modal';
 
 const DashboardForm = ({ categoriesList, category }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleModalOpen = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
   const { register, handleSubmit, control, setValue, reset } = useForm();
   const [date, setDate] = React.useState(new Date(formatDate(Date.now())));
   const dispatch = useDispatch();
@@ -91,6 +97,10 @@ const DashboardForm = ({ categoriesList, category }) => {
     setDate(dateChange);
   };
 
+  const handelClearForm = () => {
+    reset();
+  };
+
   return (
     <div>
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
@@ -146,9 +156,18 @@ const DashboardForm = ({ categoriesList, category }) => {
         </StyledInputWrapper>
         <StyledButtonsWrapper>
           <StyledInputButton type="submit">ADD TRANSACTION</StyledInputButton>
-          <StyledClearButton type="button">CLEAR</StyledClearButton>
+          <StyledClearButton type="button" onClick={handleModalOpen}>
+            CLEAR
+          </StyledClearButton>
         </StyledButtonsWrapper>
       </StyledForm>
+      {isModalOpen && (
+        <Modal
+          children={<p>Are you sure?</p>}
+          incomeEvent={handelClearForm}
+          onCloseModal={handleModalOpen}
+        ></Modal>
+      )}
     </div>
   );
 };
