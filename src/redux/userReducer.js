@@ -60,6 +60,7 @@ const userSlice = createSlice({
         state.isSignedIn = true;
         state.userData = action.payload.userData;
         state.accessToken = action.payload.accessToken;
+        state.balance = action.payload.userData.balance;
       })
       .addCase(loginThunk.rejected, (state, action) => {
         state.isLoading = false;
@@ -108,11 +109,11 @@ const userSlice = createSlice({
       .addCase(
         deleteExpenseTransactionThunk.fulfilled,
         (state, { payload }) => {
-          state.balance = payload.newBalance;
+          state.balance = payload.data.newBalance;
         }
       )
       .addCase(deleteIncomeTransactionThunk.fulfilled, (state, { payload }) => {
-        state.balance = payload.newBalance;
+        state.balance = payload.data.newBalance;
       })
       .addCase(userSetBalanceThunk.fulfilled, (state, { payload }) => {
         state.balance = payload.newBalance;

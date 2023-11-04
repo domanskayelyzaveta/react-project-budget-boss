@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import DashboardBalanceForm from 'components/DashboardBalanceForm/DashboardBalanceForm';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { BalanceWrapper, StyledBalanceAmount } from './Balance.styled';
-import DashboardBalanceForm from 'components/DashboardBalanceForm/DashboardBalanceForm';
 import BalanceMessage from './BalanceMessage';
+import { InitialBalanceWrapper } from './BalanceMessage.styled';
 
 const Ballance = () => {
   const balance = useSelector(state => state.user.balance);
@@ -15,13 +16,13 @@ const Ballance = () => {
   return (
     <BalanceWrapper>
       Ballance:
-      {(!balance || balance <= 0) && (
-        <>
+      {!balance && (
+        <InitialBalanceWrapper>
           <DashboardBalanceForm />
-          {/* <BalanceMessage /> */}
-        </>
+          <BalanceMessage />
+        </InitialBalanceWrapper>
       )}
-      {balance >= 0 && (
+      {balance && (
         <StyledBalanceAmount>{balance?.toFixed(2)} UAH</StyledBalanceAmount>
       )}
     </BalanceWrapper>

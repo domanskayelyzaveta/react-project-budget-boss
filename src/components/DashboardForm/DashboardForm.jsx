@@ -1,71 +1,8 @@
-// import StyledDatepicker from 'components/DatePicker/StyledDatepicker';
-// import { useState } from 'react';
-// import { Controller, useForm } from 'react-hook-form';
-// import { useDispatch } from 'react-redux';
-// import { addTransactionThunk } from 'redux/thunks';
-// import { StyledForm, StyledWrapper } from './DashboardForm.styled';
-// import DatePicker from 'react-datepicker';
-
-// const DashboardForm = ({ categoriesList, category }) => {
-//   const [date, setDate] = useState(new Date(Date.now()));
-//   const dispatch = useDispatch();
-
-//   const { register, handleSubmit, reset, control, setValue } = useForm();
-//   const onSubmit = data => {
-//     console.log(data);
-//     dispatch(addTransactionThunk({ data, category }));
-//     reset();
-//   };
-
-//   const handleChange = ({dateChange}) => {
-//     setValue("dateOfBirth", dateChange, {
-//       shouldDirty: true
-//     });
-//     setDate(dateChange);
-//   };
-
-//   return (
-//     <div className="container">
-//       <StyledForm onSubmit={handleSubmit(onSubmit)}>
-//         <Controller
-//           name="dateOfBirth"
-//           control={control}
-//           defaultValue={date}
-//           render={() => (
-//             <DatePicker
-//               selected={date}
-//               placeholderText="Select date"
-//               onChange={handleChange}
-//             />
-//           )}
-//         />
-//         <input {...register('description')} placeholder="Описание" />
-
-//         <select {...register('category')}>
-//           <option value="-">Category</option>
-//           {categoriesList?.map(category => (
-//             <option key={category} value={category}>
-//               {category}
-//             </option>
-//           ))}
-//         </select>
-
-//         <input type="number" {...register('amount')} placeholder="Сумма" />
-
-//         <button type="submit">INPUT</button>
-//         <button type="button">CLEAR</button>
-//       </StyledForm>
-//     </div>
-//   );
-// };
-
-// export default DashboardForm;
-
 import React from 'react';
 
-import DatePicker from 'react-datepicker';
 import { Controller, useForm } from 'react-hook-form';
 
+import StyledDatepicker from 'components/DatePicker/StyledDatepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useDispatch } from 'react-redux';
 import {
@@ -75,27 +12,20 @@ import {
 import formatDate from 'service/helpers';
 import {
   CalcWrapper,
-  CustomSelect,
   StyledButtonsWrapper,
-  StyledCategoryInput,
   StyledClearButton,
   StyledDescrInput,
   StyledForm,
   StyledInputButton,
   StyledInputWrapper,
-  StyledOption,
   StyledSumInput,
   SvgCalc,
 } from './DashboardForm.styled';
-import StyledDatepicker from 'components/DatePicker/StyledDatepicker';
-// import {formatDate} from '../../service/helpers'
-import Select from 'react-select';
-import customStyles from './DashboardFormStyle';
-import sprite from '../../images/sprite.svg';
 
-// const DashboardForm = ({ categoriesList, category }) => {
-//   return <FormFields categoriesList={categoriesList} category={category} />;
-// };
+import Select from 'react-select';
+import sprite from '../../images/sprite.svg';
+import customStyles from './DashboardFormStyle';
+
 import { toast } from 'react-toastify';
 
 const DashboardForm = ({ categoriesList, category }) => {
@@ -148,9 +78,7 @@ const DashboardForm = ({ categoriesList, category }) => {
           toast.error('Error adding expense transaction: ' + error.message);
         });
     }
-    // category === 'income'
-    //   ? dispatch(addIncomeTransactionThunk({ dataToDispatch, category }))
-    //   : dispatch(addExpenseTransactionThunk({ dataToDispatch, category }));
+
     reset();
     setDate(null);
   };
@@ -186,14 +114,6 @@ const DashboardForm = ({ categoriesList, category }) => {
             autoComplete="off"
           />
 
-          {/* <StyledCategoryInput {...register('category')}>
-            <option value="-">Category</option>
-            {categoriesList?.map(category => (
-              <option key={category} value={category}>
-                {category}
-              </option>
-            ))}
-          </StyledCategoryInput> */}
           <Controller
             name="category"
             control={control}
@@ -225,7 +145,7 @@ const DashboardForm = ({ categoriesList, category }) => {
           </CalcWrapper>
         </StyledInputWrapper>
         <StyledButtonsWrapper>
-          <StyledInputButton type="submit">INPUT</StyledInputButton>
+          <StyledInputButton type="submit">ADD TRANSACTION</StyledInputButton>
           <StyledClearButton type="button">CLEAR</StyledClearButton>
         </StyledButtonsWrapper>
       </StyledForm>

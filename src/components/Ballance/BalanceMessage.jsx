@@ -1,11 +1,13 @@
 import React from 'react';
-import { MessageWrapper } from './BalanceMessage.styled';
+import { MessageText, MessageWrapper } from './BalanceMessage.styled';
 
 const BalanceMessage = () => {
   return (
     <MessageWrapper>
-      <p>Hello! To get started, enter the current balance of your account!</p>
-      <p>You can`t spend money until you have it:)</p>
+      <MessageText>
+        Hello! To get started, enter the current balance of your account!
+      </MessageText>
+      <MessageText>You can`t spend money until you have it:)</MessageText>
     </MessageWrapper>
   );
 };
