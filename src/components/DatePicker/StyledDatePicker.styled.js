@@ -189,7 +189,7 @@ export const TitleWrapper = styled.button`
 
 `;
 
-export const CalcWrapper = styled.div`
-  margin-top: 36px;
+export const CalendWrapper = styled.div`
+  margin-top: 3px;
   display: flex;
 `;

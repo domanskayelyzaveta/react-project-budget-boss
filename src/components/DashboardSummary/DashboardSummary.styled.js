@@ -30,14 +30,14 @@ export const StyledSummaryHeader = styled.div`
   position: sticky;
 
   height: 38px;
-  padding: 20px 0;
+  padding: 16px 0;
   flex-direction: column;
   justify-content: center;
 
   background-color: var(--grey-6B);
   color: var(--text-color);
 
-  border-radius: 8px 8px 0 0;
+  border-radius: 24px 24px 0 0;
 
   text-align: center;
   font-family: Roboto;
@@ -60,7 +60,6 @@ export const StyledSummaryList = styled.ul`
 `;
 
 export const StyledSummaryItem = styled.li`
-  padding: 18px 12px;
-  background-color: rgba(86, 86, 107, 0.50);
-  
+  padding: 12px 12px;
+  background-color: rgba(86, 86, 107, 0.5);
 `;

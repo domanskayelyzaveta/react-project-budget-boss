@@ -7,7 +7,8 @@ const Div = styled.div`
   justify-content: space-between;
   background-color: var(--background);
   color: #fff;
-  padding: 20px;
+  height: 5vh;
+  padding: 8px 40px;
 `;
 
 const Ellipse = styled.div`

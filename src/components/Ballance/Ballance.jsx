@@ -18,7 +18,7 @@ const Ballance = () => {
       {(!balance || balance <= 0) && (
         <>
           <DashboardBalanceForm />
-          <BalanceMessage />
+          {/* <BalanceMessage /> */}
         </>
       )}
       {balance >= 0 && (

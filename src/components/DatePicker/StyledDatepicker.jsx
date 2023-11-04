@@ -5,7 +5,7 @@ import sprite from '../../images/sprite.svg';
 
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import {
-  CalcWrapper,
+  CalendWrapper,
   CalendarGlobalStyles,
   TitleWrapper,
 } from './StyledDatePicker.styled';
@@ -23,7 +23,7 @@ const StyledDatepicker = () => {
 
   return (
     <>
-      <CalcWrapper>
+      <CalendWrapper>
         <div>
           <svg width="20" height="20">
             <use href={`${sprite}#icon-calendar`} />
@@ -42,7 +42,7 @@ const StyledDatepicker = () => {
             formatWeekDay={day => day.substr(0, 1)}
           />
         </div>
-      </CalcWrapper>
+      </CalendWrapper>
       <CalendarGlobalStyles />
     </>
   );
