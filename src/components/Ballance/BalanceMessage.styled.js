@@ -22,3 +22,8 @@ export const MessageText = styled.p`
   font-weight: 500;
   line-height: 20px;
 `;
+
+export const InitialBalanceWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;

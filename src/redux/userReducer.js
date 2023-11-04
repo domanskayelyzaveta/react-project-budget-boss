@@ -60,6 +60,7 @@ const userSlice = createSlice({
         state.isSignedIn = true;
         state.userData = action.payload.userData;
         state.accessToken = action.payload.accessToken;
+        state.balance = action.payload.userData.balance;
       })
       .addCase(loginThunk.rejected, (state, action) => {
         state.isLoading = false;

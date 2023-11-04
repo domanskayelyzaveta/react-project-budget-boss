@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { BalanceWrapper, StyledBalanceAmount } from './Balance.styled';
 import BalanceMessage from './BalanceMessage';
+import { InitialBalanceWrapper } from './BalanceMessage.styled';
 
 const Ballance = () => {
   const balance = useSelector(state => state.user.balance);
@@ -16,10 +17,10 @@ const Ballance = () => {
     <BalanceWrapper>
       Ballance:
       {!balance && (
-        <>
+        <InitialBalanceWrapper>
           <DashboardBalanceForm />
           <BalanceMessage />
-        </>
+        </InitialBalanceWrapper>
       )}
       {balance && (
         <StyledBalanceAmount>{balance?.toFixed(2)} UAH</StyledBalanceAmount>

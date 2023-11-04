@@ -34,6 +34,8 @@ export const ExpensesWrapper = styled.div`
 export const StyledTop = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding-top: 40px;
 `;
 
 export const StyledBalanceWrapper = styled.div`
