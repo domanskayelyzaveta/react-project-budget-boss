@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import css from './CategoriesList.module.css';
 import sprite from '../../images/sprite.svg';
 import Products from '../../images/icons/Products.webp';
 import Transport from '../../images/icons/Transport.webp';
@@ -14,6 +13,16 @@ import Education from '../../images/icons/Education.webp';
 import Other from '../../images/icons/Other.webp';
 import Salary from '../../images/icons/Salary.webp';
 import AdditionalIncome from '../../images/icons/Additional-income.webp';
+import {
+  Btn,
+  BtnContainer,
+  CategoryP,
+  ComponentUl,
+  DivContainer,
+  ItemLi,
+  P,
+  TitleTwo,
+} from './CategoriesList.styled';
 
 export const CategoriesList = ({ data }) => {
   const [currentCategoryType, setCurrentCategoryType] = useState('expense');
@@ -59,61 +68,48 @@ export const CategoriesList = ({ data }) => {
   };
 
   return (
-    <div className={css.categoriesListContainer}>
-      <div className={css.buttonsContainer}>
-        <button
-          type="button"
-          onClick={handleToggleCategoryType}
-          className={css.buttonCategory}
-        >
-          <svg width="16" height="16">
+    <DivContainer>
+      <BtnContainer>
+        <Btn type="button" onClick={handleToggleCategoryType}>
+          <svg width="13" height="13">
             <use href={`${sprite}#arrow-toleft`} />
           </svg>
-        </button>
-        {currentCategoryType === 'income' ? <p>INCOME:</p> : <p>EXPENSE:</p>}
-        <button
-          type="button"
-          onClick={handleToggleCategoryType}
-          className={css.buttonCategory}
-        >
-          <svg width="16" height="16">
+        </Btn>
+        {currentCategoryType === 'income' ? (
+          <TitleTwo>INCOME</TitleTwo>
+        ) : (
+          <TitleTwo>EXPENSES</TitleTwo>
+        )}
+        <Btn type="button" onClick={handleToggleCategoryType}>
+          <svg width="13" height="13">
             <use href={`${sprite}#arrow-toright`} />
           </svg>
-        </button>
-      </div>
-      <div className={css.ulContainer}>
-        <ul className={css.categoriesList}>
+        </Btn>
+      </BtnContainer>
+      <div>
+        <ComponentUl>
           {currentCategoryType === 'expense'
             ? expensesArray.map((element, index) => {
                 return (
-                  <li key={index} className={css.categoriesListItem}>
-                    <p className={css.total}>{element.total}.00</p>
-                    <img src={element.image} alt="" className={css.image} />
-                    <p className={css.categoryName}>
-                      {element.categories.toUpperCase()}
-                    </p>
-                  </li>
+                  <ItemLi key={index}>
+                    <P>{element.total}.00</P>
+                    <img src={element.image} alt="" />
+                    <CategoryP>{element.categories.toUpperCase()}</CategoryP>
+                  </ItemLi>
                 );
               })
-            : null}
-        </ul>
-        <ul className={css.categoriesList}>
-          {currentCategoryType === 'income'
-            ? incomesArray.map((element, index) => {
+            : incomesArray.map((element, index) => {
                 return (
-                  <li key={index} className={css.categoriesListItem}>
-                    <p className={css.total}>{element.total}.00</p>
-                    <img src={element.image} alt="" className={css.image} />
-                    <p className={css.categoryName}>
-                      {element.categories.toUpperCase()}
-                    </p>
-                  </li>
+                  <ItemLi key={index}>
+                    <P>{element.total}.00</P>
+                    <img src={element.image} alt="" />
+                    <CategoryP>{element.categories.toUpperCase()}</CategoryP>
+                  </ItemLi>
                 );
-              })
-            : null}
-        </ul>
+              })}
+        </ComponentUl>
       </div>
-    </div>
+    </DivContainer>
   );
 };
 
