@@ -15,6 +15,7 @@ import { useDispatch } from 'react-redux';
 import { loginThunk, registerThunk } from 'redux/thunks';
 import GoogleAuthButton from 'components/GoogleAuthBtn/GoogleAuthBtn';
 import money from '../../images/desktop/money-desktop-1x.webp';
+import { toast } from 'react-toastify';
 
 const AuthForm = () => {
   const {
@@ -33,11 +34,20 @@ const AuthForm = () => {
     if (data) {
       submit === 'Log in'
         ? dispatch(loginThunk(data))
+            .then(() => {
+              toast.success('Login successful');
+            })
+            .catch(error => {
+              toast.error('Registration failed: ' + error.message);
+            })
         : dispatch(registerThunk(data))
-            .unwrap()
             .then(() => {
               dispatch(loginThunk(data));
               form.reset();
+              toast.success('Registration successful');
+            })
+            .catch(error => {
+              toast.error('Registration failed: ' + error.message);
             });
     }
   };
