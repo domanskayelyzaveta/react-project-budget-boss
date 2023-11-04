@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo1x from '../../images/mobile/logo-mobile-1x.webp';
 import logo2x from '../../images/mobile/logo-mobile-2x.webp';
@@ -17,8 +17,14 @@ import {
 import { useSelector, useDispatch } from 'react-redux';
 import { logoutThunk } from 'redux/thunks';
 import { selectEmail, selectToken } from 'redux/selectors';
+import Modal from 'components/Modal/Modal';
 
 const Navigation = () => {
+  const [isModalExitOpen, setIsModalExitOpen] = useState(false);
+  const handleModalOpen = () => {
+    setIsModalExitOpen(!isModalExitOpen);
+  };
+
   const userEmail = useSelector(selectEmail);
   const token = useSelector(selectToken);
   const userInitial = userEmail?.charAt(0).toUpperCase();
@@ -76,7 +82,7 @@ const Navigation = () => {
               </Line>
 
               <StyledComponent to="/" end>
-                <P onClick={handleLogout}>Exit</P>
+                <P onClick={handleModalOpen}>Exit</P>
               </StyledComponent>
             </Wrapper>
           </>
@@ -104,6 +110,13 @@ const Navigation = () => {
           </NavLink>
         )}
       </>
+      {isModalExitOpen && (
+        <Modal
+          children={<p>Do you really want to leave?</p>}
+          incomeEvent={handleLogout}
+          onCloseModal={handleModalOpen}
+        ></Modal>
+      )}
     </Div>
   );
 };
