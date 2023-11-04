@@ -27,3 +27,37 @@ export const InitialBalanceWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
+export const Img = styled.img`
+  position: absolute;
+  z-index: 9;
+  top: -11px;
+`;
+
+export const ImgWrapper = styled.div`
+  position: relative;
+`;
+export const ParagraphNotif = styled.p`
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: left;
+  position: absolute;
+  z-index: 9999999;
+  width: 224px;
+  top: 36px;
+  left: 44px;
+  color: var(--text-color);
+`;
+export const ParagraphNotific = styled.p`
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: left;
+  position: absolute;
+  z-index: 9999999;
+  width: 224px;
+  top: 96px;
+  left: 44px;
+  color: var(--text-color);
+`;
