@@ -16,19 +16,20 @@ export const FormWrapper = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
-    margin-top: 120px;
-    margin-right: 125px;
-    padding-top: 0px;
-    justify-content: flex-end;
-    background-position: left;
-    background-image: url(${money});
+    display: flex;
+    justify-content: space-around;
+    gap: 5%;
+
+    // margin-right: 125px;
+    // padding-top: 0px;
+    padding: 120px 125px;
+    background-image: none;
   }
 `;
 
 export const Form = styled.form`
   width: 260px;
   height: 488px;
-  margin-bottom: 40px;
   border-radius: 16px;
   padding: 32px 20px;
   padding-bottom: 0px;

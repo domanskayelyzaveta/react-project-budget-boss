@@ -74,6 +74,7 @@ import {
 } from 'redux/thunks';
 import formatDate from 'service/helpers';
 import {
+  CalcWrapper,
   CustomSelect,
   StyledButtonsWrapper,
   StyledCategoryInput,
@@ -84,22 +85,20 @@ import {
   StyledInputWrapper,
   StyledOption,
   StyledSumInput,
+  SvgCalc,
 } from './DashboardForm.styled';
 import StyledDatepicker from 'components/DatePicker/StyledDatepicker';
 // import {formatDate} from '../../service/helpers'
 import Select from 'react-select';
 import customStyles from './DashboardFormStyle';
+import sprite from '../../images/sprite.svg';
+
+// const DashboardForm = ({ categoriesList, category }) => {
+//   return <FormFields categoriesList={categoriesList} category={category} />;
+// };
 import { toast } from 'react-toastify';
 
 const DashboardForm = ({ categoriesList, category }) => {
-  return (
-    <div className="App">
-      <FormFields categoriesList={categoriesList} category={category} />
-    </div>
-  );
-};
-
-const FormFields = ({ categoriesList, category }) => {
   const { register, handleSubmit, control, setValue, reset } = useForm();
   const [date, setDate] = React.useState(new Date(formatDate(Date.now())));
   const dispatch = useDispatch();
@@ -165,7 +164,7 @@ const FormFields = ({ categoriesList, category }) => {
   };
 
   return (
-    <div className="container">
+    <div>
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
         <Controller
           name="date"
@@ -211,15 +210,19 @@ const FormFields = ({ categoriesList, category }) => {
               />
             )}
           />
-
-          <StyledSumInput
-            type="tel"
-            inputMode="numeric"
-            pattern="[0-9]*\.?[0-9]*"
-            {...register('amount')}
-            placeholder="Enter amount"
-            autoComplete="off"
-          />
+          <CalcWrapper>
+            <StyledSumInput
+              type="tel"
+              inputMode="numeric"
+              pattern="[0-9]*\.?[0-9]*"
+              {...register('amount')}
+              placeholder="0,00"
+              autoComplete="off"
+            />
+            <SvgCalc width="20" height="20">
+              <use href={`${sprite}#icon-calculator`} />
+            </SvgCalc>
+          </CalcWrapper>
         </StyledInputWrapper>
         <StyledButtonsWrapper>
           <StyledInputButton type="submit">INPUT</StyledInputButton>

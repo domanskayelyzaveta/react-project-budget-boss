@@ -6,11 +6,14 @@ export const DataWrapper = styled.div`
   flex-shrink: 0;
   flex-grow: 0;
   gap: 75px;
-  padding: 60px 34px;
+  margin-top: 72px;
+  // padding: 60px 34px;
+
   background: transparent;
 `;
 
 export const IncomeWrapper = styled.div`
+  padding: 32px 32px 40px 32px;
   border-radius: 0 20px 20px 20px;
   background: linear-gradient(
     115.74deg,
@@ -18,7 +21,9 @@ export const IncomeWrapper = styled.div`
     rgba(56, 56, 71, 0.29) 107.94%
   );
 `;
+
 export const ExpensesWrapper = styled.div`
+  padding: 32px 32px 40px 32px;
   border-radius: 0 20px 20px 20px;
   background: linear-gradient(
     115.74deg,
@@ -37,6 +42,4 @@ export const StyledBalanceWrapper = styled.div`
 `;
 export const StyledLinkWrapper = styled.div``;
 
-export const StyledTabs = styled(Tabs)`
-`
-
+export const StyledTabs = styled(Tabs)``;

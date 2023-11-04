@@ -89,27 +89,29 @@ const Dashboard = () => {
 
   return (
     <>
-      <StyledTop>
-        <StyledBalanceWrapper>
-          <Ballance />
-        </StyledBalanceWrapper>
-        <StyledLinkWrapper>
-          <Link to="/reports">
-            <IconWithButton iconName={'#icon-bar_chart-24px'} />
-          </Link>
-        </StyledLinkWrapper>
-      </StyledTop>
-      {/* <Calculator/> */}
-      <Tabs
-        className="custom-tabs"
-        activeKey={activeTab}
-        onChange={key => {
-          setActiveTab(key);
-          console.log(key);
-        }}
-        defaultActiveKey="1"
-        items={items}
-      />
+      <div className="container">
+        <StyledTop>
+          <StyledBalanceWrapper>
+            <Ballance />
+          </StyledBalanceWrapper>
+          <StyledLinkWrapper>
+            <Link to="/reports">
+              <IconWithButton iconName={'#icon-bar_chart-24px'} />
+            </Link>
+          </StyledLinkWrapper>
+        </StyledTop>
+        {/* <Calculator/> */}
+        <Tabs
+          className="custom-tabs"
+          activeKey={activeTab}
+          onChange={key => {
+            setActiveTab(key);
+            console.log(key);
+          }}
+          defaultActiveKey="1"
+          items={items}
+        />
+      </div>
     </>
   );
 };
