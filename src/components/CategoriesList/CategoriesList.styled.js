@@ -6,6 +6,7 @@ export const DivContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  background-color: transparent;
   padding: 32px 20px 20px 20px;
 `;
 
@@ -40,13 +41,22 @@ export const TitleTwo = styled.h2`
 
 export const ComponentUl = styled.ul`
   list-style-type: none;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Создает три столбца в каждом ряду */
-  grid-gap: 55px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 40px;
+  column-gap: 16px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
 `;
 
 export const ItemLi = styled.li`
-  flex-basis: calc((100% - (60px * 2)) / 3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-basis: calc((100% - (17px * 2)) / 3);
 `;
 
 export const P = styled.p`
@@ -57,6 +67,17 @@ export const P = styled.p`
   line-height: normal;
   letter-spacing: 0.48px;
   text-transform: uppercase;
+  margin-bottom: 5px;
+`;
+
+export const Image = styled.img`
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(86, 86, 107, 0.2);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.15);
+  padding-left: 5px;
+  padding-top: 5px;
 `;
 
 export const CategoryP = styled.p`
@@ -67,5 +88,8 @@ export const CategoryP = styled.p`
   line-height: normal;
   letter-spacing: 0.2px;
   text-transform: uppercase;
-  width: 64px;
+  width: 82px;
+  margin-top: 8px;
+  margin-right: auto;
+  margin-left: auto;
 `;

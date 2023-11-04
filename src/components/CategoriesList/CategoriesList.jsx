@@ -19,6 +19,7 @@ import {
   CategoryP,
   ComponentUl,
   DivContainer,
+  Image,
   ItemLi,
   P,
   TitleTwo,
@@ -93,7 +94,7 @@ export const CategoriesList = ({ data }) => {
                 return (
                   <ItemLi key={index}>
                     <P>{element.total}.00</P>
-                    <img src={element.image} alt="" />
+                    <Image src={element.image} alt="" />
                     <CategoryP>{element.categories.toUpperCase()}</CategoryP>
                   </ItemLi>
                 );
@@ -102,7 +103,7 @@ export const CategoriesList = ({ data }) => {
                 return (
                   <ItemLi key={index}>
                     <P>{element.total}.00</P>
-                    <img src={element.image} alt="" />
+                    <Image src={element.image} alt="" />
                     <CategoryP>{element.categories.toUpperCase()}</CategoryP>
                   </ItemLi>
                 );
