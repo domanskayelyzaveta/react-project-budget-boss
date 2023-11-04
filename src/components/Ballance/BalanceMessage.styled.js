@@ -13,3 +13,12 @@ export const MessageWrapper = styled.div`
   border-radius: 30px;
   background: linear-gradient(118deg, #58bb67 3.05%, #368342 125.62%);
 `;
+
+export const MessageText = styled.p`
+  color: #fff;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+`;

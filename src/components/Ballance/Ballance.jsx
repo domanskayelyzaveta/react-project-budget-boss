@@ -1,7 +1,11 @@
+<<<<<<< Updated upstream
 import React, { useEffect } from 'react';
+=======
+import DashboardBalanceForm from 'components/DashboardBalanceForm/DashboardBalanceForm';
+import { useEffect } from 'react';
+>>>>>>> Stashed changes
 import { useSelector } from 'react-redux';
 import { BalanceWrapper, StyledBalanceAmount } from './Balance.styled';
-import DashboardBalanceForm from 'components/DashboardBalanceForm/DashboardBalanceForm';
 import BalanceMessage from './BalanceMessage';
 
 const Ballance = () => {
@@ -15,7 +19,7 @@ const Ballance = () => {
   return (
     <BalanceWrapper>
       Ballance:
-      {(!balance || balance <= 0) && (
+      {!balance && (
         <>
           <DashboardBalanceForm />
           {/* <BalanceMessage /> */}
