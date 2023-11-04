@@ -105,7 +105,7 @@ export const getTransactions = async category => {
   // const { data } = await $instance.get(`/transaction/${category}`, {
   //   headers: { Authorization: `Bearer ${token}` },
   // });
-  console.log(data)
+  console.log(data);
   return data;
 };
 
@@ -121,10 +121,5 @@ export const getTransactions = async category => {
 
 export const fetchPeriodData = async date => {
   const { data } = await $instance.get(`/transaction/period-data?date=${date}`);
-  return data;
-};
-
-export const addBalance = async () => {
-  const { data } = await $instance.patch(`/user/balance`);
   return data;
 };
