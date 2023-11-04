@@ -17,10 +17,10 @@ const Ballance = () => {
     <BalanceWrapper>
       Ballance:
       {!balance && (
-        <InitialBalanceWrapper>
+        <>
           <DashboardBalanceForm />
           <BalanceMessage />
-        </InitialBalanceWrapper>
+        </>
       )}
       {balance && (
         <StyledBalanceAmount>{balance?.toFixed(2)} UAH</StyledBalanceAmount>

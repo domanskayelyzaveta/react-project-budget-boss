@@ -3,7 +3,7 @@ import sprite from '../../images/sprite.svg';
 import styled from 'styled-components';
 import { StyledBtn } from './IconWithButton.styled';
 
-const IconWithButton = ({ iconName}) => {
+const IconWithButton = ({ iconName }) => {
   return (
     <StyledBtn>
       <div>
@@ -17,5 +17,3 @@ const IconWithButton = ({ iconName}) => {
 };
 
 export default IconWithButton;
-
-

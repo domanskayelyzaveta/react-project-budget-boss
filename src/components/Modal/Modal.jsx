@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Childrens, Content, StyledButtonClose, Wrapper } from './Modal.styled';
-
+import sprite from '../../images/sprite.svg';
 const Modal = ({ children, onCloseModal }) => {
   const onBackDropClick = e => {
     if (e.currentTarget === e.target) {
@@ -25,7 +25,11 @@ const Modal = ({ children, onCloseModal }) => {
   return (
     <Wrapper onClick={onBackDropClick}>
       <Content>
-        <StyledButtonClose onClick={onCloseModal}>Close</StyledButtonClose>
+        <StyledButtonClose onClick={onCloseModal}>
+          <svg width="12" height="12">
+            <use href={`${sprite}#icon-cross-modal`} />
+          </svg>
+        </StyledButtonClose>
         <Childrens>{children}</Childrens>
       </Content>
     </Wrapper>
@@ -37,4 +41,3 @@ Modal.propTypes = {
 };
 
 export default Modal;
-
