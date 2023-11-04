@@ -24,7 +24,7 @@ const Ballance = () => {
     <BalanceWrapper>
       Ballance:
       {!balance && (
-        <>
+        <InitialBalanceWrapper>
           <DashboardBalanceForm />
           {/* <BalanceMessage /> */}
           <ImgWrapper>

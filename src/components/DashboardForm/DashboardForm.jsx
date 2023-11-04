@@ -97,6 +97,10 @@ const DashboardForm = ({ categoriesList, category }) => {
     setDate(dateChange);
   };
 
+  const handelClearForm = () => {
+    reset();
+  };
+
   return (
     <div>
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
@@ -152,13 +156,18 @@ const DashboardForm = ({ categoriesList, category }) => {
         </StyledInputWrapper>
         <StyledButtonsWrapper>
           <StyledInputButton type="submit">ADD TRANSACTION</StyledInputButton>
-          <StyledClearButton type="button">CLEAR</StyledClearButton>
           <StyledClearButton type="button" onClick={handleModalOpen}>
-            MODAL
+            CLEAR
           </StyledClearButton>
         </StyledButtonsWrapper>
       </StyledForm>
-      {isModalOpen && <Modal onCloseModal={handleModalOpen}></Modal>}
+      {isModalOpen && (
+        <Modal
+          children={<p>Are you sure?</p>}
+          incomeEvent={handelClearForm}
+          onCloseModal={handleModalOpen}
+        ></Modal>
+      )}
     </div>
   );
 };
