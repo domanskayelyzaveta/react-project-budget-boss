@@ -14,7 +14,7 @@ export const Container = styled.div`
   }
   max-width: 1034px;
   display: flex;
-  gap: 20px;
+  /* gap: 20px; */
   margin-top: 32px;
   margin-right: auto;
   margin-left: auto;
@@ -52,50 +52,63 @@ export const StatisticsWrapRight = styled.div`
     flex-direction: column;
     gap: 4px;
   }
+  padding-left: 20px;
   display: flex;
 `;
 
-export const StatisticsText = styled.p`
+export const ExpenseText = styled.p`
   @media ${media.mobile} {
     padding-right: 0;
     text-align: center;
   }
-  padding-right: 15px;
+  /* padding-right: 15px; */
   font-size: 14px;
   font-weight: 700;
   line-height: normal;
   color: #c7ccdc;
 `;
 
-export const ExpenseTotal = styled.p`
+export const IncomeText = styled.p`
+  @media ${media.mobile} {
+    padding-right: 0;
+    text-align: center;
+  }
   font-size: 14px;
   font-weight: 700;
+  padding-right: 10px;
   line-height: normal;
+  color: #c7ccdc;
+`;
+
+export const ExpenseTotal = styled.p`
+  font-size: 14px;
+  text-align: center;
+  font-weight: 700;
+  line-height: 1.3;
   letter-spacing: 0.56px;
+  padding-left: 10px;
   color: var(--red);
 `;
 
 export const IncomeTotal = styled.p`
   font-size: 14px;
+  text-align: center;
   font-weight: 700;
-  line-height: normal;
+  line-height: 1.3;
   letter-spacing: 0.56px;
+  padding-right: 10px;
   color: var(--salat);
 `;
 
-
-
 export const ReportPageWrapper = styled.div`
- @media ${media.mobile} {
-      margin-bottom:60px;
-      
+  @media ${media.mobile} {
+    margin-bottom: 60px;
   }
 
-   @media ${media.desktop} {
-      padding-bottom:60px;
-       margin-left: auto;
-      margin-right: auto;
-      width: 1034px;
+  @media ${media.desktop} {
+    padding-bottom: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1034px;
   }
-
-`
+`;

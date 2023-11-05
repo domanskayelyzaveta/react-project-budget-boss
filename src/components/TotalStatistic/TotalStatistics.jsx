@@ -3,9 +3,10 @@ import { useSelector } from 'react-redux';
 import { selectPeriodData } from 'redux/selectors';
 import {
   Container,
+  ExpenseText,
   ExpenseTotal,
+  IncomeText,
   IncomeTotal,
-  StatisticsText,
   StatisticsWrapLeft,
   StatisticsWrapRight,
 } from './TotalStatistics.styled';
@@ -25,11 +26,11 @@ const TotalStatistics = () => {
   return (
     <Container>
       <StatisticsWrapLeft>
-        <StatisticsText>Expenses:</StatisticsText>
+        <ExpenseText>Expenses:</ExpenseText>
         <ExpenseTotal>&#x2212;&#32;{expenseTotal}</ExpenseTotal>
       </StatisticsWrapLeft>
       <StatisticsWrapRight>
-        <StatisticsText>Income:</StatisticsText>
+        <IncomeText>Income:</IncomeText>
         <IncomeTotal>&#x2b;&#32;{incomeTotal}</IncomeTotal>
       </StatisticsWrapRight>
     </Container>
