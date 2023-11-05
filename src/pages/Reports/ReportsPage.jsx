@@ -7,13 +7,13 @@ import { useSelector } from 'react-redux';
 import { selectPeriodData } from 'redux/selectors';
 
 const Reports = () => {
-  const object = useSelector(selectPeriodData);
-
+  const data = useSelector(selectPeriodData);
+  
   return (
     <div>
       <PeriodSwitch />
       <TotalStatistics />
-      {object ? <CategoriesList data={object} /> : null}
+      {data ? <CategoriesList data={data} /> : null}
       <StatisticsByCategory />
     </div>
   );
