@@ -28,6 +28,9 @@ import StyledDatepicker from 'components/DatePicker/StyledDatepicker';
 import { setSelectedDate_ } from 'redux/userReducer';
 import Modal from 'components/Modal/Modal';
 import { parseISO } from 'date-fns';
+import ModalMobile from 'components/ModalMobile/ModalMobile';
+import DashboardForm from 'components/DashboardForm/DashboardForm';
+import DashboardFormMobile from 'components/DashboardFormMobile/DahboardFormMobile';
 
 const MobileDashboardBalanceForm = ({ categoriesList }) => {
   const balance = useSelector(state => state.user.balance);
@@ -43,12 +46,13 @@ const MobileDashboardBalanceForm = ({ categoriesList }) => {
   const selectedDate = useSelector(state => state.user.selectedDate);
   // const selectedDate = useSelector(state => parseISO(state.user.selectedDate));
   // const selectedDate = new Date(selectedISODate);
+  // const selectedDate = new Date(selectedISODate);
 
   const dispatch = useDispatch();
 
   const handleModalOpen = category => {
     console.log('object')
-    category === 'expense'
+    category === 'expenses'
       ? setIsOpenAddTransactionModalExpense(!isOpenAddTransactionModalExpense)
       : setIsOpenAddTransactionModalIncome(!isOpenAddTransactionModalIncome);
   };
@@ -62,9 +66,15 @@ const MobileDashboardBalanceForm = ({ categoriesList }) => {
   };
 
   return (
-    <>
+        <>
+        (isOpenAddTransactionModalExpense || isOpenAddTransactionModalIncome) &&  <ModalMobile
+        children={<DashboardFormMobile/>}
+        incomeEvent={""}
+        onCloseModal={handleModalOpen}
+      ></ModalMobile>
+
       <MobileDashboardBalanceFormWrapper>
-        <StyledAddTransactionButton onClick={() => handleModalOpen(category)}>
+        <StyledAddTransactionButton onClick={() => handleModalOpen(category)}> 
           <StyledAddTransactionButtonIcon />
           <StyledAddTransactionButtonText>
             Add transaction
@@ -128,14 +138,6 @@ const MobileDashboardBalanceForm = ({ categoriesList }) => {
           </button>
         </div>
       </MobileDashboardBalanceFormWrapper>
-
-      {isOpenAddTransactionModalExpense && (
-        <Modal
-          children={<p>Are you sure?</p>}
-          // incomeEvent={}
-          onCloseModal={handleModalOpen}
-        ></Modal>
-      )}
     </>
   );
 };

@@ -14,6 +14,7 @@ export const StyledFormWrapper = styled.div`
 
 export const StyledForm = styled.form`
   display: flex;
+  flex-direction:column;
   align-items: center;
   gap: 32px;
 
@@ -23,7 +24,19 @@ export const StyledForm = styled.form`
   @media screen and (min-width: 1280px) {
     flex-wrap: nowrap;
   }
+  @media screen and (min-width: 768px) {
+    flex-direction:row;
+  }
 `;
+
+export const Wrapper = styled.div`
+display:flex;
+flex-direction:column;
+@media screen and (min-width: 768px) {
+  flex-direction:row;
+  }
+
+`
 
 export const StyledDescrInput = styled.input`
   color: var(--white-3, rgba(199, 204, 220, 0.5));
@@ -89,6 +102,8 @@ export const StyledSumInput = styled.input`
 
 export const StyledInputWrapper = styled.div`
   display: flex;
+  gap:32px;
+  flex-direction:column;
   box-sizing: border-box;
   // gap: 20px;
   /* padding: 15px 20px; */
@@ -101,6 +116,11 @@ export const StyledInputWrapper = styled.div`
   letter-spacing: 0.24px;
   border-radius: 16px 16px 16px 0px;
   border: 2px solid var(--grey, #474759);
+
+  @media screen and (min-width: 768px) {
+    flex-direction:row;
+    gap: 0;
+  }
 `;
 
 export const StyledButtonsWrapper = styled.div`
