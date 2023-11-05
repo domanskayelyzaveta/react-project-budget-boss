@@ -45,6 +45,7 @@ export const logoutThunk = createAsyncThunk(
       await fetchLogout(token);
       // clearAuthHeader();
     } catch (error) {
+      // TODO: відловити помилку з сервера
       return thunkAPI.rejectWithValue(error.message);
     }
   }
