@@ -9,9 +9,9 @@ const media = {
 export const Container = styled.div`
   @media ${media.mobile} {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     max-width: 767px;
-    margin-top: 32px;
+    margin-top: 16px;
   }
   max-width: 1034px;
   display: flex;
@@ -24,7 +24,9 @@ export const Container = styled.div`
 
 export const BackBtn = styled(Link)`
   @media ${media.mobile} {
-    display: none;
+    display: flex;
+    margin-right: auto;
+    gap: 4px;
   }
   display: flex;
   align-items: center;
@@ -33,12 +35,23 @@ export const BackBtn = styled(Link)`
 `;
 
 export const Back = styled.svg`
+  @media ${media.mobile} {
+    width: 18px;
+    height: 18px;
+  }
   width: 24px;
   height: 24px;
   flex-shrink: 0;
 `;
 
 export const BackText = styled.span`
+  @media ${media.mobile} {
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+  }
   font-size: 12px;
   font-weight: 400;
   line-height: normal;
@@ -50,34 +63,10 @@ export const MobileWrapPeriod = styled.div`
   @media ${media.mobile} {
     display: flex;
     flex-direction: column;
+    margin-top: 25px;
     margin-bottom: 32px;
   }
 `;
-
-// export const BalanceWrap = styled.div`
-//   @media ${media.mobile} {
-//     display: flex;
-//     flex-direction: column;
-//     gap: 8px;
-//   }
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   flex-direction: row;
-// `;
-
-// export const BalanceTitle = styled.h2`
-//   @media ${media.mobile} {
-//     margin-right: 0;
-//   }
-//   margin-right: 20px;
-//   text-align: center;
-//   font-size: 12px;
-//   font-weight: 500;
-//   line-height: normal;
-//   letter-spacing: 0.24px;
-//   color: rgba(199, 204, 220, 0.5);
-// `;
 
 export const PeriodTitle = styled.h3`
   margin-bottom: 5px;
