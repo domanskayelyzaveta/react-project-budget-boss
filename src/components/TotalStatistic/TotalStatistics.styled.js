@@ -81,3 +81,16 @@ export const IncomeTotal = styled.p`
   letter-spacing: 0.56px;
   color: var(--salat);
 `;
+
+
+
+export const ReportPageWrapper = styled.div`
+ @media ${media.mobile} {
+      padding-bottom:60px;
+  }
+
+   @media ${media.tablet} {
+      padding-bottom:80px;
+  }
+
+`

@@ -53,13 +53,13 @@ export const fetchExpenseCategories = async () => {
 //   const { data } = await $instance.get('/transaction/expense-categories', {
 //     headers: { Authorization: Bearer ${token} },
 //   });
-//   console.log(data);
+//   
 //   return data;
 // };
 
 // export const fetchCurrentUser = async () => {
 //   const { data } = await $instance.get('/users/current');
-//   console.log(data);
+//   
 //   return data;
 // };
 
@@ -102,7 +102,7 @@ export const getTransactions = async category => {
   // const { data } = await $instance.get(`/transaction/${category}`, {
   //   headers: { Authorization: `Bearer ${token}` },
   // });
-  console.log(data);
+
   return data;
 };
 
