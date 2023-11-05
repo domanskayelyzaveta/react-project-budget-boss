@@ -1,7 +1,4 @@
-import { useState } from 'react';
-
 import { Controller, useForm } from 'react-hook-form';
-
 
 import 'react-datepicker/dist/react-datepicker.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,19 +13,35 @@ import sprite from '../../images/sprite.svg';
 import customStyles from '../DashboardForm/DashboardFormStyle';
 
 import { toast } from 'react-toastify';
-import { setSelectedDate_ } from 'redux/userReducer';
 
-import { CalcWrapper, StyledButtonsWrapper, StyledDescrInput, StyledForm, StyledFormMobileWrapper, StyledSumInput, StyledTextInputWrapper } from './DahboardFormMobile.styled';
-import { StyledClearButton, StyledInputButton, SvgCalc } from 'components/DashboardForm/DashboardForm.styled';
+import {
+  StyledClearButton,
+  StyledInputButton,
+  SvgCalc,
+} from 'components/DashboardForm/DashboardForm.styled';
+import {
+  CalcWrapper,
+  StyledButtonsWrapper,
+  StyledDescrInput,
+  StyledForm,
+  StyledFormMobileWrapper,
+  StyledSumInput,
+  StyledTextInputWrapper,
+} from './DahboardFormMobile.styled';
 
-const DashboardFormMobile = ({ categoriesList, category }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const handleModalOpen = () => {
-    setIsModalOpen(!isModalOpen);
-  };
-
-  const { register, handleSubmit, control, setValue, reset } = useForm();
+const DashboardFormMobile = ({ category, onCloseModal }) => {
+  const { register, handleSubmit, control, reset } = useForm();
   const selectedDate = useSelector(state => state.user.selectedDate);
+  const incomeCategoriesList = useSelector(
+    state => state.categories.incomeCategories
+  );
+  const expenseCategoriesList = useSelector(
+    state => state.categories.expenseCategories
+  );
+  let categoriesList;
+  category === 'income'
+    ? (categoriesList = incomeCategoriesList)
+    : (categoriesList = expenseCategoriesList);
   // const selectedDate = useSelector(state=> parseISO(state.user.selectedDate))
   // const selectedDate = parseISO(selectedISODate);
   const dispatch = useDispatch();
@@ -65,7 +78,8 @@ const DashboardFormMobile = ({ categoriesList, category }) => {
         .catch(error => {
           console.error('Error adding income transaction:', error);
           toast.error('Error adding income transaction: ' + error.message);
-        });
+        })
+        .finally(() => onCloseModal(category));
     } else {
       dispatch(addExpenseTransactionThunk({ dataToDispatch, category }))
         .unwrap()
@@ -75,19 +89,20 @@ const DashboardFormMobile = ({ categoriesList, category }) => {
         .catch(error => {
           console.error('Error adding expense transaction:', error);
           toast.error('Error adding expense transaction: ' + error.message);
-        });
+        })
+        .finally(() => onCloseModal(category));
     }
 
     reset();
   };
 
-  const handleChange = dateChange => {
-    setValue('date', dateChange, {
-      shouldDirty: true,
-    });
+  // const handleChange = dateChange => {
+  //   setValue('date', dateChange, {
+  //     shouldDirty: true,
+  //   });
 
-    dispatch(setSelectedDate_(dateChange));
-  };
+  //   dispatch(setSelectedDate_(dateChange));
+  // };
 
   const handelClearForm = () => {
     reset();
@@ -96,48 +111,47 @@ const DashboardFormMobile = ({ categoriesList, category }) => {
   return (
     <StyledFormMobileWrapper>
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
+        <StyledTextInputWrapper>
+          <StyledDescrInput
+            {...register('description')}
+            placeholder="Description"
+            autoComplete="off"
+          />
+          <Controller
+            name="category"
+            control={control}
+            render={({ field }) => (
+              <Select
+                {...register('category')}
+                placeholder="Category"
+                styles={customStyles}
+                {...field}
+                options={categoriesList?.map((category, index) => ({
+                  value: category,
+                  label: category,
+                }))}
+              />
+            )}
+          />
+        </StyledTextInputWrapper>
 
-          <StyledTextInputWrapper>
-            <StyledDescrInput
-              {...register('description')}
-              placeholder="Description"
-              autoComplete="off"
-            />
-            <Controller
-              name="category"
-              control={control}
-              render={({ field }) => (
-                <Select
-                  {...register('category')}
-                  placeholder="Category"
-                  styles={customStyles}
-                  {...field}
-                  options={categoriesList?.map((category, index) => ({
-                    value: category,
-                    label: category,
-                  }))}
-                />
-              )}
-            />
-          </StyledTextInputWrapper>
-
-          <CalcWrapper>
-            <StyledSumInput
-              type="tel"
-              inputMode="numeric"
-              pattern="[0-9]*\.?[0-9]*"
-              {...register('amount')}
-              placeholder="0,00"
-              autoComplete="off"
-            />
-            <SvgCalc width="20" height="20">
-              <use href={`${sprite}#icon-calculator`} />
-            </SvgCalc>
-          </CalcWrapper>
+        <CalcWrapper>
+          <StyledSumInput
+            type="tel"
+            inputMode="numeric"
+            pattern="[0-9]*\.?[0-9]*"
+            {...register('amount')}
+            placeholder="0,00"
+            autoComplete="off"
+          />
+          <SvgCalc width="20" height="20">
+            <use href={`${sprite}#icon-calculator`} />
+          </SvgCalc>
+        </CalcWrapper>
 
         <StyledButtonsWrapper>
           <StyledInputButton type="submit">Input</StyledInputButton>
-          <StyledClearButton type="button" onClick={handleModalOpen}>
+          <StyledClearButton type="button" onClick={handelClearForm}>
             CLEAR
           </StyledClearButton>
         </StyledButtonsWrapper>
