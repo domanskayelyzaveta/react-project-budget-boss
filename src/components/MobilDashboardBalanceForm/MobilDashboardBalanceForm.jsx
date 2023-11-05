@@ -28,6 +28,9 @@ import StyledDatepicker from 'components/DatePicker/StyledDatepicker';
 import { setSelectedDate_ } from 'redux/userReducer';
 import Modal from 'components/Modal/Modal';
 import { parseISO } from 'date-fns';
+import ModalMobile from 'components/ModalMobile/ModalMobile';
+import DashboardForm from 'components/DashboardForm/DashboardForm';
+import DashboardFormMobile from 'components/DashboardFormMobile/DahboardFormMobile';
 
 const MobileDashboardBalanceForm = ({ categoriesList }) => {
   const balance = useSelector(state => state.user.balance);
@@ -48,7 +51,7 @@ const MobileDashboardBalanceForm = ({ categoriesList }) => {
 
   const handleModalOpen = category => {
     console.log('object')
-    category === 'expense'
+    category === 'expenses'
       ? setIsOpenAddTransactionModalExpense(!isOpenAddTransactionModalExpense)
       : setIsOpenAddTransactionModalIncome(!isOpenAddTransactionModalIncome);
   };
@@ -60,11 +63,18 @@ const MobileDashboardBalanceForm = ({ categoriesList }) => {
   const handleChangePage = category => {
     setCategory(category);
   };
+  
 
   return (
-    <>
+        <>
+        (isOpenAddTransactionModalExpense || isOpenAddTransactionModalIncome) &&  <ModalMobile
+        children={<DashboardFormMobile/>}
+        incomeEvent={""}
+        onCloseModal={handleModalOpen}
+      ></ModalMobile>
+
       <MobileDashboardBalanceFormWrapper>
-        <StyledAddTransactionButton onClick={() => handleModalOpen(category)}>
+        <StyledAddTransactionButton onClick={() => handleModalOpen(category)}> {(isOpenAddTransactionModalExpense || isOpenAddTransactionModalIncome) && <Component1></Component1>:<component2></component2>}
           <StyledAddTransactionButtonIcon />
           <StyledAddTransactionButtonText>
             Add transaction
@@ -128,14 +138,6 @@ const MobileDashboardBalanceForm = ({ categoriesList }) => {
           </button>
         </div>
       </MobileDashboardBalanceFormWrapper>
-
-      {isOpenAddTransactionModalExpense && (
-        <Modal
-          children={<p>Are you sure?</p>}
-          // incomeEvent={}
-          onCloseModal={handleModalOpen}
-        ></Modal>
-      )}
     </>
   );
 };

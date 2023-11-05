@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { parseISO } from 'date-fns';
 
 import { Controller, useForm } from 'react-hook-form';
 
-import StyledDatepicker from 'components/DatePicker/StyledDatepicker';
+
 import 'react-datepicker/dist/react-datepicker.css';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -11,30 +10,18 @@ import {
   addIncomeTransactionThunk,
 } from 'redux/thunks';
 import formatDate from 'service/helpers';
-import {
-  CalcWrapper,
-  StyledButtonsWrapper,
-  StyledClearButton,
-  StyledDescrInput,
-  StyledForm,
-  StyledFormWrapper,
-  StyledInputButton,
-  StyledInputWrapper,
-  StyledSumInput,
-  SvgCalc,
-  Wrapper,
-} from './DashboardForm.styled';
 
 import Select from 'react-select';
 import sprite from '../../images/sprite.svg';
-import customStyles from './DashboardFormStyle';
+import customStyles from '../DashboardForm/DashboardFormStyle';
 
 import { toast } from 'react-toastify';
 import { setSelectedDate_ } from 'redux/userReducer';
-import Modal from '../Modal/Modal';
-import MobilDashboardBalanceForm from 'components/MobilDashboardBalanceForm/MobilDashboardBalanceForm';
 
-const DashboardForm = ({ categoriesList, category }) => {
+import { CalcWrapper, StyledButtonsWrapper, StyledDescrInput, StyledForm, StyledFormMobileWrapper, StyledSumInput, StyledTextInputWrapper } from './DahboardFormMobile.styled';
+import { StyledClearButton, StyledInputButton, SvgCalc } from 'components/DashboardForm/DashboardForm.styled';
+
+const DashboardFormMobile = ({ categoriesList, category }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleModalOpen = () => {
     setIsModalOpen(!isModalOpen);
@@ -107,15 +94,10 @@ const DashboardForm = ({ categoriesList, category }) => {
   };
 
   return (
-    <StyledFormWrapper>
-      <StyledDatepicker
-        value={selectedDate}
-        placeholderText="Select date"
-        onClick={handleChange}
-      />
+    <StyledFormMobileWrapper>
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
-        <StyledInputWrapper>
-          <Wrapper>
+
+          <StyledTextInputWrapper>
             <StyledDescrInput
               {...register('description')}
               placeholder="Description"
@@ -137,7 +119,8 @@ const DashboardForm = ({ categoriesList, category }) => {
                 />
               )}
             />
-          </Wrapper>
+          </StyledTextInputWrapper>
+
           <CalcWrapper>
             <StyledSumInput
               type="tel"
@@ -151,23 +134,23 @@ const DashboardForm = ({ categoriesList, category }) => {
               <use href={`${sprite}#icon-calculator`} />
             </SvgCalc>
           </CalcWrapper>
-        </StyledInputWrapper>
+
         <StyledButtonsWrapper>
-          <StyledInputButton type="submit">ADD TRANSACTION</StyledInputButton>
+          <StyledInputButton type="submit">Input</StyledInputButton>
           <StyledClearButton type="button" onClick={handleModalOpen}>
             CLEAR
           </StyledClearButton>
         </StyledButtonsWrapper>
       </StyledForm>
-      {isModalOpen && (
+      {/* {isModalOpen && (
         <Modal
           children={<p>Are you sure?</p>}
           incomeEvent={handelClearForm}
           onCloseModal={handleModalOpen}
         ></Modal>
-      )}
-    </StyledFormWrapper>
+      )} */}
+    </StyledFormMobileWrapper>
   );
 };
 
-export default DashboardForm;
+export default DashboardFormMobile;
