@@ -27,6 +27,7 @@ import IconWithButton from 'components/IconWithButton/IconWithButton';
 import StyledDatepicker from 'components/DatePicker/StyledDatepicker';
 import { setSelectedDate_ } from 'redux/userReducer';
 import Modal from 'components/Modal/Modal';
+import { parseISO } from 'date-fns';
 
 const MobileDashboardBalanceForm = ({ categoriesList }) => {
   const balance = useSelector(state => state.user.balance);
@@ -40,9 +41,13 @@ const MobileDashboardBalanceForm = ({ categoriesList }) => {
   const [isOpenAddTransactionModalIncome, setIsOpenAddTransactionModalIncome] =
     useState(false);
   const selectedDate = useSelector(state => state.user.selectedDate);
+  // const selectedDate = useSelector(state => parseISO(state.user.selectedDate));
+  // const selectedDate = new Date(selectedISODate);
+
   const dispatch = useDispatch();
 
   const handleModalOpen = category => {
+    console.log('object')
     category === 'expense'
       ? setIsOpenAddTransactionModalExpense(!isOpenAddTransactionModalExpense)
       : setIsOpenAddTransactionModalIncome(!isOpenAddTransactionModalIncome);
@@ -59,7 +64,7 @@ const MobileDashboardBalanceForm = ({ categoriesList }) => {
   return (
     <>
       <MobileDashboardBalanceFormWrapper>
-        <StyledAddTransactionButton onClick={() => handleChange(category)}>
+        <StyledAddTransactionButton onClick={() => handleModalOpen(category)}>
           <StyledAddTransactionButtonIcon />
           <StyledAddTransactionButtonText>
             Add transaction
@@ -92,11 +97,11 @@ const MobileDashboardBalanceForm = ({ categoriesList }) => {
             <StyledBalanceAmount>{balance?.toFixed(2)} UAH</StyledBalanceAmount>
           )}
         </BalanceWrapperMobil>
-        {/* <StyledDatepicker
+        <StyledDatepicker
           value={selectedDate}
           placeholderText="Select date"
           onClick={handleChange}
-        /> */}
+        />
         {category === 'expenses' ? (
           <ul>
             <li>expense</li>

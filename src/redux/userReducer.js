@@ -23,6 +23,7 @@ const initialState = {
   id: null,
   balance: null,
   selectedDate: new Date(Date.now())
+  // selectedDate: new Date(Date.now()).toISOString()
 };
 
 const userSlice = createSlice({
@@ -33,7 +34,8 @@ const userSlice = createSlice({
       state.balance = action.payload;
     },
     setSelectedDate_: (state, action) => {
-      state.selectedDate = action.payload;
+      state.selectedDate = action.payload
+      // state.selectedDate = action.payload.toISOString()
     }
   },
   extraReducers: builder => {
