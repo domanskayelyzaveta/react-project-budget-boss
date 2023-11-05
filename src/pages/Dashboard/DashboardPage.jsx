@@ -22,6 +22,7 @@ import {
   StyledTop,
 } from './DashboardPage.styled';
 import './Tabs.css';
+import MobileDashboardBalanceForm from 'components/MobilDashboardBalanceForm/MobilDashboardBalanceForm';
 // import Calculator from 'components/Calculator/Calculator';
 
 const Dashboard = () => {
@@ -91,6 +92,7 @@ const Dashboard = () => {
 
   return (
     <>
+    <MobileDashboardBalanceForm />
       <div>
         <StyledTop>
           <StyledBalanceWrapper>

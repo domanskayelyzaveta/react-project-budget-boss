@@ -161,7 +161,7 @@ const DashboardForm = ({ categoriesList, category }) => {
           onCloseModal={handleModalOpen}
         ></Modal>
       )}
-      <MobilDashboardBalanceForm />
+      
     </StyledFormWrapper>
   );
 };
