@@ -18,14 +18,14 @@ export const expensesSlice = createSlice({
     builder
       // ------------GET TRANSACTIONS------------
       .addCase(getExpensesTransactionsThunk.fulfilled, (state, { payload }) => {
-        console.log('get');
+
         state.expenses = payload.expenses;
         state.monthsStats = payload.monthsStats;
       })
 
       // ------------ADD TRANSACTION------------
       .addCase(addExpenseTransactionThunk.fulfilled, (state, { payload }) => {
-        console.log('add');
+
         state.expenses.push(payload.transaction);
         state.balance = payload.newBalance;
         // state.monthsStats = payload.monthsStats;
