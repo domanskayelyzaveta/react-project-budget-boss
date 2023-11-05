@@ -38,9 +38,9 @@ const Ballance = () => {
           </ImgWrapper>
         </InitialBalanceWrapper>
       )}
-      {balance && (
+      {balance ? (
         <StyledBalanceAmount>{balance?.toFixed(2)} UAH</StyledBalanceAmount>
-      )}
+      ) : null}
     </BalanceWrapper>
   );
 };
