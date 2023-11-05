@@ -46,6 +46,7 @@ const MobileDashboardBalanceForm = ({ categoriesList }) => {
   const selectedDate = useSelector(state => state.user.selectedDate);
   // const selectedDate = useSelector(state => parseISO(state.user.selectedDate));
   // const selectedDate = new Date(selectedISODate);
+  // const selectedDate = new Date(selectedISODate);
 
   const dispatch = useDispatch();
 
@@ -73,7 +74,7 @@ const MobileDashboardBalanceForm = ({ categoriesList }) => {
       ></ModalMobile>
 
       <MobileDashboardBalanceFormWrapper>
-        <StyledAddTransactionButton onClick={() => handleModalOpen(category)}> {(isOpenAddTransactionModalExpense || isOpenAddTransactionModalIncome) && <Component1></Component1>:<component2></component2>}
+        <StyledAddTransactionButton onClick={() => handleModalOpen(category)}> 
           <StyledAddTransactionButtonIcon />
           <StyledAddTransactionButtonText>
             Add transaction
