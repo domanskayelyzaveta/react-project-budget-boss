@@ -35,6 +35,7 @@ const AuthForm = () => {
     if (data) {
       submit === 'Log in'
         ? dispatch(loginThunk(data))
+            .unwrap()
             .then(() => {
               toast.success('Login successful');
             })
@@ -42,6 +43,7 @@ const AuthForm = () => {
               toast.error('Registration failed: ' + error.message);
             })
         : dispatch(registerThunk(data))
+            .unwrap()
             .then(() => {
               dispatch(loginThunk(data));
               form.reset();
