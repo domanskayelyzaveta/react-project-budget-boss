@@ -9,7 +9,7 @@ import {
   Wrapper,
 } from './Modal.styled';
 import sprite from '../../images/sprite.svg';
-const Modal = ({ children, onCloseModal, incomeEvent }) => {
+const Modal = ({ children, onCloseModal, incomeEvent, id }) => {
   const onBackDropClick = e => {
     if (e.currentTarget === e.target) {
       onCloseModal();
@@ -30,8 +30,8 @@ const Modal = ({ children, onCloseModal, incomeEvent }) => {
     document.removeEventListener('keydown', onEscKeyPress);
   };
 
-  const handleIncomeEventAgree = incomeEvent => {
-    incomeEvent();
+  const handleIncomeEventAgree = (incomeEvent, id) => {
+    incomeEvent(id);
     onCloseModal();
   };
 
@@ -47,7 +47,7 @@ const Modal = ({ children, onCloseModal, incomeEvent }) => {
         <ButtonWrapper>
           <StyledButtonAgree
             type="button"
-            onClick={() => handleIncomeEventAgree(incomeEvent)}
+            onClick={() => handleIncomeEventAgree(incomeEvent, id)}
           >
             YES
           </StyledButtonAgree>
