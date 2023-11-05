@@ -28,6 +28,8 @@ import customStyles from './DashboardFormStyle';
 
 import { toast } from 'react-toastify';
 import Modal from '../Modal/Modal';
+import MobilDashboardBalanceForm from 'components/MobilDashboardBalanceForm/MobilDashboardBalanceForm';
+import DatePicker from 'react-datepicker';
 
 const DashboardForm = ({ categoriesList, category }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -110,9 +112,9 @@ const DashboardForm = ({ categoriesList, category }) => {
           defaultValue={date}
           render={() => (
             <StyledDatepicker
-              selected={date}
+              value={date}
               placeholderText="Select date"
-              onChange={handleChange}
+              onClick={handleChange}
             />
           )}
         />
@@ -168,6 +170,7 @@ const DashboardForm = ({ categoriesList, category }) => {
           onCloseModal={handleModalOpen}
         ></Modal>
       )}
+      {/* <MobilDashboardBalanceForm /> */}
     </div>
   );
 };

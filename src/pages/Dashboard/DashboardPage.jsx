@@ -26,8 +26,10 @@ import './Tabs.css';
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState('1');
-  const expensesList = useSelector(state => state.expenses.expenses);
-  const incomeList = useSelector(state => state.income.incomes);
+  const expensesList = useSelector(state =>
+    state.expenses.expenses?.toReversed()
+  );
+  const incomeList = useSelector(state => state.income.incomes?.toReversed());
   const expensesSummary = useSelector(state => state.expenses.monthsStats);
   const incomeSummary = useSelector(state => state.income.monthsStats);
 

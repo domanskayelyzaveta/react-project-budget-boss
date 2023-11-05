@@ -23,7 +23,7 @@ const Ballance = () => {
   return (
     <BalanceWrapper>
       Ballance:
-      {!balance && (
+      {balance === null && (
         <InitialBalanceWrapper>
           <DashboardBalanceForm />
           {/* <BalanceMessage /> */}
@@ -38,9 +38,9 @@ const Ballance = () => {
           </ImgWrapper>
         </InitialBalanceWrapper>
       )}
-      {balance && (
+      {balance ? (
         <StyledBalanceAmount>{balance?.toFixed(2)} UAH</StyledBalanceAmount>
-      )}
+      ) : null}
     </BalanceWrapper>
   );
 };
