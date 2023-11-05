@@ -7,6 +7,7 @@ export const FormWrapper = styled.div`
   display: flex;
   margin-top: 12px;
   justify-content: center;
+  align-items: center;
   background-repeat: no-repeat;
 
   @media screen and (min-width: 768px) {
@@ -42,7 +43,6 @@ export const Form = styled.form`
   height: 500px;
   border-radius: 16px;
   padding: 32px 20px;
-
   background-color: var(--grey47);
   box-shadow: 0px 2px 14px 0px rgba(132, 132, 132, 0.2) inset;
 
