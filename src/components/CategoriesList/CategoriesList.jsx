@@ -14,6 +14,10 @@ import Other from '../../images/icons/Other.webp';
 import Salary from '../../images/icons/Salary.webp';
 import AdditionalIncome from '../../images/icons/Additional-income.webp';
 import {
+  AbsoluteLine,
+  AbsoluteLine1,
+  AbsoluteLine2,
+  AbsoluteLine3,
   Btn,
   BtnContainer,
   CategoryP,
@@ -120,6 +124,7 @@ export const CategoriesList = ({
                       onClick={() => handleClick(element.categories, index)}
                       $primaryImage={activeItem === index}
                     />
+
                     <CategoryP>{element.categories.toUpperCase()}</CategoryP>
                   </ItemLi>
                 );
@@ -140,6 +145,18 @@ export const CategoriesList = ({
               })}
         </ComponentUl>
       </ContainerList>
+      <AbsoluteLine width="265" height="13">
+        <use href={`${sprite}#horizontal-line`} />
+      </AbsoluteLine>
+      <AbsoluteLine1 width="265" height="13">
+        <use href={`${sprite}#horizontal-line`} />
+      </AbsoluteLine1>
+      <AbsoluteLine2 width="265" height="13">
+        <use href={`${sprite}#horizontal-line`} />
+      </AbsoluteLine2>
+      <AbsoluteLine3 width="265" height="13">
+        <use href={`${sprite}#horizontal-line`} />
+      </AbsoluteLine3>
     </DivContainer>
   );
 };
