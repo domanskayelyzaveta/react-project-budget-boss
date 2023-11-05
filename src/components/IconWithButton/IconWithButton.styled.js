@@ -14,5 +14,7 @@ export const StyledReportsIconWrapper = styled.div`
   display: flex;
 `;
 export const StyledReportsParagraph = styled.div`
-  margin-right: 15px;
+  @media screen and (min-width: 768px) {
+    margin-right: 15px;
+  }
 `;

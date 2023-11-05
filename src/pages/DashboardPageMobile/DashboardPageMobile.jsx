@@ -23,11 +23,17 @@ import {
   StyledAddTransactionButton,
   StyledAddTransactionButtonIcon,
   StyledAddTransactionButtonText,
+  StyledButtonDiv,
+  StyledMobileButtonLeft,
+  StyledMobileButtonRight,
+  StyledPlusSvg,
+  StyledSpan,
 } from './DashboardPageMobile.styled';
 import {
   getExpensesTransactionsThunk,
   getIncomeTransactionsThunk,
 } from 'redux/thunks';
+import sprite from '../../images/sprite.svg';
 
 const DashboardPageMobile = () => {
   const balance = useSelector(state => state.user.balance);
@@ -72,6 +78,11 @@ const DashboardPageMobile = () => {
             <StyledAddTransactionButton
               onClick={() => handleModalOpen(category)}
             >
+              <StyledSpan>
+                <StyledPlusSvg width="20" height="20">
+                  <use href={`${sprite}#icon-plus`} />
+                </StyledPlusSvg>
+              </StyledSpan>
               <StyledAddTransactionButtonIcon />
               <StyledAddTransactionButtonText>
                 Add transaction
@@ -115,22 +126,22 @@ const DashboardPageMobile = () => {
               <MobileTransactionList category={category} />
             </ul>
 
-            <div>
-              <button
+            <StyledButtonDiv>
+              <StyledMobileButtonLeft
                 onClick={() => {
                   handleChangePage('expense');
                 }}
               >
                 EXPENSES
-              </button>
-              <button
+              </StyledMobileButtonLeft>
+              <StyledMobileButtonRight
                 onClick={() => {
                   handleChangePage('income');
                 }}
               >
                 INCOME
-              </button>
-            </div>
+              </StyledMobileButtonRight>
+            </StyledButtonDiv>
           </MobileDashboardBalanceFormWrapper>
         )}
       {(isOpenAddTransactionModalExpense ||

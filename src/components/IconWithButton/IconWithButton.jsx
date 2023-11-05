@@ -3,6 +3,7 @@ import sprite from '../../images/sprite.svg';
 import styled from 'styled-components';
 import {
   StyledBtn,
+  StyledRepoAndSvgWrapper,
   StyledReportsIconWrapper,
   StyledReportsParagraph,
 } from './IconWithButton.styled';

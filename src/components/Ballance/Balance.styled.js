@@ -4,10 +4,14 @@ export const StyledBalanceAmount = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 125px;
   height: 44px;
+  width: 182px;
   border-radius: 16px;
   border: 2px solid var(--grey8F);
+
+  @media screen and (min-width: 768px) {
+    width: 125px;
+  }
 `;
 
 export const BalanceWrapper = styled.div`
