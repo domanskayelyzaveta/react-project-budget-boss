@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { setSelectedDate_ } from 'redux/userReducer';
 import { StyledBalanceAmount } from '../../components/Ballance/Balance.styled';
+import notification from '../../images/balance-notification.webp';
 import {
   Img,
   ImgWrapper,
@@ -37,6 +38,7 @@ import sprite from '../../images/sprite.svg';
 
 const DashboardPageMobile = () => {
   const balance = useSelector(state => state.user.balance);
+  const transaction = useSelector(state => state.user.userData?.transactions);
   const [category, setCategory] = useState('expense');
 
   const [
@@ -96,22 +98,21 @@ const DashboardPageMobile = () => {
             </StyledLinkWrapper>
             <BalanceWrapperMobil>
               Ballance:
-              {!balance && (
+              {!transaction?.length && balance === 0 ? (
                 <InitialBalanceWrapper>
                   <DashboardBalanceForm />
-                  {/* <ImgWrapper>
-              <Img src={notification} alt="notification" />
-              <ParagraphNotif>
-                Hello! To get started, enter the current balance of your
-                account!
-              </ParagraphNotif>
-              <ParagraphNotific>
-                You can`t spend money until you have it:)
-              </ParagraphNotific>
-            </ImgWrapper> */}
+                  <ImgWrapper>
+                    <Img src={notification} alt="notification" />
+                    <ParagraphNotif>
+                      Hello! To get started, enter the current balance of your
+                      account!
+                    </ParagraphNotif>
+                    <ParagraphNotific>
+                      You can`t spend money until you have it:)
+                    </ParagraphNotific>
+                  </ImgWrapper>
                 </InitialBalanceWrapper>
-              )}
-              {balance && (
+              ) : (
                 <StyledBalanceAmount>
                   {balance?.toFixed(2)} UAH
                 </StyledBalanceAmount>

@@ -1,4 +1,3 @@
-import { Experimental_CssVarsProvider } from '@mui/material';
 import styled from 'styled-components';
 export const MobileDashboardBalanceFormWrapper = styled.div`
   // display: flex;

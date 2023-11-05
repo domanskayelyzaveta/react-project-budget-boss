@@ -1,4 +1,3 @@
-import { useSelector } from 'react-redux';
 import sprite from '../../images/sprite.svg';
 import { Childrens, Content, StyledButtonClose } from './ModalMobile.styled';
 

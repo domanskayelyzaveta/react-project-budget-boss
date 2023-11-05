@@ -154,7 +154,7 @@ export function VerticalChart({ keysArray, valuesArray }) {
       background-color: rgba(56, 56, 71, 0.6);
       box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.2);
       border-radius: 30px;
-      margin-bottom: 60px;
+      margin-bottom: 80px;
     }
     @media ${media.desktop} {
       margin-left: auto;
