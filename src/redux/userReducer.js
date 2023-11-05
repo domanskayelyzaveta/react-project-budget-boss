@@ -36,6 +36,7 @@ const userSlice = createSlice({
       .addCase(registerThunk.pending, state => {
         state.error = null;
         state.isLoading = true;
+        state.balance = null;
       })
       .addCase(registerThunk.fulfilled, (state, action) => {
         state.error = null;
@@ -75,11 +76,10 @@ const userSlice = createSlice({
         state.error = null;
       })
       .addCase(logoutThunk.fulfilled, (state, action) => {
-        return {
-          ...initialState,
-        };
+        return initialState;
       })
       .addCase(logoutThunk.rejected, (state, action) => {
+        // TODO: зробити розлогін
         state.isLoading = false;
         state.isSignedIn = false;
         state.error = action.payload;
@@ -102,18 +102,26 @@ const userSlice = createSlice({
       })
       .addCase(addIncomeTransactionThunk.fulfilled, (state, { payload }) => {
         state.balance = payload.newBalance;
+        state.userData.transactions.push(payload);
       })
       .addCase(addExpenseTransactionThunk.fulfilled, (state, { payload }) => {
         state.balance = payload.newBalance;
+        state.userData.transactions.push(payload);
       })
       .addCase(
         deleteExpenseTransactionThunk.fulfilled,
         (state, { payload }) => {
           state.balance = payload.data.newBalance;
+          state.userData.transactions.filter(
+            transaction => transaction._id !== payload.id
+          );
         }
       )
       .addCase(deleteIncomeTransactionThunk.fulfilled, (state, { payload }) => {
         state.balance = payload.data.newBalance;
+        state.userData.transactions.filter(
+          transaction => transaction._id !== payload.id
+        );
       })
       .addCase(userSetBalanceThunk.fulfilled, (state, { payload }) => {
         state.balance = payload.newBalance;
