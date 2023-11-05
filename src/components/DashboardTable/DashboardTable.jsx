@@ -156,7 +156,6 @@ const DashboardTable = ({ data, category }) => {
                   onClick={() => {
                     handleModalOpen();
                     setId(item._id);
-                    // handleDeleteTransaction(item._id);
                   }}
                 >
                   <svg width="16" height="16">

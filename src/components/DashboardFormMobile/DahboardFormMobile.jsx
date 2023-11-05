@@ -29,7 +29,7 @@ import {
   StyledTextInputWrapper,
 } from './DahboardFormMobile.styled';
 
-const DashboardFormMobile = ({ category }) => {
+const DashboardFormMobile = ({ category, onCloseModal }) => {
   const { register, handleSubmit, control, reset } = useForm();
   const selectedDate = useSelector(state => state.user.selectedDate);
   const incomeCategoriesList = useSelector(
@@ -78,7 +78,8 @@ const DashboardFormMobile = ({ category }) => {
         .catch(error => {
           console.error('Error adding income transaction:', error);
           toast.error('Error adding income transaction: ' + error.message);
-        });
+        })
+        .finally(() => onCloseModal(category));
     } else {
       dispatch(addExpenseTransactionThunk({ dataToDispatch, category }))
         .unwrap()
@@ -88,7 +89,8 @@ const DashboardFormMobile = ({ category }) => {
         .catch(error => {
           console.error('Error adding expense transaction:', error);
           toast.error('Error adding expense transaction: ' + error.message);
-        });
+        })
+        .finally(() => onCloseModal(category));
     }
 
     reset();

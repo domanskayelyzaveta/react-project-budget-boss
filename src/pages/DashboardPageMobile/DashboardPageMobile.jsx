@@ -9,7 +9,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { setSelectedDate_ } from 'redux/userReducer';
 import { StyledBalanceAmount } from '../../components/Ballance/Balance.styled';
-import { InitialBalanceWrapper } from '../../components/Ballance/BalanceMessage.styled';
+import {
+  Img,
+  ImgWrapper,
+  InitialBalanceWrapper,
+  ParagraphNotif,
+  ParagraphNotific,
+} from '../../components/Ballance/BalanceMessage.styled';
+import MobileTransactionList from '../../components/MobileTransactionList/MobileTransactionList';
 import {
   BalanceWrapperMobil,
   MobileDashboardBalanceFormWrapper,
@@ -97,15 +104,10 @@ const DashboardPageMobile = () => {
               placeholderText="Select date"
               onClick={handleChange}
             />
-            {category === 'expense' ? (
-              <ul>
-                <li>expense</li>
-              </ul>
-            ) : (
-              <ul>
-                <li>income</li>
-              </ul>
-            )}
+            <ul>
+              <MobileTransactionList category={category} />
+            </ul>
+
             <div>
               <button
                 onClick={() => {
@@ -127,7 +129,12 @@ const DashboardPageMobile = () => {
       {(isOpenAddTransactionModalExpense ||
         isOpenAddTransactionModalIncome) && (
         <ModalMobile
-          children={<DashboardFormMobile category={category} />}
+          children={
+            <DashboardFormMobile
+              category={category}
+              onCloseModal={handleModalOpen}
+            />
+          }
           incomeEvent={category}
           onCloseModal={handleModalOpen}
         ></ModalMobile>
