@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
@@ -151,27 +151,22 @@ export function HorizontalChart({ keysArray, valuesArray }) {
   const dynamicOptions = {
     ...options,
   };
-  const ChartContainer = styled.div`
-    padding: 20px;
-    min-height: 500px;
-    @media screen and (min-width: 320px) {
-      width: 320px;
+  const media = {
+    mobile: '(max-width: 767px)',
+  };
 
+  const ChartContainer = styled.div`
+    margin-top: 20px;
+    min-height: 550px;
+    max-height: 550px;
+    @media ${media.mobile} {
+      width: 280px;
       margin-left: auto;
       margin-right: auto;
-      background-color: rgba(56, 56, 71, 0.6);
-      box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.2);
-      border-radius: 30px;
-    }
-
-    @media screen and (min-width: 768px) {
-      width: 704px;
-    }
-
-    @media screen and (min-width: 1280px) {
-      width: 1098px;
+      background-color: transparent;
     }
   `;
+
   return (
     <ChartContainer>
       <Bar options={dynamicOptions} data={dynamicData} />

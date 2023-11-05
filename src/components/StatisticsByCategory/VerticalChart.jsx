@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
@@ -142,25 +142,17 @@ export function VerticalChart({ keysArray, valuesArray }) {
   const dynamicOptions = {
     ...options,
   };
+  const media = {
+    tablet: '(min-width: 768px)',
+  };
   const ChartContainer = styled.div`
-    padding: 20px;
-    @media screen and (min-width: 320px) {
-      width: 320px;
-      min-height: 90px;
-      margin-left: auto;
-      margin-right: auto;
+    margin-top: 40px;
+    padding-top: 20px;
+    @media ${media.tablet} {
+      height: 420px;
       background-color: rgba(56, 56, 71, 0.6);
       box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.2);
       border-radius: 30px;
-    }
-
-    @media screen and (min-width: 768px) {
-      width: 704px;
-      height: 420px;
-    }
-
-    @media screen and (min-width: 1280px) {
-      width: 1098px;
     }
   `;
   return (

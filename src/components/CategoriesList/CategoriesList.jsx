@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import sprite from '../../images/sprite.svg';
 import Products from '../../images/icons/Products.webp';
 import Transport from '../../images/icons/Transport.webp';
@@ -18,6 +18,7 @@ import {
   BtnContainer,
   CategoryP,
   ComponentUl,
+  ContainerList,
   DivContainer,
   Image,
   ItemLi,
@@ -31,7 +32,7 @@ export const CategoriesList = ({
   categoryChartValue,
 }) => {
   const [currentCategoryType, setCurrentCategoryType] = useState('expense');
-  const [activeItem, setActiveItem] = useState(null);
+  const [activeItem, setActiveItem] = useState(0);
   const [arrayOfImagesExpense] = useState({
     Products: Products,
     Alcohol: Alcohol,
@@ -81,6 +82,12 @@ export const CategoriesList = ({
       : categoryChartValue(element);
   };
 
+  useEffect(() => {
+    if (currentCategoryType === 'expense' && expensesArray.length > 0) {
+      handleClick(expensesArray[0].categories, 0);
+    }
+  }, []);
+
   return (
     <DivContainer>
       <BtnContainer>
@@ -100,7 +107,7 @@ export const CategoriesList = ({
           </svg>
         </Btn>
       </BtnContainer>
-      <div>
+      <ContainerList>
         <ComponentUl>
           {currentCategoryType === 'expense'
             ? expensesArray.map((element, index) => {
@@ -109,7 +116,7 @@ export const CategoriesList = ({
                     <P>{element.total}.00</P>
                     <Image
                       src={element.image}
-                      alt=""
+                      alt={element.categories}
                       onClick={() => handleClick(element.categories, index)}
                       $primaryImage={activeItem === index}
                     />
@@ -123,7 +130,7 @@ export const CategoriesList = ({
                     <P>{element.total}.00</P>
                     <Image
                       src={element.image}
-                      alt=""
+                      alt={element.categories}
                       onClick={() => handleClick(element.categories, index)}
                       $primaryImage={activeItem === index}
                     />
@@ -132,17 +139,9 @@ export const CategoriesList = ({
                 );
               })}
         </ComponentUl>
-      </div>
+      </ContainerList>
     </DivContainer>
   );
 };
 
 export default CategoriesList;
-
-// const incomesData = Object.keys(object.expenses.expensesData)
-//   .map(key => {
-//     object.expenses.expensesData[key].categories = key;
-//     return object.expenses.expensesData[key];
-//   })
-//   .sort((a, b) => b.total - a.total);
-// console.log(incomesData);

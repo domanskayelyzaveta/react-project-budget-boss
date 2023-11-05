@@ -2,19 +2,18 @@ import CategoriesList from 'components/CategoriesList/CategoriesList';
 import PeriodSwitch from 'components/PeriodSwitch/PeriodSwitch';
 import { StatisticsByCategory } from 'components/StatisticsByCategory/StatisticsByCategory';
 import TotalStatistics from 'components/TotalStatistic/TotalStatistics';
+import { ReportPageWrapper } from 'components/TotalStatistic/TotalStatistics.styled';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectPeriodData } from 'redux/selectors';
 
 const Reports = () => {
   const data = useSelector(selectPeriodData);
-
   const [keysArray, setKeys] = useState([]);
   const [valuesArray, setValues] = useState([]);
 
   const categoryChartKeys = categoriesEl => {
     const categories = data.expenses.expensesData[categoriesEl];
-
     if (categories) {
       const resultData = { ...categories };
       delete resultData.total;
@@ -29,8 +28,10 @@ const Reports = () => {
       const dynamicValues = Object.values(sortedEntries).filter(
         value => sortedEntries[value] !== null
       );
-
       setValues(dynamicValues);
+    } else {
+      setValues(null);
+      setKeys(null);
     }
   };
 
@@ -50,13 +51,15 @@ const Reports = () => {
       const dynamicValues = Object.values(sortedEntries).filter(
         value => sortedEntries[value] !== null
       );
-
       setValues(dynamicValues);
+    } else {
+      setValues(null);
+      setKeys(null);
     }
   };
 
   return (
-    <div>
+    <ReportPageWrapper>
       <PeriodSwitch />
       <TotalStatistics />
       {data ? (
@@ -67,7 +70,7 @@ const Reports = () => {
         />
       ) : null}
       <StatisticsByCategory keysArray={keysArray} valuesArray={valuesArray} />
-    </div>
+    </ReportPageWrapper>
   );
 };
 

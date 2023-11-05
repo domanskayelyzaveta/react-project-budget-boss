@@ -1,11 +1,8 @@
 @import-normalize;
-
 /* bring in normalize.css styles */
 
 
-
 :root {
-    height: 100vh;
     --background: #1F1F27;
     --text-color: #F6F7FB;
     --white-1: #C7CCDC;
@@ -36,26 +33,21 @@
 }
 
 body {
-    margin: 0;
     font-family: 'Roboto', sans-serif;
-    background-color: #383847;
+    background-color: var(--background);
     background-repeat: no-repeat, no-repeat;
-    background-size: cover, auto;
-    width:100%;
+    background-size: 1350px 958px;
     background-position: top left, top right;
-    background-image: url("./images/mobile/ellipse-mobile-1x.webp");
+    background-image: url("./images/desktop/rectangle-desktop-1x.webp"), url("./images/mobile/ellipse-mobile-1x.webp");
 
-    @media screen and (min-width: 768px) {
-            background-position: top left, top right;
-        background-image: url("./images/tablet/ellipse-tablet-1x.webp"), url("./images/desktop/Rectangle-2.png");
+
+    @media screen and (min-width: 1280px) {
+        background-image: url("./images/desktop/ellipse-desktop-1x.webp"), url("./images/desktop/rectangle-desktop-1x.webp");
     }
 
-   
 }
 
-* {
-    box-sizing: border-box;
-}; 
+
 
 
 html {
@@ -71,10 +63,6 @@ ul,
 li {
     margin-top: 0;
     margin-bottom: 0;
-}
-
-img {
-    display: block;
 }
 
 .list {
@@ -99,7 +87,6 @@ button {
 
 .container {
     width: 100%;
-    margin: 0 auto;
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -110,31 +97,22 @@ select:focus {
 
 @media screen and (min-width: 320px) {
     .container {
-        width: 100%;
-        max-width: 320px;
-        margin-left: 0 auto;
-        margin-right: 0 auto;
+        width: 320px;
+        margin-left: auto;
+        margin-right: auto;
     }
-   
+
 }
 
 @media screen and (min-width: 768px) {
     .container {
-        width: 100%;
-        max-width: 768px;
-        padding-left: 32px;
-        padding-right: 32px;
+        width: 704px;
     }
 }
 
 @media screen and (min-width: 1280px) {
     .container {
-        width: 100%;
-        min-width: 1280px;
-        padding-left: 91px;
-        padding-right: 91px;
-        
+        width: 1098px;
+
     }
 }
-
-
