@@ -69,8 +69,8 @@ const Navigation = () => {
                 <NavLink to="/" end>
                   <svg className="logout-icon" width="16" height="16">
                     <use href={`${sprite}#icon-logout`} />
-                  </svg>{' '}
-                </NavLink>{' '}
+                  </svg>
+                </NavLink>
               </LogOut>
               <P>{userName}</P>
               <Line>

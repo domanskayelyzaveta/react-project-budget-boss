@@ -74,6 +74,7 @@ export const ContainerList = styled.div`
 `;
 
 export const ComponentUl = styled.ul`
+  position: relative;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -150,5 +151,43 @@ export const CategoryP = styled.p`
     font-size: 12px;
     letter-spacing: 0.24px;
     margin-top: 6px;
+  }
+`;
+
+export const AbsoluteLine = styled.svg`
+  position: absolute;
+  top: 515px;
+  stroke: #fff;
+  fill: #fff;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+`;
+export const AbsoluteLine1 = styled.svg`
+  position: absolute;
+  top: 645px;
+  stroke: #fff;
+  fill: #fff;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+`;
+export const AbsoluteLine2 = styled.svg`
+  position: absolute;
+  top: 785px;
+  stroke: #fff;
+  fill: #fff;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+`;
+export const AbsoluteLine3 = styled.svg`
+  position: absolute;
+  top: 920px;
+  stroke: #fff;
+  fill: #fff;
+  @media screen and (min-width: 768px) {
+    display: none;
   }
 `;
