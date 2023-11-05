@@ -23,7 +23,7 @@ const Ballance = () => {
   return (
     <BalanceWrapper>
       Ballance:
-      {!balance && (
+      {balance === null && (
         <InitialBalanceWrapper>
           <DashboardBalanceForm />
           {/* <BalanceMessage /> */}
