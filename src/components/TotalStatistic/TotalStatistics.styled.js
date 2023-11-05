@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const media = {
   tablet: '(min-width: 768px)',
   mobile: '(max-width: 767px)',
+  desktop: '(min-width: 1280px)',
 };
 
 export const Container = styled.div`
@@ -86,11 +87,15 @@ export const IncomeTotal = styled.p`
 
 export const ReportPageWrapper = styled.div`
  @media ${media.mobile} {
-      padding-bottom:60px;
+      margin-bottom:60px;
+      
   }
 
-   @media ${media.tablet} {
-      padding-bottom:80px;
+   @media ${media.desktop} {
+      padding-bottom:60px;
+       margin-left: auto;
+      margin-right: auto;
+      width: 1034px;
   }
 
 `
