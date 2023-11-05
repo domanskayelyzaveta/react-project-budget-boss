@@ -18,6 +18,7 @@ import {
 } from './PeriodSwitch.styled';
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
+import { useMediaQuery } from '@react-hook/media-query';
 
 const PeriodSwitch = () => {
   const currentDate = new Date();
@@ -25,6 +26,7 @@ const PeriodSwitch = () => {
   const location = useLocation();
   const backLinkRef = useRef(location?.state?.from ?? '/dashboard');
   const dispatch = useDispatch();
+  const isMobileScreen = useMediaQuery('(max-width: 767px)');
   const getMonthName = month => {
     const months = [
       'January',
@@ -87,31 +89,62 @@ const PeriodSwitch = () => {
 
   return (
     <Container>
-      <BackBtn to={backLinkRef.current}>
-        <Back width="24" height="24">
-          <use href={`${sprite}#icon-keyboard_backspace-24px`} />
-        </Back>
-        <BackText>Main page</BackText>
-      </BackBtn>
-      <>
-        <Ballance />
-        <MobileWrapPeriod>
-          <PeriodTitle>Current period:</PeriodTitle>
-          <Period>
-            <PeriodBtn onClick={handlePrevMonthClick}>
-              <PeriodArrow width="15" height="15">
-                <use href={`${sprite}#arrow-toleft`} />
-              </PeriodArrow>
-            </PeriodBtn>
-            <PeriodText>{formatData(selectedDate)}</PeriodText>
-            <PeriodBtn onClick={handleNextMonthClick}>
-              <PeriodArrow width="15" height="15">
-                <use href={`${sprite}#arrow-toright`} />
-              </PeriodArrow>
-            </PeriodBtn>
-          </Period>
-        </MobileWrapPeriod>
-      </>
+      {isMobileScreen ? (
+        <BackBtn to={backLinkRef.current}>
+          <Back width="24" height="24">
+            <use href={`${sprite}#icon-keyboard_backspace-24px`} />
+          </Back>
+          <BackText>to transaction</BackText>
+        </BackBtn>
+      ) : (
+        <BackBtn to={backLinkRef.current}>
+          <Back width="24" height="24">
+            <use href={`${sprite}#icon-keyboard_backspace-24px`} />
+          </Back>
+          <BackText>Main page</BackText>
+        </BackBtn>
+      )}
+      {isMobileScreen ? (
+        <>
+          <MobileWrapPeriod>
+            <PeriodTitle>Current period:</PeriodTitle>
+            <Period>
+              <PeriodBtn onClick={handlePrevMonthClick}>
+                <PeriodArrow width="15" height="15">
+                  <use href={`${sprite}#arrow-toleft`} />
+                </PeriodArrow>
+              </PeriodBtn>
+              <PeriodText>{formatData(selectedDate)}</PeriodText>
+              <PeriodBtn onClick={handleNextMonthClick}>
+                <PeriodArrow width="15" height="15">
+                  <use href={`${sprite}#arrow-toright`} />
+                </PeriodArrow>
+              </PeriodBtn>
+            </Period>
+          </MobileWrapPeriod>
+          <Ballance />
+        </>
+      ) : (
+        <>
+          <Ballance />
+          <MobileWrapPeriod>
+            <PeriodTitle>Current period:</PeriodTitle>
+            <Period>
+              <PeriodBtn onClick={handlePrevMonthClick}>
+                <PeriodArrow width="15" height="15">
+                  <use href={`${sprite}#arrow-toleft`} />
+                </PeriodArrow>
+              </PeriodBtn>
+              <PeriodText>{formatData(selectedDate)}</PeriodText>
+              <PeriodBtn onClick={handleNextMonthClick}>
+                <PeriodArrow width="15" height="15">
+                  <use href={`${sprite}#arrow-toright`} />
+                </PeriodArrow>
+              </PeriodBtn>
+            </Period>
+          </MobileWrapPeriod>
+        </>
+      )}
     </Container>
   );
 };
