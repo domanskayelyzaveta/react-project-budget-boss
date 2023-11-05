@@ -49,9 +49,8 @@
 </symbol>
 
 <symbol id="icon-plus" viewBox="0 0 32 32">
-<path fill="#42a652" style="fill: var(--color1, #42a652)" d="M16 0c8.837 0 16 7.163 16 16s-7.163 16-16 16c-8.837 0-16-7.163-16-16s7.163-16 16-16z"></path>
-<path fill="none" stroke="#f6f7fb" stroke-width="2" stroke-miterlimit="4" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--color2, #f6f7fb)" d="M16 8v16"></path>
-<path fill="none" stroke="#f6f7fb" stroke-width="2" stroke-miterlimit="4" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--color2, #f6f7fb)" d="M8 16h16"></path>
+<path fill="none" stroke="#f6f7fb" stroke-width="3.4286" stroke-miterlimit="4" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--color11, #f6f7fb)" d="M16 2.286v27.429"></path>
+<path fill="none" stroke="#f6f7fb" stroke-width="3.4286" stroke-miterlimit="4" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--color11, #f6f7fb)" d="M2.286 16h27.429"></path>
 </symbol>
 
 <symbol id="icon-side-arrow" viewBox="0 0 32 32">

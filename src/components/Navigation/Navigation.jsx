@@ -66,11 +66,11 @@ const Navigation = () => {
                 <Ellipse>{userInitial}</Ellipse>
               </StyledComponent>
               <LogOut onClick={handleLogout}>
-                <StyledComponent to="/" end>
+                <NavLink to="/" end>
                   <svg className="logout-icon" width="16" height="16">
                     <use href={`${sprite}#icon-logout`} />
-                  </svg>
-                </StyledComponent>
+                  </svg>{' '}
+                </NavLink>{' '}
               </LogOut>
               <P>{userName}</P>
               <Line>

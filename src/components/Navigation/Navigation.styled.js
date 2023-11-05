@@ -9,8 +9,17 @@ const Div = styled.div`
   color: #fff;
   height: 5vh;
   padding-left: 20px;
-  padding-right: 20px;
   padding-top: 6px;
+
+  @media screen and (min-width: 768px) {
+    padding-left: 32px;
+    padding-top: 0px;
+    padding-right: 0px;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding-left: 40px;
+  }
 `;
 
 const Ellipse = styled.div`
