@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import React, { useEffect } from 'react';
-import { selectPeriodData } from 'redux/selectors';
+import React from 'react';
 import { Bar } from 'react-chartjs-2';
-import { useSelector } from 'react-redux';
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -23,7 +22,7 @@ ChartJS.register(
   Legend
 );
 ChartJS.register(ChartDataLabels);
-export function HorizontalChart() {
+export function HorizontalChart({ keysArray, valuesArray }) {
   const horizontalGradient = document.createElement('canvas').getContext('2d');
   const gradientGreen = horizontalGradient.createLinearGradient(
     0,
@@ -46,58 +45,16 @@ export function HorizontalChart() {
   function getBarColor(index) {
     return index % 3 === 0 ? gradientGreen : gradientGray;
   }
-  const labels = [
-    'Orange',
-    'Pear',
-    'Kiwi',
-    'Spagetti',
-    'Mango',
-    'Peach',
-    'Pineapple',
-    'Raspberry',
-    'Cherry',
-    'Blackberry',
-  ];
-
-  const datasetData = labels.map(() => Math.floor(Math.random() * 100) - 0);
-  const sortedData = [...datasetData].sort((a, b) => b - a);
-
-  // const [indexAxis, setIndexAxis] = useState('x');
-  const dataStatisticsByCategory = useSelector(selectPeriodData);
-  console.log(dataStatisticsByCategory);
-  useEffect(() => {
-    //   const handleResize = () => {
-    //     const windowWidth = window.innerWidth;
-    //     setIndexAxis(windowWidth >= 768 ? 'x' : 'y');
-    //   };
-    //   handleResize();
-    //   window.addEventListener('resize', handleResize);
-    //   if (window.innerWidth < 704) {
-    //     dynamicOptions.scales.y.ticks.display = true;
-    //     dynamicOptions.scales.x.ticks.display = false;
-    //   } else if (window.innerWidth > 704) {
-    //     dynamicOptions.scales.y.ticks.display = false;
-    //     dynamicOptions.scales.x.ticks.display = true;
-    //   }
-    //   return () => {
-    //     window.removeEventListener('resize', handleResize);
-    //   };
-  }, []);
   const data = {
-    labels: labels, // Используйте массив `labels` для определения меток
+    labels: keysArray,
     datasets: [
       {
-        data: sortedData,
-
+        data: valuesArray,
         datalabels: {
           color: 'rgb(199, 204, 220)',
           anchor: 'end',
           align: 'top',
-
           offset: 8,
-          // align: context => {
-          //   return context.dataIndex % 2 === 0 ? 'start' : 'end';
-          // },
           labels: {
             title: {
               font: {
@@ -105,27 +62,21 @@ export function HorizontalChart() {
               },
             },
           },
-          padding: { top: 10, bottom: 0, left: 20, right: 40 },
+
           formatter: function (value, context) {
-            const label = context.chart.data.labels[context.dataIndex];
-            return `${label}  ${value} UAH`;
+            return `${value} UAH`;
           },
-          // formatter: function (value, context) {
-          //   const label = context.chart.data.labels[context.dataIndex];
-          //   return `<div style="display: flex; justify-content: space-between;">${label}<span>${value} UAH</span></div>`;
-          // },
         },
-        // label: '',
       },
     ],
   };
+
   const colorSettings = {
     backgroundColor: data.labels.map((_, index) => getBarColor(index)),
   };
 
   const dynamicData = {
     ...data,
-
     datasets: [
       {
         ...data.datasets[0],
@@ -138,7 +89,6 @@ export function HorizontalChart() {
     layout: {
       padding: 25,
     },
-
     maintainAspectRatio: false,
     responsive: true,
     indexAxis: 'y',
@@ -148,7 +98,6 @@ export function HorizontalChart() {
         borderRadius: 20,
       },
     },
-
     plugins: {
       labels: {
         title: {
@@ -180,9 +129,8 @@ export function HorizontalChart() {
         },
       },
       y: {
-        position: 'start',
+        // position: 'start',
         max: 9,
-        // beginAtZero: false,
         border: {
           display: false,
           color: ' rgb(71, 71, 89)',
@@ -190,10 +138,10 @@ export function HorizontalChart() {
         grid: {
           lineWidth: 0,
         },
-
         ticks: {
           crossAlign: 'far',
-          display: true, // Скрываем метки на оси y
+          color: '#C7CCDC',
+          display: true,
         },
       },
     },
@@ -202,12 +150,9 @@ export function HorizontalChart() {
   };
   const dynamicOptions = {
     ...options,
-    // indexAxis: indexAxis,
   };
-
   const ChartContainer = styled.div`
     padding: 20px;
-
     min-height: 500px;
     @media screen and (min-width: 320px) {
       width: 320px;
@@ -221,7 +166,6 @@ export function HorizontalChart() {
 
     @media screen and (min-width: 768px) {
       width: 704px;
-      /* height: 420px; */
     }
 
     @media screen and (min-width: 1280px) {

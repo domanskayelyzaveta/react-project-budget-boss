@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import React, { useEffect } from 'react';
-import { selectPeriodData } from 'redux/selectors';
+import React from 'react';
 import { Bar } from 'react-chartjs-2';
-import { useSelector } from 'react-redux';
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -23,7 +22,7 @@ ChartJS.register(
   Legend
 );
 ChartJS.register(ChartDataLabels);
-export function VerticalChart() {
+export function VerticalChart({ keysArray, valuesArray }) {
   const verticalGradient = document.createElement('canvas').getContext('2d');
   const gradientGreen = verticalGradient.createLinearGradient(0, 550, 0, 120);
   gradientGreen.addColorStop(0, '#383C46');
@@ -36,54 +35,18 @@ export function VerticalChart() {
   function getBarColor(index) {
     return index % 3 === 0 ? gradientGreen : gradientGray;
   }
-  const labels = [
-    'Orange',
-    'Pear',
-    'Kiwi',
-    'Mango',
-    'Peach',
-    'Pineapple',
-    'Raspberry',
-    'Cherry',
-    'Mango',
-    'Peach',
-  ];
 
-  const datasetData = labels.map(() => Math.floor(Math.random() * 100) - 0);
-  const sortedData = [...datasetData].sort((a, b) => b - a);
-  // .slice(0, datasetData.length - 1);
-
-  // const [indexAxis, setIndexAxis] = useState('x');
-  const dataStatisticsByCategory = useSelector(selectPeriodData);
-  console.log(dataStatisticsByCategory);
-  useEffect(() => {
-    //   const handleResize = () => {
-    //     const windowWidth = window.innerWidth;
-    //     setIndexAxis(windowWidth >= 768 ? 'x' : 'y');
-    //   };
-    //   handleResize();
-    //   window.addEventListener('resize', handleResize);
-    //   if (window.innerWidth < 704) {
-    //     dynamicOptions.scales.y.ticks.display = true;
-    //     dynamicOptions.scales.x.ticks.display = false;
-    //   } else if (window.innerWidth > 704) {
-    //     dynamicOptions.scales.y.ticks.display = false;
-    //     dynamicOptions.scales.x.ticks.display = true;
-    //   }
-    //   return () => {
-    //     window.removeEventListener('resize', handleResize);
-    //   };
-  }, []);
   const data = {
-    labels: labels,
+    labels: keysArray,
+
     datasets: [
       {
-        data: sortedData,
+        data: valuesArray,
 
         datalabels: {
           color: 'rgb(199, 204, 220)',
-          anchor: 'end', // Установите расположение меток данных, например, 'end', 'start', 'center', и т.д.
-          align: 'top', // Выравнивание меток данных, например, 'start', 'center', 'end', и т.д.
+          anchor: 'end',
+          align: 'top',
           offset: 8,
           labels: {
             title: {
@@ -92,22 +55,18 @@ export function VerticalChart() {
               },
             },
           },
-          // padding: { top: 8, bottom: 0, left: 20, right: 0 },
-          formatter: function (value) {
-            return `${value} UAH`;
+          formatter: function (value, context) {
+            return ` ${value} UAH`;
           },
         },
-        // label: '',
       },
     ],
   };
   const colorSettings = {
     backgroundColor: data.labels.map((_, index) => getBarColor(index)),
   };
-
   const dynamicData = {
     ...data,
-
     datasets: [
       {
         ...data.datasets[0],
@@ -120,7 +79,6 @@ export function VerticalChart() {
     layout: {
       padding: 25,
     },
-
     maintainAspectRatio: false,
     responsive: true,
     indexAxis: 'x',
@@ -130,7 +88,6 @@ export function VerticalChart() {
         borderRadius: 20,
       },
     },
-
     plugins: {
       labels: {
         title: {
@@ -154,7 +111,7 @@ export function VerticalChart() {
     scales: {
       x: {
         max: 9,
-        beginAtZero: true,
+        // beginAtZero: true,
         grid: {
           display: false,
         },
@@ -164,7 +121,7 @@ export function VerticalChart() {
         },
       },
       y: {
-        beginAtZero: true,
+        // beginAtZero: true,
 
         border: {
           display: false,
@@ -175,19 +132,16 @@ export function VerticalChart() {
         },
 
         ticks: {
-          display: false, // Скрываем метки на оси y
+          display: false,
         },
       },
     },
     categoryPercentage: 1,
     barThickness: 38,
-    // barPercentage: 0.5,
   };
   const dynamicOptions = {
     ...options,
-    // indexAxis: indexAxis,
   };
-
   const ChartContainer = styled.div`
     padding: 20px;
     @media screen and (min-width: 320px) {
