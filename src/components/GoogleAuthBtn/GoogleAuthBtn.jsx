@@ -1,5 +1,4 @@
 import React from 'react';
-// import { GoogleLogin } from '@react-oauth/google';
 import {
   Button,
   Container,
@@ -26,16 +25,6 @@ const GoogleAuthButton = () => {
           </Svg>
           Google
         </Button>
-        {/* <GoogleLogin
-        onSuccess={credentialResponse => {
-          console.log(credentialResponse);
-        }}
-        onError={() => {
-          console.log('Login Failed');
-        }}
-      >
-        Google Login
-      </GoogleLogin> */}
       </Container>
       <Paragraph>
         Or log in using an email and password, after registration{' '}
@@ -45,38 +34,3 @@ const GoogleAuthButton = () => {
 };
 
 export default GoogleAuthButton;
-
-//-----------внутри кнопки---------------//
-// import { useGoogleLogin } from '@react-oauth/google'; // Подключите необходимую библиотеку
-
-// const GoogleAuthButton = () => {
-//   const { login } = useGoogleLogin({
-//     onSuccess: tokenResponse => {
-//       console.log(tokenResponse);
-//     },
-//   });
-
-//   return (
-//     <div>
-//       <Button onClick={() => login()}>Войти с помощью Google</Button>
-//     </div>
-//   );
-// };
-
-// export default GoogleAuthButton;
-
-//-------- базовый вариант -----------//
-// const GoogleAuthButton = () => {
-//   return (
-//     <div>
-//       <GoogleLogin
-//         onSuccess={credentialResponse => {
-//           console.log(credentialResponse);
-//         }}
-//         onError={() => {
-//           console.log('Login Failed');
-//         }}
-//       />
-//     </div>
-//   );
-// };
