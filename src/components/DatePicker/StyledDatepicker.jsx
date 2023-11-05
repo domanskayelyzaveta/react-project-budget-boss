@@ -1,17 +1,16 @@
-import { forwardRef, useState } from 'react';
 import { format } from 'date-fns';
+import { forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
 import sprite from '../../images/sprite.svg';
 
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { setSelectedDate_ } from 'redux/userReducer';
 import {
   CalendWrapper,
   CalendarGlobalStyles,
   TitleWrapper,
 } from './StyledDatePicker.styled';
-import { useDispatch, useSelector } from 'react-redux';
-import { setSelectedDate_ } from 'redux/userReducer';
-import formatDate from 'service/helpers';
 
 
 const StyledDatepicker = () => {
