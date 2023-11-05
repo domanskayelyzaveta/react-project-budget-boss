@@ -24,6 +24,10 @@ import {
   StyledAddTransactionButtonIcon,
   StyledAddTransactionButtonText,
 } from './DashboardPageMobile.styled';
+import {
+  getExpensesTransactionsThunk,
+  getIncomeTransactionsThunk,
+} from 'redux/thunks';
 
 const DashboardPageMobile = () => {
   const balance = useSelector(state => state.user.balance);
@@ -55,6 +59,9 @@ const DashboardPageMobile = () => {
 
   const handleChangePage = category => {
     setCategory(category);
+    category === 'expense'
+      ? dispatch(getExpensesTransactionsThunk(category))
+      : dispatch(getIncomeTransactionsThunk(category));
   };
 
   return (

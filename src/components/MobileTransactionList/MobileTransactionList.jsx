@@ -1,15 +1,17 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-const MobileTransactionList = category => {
+const MobileTransactionList = ({ category }) => {
   const incomeTransactionList = useSelector(state => state.income.incomes);
   const expenseTransactionList = useSelector(state => state.expenses.expenses);
 
   let transactionList;
-
-  category === 'expense'
-    ? (transactionList = expenseTransactionList)
-    : (transactionList = incomeTransactionList);
+  console.log(category === 'income');
+  if (category === 'income') {
+    transactionList = incomeTransactionList;
+  } else {
+    transactionList = expenseTransactionList;
+  }
 
   return transactionList?.map(transaction => (
     <li key={transaction._id}>
