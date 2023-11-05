@@ -144,6 +144,7 @@ export function VerticalChart({ keysArray, valuesArray }) {
   };
   const media = {
     tablet: '(min-width: 768px)',
+    desktop: '(min-width: 1280px)',
   };
   const ChartContainer = styled.div`
     margin-top: 40px;
@@ -153,6 +154,12 @@ export function VerticalChart({ keysArray, valuesArray }) {
       background-color: rgba(56, 56, 71, 0.6);
       box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.2);
       border-radius: 30px;
+      margin-bottom: 60px;
+    }
+    @media ${media.desktop} {
+      margin-left: auto;
+      margin-right: auto;
+      width: 1034px;
     }
   `;
   return (
