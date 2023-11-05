@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
 export const DivContainer = styled.div`
   display: flex;
@@ -7,7 +7,7 @@ export const DivContainer = styled.div`
   align-items: center;
   flex-wrap: wrap;
   background-color: transparent;
-  padding: 32px 20px 20px 20px;
+  padding-top: 32px;
 `;
 
 export const BtnContainer = styled.div`
@@ -78,6 +78,14 @@ export const Image = styled.img`
   box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.15);
   padding-left: 5px;
   padding-top: 5px;
+  box-shadow: ${props => (props.$primaryImage ? '0px 0px 6px 0px #41a350' : null)};
+  border: ${props => (props.$primaryImage ? '1px solid var(--button)' : null)};
+  &:hover {
+    box-shadow: 0px 0px 6px 0px #41a350;
+    border: 1px solid var(--button);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
 `;
 
 export const CategoryP = styled.p`

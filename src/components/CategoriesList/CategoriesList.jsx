@@ -25,8 +25,13 @@ import {
   TitleTwo,
 } from './CategoriesList.styled';
 
-export const CategoriesList = ({ data }) => {
+export const CategoriesList = ({
+  data,
+  categoryChartKeys,
+  categoryChartValue,
+}) => {
   const [currentCategoryType, setCurrentCategoryType] = useState('expense');
+  const [activeItem, setActiveItem] = useState(null);
   const [arrayOfImagesExpense] = useState({
     Products: Products,
     Alcohol: Alcohol,
@@ -66,6 +71,14 @@ export const CategoriesList = ({ data }) => {
     setCurrentCategoryType(
       currentCategoryType === 'expense' ? 'income' : 'expense'
     );
+    setActiveItem(null);
+  };
+
+  const handleClick = (element, index) => {
+    setActiveItem(index);
+    currentCategoryType === 'expense'
+      ? categoryChartKeys(element)
+      : categoryChartValue(element);
   };
 
   return (
@@ -94,7 +107,12 @@ export const CategoriesList = ({ data }) => {
                 return (
                   <ItemLi key={index}>
                     <P>{element.total}.00</P>
-                    <Image src={element.image} alt="" />
+                    <Image
+                      src={element.image}
+                      alt=""
+                      onClick={() => handleClick(element.categories, index)}
+                      $primaryImage={activeItem === index}
+                    />
                     <CategoryP>{element.categories.toUpperCase()}</CategoryP>
                   </ItemLi>
                 );
@@ -103,7 +121,12 @@ export const CategoriesList = ({ data }) => {
                 return (
                   <ItemLi key={index}>
                     <P>{element.total}.00</P>
-                    <Image src={element.image} alt="" />
+                    <Image
+                      src={element.image}
+                      alt=""
+                      onClick={() => handleClick(element.categories, index)}
+                      $primaryImage={activeItem === index}
+                    />
                     <CategoryP>{element.categories.toUpperCase()}</CategoryP>
                   </ItemLi>
                 );
