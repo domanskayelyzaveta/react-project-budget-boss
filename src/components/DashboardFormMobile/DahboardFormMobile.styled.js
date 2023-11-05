@@ -11,13 +11,8 @@ export const CalcWrapper = styled.div``;
 
 export const StyledButtonsWrapper = styled.div`
   display: flex;
-  
 `;
 
-export const StyledDescrInput = styled.input`
-  
-`;
+export const StyledDescrInput = styled.input``;
 
-export const StyledSumInput = styled.div`
-  
-`;
+export const StyledSumInput = styled.input``;
