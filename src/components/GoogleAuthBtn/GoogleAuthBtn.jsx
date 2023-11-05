@@ -9,9 +9,11 @@ import {
 } from './GoogleAuthBtn.styled';
 import sprite from '../../images/sprite.svg';
 
+// 'https://kapusta-backend.p.goit.global/auth/google';
+
 const GoogleAuthButton = () => {
   const handleGoogleLogin = () => {
-    window.location.href = 'https://kapusta-backend.p.goit.global/auth/google';
+    window.location.href = 'https://kapusta-backend.goit.global/auth/google';
   };
 
   return (
