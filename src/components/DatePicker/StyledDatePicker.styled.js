@@ -86,7 +86,7 @@ export const CalendarGlobalStyles = createGlobalStyle`
     font-style: normal;
     font-family: Roboto;
     font-weight: 700;
-    margin-bottom: 12px;
+    margin-bottom: 5px;
     text-align: center;
     color: white;
     letter-spacing: 0.24px;
@@ -124,6 +124,7 @@ export const CalendarGlobalStyles = createGlobalStyle`
     color: #F6F7FB70;
     font-size: 12px;
     font-weight: 400;
+    margin-top: 0px;
 
   }
   .react-datepicker__month {
