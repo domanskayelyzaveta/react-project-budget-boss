@@ -11,7 +11,9 @@ export const StyledBalanceAmountInput = styled.input`
   border: 2px solid var(--grey8F);
   color: var(--text-color);
 `;
-
+// @media screen and (min-width: 768px) {
+//     display: flex;
+//   }
 export const BalanceFormWrapper = styled.form`
   display: flex;
   align-items: center;

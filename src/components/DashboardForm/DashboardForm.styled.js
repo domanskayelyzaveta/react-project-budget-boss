@@ -6,8 +6,15 @@ export const StyledWrapper = styled.div`
 `;
 export const StyledForm = styled.form`
   display: flex;
-  gap: 32px;
   align-items: center;
+  gap: 32px;
+
+  @media screen and (min-width: 768px) {
+    flex-wrap: wrap;
+  }
+  @media screen and (min-width: 1280px) {
+    flex-wrap: nowrap;
+  }
 `;
 
 export const StyledDescrInput = styled.input`
@@ -30,6 +37,11 @@ export const StyledDescrInput = styled.input`
   border-left: none;
   border-bottom: none;
   background: transparent;
+
+  @media screen and (min-width: 768px) {
+    width: 194px;
+    padding-left: 20px;
+  }
 `;
 // export const CustomSelect = styled.select`
 //   width: 100%;
@@ -86,6 +98,13 @@ export const StyledInputWrapper = styled.div`
 export const StyledButtonsWrapper = styled.div`
   display: flex;
   gap: 16px;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 23%;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-left: 0px;
+  }
 `;
 
 export const StyledInputButton = styled.button`

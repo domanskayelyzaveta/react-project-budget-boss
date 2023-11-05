@@ -38,11 +38,11 @@ export const Img = styled.img`
 `;
 
 export const Form = styled.form`
-  width: 260px;
-  height: 488px;
+  width: 280px;
+  height: 500px;
   border-radius: 16px;
   padding: 32px 20px;
-  padding-bottom: 0px;
+
   background-color: var(--grey47);
   box-shadow: 0px 2px 14px 0px rgba(132, 132, 132, 0.2) inset;
 
@@ -68,7 +68,7 @@ export const RequiredP = styled.p`
   font-weight: 400;
   margin-top: -22px;
   padding-left: 8px;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   letter-spacing: 0.4px;
   color: var(--red);
 `;

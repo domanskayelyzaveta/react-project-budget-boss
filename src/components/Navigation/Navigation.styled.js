@@ -8,7 +8,18 @@ const Div = styled.div`
   background-color: var(--background);
   color: #fff;
   height: 5vh;
-  padding: 8px 40px;
+  padding-left: 20px;
+  padding-top: 6px;
+
+  @media screen and (min-width: 768px) {
+    padding-left: 32px;
+    padding-top: 0px;
+    padding-right: 0px;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding-left: 40px;
+  }
 `;
 
 const Ellipse = styled.div`
@@ -34,10 +45,13 @@ const Ellipse = styled.div`
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-left: auto;
+  margin-left: 0 auto;
 
   @media screen and (min-width: 768px) {
     gap: 16px;
+    padding-right: 21px;
+  }
+  @media screen and (min-width: 1280) {
   }
 `;
 

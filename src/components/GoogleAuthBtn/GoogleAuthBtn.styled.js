@@ -13,7 +13,7 @@ export const Button = styled.button`
   height: 40px;
   padding: 10px;
   border-radius: 16px;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.28px;
@@ -24,6 +24,14 @@ export const Button = styled.button`
   &:hover,
   &:focus {
     background-color: var(--white-1);
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 32px;
   }
 `;
 
