@@ -7,7 +7,7 @@ const Div = styled.div`
   justify-content: space-between;
   background-color: var(--background);
   color: #fff;
-  height: 5vh;
+  /* height: 5vh; */
   padding-left: 20px;
   padding-top: 6px;
 

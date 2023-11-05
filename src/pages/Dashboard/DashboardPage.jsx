@@ -96,16 +96,17 @@ const Dashboard = () => {
   return (
     <>
       {isMobail && (
-        <h2
-          style={{
-            color: 'red',
-            marginTop: '100px',
-            border: '2px solid',
-            padding: '10px',
-          }}
-        >
-          There should be components for Mobile versions here.
-        </h2>
+        // <h2
+        //   style={{
+        //     color: 'red',
+        //     marginTop: '100px',
+        //     border: '2px solid',
+        //     padding: '10px',
+        //   }}
+        // >
+        //   There should be components for Mobile versions here.
+        // </h2>
+        <MobileDashboardBalanceForm/>
       )}
       {isTabletAndDestop && (
         <div>
