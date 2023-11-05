@@ -47,7 +47,16 @@ const MobileTransactionList = ({ category }) => {
             <div>{transaction.category}</div>
           </div>
         </div>
-        <div>{transaction.amount}</div>
+        <div
+          style={{
+            color: category === 'income' ? '#60C470' : '#FE4566',
+          }}
+          align="center"
+        >
+          {category === 'income'
+            ? `${transaction.amount.toFixed(2)} UAH`
+            : `- ${transaction.amount.toFixed(2)} UAH`}
+        </div>
         <StyledBtn
           onClick={() => {
             handleModalOpen();
