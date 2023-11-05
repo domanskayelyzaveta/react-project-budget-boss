@@ -6,7 +6,7 @@ export const StyledBtn = styled.button`
   color: rgba(199, 204, 220, 0.5);
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 60px;
+    /* margin-bottom: 60px; */
   }
 `;
 

@@ -7,18 +7,14 @@ const Div = styled.div`
   justify-content: space-between;
   background-color: var(--background);
   color: #fff;
-  height: 5vh;
-  padding-left: 20px;
-  padding-top: 6px;
+  padding: 12px 20px;
 
   @media screen and (min-width: 768px) {
-    padding-left: 32px;
-    padding-top: 0px;
-    padding-right: 0px;
+    padding: 8px 32px;
   }
 
   @media screen and (min-width: 768px) {
-    padding-left: 40px;
+    padding: 8px 40px;
   }
 `;
 

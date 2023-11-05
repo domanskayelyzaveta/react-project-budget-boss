@@ -22,9 +22,13 @@ import {
   StyledTop,
 } from './DashboardPage.styled';
 import './Tabs.css';
+import MobileDashboardBalanceForm from 'components/MobilDashboardBalanceForm/MobilDashboardBalanceForm';
+import { useMediaQuery } from 'react-responsive';
 // import Calculator from 'components/Calculator/Calculator';
 
 const Dashboard = () => {
+  const isTabletAndDestop = useMediaQuery({ query: '(min-width: 768px)' });
+  const isMobail = useMediaQuery({ query: '(max-width: 767px)' });
   const [activeTab, setActiveTab] = useState('1');
   const expensesList = useSelector(state =>
     state.expenses.expenses?.toReversed()
@@ -91,29 +95,44 @@ const Dashboard = () => {
 
   return (
     <>
-      <div>
-        <StyledTop>
-          <StyledBalanceWrapper>
-            <Ballance />
-          </StyledBalanceWrapper>
-          <StyledLinkWrapper>
-            <Link to="/reports">
-              <IconWithButton iconName={'#icon-bar_chart-24px'} />
-            </Link>
-          </StyledLinkWrapper>
-        </StyledTop>
-        {/* <Calculator/> */}
-        <Tabs
-          className="custom-tabs"
-          activeKey={activeTab}
-          onChange={key => {
-            setActiveTab(key);
-            console.log(key);
-          }}
-          defaultActiveKey="1"
-          items={items}
-        />
-      </div>
+      {isMobail && (
+        // <h2
+        //   style={{
+        //     color: 'red',
+        //     marginTop: '100px',
+        //     border: '2px solid',
+        //     padding: '10px',
+        //   }}
+        // >
+        //   There should be components for Mobile versions here.
+        // </h2>
+        <MobileDashboardBalanceForm/>
+      )}
+      {isTabletAndDestop && (
+        <div>
+          <StyledTop>
+            <StyledBalanceWrapper>
+              <Ballance />
+            </StyledBalanceWrapper>
+            <StyledLinkWrapper>
+              <Link to="/reports">
+                <IconWithButton iconName={'#icon-bar_chart-24px'} />
+              </Link>
+            </StyledLinkWrapper>
+          </StyledTop>
+          {/* <Calculator/> */}
+          <Tabs
+            className="custom-tabs"
+            activeKey={activeTab}
+            onChange={key => {
+              setActiveTab(key);
+              console.log(key);
+            }}
+            defaultActiveKey="1"
+            items={items}
+          />
+        </div>
+      )}
     </>
   );
 };
