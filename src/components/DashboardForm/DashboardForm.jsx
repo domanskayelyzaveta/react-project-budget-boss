@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { parseISO } from 'date-fns';
 
 import { Controller, useForm } from 'react-hook-form';
 
@@ -32,7 +31,6 @@ import customStyles from './DashboardFormStyle';
 import { toast } from 'react-toastify';
 import { setSelectedDate_ } from 'redux/userReducer';
 import Modal from '../Modal/Modal';
-import MobilDashboardBalanceForm from 'components/MobilDashboardBalanceForm/MobilDashboardBalanceForm';
 
 const DashboardForm = ({ categoriesList, category }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);

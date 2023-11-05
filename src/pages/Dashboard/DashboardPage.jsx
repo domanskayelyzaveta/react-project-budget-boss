@@ -22,8 +22,9 @@ import {
   StyledTop,
 } from './DashboardPage.styled';
 import './Tabs.css';
-import MobileDashboardBalanceForm from 'components/MobilDashboardBalanceForm/MobilDashboardBalanceForm';
+import MobileDashboardBalanceForm from 'pages/DashboardPageMobile/DashboardPageMobile';
 import { useMediaQuery } from 'react-responsive';
+import DashboardPageMobile from 'pages/DashboardPageMobile/DashboardPageMobile';
 // import Calculator from 'components/Calculator/Calculator';
 
 const Dashboard = () => {
@@ -95,19 +96,7 @@ const Dashboard = () => {
 
   return (
     <>
-      {isMobail && (
-        // <h2
-        //   style={{
-        //     color: 'red',
-        //     marginTop: '100px',
-        //     border: '2px solid',
-        //     padding: '10px',
-        //   }}
-        // >
-        //   There should be components for Mobile versions here.
-        // </h2>
-        <MobileDashboardBalanceForm/>
-      )}
+      {isMobail && <DashboardPageMobile />}
       {isTabletAndDestop && (
         <div>
           <StyledTop>

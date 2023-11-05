@@ -8,7 +8,8 @@ import {
   TableRow,
 } from '@mui/material';
 import { StyledBtn } from 'components/IconWithButton/IconWithButton.styled';
-import { useRef } from 'react';
+import Modal from 'components/Modal/Modal';
+import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {
   deleteExpenseTransactionThunk,
@@ -55,6 +56,8 @@ const styles = {
 };
 
 const DashboardTable = ({ data, category }) => {
+  const [id, setId] = useState(null);
+
   const tableRef = useRef();
   const dispatch = useDispatch();
   const handleDeleteTransaction = id => {
@@ -63,6 +66,13 @@ const DashboardTable = ({ data, category }) => {
     } else {
       dispatch(deleteExpenseTransactionThunk(id));
     }
+    setIsModalOpen(!isModalOpen);
+    setId(null);
+  };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleModalOpen = () => {
+    setIsModalOpen(!isModalOpen);
   };
 
   return (
@@ -144,7 +154,8 @@ const DashboardTable = ({ data, category }) => {
               >
                 <StyledBtn
                   onClick={() => {
-                    handleDeleteTransaction(item._id);
+                    handleModalOpen();
+                    setId(item._id);
                   }}
                 >
                   <svg width="16" height="16">
@@ -156,66 +167,15 @@ const DashboardTable = ({ data, category }) => {
           ))}
         </TableBody>
       </Table>
-      {/* <div style={styles.filler}></div> */}
+      {isModalOpen && (
+        <Modal
+          children={<p>Are you sure?</p>}
+          incomeEvent={handleDeleteTransaction}
+          onCloseModal={handleModalOpen}
+          id={id}
+        ></Modal>
+      )}
     </TableContainer>
-    // <TableContainer
-    //   component={Paper}
-    //   style={{
-    //     borderRadius: '12px',
-    //     maxHeight:'460px',
-    //   }}
-    // >
-    //   <StyledTable
-    //     sx={{
-    //       '&:last-child td, &:last-child th': { border: 0 },
-    //     }}
-
-    //     size="small"
-    //     aria-label="a dense table"
-    //     variant="plain"
-    //   >
-    //     <TableHead
-    //       sx={{
-    //         '& th': {
-    //           color: 'var(--text-color)',
-    //           backgroundColor: 'var(--grey-6B)',
-    //           borderRadius: '8px 8px 0px 0px',
-    //         },
-    //       }}
-    //     >
-    //       <StyledTableRow>
-    // <TableCell>DATE</TableCell>
-    // <TableCell style={{ height: '38px' }} align="left">DESCRIPTION</TableCell>
-    // <TableCell align="left">CATEGORY</TableCell>
-    // <TableCell align="left">SUM</TableCell>
-    //       </StyledTableRow>
-    //     </TableHead>
-    //     <TableBody>
-    //       {data?.map(row => (
-    //         <StyledTableRow
-    //           key={row._id}
-    //           sx={{
-    //             '&:last-child td, &:last-child th, td': {
-    //               border: 0,
-    //               color: 'var(--white-DC)',
-    //               padding: '14px 22px',
-    //             },
-    //           }}
-    //         >
-    //           <TableCell>{row.date}</TableCell>
-    //           <StyledTableCell align="left">{row.description}</StyledTableCell>
-    //           <StyledTableCell align="left">{row.category}</StyledTableCell>
-    //           <TableCell align="left">
-    //             {row.amount}
-    // <button onClick={() => handleDeleteTransaction(row._id)}>
-    //   DELETE
-    // </button>
-    //           </TableCell>
-    //         </StyledTableRow>
-    //       ))}
-    //     </TableBody>
-    //   </StyledTable>
-    // </TableContainer>
   );
 };
 
