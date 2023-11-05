@@ -79,7 +79,7 @@ const StyledComponent = styled(NavLink)`
   text-decoration: none;
 `;
 
-const Auth = styled.div``;
+// const Auth = styled.div``;
 
 export { Div, Ellipse, Wrapper, LogOut, StyledComponent, P, Line };
 

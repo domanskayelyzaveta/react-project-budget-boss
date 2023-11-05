@@ -96,14 +96,6 @@ const DashboardFormMobile = ({ category, onCloseModal }) => {
     reset();
   };
 
-  // const handleChange = dateChange => {
-  //   setValue('date', dateChange, {
-  //     shouldDirty: true,
-  //   });
-
-  //   dispatch(setSelectedDate_(dateChange));
-  // };
-
   const handelClearForm = () => {
     reset();
   };
