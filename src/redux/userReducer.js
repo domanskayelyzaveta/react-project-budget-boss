@@ -1,3 +1,6 @@
+import formatDate from 'service/helpers';
+
+
 const { createSlice } = require('@reduxjs/toolkit');
 const {
   registerThunk,
@@ -11,6 +14,7 @@ const {
   userSetBalanceThunk,
 } = require('./thunks');
 
+
 const initialState = {
   userData: null,
   isLoading: false,
@@ -19,6 +23,7 @@ const initialState = {
   isSignedIn: false,
   id: null,
   balance: null,
+  selectedDate: new Date(Date.now())
 };
 
 const userSlice = createSlice({
@@ -28,6 +33,9 @@ const userSlice = createSlice({
     setBalance: (state, action) => {
       state.balance = action.payload;
     },
+    setSelectedDate_: (state, action) => {
+      state.selectedDate = action.payload;
+    }
   },
   extraReducers: builder => {
     builder
@@ -129,5 +137,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { setBalance } = userSlice.actions;
+export const { setBalance, setSelectedDate_ } = userSlice.actions;
 export const userReducer = userSlice.reducer;
