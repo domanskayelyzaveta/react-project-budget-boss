@@ -6,11 +6,11 @@ import Navigation from '../Navigation/Navigation';
 
 export const Layout = () => {
   return (
-    <>
+    <div>
       <header>
         <Navigation />
       </header>
-      <main>
+      <main className="container">
         <Outlet />
       </main>
       <Suspense fallback={null}></Suspense>
@@ -20,6 +20,6 @@ export const Layout = () => {
           duration: 4000,
         }}
       />
-    </>
+    </div>
   );
 };

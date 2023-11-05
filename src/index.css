@@ -40,13 +40,22 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: #383847;
     background-repeat: no-repeat, no-repeat;
-    background-size: cover;
+    background-size: cover, auto;
+    width:100%;
     background-position: top left, top right;
-    background-image: url("./images/mobile/ellipse-mobile-1x.webp"), url("./images/desktop/rectangle-desktop-1x.webp");
+    background-image: url("./images/mobile/ellipse-mobile-1x.webp"), url("./images/desktop/Rectangle-2.png");
 
     @media screen and (min-width: 768px) {
-        background-image: url("./images/tablet/ellipse-tablet-1x.webp"), url("./images/desktop/rectangle-desktop-1x.webp");
+  
+            background-position: top left, top right;
+        background-image: url("./images/tablet/ellipse-tablet-1x.webp"), url("./images/desktop/Rectangle-2.png");
     }
+
+         @media screen and (min-width: 368px) {
+                background-position: top left, top right;
+             background-image: url("./images/tablet/ellipse-tablet-1x.webp"),
+             url("./images/desktop/Rectangle-2.png");
+         }
    
 }
 
@@ -96,8 +105,8 @@ button {
 
 .container {
     width: 100%;
-    padding-left: 91px;
-    padding-right: 91px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 select:focus {
@@ -118,6 +127,8 @@ select:focus {
     .container {
         width: 100%;
         max-width: 768px;
+        padding-left: 32px;
+        padding-right: 32px;
     }
 }
 
@@ -125,6 +136,8 @@ select:focus {
     .container {
         width: 100%;
         min-width: 1280px;
+        padding-left: 91px;
+        padding-right: 91px;
         
     }
 }
