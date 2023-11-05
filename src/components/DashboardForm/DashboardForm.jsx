@@ -30,6 +30,7 @@ import customStyles from './DashboardFormStyle';
 import { toast } from 'react-toastify';
 import { setSelectedDate_ } from 'redux/userReducer';
 import Modal from '../Modal/Modal';
+import MobilDashboardBalanceForm from 'components/MobilDashboardBalanceForm/MobilDashboardBalanceForm';
 
 const DashboardForm = ({ categoriesList, category }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -108,18 +109,6 @@ const DashboardForm = ({ categoriesList, category }) => {
               onClick={handleChange}
             />
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
-        {/* <Controller
-          name="date"
-          control={control}
-          defaultValue={date}
-          render={() => (
-            <StyledDatepicker
-              value={date}
-              placeholderText="Select date"
-              onClick={handleChange}
-            />
-          )}
-        /> */}
 
         <StyledInputWrapper>
           <StyledDescrInput
@@ -172,7 +161,7 @@ const DashboardForm = ({ categoriesList, category }) => {
           onCloseModal={handleModalOpen}
         ></Modal>
       )}
-      {/* <MobilDashboardBalanceForm /> */}
+      <MobilDashboardBalanceForm />
     </StyledFormWrapper>
   );
 };
