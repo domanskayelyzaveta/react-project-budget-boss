@@ -40,16 +40,19 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: #383847;
     background-repeat: no-repeat, no-repeat;
-    background-size: cover;
+    background-size: cover, auto;
+    width:100%;
+    background-position: top left, top right;
     background-image: url("./images/mobile/ellipse-mobile-1x.webp"), url("./images/desktop/Rectangle-2.png");
 
     @media screen and (min-width: 768px) {
-        background-position: top;
+  
+            background-position: top left, top right;
         background-image: url("./images/tablet/ellipse-tablet-1x.webp"), url("./images/desktop/Rectangle-2.png");
     }
 
          @media screen and (min-width: 368px) {
-             background-position: top;
+                background-position: top left, top right;
              background-image: url("./images/tablet/ellipse-tablet-1x.webp"),
              url("./images/desktop/Rectangle-2.png");
          }
