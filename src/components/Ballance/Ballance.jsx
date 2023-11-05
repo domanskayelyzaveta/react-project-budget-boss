@@ -13,20 +13,19 @@ import {
 import notification from '../../images/balance-notification.webp';
 
 const Ballance = () => {
+  const transaction = useSelector(state => state.user.userData?.transactions);
   const balance = useSelector(state => state.user.balance);
-
-  useEffect(() => {
-    if (balance) {
-      console.log(balance);
-    }
-  }, [balance]);
+  // useEffect(() => {
+  //   if (balance) {
+  //     console.log(balance);
+  //   }
+  // }, [balance]);
   return (
     <BalanceWrapper>
       Ballance:
-      {balance === null && (
+      {!transaction?.length && balance === 0 ? (
         <InitialBalanceWrapper>
           <DashboardBalanceForm />
-          {/* <BalanceMessage /> */}
           <ImgWrapper>
             <Img src={notification} alt="notification" />
             <ParagraphNotif>
@@ -37,10 +36,9 @@ const Ballance = () => {
             </ParagraphNotific>
           </ImgWrapper>
         </InitialBalanceWrapper>
-      )}
-      {balance ? (
+      ) : (
         <StyledBalanceAmount>{balance?.toFixed(2)} UAH</StyledBalanceAmount>
-      ) : null}
+      )}
     </BalanceWrapper>
   );
 };

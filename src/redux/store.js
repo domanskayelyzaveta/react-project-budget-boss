@@ -19,7 +19,7 @@ import { periodInfoReducer } from './periodDataReducer';
 const userPersistConfig = {
   key: 'user',
   storage,
-  whitelist: ['accessToken', 'userData'],
+  whitelist: ['accessToken'],
 };
 
 const store = configureStore({
