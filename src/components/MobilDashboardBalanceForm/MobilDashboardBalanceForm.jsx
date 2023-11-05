@@ -63,7 +63,6 @@ const MobileDashboardBalanceForm = ({ categoriesList }) => {
   const handleChangePage = category => {
     setCategory(category);
   };
-  
 
   return (
         <>
