@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { Controller, useForm } from 'react-hook-form';
 
 import StyledDatepicker from 'components/DatePicker/StyledDatepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   addExpenseTransactionThunk,
   addIncomeTransactionThunk,
@@ -16,6 +16,7 @@ import {
   StyledClearButton,
   StyledDescrInput,
   StyledForm,
+  StyledFormWrapper,
   StyledInputButton,
   StyledInputWrapper,
   StyledSumInput,
@@ -27,9 +28,8 @@ import sprite from '../../images/sprite.svg';
 import customStyles from './DashboardFormStyle';
 
 import { toast } from 'react-toastify';
+import { setSelectedDate_ } from 'redux/userReducer';
 import Modal from '../Modal/Modal';
-import MobilDashboardBalanceForm from 'components/MobilDashboardBalanceForm/MobilDashboardBalanceForm';
-import DatePicker from 'react-datepicker';
 
 const DashboardForm = ({ categoriesList, category }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -38,12 +38,11 @@ const DashboardForm = ({ categoriesList, category }) => {
   };
 
   const { register, handleSubmit, control, setValue, reset } = useForm();
-  const [date, setDate] = React.useState(new Date(formatDate(Date.now())));
+  const selectedDate = useSelector(state=> state.user.selectedDate)
   const dispatch = useDispatch();
 
   const onSubmit = data => {
-    const dataToDispatch = { ...data };
-    dataToDispatch.date = formatDate(dataToDispatch.date);
+    const dataToDispatch = { ...data, date:formatDate(selectedDate) };
 
     //*DESCRIPTION
     if (!dataToDispatch.description) {
@@ -66,9 +65,8 @@ const DashboardForm = ({ categoriesList, category }) => {
 
     //*====TOASTIFY
     if (category === 'income') {
-      // console.log(category);
 
-      dispatch(addIncomeTransactionThunk({ dataToDispatch, category }))
+      dispatch(addIncomeTransactionThunk({ dataToDispatch, category })).unwrap()
         .then(() => {
           toast.success('Income transaction added successfully');
         })
@@ -77,7 +75,7 @@ const DashboardForm = ({ categoriesList, category }) => {
           toast.error('Error adding income transaction: ' + error.message);
         });
     } else {
-      dispatch(addExpenseTransactionThunk({ dataToDispatch, category }))
+      dispatch(addExpenseTransactionThunk({ dataToDispatch, category })).unwrap()
         .then(() => {
           toast.success('Expense transaction added successfully');
         })
@@ -88,7 +86,6 @@ const DashboardForm = ({ categoriesList, category }) => {
     }
 
     reset();
-    setDate(null);
   };
 
   const handleChange = dateChange => {
@@ -96,7 +93,7 @@ const DashboardForm = ({ categoriesList, category }) => {
       shouldDirty: true,
     });
 
-    setDate(dateChange);
+    dispatch(setSelectedDate_(dateChange))
   };
 
   const handelClearForm = () => {
@@ -104,9 +101,14 @@ const DashboardForm = ({ categoriesList, category }) => {
   };
 
   return (
-    <div>
+    <StyledFormWrapper>
+      <StyledDatepicker
+              value={selectedDate}
+              placeholderText="Select date"
+              onClick={handleChange}
+            />
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
-        <Controller
+        {/* <Controller
           name="date"
           control={control}
           defaultValue={date}
@@ -117,7 +119,7 @@ const DashboardForm = ({ categoriesList, category }) => {
               onClick={handleChange}
             />
           )}
-        />
+        /> */}
 
         <StyledInputWrapper>
           <StyledDescrInput
@@ -171,7 +173,7 @@ const DashboardForm = ({ categoriesList, category }) => {
         ></Modal>
       )}
       {/* <MobilDashboardBalanceForm /> */}
-    </div>
+    </StyledFormWrapper>
   );
 };
 

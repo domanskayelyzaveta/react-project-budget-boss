@@ -4,6 +4,14 @@ import { createGlobalStyle } from 'styled-components';
 export const StyledWrapper = styled.div`
   display: flex;
 `;
+
+export const StyledFormWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  gap:32px;
+`;
+
 export const StyledForm = styled.form`
   display: flex;
   align-items: center;
