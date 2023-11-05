@@ -6,14 +6,21 @@ export const StyledWrapper = styled.div`
 `;
 export const StyledForm = styled.form`
   display: flex;
-  gap: 32px;
   align-items: center;
+  gap: 32px;
+
+  @media screen and (min-width: 768px) {
+    flex-wrap: wrap;
+  }
+  @media screen and (min-width: 1280px) {
+    flex-wrap: nowrap;
+  }
 `;
 
 export const StyledDescrInput = styled.input`
   color: var(--white-3, rgba(199, 204, 220, 0.5));
-  padding-left: 20px;
-  padding-right: 20px;
+  // padding-left: 20px;
+  // padding-right: 20px;
   font-family: Roboto;
   font-size: 12px;
   font-style: normal;
@@ -21,7 +28,7 @@ export const StyledDescrInput = styled.input`
   line-height: normal;
   letter-spacing: 0.24px;
   width: 290px;
-  margin: 15px 0;
+  // margin: 15px 0;
 
   /* border: none; */
   border-right: 2px solid var(--grey, #474759);
@@ -30,6 +37,11 @@ export const StyledDescrInput = styled.input`
   border-left: none;
   border-bottom: none;
   background: transparent;
+
+  @media screen and (min-width: 768px) {
+    width: 194px;
+    padding-left: 20px;
+  }
 `;
 // export const CustomSelect = styled.select`
 //   width: 100%;
@@ -52,8 +64,9 @@ export const StyledOption = styled.option`
 
 export const StyledSumInput = styled.input`
   color: var(--white-DC);
-  padding-left: 20px;
-  padding-right: 20px;
+  width: 40px;
+  // padding-left: 20px;
+  // padding-right: 20px;
   margin: 15px 0;
   font-family: Roboto;
   font-size: 12px;
@@ -67,10 +80,9 @@ export const StyledSumInput = styled.input`
 `;
 
 export const StyledInputWrapper = styled.div`
-  margin-top: 32px;
   display: flex;
   box-sizing: border-box;
-  gap: 20px;
+  // gap: 20px;
   /* padding: 15px 20px; */
   color: var(--white-DC);
   font-family: Roboto;
@@ -86,6 +98,13 @@ export const StyledInputWrapper = styled.div`
 export const StyledButtonsWrapper = styled.div`
   display: flex;
   gap: 16px;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 23%;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-left: 0px;
+  }
 `;
 
 export const StyledInputButton = styled.button`
@@ -128,3 +147,12 @@ export const StyledClearButton = styled.button`
   letter-spacing: 0.24px;
   text-transform: uppercase;
 `;
+
+export const CalcWrapper = styled.div`
+  width: 90px;
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+`;
+
+export const SvgCalc = styled.svg``;

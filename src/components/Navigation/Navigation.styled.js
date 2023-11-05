@@ -7,21 +7,36 @@ const Div = styled.div`
   justify-content: space-between;
   background-color: var(--background);
   color: #fff;
-  padding: 20px;
+  height: 5vh;
+  padding-left: 20px;
+  padding-top: 6px;
+
+  @media screen and (min-width: 768px) {
+    padding-left: 32px;
+    padding-top: 0px;
+    padding-right: 0px;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding-left: 40px;
+  }
 `;
 
 const Ellipse = styled.div`
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  border-radius: 50px;
   margin-right: 16px;
   background-color: var(--grey-6B);
-  border-radius: 50px;
-  padding: 9px 12px;
   color: var(--white-1);
   font-family: Roboto;
   font-size: 12px;
   font-style: normal;
   font-weight: 700;
-  line-height: normal;
+  line-height: 32px;
   letter-spacing: 0.48px;
+
   @media screen and (min-width: 768px) {
     margin-right: 0;
   }
@@ -30,10 +45,13 @@ const Ellipse = styled.div`
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-left: auto;
+  margin-left: 0 auto;
 
   @media screen and (min-width: 768px) {
     gap: 16px;
+    padding-right: 21px;
+  }
+  @media screen and (min-width: 1280) {
   }
 `;
 

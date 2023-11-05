@@ -6,11 +6,19 @@ export const DataWrapper = styled.div`
   flex-shrink: 0;
   flex-grow: 0;
   gap: 75px;
-  padding: 60px 34px;
+  margin-top: 72px;
+  // padding: 60px 34px;
   background: transparent;
+
+  @media screen and (min-width: 768px) {
+    flex-wrap: wrap;
+    margin-top: 48px;
+    gap: 40px;
+  }
 `;
 
 export const IncomeWrapper = styled.div`
+  padding: 32px 32px 40px 32px;
   border-radius: 0 20px 20px 20px;
   background: linear-gradient(
     115.74deg,
@@ -18,7 +26,9 @@ export const IncomeWrapper = styled.div`
     rgba(56, 56, 71, 0.29) 107.94%
   );
 `;
+
 export const ExpensesWrapper = styled.div`
+  padding: 32px 32px 40px 32px;
   border-radius: 0 20px 20px 20px;
   background: linear-gradient(
     115.74deg,
@@ -27,16 +37,33 @@ export const ExpensesWrapper = styled.div`
   );
 `;
 export const StyledTop = styled.div`
-  display: flex;
-  justify-content: space-between;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: 40px;
+  }
 `;
 
 export const StyledBalanceWrapper = styled.div`
-  margin-right: auto;
-  margin-left: 50%;
+  @media screen and (min-width: 768px) {
+    // margin-left: 20px;
+    // margin-bottom: 60px;
+
+    margin: 40px 20px 60px 20px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-right: auto;
+    margin-left: 40%;
+  }
 `;
 export const StyledLinkWrapper = styled.div``;
 
-export const StyledTabs = styled(Tabs)`
-`
-
+export const StyledTabs = styled(Tabs)``;

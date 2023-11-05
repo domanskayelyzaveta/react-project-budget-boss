@@ -92,12 +92,9 @@ export async function addTransaction(data) {
 }
 
 export async function deleteTransaction(id) {
-  const response = await $instance.delete(`/transaction/${id}`);
-  console.log(response);
-  // const response = await $instance.delete(`/transaction/${id}`, {
-  //   headers: { Authorization: `Bearer ${token}` },
-  // });
-  return { id, response };
+  const { data } = await $instance.delete(`/transaction/${id}`);
+
+  return { id, data };
 }
 
 export const getTransactions = async category => {

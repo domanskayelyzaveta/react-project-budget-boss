@@ -1,37 +1,48 @@
 import styled from '@emotion/styled';
-import money from '../../images/desktop/money-desktop-1x.webp';
+// import money from '../../images/desktop/money-desktop-1x.webp';
 import moneyTab from '../../images/tablet/money-tablet-1x.webp';
-import ellipse from '../../images/tablet/Ellipse_8.webp';
+// import ellipse from '../../images/desktop/ellipse-desktop-1x.webp';
 
 export const FormWrapper = styled.div`
   display: flex;
   margin-top: 12px;
   justify-content: center;
+  align-items: center;
   background-repeat: no-repeat;
 
   @media screen and (min-width: 768px) {
-    background-image: url(${moneyTab}), url(${ellipse});
+    background-image: url(${moneyTab});
     background-position: top center;
     padding-top: 294px;
   }
 
   @media screen and (min-width: 1280px) {
-    margin-top: 120px;
-    margin-right: 125px;
-    padding-top: 0px;
-    justify-content: flex-end;
-    background-position: left;
-    background-image: url(${money});
+    display: flex;
+    justify-content: space-around;
+    gap: 5%;
+
+    // margin-right: 125px;
+    // padding-top: 0px;
+    padding: 120px 125px;
+    background-image: none;
+  }
+`;
+
+export const Img = styled.img`
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+  @media screen and (min-width: 1280px) {
+    display: block;
   }
 `;
 
 export const Form = styled.form`
-  width: 260px;
-  height: 488px;
-  margin-bottom: 40px;
+  width: 280px;
+  height: 500px;
   border-radius: 16px;
   padding: 32px 20px;
-  padding-bottom: 0px;
   background-color: var(--grey47);
   box-shadow: 0px 2px 14px 0px rgba(132, 132, 132, 0.2) inset;
 
@@ -41,6 +52,7 @@ export const Form = styled.form`
     padding: 52px;
     border-radius: 30px;
     box-sizing: border-box;
+    margin-bottom: 120px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -56,7 +68,7 @@ export const RequiredP = styled.p`
   font-weight: 400;
   margin-top: -22px;
   padding-left: 8px;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   letter-spacing: 0.4px;
   color: var(--red);
 `;

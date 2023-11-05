@@ -45,6 +45,7 @@ export const logoutThunk = createAsyncThunk(
       await fetchLogout(token);
       // clearAuthHeader();
     } catch (error) {
+      // TODO: відловити помилку з сервера
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -81,7 +82,7 @@ export const userThunk = createAsyncThunk(
 
 export const userSetBalanceThunk = createAsyncThunk(
   'user/userSetBalance',
-  async (balance = 0, thunkAPI) => {
+  async (balance, thunkAPI) => {
     const token = thunkAPI.getState().user.accessToken;
     setToken(token);
     try {

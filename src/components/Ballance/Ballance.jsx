@@ -1,27 +1,42 @@
-import React, { useEffect, useState } from 'react';
+import DashboardBalanceForm from 'components/DashboardBalanceForm/DashboardBalanceForm';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { BalanceWrapper, StyledBalanceAmount } from './Balance.styled';
-import DashboardBalanceForm from 'components/DashboardBalanceForm/DashboardBalanceForm';
 import BalanceMessage from './BalanceMessage';
+import {
+  Img,
+  ImgWrapper,
+  InitialBalanceWrapper,
+  ParagraphNotif,
+  ParagraphNotific,
+} from './BalanceMessage.styled';
+import notification from '../../images/balance-notification.webp';
 
 const Ballance = () => {
+  const transaction = useSelector(state => state.user.userData?.transactions);
   const balance = useSelector(state => state.user.balance);
-
-  useEffect(() => {
-    if (balance) {
-      console.log(balance);
-    }
-  }, [balance]);
+  // useEffect(() => {
+  //   if (balance) {
+  //     console.log(balance);
+  //   }
+  // }, [balance]);
   return (
     <BalanceWrapper>
       Ballance:
-      {(!balance || balance <= 0) && (
-        <>
+      {!transaction?.length && balance === 0 ? (
+        <InitialBalanceWrapper>
           <DashboardBalanceForm />
-          <BalanceMessage />
-        </>
-      )}
-      {balance >= 0 && (
+          <ImgWrapper>
+            <Img src={notification} alt="notification" />
+            <ParagraphNotif>
+              Hello! To get started, enter the current balance of your account!
+            </ParagraphNotif>
+            <ParagraphNotific>
+              You can`t spend money until you have it:)
+            </ParagraphNotific>
+          </ImgWrapper>
+        </InitialBalanceWrapper>
+      ) : (
         <StyledBalanceAmount>{balance?.toFixed(2)} UAH</StyledBalanceAmount>
       )}
     </BalanceWrapper>

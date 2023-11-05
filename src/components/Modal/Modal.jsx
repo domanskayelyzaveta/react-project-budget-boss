@@ -1,7 +1,15 @@
 import PropTypes from 'prop-types';
-import { Childrens, Content, StyledButtonClose, Wrapper } from './Modal.styled';
-
-const Modal = ({ children, onCloseModal }) => {
+import {
+  ButtonWrapper,
+  Childrens,
+  Content,
+  StyledButtonAgree,
+  StyledButtonClose,
+  StyledButtonDisagree,
+  Wrapper,
+} from './Modal.styled';
+import sprite from '../../images/sprite.svg';
+const Modal = ({ children, onCloseModal, incomeEvent }) => {
   const onBackDropClick = e => {
     if (e.currentTarget === e.target) {
       onCloseModal();
@@ -22,11 +30,31 @@ const Modal = ({ children, onCloseModal }) => {
     document.removeEventListener('keydown', onEscKeyPress);
   };
 
+  const handleIncomeEventAgree = incomeEvent => {
+    incomeEvent();
+    onCloseModal();
+  };
+
   return (
     <Wrapper onClick={onBackDropClick}>
       <Content>
-        <StyledButtonClose onClick={onCloseModal}>Close</StyledButtonClose>
+        <StyledButtonClose onClick={onCloseModal}>
+          <svg width="12" height="12">
+            <use href={`${sprite}#icon-cross-modal`} />
+          </svg>
+        </StyledButtonClose>
         <Childrens>{children}</Childrens>
+        <ButtonWrapper>
+          <StyledButtonAgree
+            type="button"
+            onClick={() => handleIncomeEventAgree(incomeEvent)}
+          >
+            YES
+          </StyledButtonAgree>
+          <StyledButtonDisagree type="button" onClick={onCloseModal}>
+            NO
+          </StyledButtonDisagree>
+        </ButtonWrapper>
       </Content>
     </Wrapper>
   );
@@ -37,4 +65,3 @@ Modal.propTypes = {
 };
 
 export default Modal;
-

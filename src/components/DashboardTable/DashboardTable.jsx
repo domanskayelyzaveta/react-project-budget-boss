@@ -18,6 +18,7 @@ import sprite from '../../images/sprite.svg';
 
 const styles = {
   tableContainer: {
+    width: '746px',
     height: '438px',
     // overflow: 'auto',
     borderRadius: '24px',
@@ -26,7 +27,6 @@ const styles = {
     scrollbarColor: 'var(--button)',
     backgroundColor: 'rgba(56, 56, 71, 0.29)',
     // background: 'linear-gradient(116deg, #383847 23.54%, rgba(56, 56, 71, 0.29) 107.94%)',
-
   },
 
   tableRow: {
@@ -99,7 +99,7 @@ const DashboardTable = ({ data, category }) => {
               SUM
             </TableCell>
             <TableCell
-              style={{ width: '100px', ...styles.tableCell }}
+              style={{ width: '32px', ...styles.tableCell }}
               align="left"
             ></TableCell>
           </TableRow>
@@ -134,10 +134,12 @@ const DashboardTable = ({ data, category }) => {
                 }}
                 align="center"
               >
-                {category === 'income' ? `${item.amount.toFixed(2)} UAH` : `- ${item.amount.toFixed(2)} UAH`}
+                {category === 'income'
+                  ? `${item.amount.toFixed(2)} UAH`
+                  : `- ${item.amount.toFixed(2)} UAH`}
               </TableCell>
               <TableCell
-                style={{ width: '100px', ...styles.tableCell }}
+                style={{ width: '32px', ...styles.tableCell }}
                 align="left"
               >
                 <StyledBtn

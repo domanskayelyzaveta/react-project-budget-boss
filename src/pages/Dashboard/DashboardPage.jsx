@@ -26,8 +26,10 @@ import './Tabs.css';
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState('1');
-  const expensesList = useSelector(state => state.expenses.expenses);
-  const incomeList = useSelector(state => state.income.incomes);
+  const expensesList = useSelector(state =>
+    state.expenses.expenses?.toReversed()
+  );
+  const incomeList = useSelector(state => state.income.incomes?.toReversed());
   const expensesSummary = useSelector(state => state.expenses.monthsStats);
   const incomeSummary = useSelector(state => state.income.monthsStats);
 
@@ -89,27 +91,29 @@ const Dashboard = () => {
 
   return (
     <>
-      <StyledTop>
-        <StyledBalanceWrapper>
-          <Ballance />
-        </StyledBalanceWrapper>
-        <StyledLinkWrapper>
-          <Link to="/reports">
-            <IconWithButton iconName={'#icon-bar_chart-24px'} />
-          </Link>
-        </StyledLinkWrapper>
-      </StyledTop>
-      {/* <Calculator/> */}
-      <Tabs
-        className="custom-tabs"
-        activeKey={activeTab}
-        onChange={key => {
-          setActiveTab(key);
-          console.log(key);
-        }}
-        defaultActiveKey="1"
-        items={items}
-      />
+      <div>
+        <StyledTop>
+          <StyledBalanceWrapper>
+            <Ballance />
+          </StyledBalanceWrapper>
+          <StyledLinkWrapper>
+            <Link to="/reports">
+              <IconWithButton iconName={'#icon-bar_chart-24px'} />
+            </Link>
+          </StyledLinkWrapper>
+        </StyledTop>
+        {/* <Calculator/> */}
+        <Tabs
+          className="custom-tabs"
+          activeKey={activeTab}
+          onChange={key => {
+            setActiveTab(key);
+            console.log(key);
+          }}
+          defaultActiveKey="1"
+          items={items}
+        />
+      </div>
     </>
   );
 };
