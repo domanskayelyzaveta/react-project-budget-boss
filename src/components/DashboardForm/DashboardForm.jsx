@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { parseISO } from 'date-fns';
 
 import { Controller, useForm } from 'react-hook-form';
 
@@ -30,6 +31,7 @@ import customStyles from './DashboardFormStyle';
 import { toast } from 'react-toastify';
 import { setSelectedDate_ } from 'redux/userReducer';
 import Modal from '../Modal/Modal';
+import MobilDashboardBalanceForm from 'components/MobilDashboardBalanceForm/MobilDashboardBalanceForm';
 
 const DashboardForm = ({ categoriesList, category }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -39,6 +41,8 @@ const DashboardForm = ({ categoriesList, category }) => {
 
   const { register, handleSubmit, control, setValue, reset } = useForm();
   const selectedDate = useSelector(state=> state.user.selectedDate)
+  // const selectedDate = useSelector(state=> parseISO(state.user.selectedDate))
+  // const selectedDate = parseISO(selectedISODate);
   const dispatch = useDispatch();
 
   const onSubmit = data => {
@@ -108,18 +112,6 @@ const DashboardForm = ({ categoriesList, category }) => {
               onClick={handleChange}
             />
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
-        {/* <Controller
-          name="date"
-          control={control}
-          defaultValue={date}
-          render={() => (
-            <StyledDatepicker
-              value={date}
-              placeholderText="Select date"
-              onClick={handleChange}
-            />
-          )}
-        /> */}
 
         <StyledInputWrapper>
           <StyledDescrInput
@@ -172,7 +164,7 @@ const DashboardForm = ({ categoriesList, category }) => {
           onCloseModal={handleModalOpen}
         ></Modal>
       )}
-      {/* <MobilDashboardBalanceForm /> */}
+      
     </StyledFormWrapper>
   );
 };
