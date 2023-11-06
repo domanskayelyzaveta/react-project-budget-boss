@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 
 export const Content = styled.div`
-position:absolute;
-top: 0;
-outline: 1px solid tomato;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 0;
+  outline: 1px solid tomato;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -19,6 +23,9 @@ outline: 1px solid tomato;
   box-shadow: 0px 2px 14px 0px rgba(132, 132, 132, 0.2) inset;
 `;
 export const Childrens = styled.div`
+  /* display: flex;
+  justify-content: center;
+  flex-direction: column; */
   margin-bottom: 32px;
   & p {
     color: var(--text-color);
@@ -34,11 +41,25 @@ export const Childrens = styled.div`
 
 export const StyledButtonClose = styled.button`
   position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 4px;
   padding: 0;
-  width: 32px;
-  height: 32px;
   top: 8px;
-  right: 8px;
+  left: 8px;
+
+  margin-top: 16px;
+  margin-left: 20px;
+
+  color: var(--text-color);
+  text-align: center;
+  font-family: Roboto;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
 
   border: none;
   background: transparent;

@@ -235,15 +235,15 @@ export const TitleWrapper = styled.button`
   width: 74px;
   font-size: 12px;
   font-weight: 900;
-  Line height: normal;
+  line-height: normal;
   padding-left: 10px;
   letter-spacing: 0.48px;
   font-family: Roboto;
   color: var(--white-DC);
-
 `;
 
 export const CalendWrapper = styled.div`
+
   display: flex;
   justify-content: center;
   align-items: center;

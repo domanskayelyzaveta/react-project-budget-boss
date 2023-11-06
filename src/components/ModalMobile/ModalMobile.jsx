@@ -1,5 +1,10 @@
 import sprite from '../../images/sprite.svg';
-import { Childrens, Content, StyledButtonClose } from './ModalMobile.styled';
+import {
+  Childrens,
+  Content,
+  Div,
+  StyledButtonClose,
+} from './ModalMobile.styled';
 
 const ModalMobile = ({ children, onCloseModal, incomeEvent }) => {
   const onCloseModalBack = incomeEvent => {
@@ -9,11 +14,12 @@ const ModalMobile = ({ children, onCloseModal, incomeEvent }) => {
   return (
     <Content>
       <StyledButtonClose onClick={() => onCloseModalBack(incomeEvent)}>
-        <svg width="12" height="12">
+        <svg width="18" height="18">
           <use href={`${sprite}#icon-keyboard_backspace-24px`} />
         </svg>
         To transactions
       </StyledButtonClose>
+
       <Childrens>{children}</Childrens>
     </Content>
   );
