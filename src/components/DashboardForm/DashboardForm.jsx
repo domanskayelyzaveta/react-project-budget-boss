@@ -82,7 +82,6 @@ const DashboardForm = ({ categoriesList, category }) => {
           toast.success('Income transaction added successfully');
         })
         .catch(error => {
-          console.error('Error adding income transaction:', error);
           toast.error('Error adding income transaction: ' + error.message);
         });
     } else {
@@ -92,7 +91,6 @@ const DashboardForm = ({ categoriesList, category }) => {
           toast.success('Expense transaction added successfully');
         })
         .catch(error => {
-          console.error('Error adding expense transaction:', error);
           toast.error('Error adding expense transaction: ' + error.message);
         });
     }

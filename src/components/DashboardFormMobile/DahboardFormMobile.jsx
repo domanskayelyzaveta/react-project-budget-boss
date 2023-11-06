@@ -17,7 +17,7 @@ import { toast } from 'react-toastify';
 import {
   StyledClearButton,
   StyledInputButton,
-  SvgCalc
+  SvgCalc,
 } from 'components/DashboardForm/DashboardForm.styled';
 import {
   CalcWrapper,
@@ -34,7 +34,13 @@ import {
 } from './DahboardFormMobile.styled';
 
 const DashboardFormMobile = ({ category, onCloseModal }) => {
-  const { register, handleSubmit, control, reset, formState: { errors }  } = useForm();
+  const {
+    register,
+    handleSubmit,
+    control,
+    reset,
+    formState: { errors },
+  } = useForm();
   const selectedDate = useSelector(state => state.user.selectedDate);
   const incomeCategoriesList = useSelector(
     state => state.categories.incomeCategories
@@ -78,7 +84,6 @@ const DashboardFormMobile = ({ category, onCloseModal }) => {
           toast.success('Income transaction added successfully');
         })
         .catch(error => {
-          console.error('Error adding income transaction:', error);
           toast.error('Error adding income transaction: ' + error.message);
         })
         .finally(() => onCloseModal(category));
@@ -89,7 +94,6 @@ const DashboardFormMobile = ({ category, onCloseModal }) => {
           toast.success('Expense transaction added successfully');
         })
         .catch(error => {
-          console.error('Error adding expense transaction:', error);
           toast.error('Error adding expense transaction: ' + error.message);
         })
         .finally(() => onCloseModal(category));
@@ -115,13 +119,17 @@ const DashboardFormMobile = ({ category, onCloseModal }) => {
             placeholder="Description"
             autoComplete="off"
           />
-          {errors.description && <StyledErrorMobile>{errors.description.message}</StyledErrorMobile>}
+          {errors.description && (
+            <StyledErrorMobile>{errors.description.message}</StyledErrorMobile>
+          )}
           <Controller
             name="category"
             control={control}
             render={({ field }) => (
               <Select
-                {...register('category', {required: { value: true, message: 'This field is required' }})}
+                {...register('category', {
+                  required: { value: true, message: 'This field is required' },
+                })}
                 placeholder="Category"
                 styles={customStyles}
                 {...field}
@@ -132,7 +140,11 @@ const DashboardFormMobile = ({ category, onCloseModal }) => {
               />
             )}
           />
-          {errors.category && <StyledErrorSelectMobile>{errors.category.message}</StyledErrorSelectMobile>}
+          {errors.category && (
+            <StyledErrorSelectMobile>
+              {errors.category.message}
+            </StyledErrorSelectMobile>
+          )}
         </StyledTextInputWrapper>
 
         <CalcWrapper>
@@ -148,7 +160,9 @@ const DashboardFormMobile = ({ category, onCloseModal }) => {
             placeholder="00.00 UAH"
             autoComplete="off"
           />
-          {errors.amount && <StyledErrorSumMobile>{errors.amount.message}</StyledErrorSumMobile>}
+          {errors.amount && (
+            <StyledErrorSumMobile>{errors.amount.message}</StyledErrorSumMobile>
+          )}
           <Div>
             <SvgCalc width="20" height="20">
               <use href={`${sprite}#icon-calculator`} />
