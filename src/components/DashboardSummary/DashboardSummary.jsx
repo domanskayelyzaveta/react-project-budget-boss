@@ -28,7 +28,6 @@ const DashboardSummary = ({ data }) => {
       'December',
     ];
 
-    // const currentMonth = months[currentMonthIndex];
 
     if (currentMonthIndex === -1) {
       return;

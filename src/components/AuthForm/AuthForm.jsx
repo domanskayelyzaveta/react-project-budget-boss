@@ -1,4 +1,9 @@
-import React from 'react';
+import GoogleAuthButton from 'components/GoogleAuthBtn/GoogleAuthBtn';
+import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+import { loginThunk, registerThunk } from 'redux/thunks';
+import money from '../../images/desktop/money-desktop-1x.webp';
 import {
   Form,
   FormWrapper,
@@ -11,12 +16,6 @@ import {
   RequiredP,
   Span,
 } from './AuthForm.styled';
-import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
-import { loginThunk, registerThunk } from 'redux/thunks';
-import GoogleAuthButton from 'components/GoogleAuthBtn/GoogleAuthBtn';
-import money from '../../images/desktop/money-desktop-1x.webp';
-import { toast } from 'react-toastify';
 
 const AuthForm = () => {
   const {

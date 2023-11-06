@@ -13,11 +13,7 @@ import {
 const Ballance = () => {
   const transaction = useSelector(state => state.user.userData?.transactions);
   const balance = useSelector(state => state.user.balance);
-  // useEffect(() => {
-  //   if (balance) {
-  //     console.log(balance);
-  //   }
-  // }, [balance]);
+
   return (
     <BalanceWrapper>
       Ballance:

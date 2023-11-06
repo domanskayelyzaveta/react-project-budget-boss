@@ -40,8 +40,6 @@ const DashboardForm = ({ categoriesList, category }) => {
 
   const { register, handleSubmit, control, setValue, reset } = useForm();
   const selectedDate = useSelector(state => state.user.selectedDate);
-  // const selectedDate = useSelector(state=> parseISO(state.user.selectedDate))
-  // const selectedDate = parseISO(selectedISODate);
   const dispatch = useDispatch();
 
   const onSubmit = data => {
