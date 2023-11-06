@@ -243,14 +243,15 @@ export const TitleWrapper = styled.button`
 `;
 
 export const CalendWrapper = styled.div`
-
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 40px;
 
   @media screen and (min-width: 768px) {
-    margin-top: 3px;
-    margin-bottom: 2px;
+    margin-bottom: 75px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 0px;
   }
 `;
