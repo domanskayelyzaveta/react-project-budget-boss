@@ -8,19 +8,19 @@ export const Content = styled.div`
   position: absolute;
   top: 0;
   /* outline: 1px solid tomato; */
+  /* align-items: center; */
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   text-align: center;
-  padding: 57px 40px;
-  background-color: var(--grey47);
-  position: relative;
-  display: flex;
-  min-width: 320px;
-  min-height: 100%;
-  border-radius: 16px;
-  box-shadow: 0px 2px 14px 0px rgba(132, 132, 132, 0.2) inset;
+  background: linear-gradient(
+    116deg,
+    #383847 23.54%,
+    rgba(56, 56, 71, 0.29) 107.94%
+  );
+  box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
 `;
 export const Childrens = styled.div`
   /* display: flex;
@@ -46,7 +46,7 @@ export const StyledButtonClose = styled.button`
   gap: 4px;
   padding: 0;
   top: 8px;
-  left: 8px;
+  /* left: 8px; */
 
   margin-top: 16px;
   margin-left: 20px;

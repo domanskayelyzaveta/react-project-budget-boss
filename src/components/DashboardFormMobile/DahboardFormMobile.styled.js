@@ -1,14 +1,19 @@
 import styled from 'styled-components';
 
 export const StyledFormMobileWrapper = styled.div`
-  /* outline: 1px solid tomato; */
+  position: relative;
 `;
 
-export const StyledForm = styled.form``;
+
 export const StyledTextInputWrapper = styled.div`
 position: relative;
 padding-top: 30px;
 `;
+export const StyledForm = styled.form`
+  position: absolute;
+  transform: translate(15px, 82px);
+`;
+
 
 export const CalcWrapper = styled.div`
 position: relative;

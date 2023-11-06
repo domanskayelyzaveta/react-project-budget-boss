@@ -165,6 +165,7 @@ export function HorizontalChart({ keysArray, valuesArray }) {
       margin-right: auto;
       background-color: transparent;
       height: 300px;
+      padding-top: 20px;
     }
   `;
 
