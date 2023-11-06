@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Controller, useForm } from 'react-hook-form';
 
@@ -15,10 +15,12 @@ import {
   StyledButtonsWrapper,
   StyledClearButton,
   StyledDescrInput,
+  StyledError,
   StyledForm,
   StyledFormWrapper,
   StyledInputButton,
   StyledInputWrapper,
+  StyledSelectError,
   StyledSumInput,
   SvgCalc,
   Wrapper,
@@ -38,7 +40,16 @@ const DashboardForm = ({ categoriesList, category }) => {
     setIsModalOpen(!isModalOpen);
   };
 
-  const { register, handleSubmit, control, setValue, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    control,
+    setValue,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  useEffect(()=>{console.log(errors.category)},[errors.category])
   const selectedDate = useSelector(state => state.user.selectedDate);
   const dispatch = useDispatch();
 
@@ -113,16 +124,21 @@ const DashboardForm = ({ categoriesList, category }) => {
         <StyledInputWrapper>
           <Wrapper>
             <StyledDescrInput
-              {...register('description')}
+              {...register('description', {
+                required: { value: true, message: 'This field is required' },
+                minLength: { value: 1, message: 'Min length 1 character' },
+                maxLength: { value: 300, message: 'Max length 300 characters' },
+              })}
               placeholder="Description"
               autoComplete="off"
             />
+            {errors.description && <StyledError>{errors.description.message}</StyledError>}
             <Controller
               name="category"
               control={control}
               render={({ field }) => (
                 <Select
-                  {...register('category')}
+                  {...register('category', { required:{ value:true, message:"This field is required"}})}
                   placeholder="Category"
                   styles={customStyles}
                   {...field}
@@ -133,16 +149,22 @@ const DashboardForm = ({ categoriesList, category }) => {
                 />
               )}
             />
+            {errors.category && <StyledSelectError>{errors.category.message}</StyledSelectError>}
           </Wrapper>
           <CalcWrapper>
             <StyledSumInput
               type="tel"
               inputMode="numeric"
               pattern="[0-9]*\.?[0-9]*"
-              {...register('amount')}
+              {...register('amount', {
+                required: { value: true, message: 'This field is required' },
+                min: { value: 1, message: 'Min value 1 and more' },
+                max: { value: 1000000000, message: 'Max value is 1000000000' },
+              })}
               placeholder="0,00"
               autoComplete="off"
             />
+            {errors.tel && <StyledError>{errors.tel.message}</StyledError>}
             <SvgCalc width="20" height="20">
               <use href={`${sprite}#icon-calculator`} />
             </SvgCalc>

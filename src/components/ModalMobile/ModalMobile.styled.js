@@ -2,6 +2,12 @@ import styled from 'styled-components';
 
 export const Content = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 0;
+  /* outline: 1px solid tomato; */
   /* align-items: center; */
   box-sizing: border-box;
   text-align: center;

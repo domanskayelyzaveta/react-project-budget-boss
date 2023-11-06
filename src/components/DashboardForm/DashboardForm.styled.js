@@ -31,6 +31,7 @@ export const StyledForm = styled.form`
 `;
 
 export const Wrapper = styled.div`
+position: relative;
   display: flex;
   flex-direction: column;
   @media screen and (min-width: 768px) {
@@ -59,6 +60,9 @@ export const StyledDescrInput = styled.input`
   border-left: none;
   border-bottom: none;
   background: transparent;
+  /* & p {
+    color:red;
+  } */
 
   @media screen and (min-width: 768px) {
     width: 194px;
@@ -69,19 +73,6 @@ export const StyledDescrInput = styled.input`
     padding-left: 20px;
   }
 `;
-// export const CustomSelect = styled.select`
-//   width: 100%;
-//   padding-left: 20px;
-//   padding-right: 20px;
-//   margin: 15px 0;
-//   border-right: 2px solid var(--grey, #474759);
-//   border-top: none;
-//   border-left: none;
-//   border-bottom: none;
-//   color: red;
-//   background: transparent;
-//   color: var(--white-DC);
-// `;
 
 export const StyledOption = styled.option`
   background-color: #f9f9f9;
@@ -92,8 +83,6 @@ export const StyledSumInput = styled.input`
   outline: none;
   color: var(--white-DC);
   width: 50px;
-  // padding-left: 20px;
-  // padding-right: 20px;
   font-family: Roboto;
   font-size: 12px;
   font-style: normal;
@@ -116,8 +105,6 @@ export const StyledInputWrapper = styled.div`
   gap: 32px;
   flex-direction: column;
   box-sizing: border-box;
-  // gap: 20px;
-  /* padding: 15px 20px; */
   color: var(--white-DC);
   font-family: Roboto;
   font-size: 12px;
@@ -189,6 +176,7 @@ export const StyledClearButton = styled.button`
 `;
 
 export const CalcWrapper = styled.div`
+position: relative;
   width: 90px;
   display: flex;
   align-items: center;
@@ -204,3 +192,20 @@ export const CalcWrapper = styled.div`
 `;
 
 export const SvgCalc = styled.svg``;
+
+export const StyledError = styled.p`
+  font-size:0.5rem;
+  position:absolute;
+  top: 115%;
+  left:12%;
+  margin: 0;
+  color:var(--red)
+`
+export const StyledSelectError = styled.p`
+  font-size:0.5rem;
+  position:absolute;
+  top: 115%;
+  left:50%;
+  margin: 0;
+  color:var(--red)
+`
