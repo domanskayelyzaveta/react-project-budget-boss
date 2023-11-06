@@ -1,15 +1,37 @@
 {
   "files": {
-    "main.css": "/react-project-budget-boss/static/css/main.121029a2.css",
-    "main.js": "/react-project-budget-boss/static/js/main.a3aa1132.js",
-    "static/media/sprite.svg": "/react-project-budget-boss/static/media/sprite.340a523b05eff4c79e96b4e1507f2dbb.svg",
+    "main.css": "/react-project-budget-boss/static/css/main.ac8ace9c.css",
+    "main.js": "/react-project-budget-boss/static/js/main.4845181e.js",
+    "static/media/Rectangle-2.png": "/react-project-budget-boss/static/media/Rectangle-2.ffa9ab2d416523be32b7.png",
+    "static/media/ellipse-tablet-1x.webp": "/react-project-budget-boss/static/media/ellipse-tablet-1x.1cb30ebb34364fb38a7e.webp",
+    "static/media/money-tablet-1x.webp": "/react-project-budget-boss/static/media/money-tablet-1x.53be8a4cc862e56c2266.webp",
+    "static/media/money-desktop-1x.webp": "/react-project-budget-boss/static/media/money-desktop-1x.ec199cad0324ec15f10f.webp",
+    "static/media/ellipse-mobile-1x.webp": "/react-project-budget-boss/static/media/ellipse-mobile-1x.af407d9277f5078823a6.webp",
+    "static/media/balance-notification.webp": "/react-project-budget-boss/static/media/balance-notification.802d7d49dabc128cd0a1.webp",
+    "static/media/sprite.svg": "/react-project-budget-boss/static/media/sprite.dc1adc3332f34d07be0af435406910ca.svg",
+    "static/media/logo-tablet-2x.webp": "/react-project-budget-boss/static/media/logo-tablet-2x.7c82e850853a973ef354.webp",
+    "static/media/logo-mobile-2x.webp": "/react-project-budget-boss/static/media/logo-mobile-2x.8f9f976a6f5e42d72360.webp",
+    "static/media/logo-tablet-1x.webp": "/react-project-budget-boss/static/media/logo-tablet-1x.b1e690a6cd9f2bbff500.webp",
+    "static/media/Technics.webp": "/react-project-budget-boss/static/media/Technics.04fd874016eb15f59917.webp",
+    "static/media/Other.webp": "/react-project-budget-boss/static/media/Other.53bcbce19d1ad6a2b653.webp",
+    "static/media/Transport.webp": "/react-project-budget-boss/static/media/Transport.2b17468cfa797ebf31f2.webp",
+    "static/media/Alcohol.webp": "/react-project-budget-boss/static/media/Alcohol.5fef993d0bbd1d9b6e39.webp",
+    "static/media/Sports-and-hobby.webp": "/react-project-budget-boss/static/media/Sports-and-hobby.f0cbea2722f2e0239571.webp",
+    "static/media/Entertainment.webp": "/react-project-budget-boss/static/media/Entertainment.68b77dbdb125a79fceae.webp",
+    "static/media/Education.webp": "/react-project-budget-boss/static/media/Education.c2adfe9965a4039b9197.webp",
+    "static/media/Health.webp": "/react-project-budget-boss/static/media/Health.f29b2b2c5c549d55525a.webp",
+    "static/media/Products.webp": "/react-project-budget-boss/static/media/Products.d776ca6c7494c297dbe0.webp",
     "static/media/logo-mobile-1x.webp": "/react-project-budget-boss/static/media/logo-mobile-1x.82c0eaf8ca0347dc2f1a.webp",
+    "static/media/Utilities.webp": "/react-project-budget-boss/static/media/Utilities.348da6cbf1b3133b23d8.webp",
+    "static/media/For-home.webp": "/react-project-budget-boss/static/media/For-home.76d593c91183011af89b.webp",
     "index.html": "/react-project-budget-boss/index.html",
-    "main.121029a2.css.map": "/react-project-budget-boss/static/css/main.121029a2.css.map",
-    "main.a3aa1132.js.map": "/react-project-budget-boss/static/js/main.a3aa1132.js.map"
+    "static/media/Additional-income.webp": "/react-project-budget-boss/static/media/Additional-income.c189590c1baf3a0a58ec.webp",
+    "static/media/Salary.webp": "/react-project-budget-boss/static/media/Salary.bb0eb9f75b47dcc1b026.webp",
+    "main.ac8ace9c.css.map": "/react-project-budget-boss/static/css/main.ac8ace9c.css.map",
+    "main.4845181e.js.map": "/react-project-budget-boss/static/js/main.4845181e.js.map"
   },
   "entrypoints": [
-    "static/css/main.121029a2.css",
-    "static/js/main.a3aa1132.js"
+    "static/css/main.ac8ace9c.css",
+    "static/js/main.4845181e.js"
   ]
 }
