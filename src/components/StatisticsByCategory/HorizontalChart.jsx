@@ -157,8 +157,7 @@ export function HorizontalChart({ keysArray, valuesArray }) {
 
   const ChartContainer = styled.div`
     /* margin-top: 20px; */
-    /* min-height: 550px; */
-    max-height: 550px;
+    min-height: 450px;
     @media ${media.mobile} {
       width: 280px;
       margin-left: auto;
