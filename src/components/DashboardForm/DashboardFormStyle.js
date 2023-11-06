@@ -82,7 +82,7 @@ const selectStyles = {
     ...styles,
     outline: 'none',
     marginBottom: '32px',
-    marginLeft: '6px',
+    marginLeft: '0',
     '@media only screen and (min-width: 768px)': {
       ...styles['@media only screen and (max-width: 768px)'],
       height: '44px',
