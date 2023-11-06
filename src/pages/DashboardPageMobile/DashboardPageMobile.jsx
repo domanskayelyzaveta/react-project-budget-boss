@@ -25,6 +25,7 @@ import {
   StyledAddTransactionButtonIcon,
   StyledAddTransactionButtonText,
   StyledButtonDiv,
+  StyledMobileButton,
   StyledMobileButtonLeft,
   StyledMobileButtonRight,
   StyledPlusSvg,
@@ -43,6 +44,8 @@ const DashboardPageMobile = () => {
   const balance = useSelector(selectBalance);
   const transaction = useSelector(selectTransaction);
   const [category, setCategory] = useState('expense');
+  const [activeButton, setActiveButton] = useState('expense'); // За замовчуванням задаємо "expense" активним
+
 
   const [
     isOpenAddTransactionModalExpense,
@@ -129,20 +132,24 @@ const DashboardPageMobile = () => {
             </TransactionMobileListWrapper>
 
             <StyledButtonDiv>
-              <StyledMobileButtonLeft
+              <StyledMobileButton
                 onClick={() => {
                   handleChangePage('expense');
                 }}
+                active={category === 'expense'}
+                name={'expense'}
               >
                 EXPENSES
-              </StyledMobileButtonLeft>
-              <StyledMobileButtonRight
+              </StyledMobileButton>
+              <StyledMobileButton
                 onClick={() => {
                   handleChangePage('income');
                 }}
+                active={category === 'income'}
+                name={'income'}
               >
                 INCOME
-              </StyledMobileButtonRight>
+              </StyledMobileButton>
             </StyledButtonDiv>
           </MobileDashboardBalanceFormWrapper>
         )}

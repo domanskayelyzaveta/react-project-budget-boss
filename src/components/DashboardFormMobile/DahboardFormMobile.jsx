@@ -55,6 +55,12 @@ const DashboardFormMobile = ({ category, onCloseModal }) => {
     : (categoriesList = expenseCategoriesList);
   const dispatch = useDispatch();
 
+  const defaultValues = {
+    description: null,
+    category: "",
+    amount: null,
+  };
+
   const onSubmit = data => {
     const dataToDispatch = { ...data, date: formatDate(selectedDate) };
 
@@ -100,11 +106,11 @@ const DashboardFormMobile = ({ category, onCloseModal }) => {
         .finally(() => onCloseModal(category));
     }
 
-    reset();
+    reset(defaultValues);
   };
 
   const handelClearForm = () => {
-    reset();
+    reset(defaultValues);
   };
 
   return (
