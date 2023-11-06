@@ -4,19 +4,20 @@ export const StyledFormMobileWrapper = styled.div`
   position: relative;
 `;
 
-
 export const StyledTextInputWrapper = styled.div`
-position: relative;
-padding-top: 30px;
+  position: relative;
+  padding-top: 30px;
 `;
 export const StyledForm = styled.form`
-  position: absolute;
-  transform: translate(15px, 82px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 82px;
 `;
 
-
 export const CalcWrapper = styled.div`
-position: relative;
+  position: relative;
   display: flex;
   justify-content: center;
   margin-bottom: 80px;
@@ -70,26 +71,26 @@ export const Div = styled.div`
 export const SvgWrapper = styled.svg``;
 
 export const StyledErrorMobile = styled.div`
-  font-size:0.5rem;
-  position:absolute;
+  font-size: 0.5rem;
+  position: absolute;
   top: 51%;
   left: 10%;
   margin: 0;
-  color:var(--red)
-`
+  color: var(--red);
+`;
 export const StyledErrorSumMobile = styled.div`
-  font-size:0.5rem;
-  position:absolute;
+  font-size: 0.5rem;
+  position: absolute;
   top: 75%;
-  left:19%;
+  left: 19%;
   margin: 0;
-  color:var(--red)
-`
+  color: var(--red);
+`;
 export const StyledErrorSelectMobile = styled.div`
-  font-size:0.5rem;
-  position:absolute;
+  font-size: 0.5rem;
+  position: absolute;
   top: 89%;
-  left:10%;
+  left: 10%;
   margin: 0;
-  color:var(--red)
-`
+  color: var(--red);
+`;

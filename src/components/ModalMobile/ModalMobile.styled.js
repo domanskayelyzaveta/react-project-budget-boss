@@ -1,14 +1,6 @@
 import styled from 'styled-components';
 
 export const Content = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  position: absolute;
-  top: 0;
-  /* outline: 1px solid tomato; */
-  /* align-items: center; */
   box-sizing: border-box;
   text-align: center;
   background: linear-gradient(
@@ -23,10 +15,6 @@ export const Content = styled.div`
   left: 0;
 `;
 export const Childrens = styled.div`
-  /* display: flex;
-  justify-content: center;
-  flex-direction: column; */
-  margin-bottom: 32px;
   & p {
     color: var(--text-color);
     text-align: center;
