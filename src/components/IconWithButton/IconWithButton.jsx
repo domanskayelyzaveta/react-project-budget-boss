@@ -1,6 +1,7 @@
 import sprite from '../../images/sprite.svg';
 import {
   StyledBtn,
+  StyledRepoAndSvgWrapper,
   StyledReportsIconWrapper,
   StyledReportsParagraph,
 } from './IconWithButton.styled';
