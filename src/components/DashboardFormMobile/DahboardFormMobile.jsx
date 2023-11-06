@@ -21,6 +21,7 @@ import {
 } from 'components/DashboardForm/DashboardForm.styled';
 import {
   CalcWrapper,
+  Div,
   StyledButtonsWrapper,
   StyledDescrInput,
   StyledForm,
@@ -141,12 +142,14 @@ const DashboardFormMobile = ({ category, onCloseModal }) => {
             inputMode="numeric"
             pattern="[0-9]*\.?[0-9]*"
             {...register('amount')}
-            placeholder="0,00"
+            placeholder="00.00 UAH"
             autoComplete="off"
           />
-          <SvgCalc width="20" height="20">
-            <use href={`${sprite}#icon-calculator`} />
-          </SvgCalc>
+          <Div>
+            <SvgCalc width="20" height="20">
+              <use href={`${sprite}#icon-calculator`} />
+            </SvgCalc>
+          </Div>
         </CalcWrapper>
 
         <StyledButtonsWrapper>

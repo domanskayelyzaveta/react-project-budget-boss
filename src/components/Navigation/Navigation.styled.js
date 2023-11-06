@@ -13,7 +13,7 @@ const Div = styled.div`
     padding: 8px 32px;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1280px) {
     padding: 8px 40px;
   }
 `;
@@ -45,7 +45,6 @@ const Wrapper = styled.div`
 
   @media screen and (min-width: 768px) {
     gap: 16px;
-    padding-right: 21px;
   }
   @media screen and (min-width: 1280) {
   }
