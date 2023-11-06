@@ -31,7 +31,7 @@ export const StyledForm = styled.form`
 `;
 
 export const Wrapper = styled.div`
-position: relative;
+  position: relative;
   display: flex;
   flex-direction: column;
   @media screen and (min-width: 768px) {
@@ -176,7 +176,7 @@ export const StyledClearButton = styled.button`
 `;
 
 export const CalcWrapper = styled.div`
-position: relative;
+  position: relative;
   width: 90px;
   display: flex;
   align-items: center;
@@ -194,18 +194,18 @@ position: relative;
 export const SvgCalc = styled.svg``;
 
 export const StyledError = styled.p`
-  font-size:0.5rem;
-  position:absolute;
+  font-size: 0.5rem;
+  position: absolute;
   top: 115%;
-  left:12%;
+  left: 12%;
   margin: 0;
-  color:var(--red)
-`
+  color: var(--red);
+`;
 export const StyledSelectError = styled.p`
-  font-size:0.5rem;
-  position:absolute;
+  font-size: 0.5rem;
+  position: absolute;
   top: 115%;
-  left:50%;
+  left: 50%;
   margin: 0;
-  color:var(--red)
-`
+  color: var(--red);
+`;
