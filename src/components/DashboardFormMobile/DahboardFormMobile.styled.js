@@ -73,24 +73,24 @@ export const SvgWrapper = styled.svg``;
 export const StyledErrorMobile = styled.div`
   font-size: 0.5rem;
   position: absolute;
-  top: 51%;
-  left: 10%;
+  top: 40%;
+  left: 8%;
   margin: 0;
   color: var(--red);
 `;
 export const StyledErrorSumMobile = styled.div`
   font-size: 0.5rem;
   position: absolute;
-  top: 75%;
-  left: 19%;
+  top: 70%;
+  left: 8%;
   margin: 0;
   color: var(--red);
 `;
 export const StyledErrorSelectMobile = styled.div`
   font-size: 0.5rem;
   position: absolute;
-  top: 89%;
-  left: 10%;
+  top: 70%;
+  left: 9%;
   margin: 0;
   color: var(--red);
 `;

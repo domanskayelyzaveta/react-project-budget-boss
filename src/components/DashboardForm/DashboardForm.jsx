@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { Controller, useForm } from 'react-hook-form';
 
@@ -49,7 +49,6 @@ const DashboardForm = ({ categoriesList, category }) => {
     formState: { errors },
   } = useForm();
 
-  useEffect(()=>{console.log(errors.category)},[errors.category])
   const selectedDate = useSelector(state => state.user.selectedDate);
   const dispatch = useDispatch();
 
@@ -132,13 +131,20 @@ const DashboardForm = ({ categoriesList, category }) => {
               placeholder="Description"
               autoComplete="off"
             />
-            {errors.description && <StyledError>{errors.description.message}</StyledError>}
+            {errors.description && (
+              <StyledError>{errors.description.message}</StyledError>
+            )}
             <Controller
               name="category"
               control={control}
               render={({ field }) => (
                 <Select
-                  {...register('category', { required:{ value:true, message:"This field is required"}})}
+                  {...register('category', {
+                    required: {
+                      value: true,
+                      message: 'This field is required',
+                    },
+                  })}
                   placeholder="Category"
                   styles={customStyles}
                   {...field}
@@ -149,7 +155,9 @@ const DashboardForm = ({ categoriesList, category }) => {
                 />
               )}
             />
-            {errors.category && <StyledSelectError>{errors.category.message}</StyledSelectError>}
+            {errors.category && (
+              <StyledSelectError>{errors.category.message}</StyledSelectError>
+            )}
           </Wrapper>
           <CalcWrapper>
             <StyledSumInput
@@ -164,10 +172,12 @@ const DashboardForm = ({ categoriesList, category }) => {
               placeholder="0,00"
               autoComplete="off"
             />
-            {errors.tel && <StyledError>{errors.tel.message}</StyledError>}
             <SvgCalc width="20" height="20">
               <use href={`${sprite}#icon-calculator`} />
             </SvgCalc>
+            {errors.amount && (
+              <StyledError>{errors.amount.message}</StyledError>
+            )}
           </CalcWrapper>
         </StyledInputWrapper>
         <StyledButtonsWrapper>
