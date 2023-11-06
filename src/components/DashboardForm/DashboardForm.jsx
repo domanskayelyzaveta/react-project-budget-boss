@@ -33,6 +33,7 @@ import customStyles from './DashboardFormStyle';
 import { toast } from 'react-toastify';
 import { setSelectedDate_ } from 'redux/userReducer';
 import Modal from '../Modal/Modal';
+import { selectDate } from 'redux/selectors';
 
 const DashboardForm = ({ categoriesList, category }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -49,7 +50,7 @@ const DashboardForm = ({ categoriesList, category }) => {
     formState: { errors },
   } = useForm();
 
-  const selectedDate = useSelector(state => state.user.selectedDate);
+  const selectedDate = useSelector(selectDate);
   const dispatch = useDispatch();
 
   const onSubmit = data => {

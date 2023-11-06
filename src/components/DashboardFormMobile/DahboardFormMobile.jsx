@@ -32,6 +32,7 @@ import {
   StyledSumInput,
   StyledTextInputWrapper,
 } from './DahboardFormMobile.styled';
+import { selectDate } from 'redux/selectors';
 
 const DashboardFormMobile = ({ category, onCloseModal }) => {
   const {
@@ -41,7 +42,7 @@ const DashboardFormMobile = ({ category, onCloseModal }) => {
     reset,
     formState: { errors },
   } = useForm();
-  const selectedDate = useSelector(state => state.user.selectedDate);
+  const selectedDate = useSelector(selectDate);
   const incomeCategoriesList = useSelector(
     state => state.categories.incomeCategories
   );

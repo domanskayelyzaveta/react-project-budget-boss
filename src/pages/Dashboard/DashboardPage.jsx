@@ -10,6 +10,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 import { Link } from 'react-router-dom';
 import {
+  selectExpenseList_,
+  selectExpensesSummary_,
+  selectIncomeList_,
+  selectIncomeSummary_,
+  selectToken,
+} from 'redux/selectors';
+import {
   getExpensesTransactionsThunk,
   getIncomeTransactionsThunk,
   requestExpenseCategoriesThunk,
@@ -30,15 +37,13 @@ const Dashboard = () => {
   const isTabletAndDestop = useMediaQuery({ query: '(min-width: 768px)' });
   const isMobail = useMediaQuery({ query: '(max-width: 767px)' });
   const [activeTab, setActiveTab] = useState('1');
-  const expensesList = useSelector(state =>
-    state.expenses.expenses?.toReversed()
-  );
-  const incomeList = useSelector(state => state.income.incomes?.toReversed());
-  const expensesSummary = useSelector(state => state.expenses.monthsStats);
-  const incomeSummary = useSelector(state => state.income.monthsStats);
+  const expensesList = useSelector(selectExpenseList_);
+  const incomeList = useSelector(selectIncomeList_);
+  const expensesSummary = useSelector(selectExpensesSummary_);
+  const incomeSummary = useSelector(selectIncomeSummary_);
+  const token = useSelector(selectToken);
 
   const dispatch = useDispatch();
-  const token = useSelector(state => state.user.accessToken);
 
   useEffect(() => {
     dispatch(requestIncomeCategoriesThunk(token));
