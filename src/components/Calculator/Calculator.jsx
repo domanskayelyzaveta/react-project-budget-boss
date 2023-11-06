@@ -127,11 +127,11 @@ const Calculator = () => {
   };
 
   const saveHandler = () => {
-    console.log('Accept');
+    
   };
   const closeHandler = () => {
     resetClickHandler();
-    console.log('Close');
+    
   };
 
   return (

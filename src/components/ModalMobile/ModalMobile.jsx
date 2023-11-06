@@ -2,8 +2,7 @@ import sprite from '../../images/sprite.svg';
 import {
   Childrens,
   Content,
-  Div,
-  StyledButtonClose,
+  StyledButtonClose
 } from './ModalMobile.styled';
 
 const ModalMobile = ({ children, onCloseModal, incomeEvent }) => {

@@ -1,9 +1,8 @@
 import sprite from '../../images/sprite.svg';
 import {
   StyledBtn,
-  StyledRepoAndSvgWrapper,
   StyledReportsIconWrapper,
-  StyledReportsParagraph,
+  StyledReportsParagraph
 } from './IconWithButton.styled';
 
 const IconWithButton = ({ iconName }) => {

@@ -4,8 +4,10 @@ import DashboardForm from 'components/DashboardForm/DashboardForm';
 import DashboardSummary from 'components/DashboardSummary/DashboardSummary';
 import DashboardTable from 'components/DashboardTable/DashboardTable';
 import IconWithButton from 'components/IconWithButton/IconWithButton';
+import DashboardPageMobile from 'pages/DashboardPageMobile/DashboardPageMobile';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
 import { Link } from 'react-router-dom';
 import {
   getExpensesTransactionsThunk,
@@ -22,9 +24,6 @@ import {
   StyledTop,
 } from './DashboardPage.styled';
 import './Tabs.css';
-import MobileDashboardBalanceForm from 'pages/DashboardPageMobile/DashboardPageMobile';
-import { useMediaQuery } from 'react-responsive';
-import DashboardPageMobile from 'pages/DashboardPageMobile/DashboardPageMobile';
 // import Calculator from 'components/Calculator/Calculator';
 
 const Dashboard = () => {
@@ -115,7 +114,6 @@ const Dashboard = () => {
             activeKey={activeTab}
             onChange={key => {
               setActiveTab(key);
-              console.log(key);
             }}
             defaultActiveKey="1"
             items={items}

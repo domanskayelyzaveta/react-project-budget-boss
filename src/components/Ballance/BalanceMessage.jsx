@@ -1,4 +1,3 @@
-import React from 'react';
 import { MessageText, MessageWrapper } from './BalanceMessage.styled';
 
 const BalanceMessage = () => {
