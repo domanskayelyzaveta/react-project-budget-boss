@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 
 export const StyledFormMobileWrapper = styled.div`
-  /* outline: 1px solid tomato; */
+  position: relative;
 `;
 
-export const StyledForm = styled.form``;
+export const StyledForm = styled.form`
+  position: absolute;
+  transform: translate(15px, 82px);
+`;
 export const StyledTextInputWrapper = styled.div``;
 
 export const CalcWrapper = styled.div`
@@ -23,8 +26,6 @@ export const StyledInputButton = styled.div`
 export const Select = styled.div``;
 
 export const StyledDescrInput = styled.input`
-  margin-top: 30px;
-
   width: 280px;
   font-size: 12px;
   color: var(--white-DC);
