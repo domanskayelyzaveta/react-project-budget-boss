@@ -14,7 +14,6 @@ export const Container = styled.div`
   }
   max-width: 1034px;
   display: flex;
-  /* gap: 20px; */
   margin-top: 32px;
   margin-right: auto;
   margin-left: auto;
@@ -38,6 +37,7 @@ export const StatisticsWrapLeft = styled.div`
     gap: 4px;
     padding-top: 10px;
     padding-bottom: 10px;
+    padding-right: 10px;
   }
   display: flex;
   padding-top: 8px;
@@ -51,6 +51,7 @@ export const StatisticsWrapRight = styled.div`
     display: flex;
     flex-direction: column;
     gap: 4px;
+    padding-left: 10px;
   }
   padding-left: 20px;
   display: flex;
@@ -61,7 +62,6 @@ export const ExpenseText = styled.p`
     padding-right: 0;
     text-align: center;
   }
-  /* padding-right: 15px; */
   font-size: 14px;
   font-weight: 700;
   line-height: normal;
