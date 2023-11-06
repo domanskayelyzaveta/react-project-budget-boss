@@ -7,7 +7,7 @@ export const Content = styled.div`
 
   position: absolute;
   top: 0;
-  outline: 1px solid tomato;
+  /* outline: 1px solid tomato; */
   box-sizing: border-box;
   display: flex;
   flex-direction: column;

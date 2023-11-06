@@ -17,13 +17,16 @@ import { toast } from 'react-toastify';
 import {
   StyledClearButton,
   StyledInputButton,
-  SvgCalc,
+  SvgCalc
 } from 'components/DashboardForm/DashboardForm.styled';
 import {
   CalcWrapper,
   Div,
   StyledButtonsWrapper,
   StyledDescrInput,
+  StyledErrorMobile,
+  StyledErrorSelectMobile,
+  StyledErrorSumMobile,
   StyledForm,
   StyledFormMobileWrapper,
   StyledSumInput,
@@ -31,7 +34,7 @@ import {
 } from './DahboardFormMobile.styled';
 
 const DashboardFormMobile = ({ category, onCloseModal }) => {
-  const { register, handleSubmit, control, reset } = useForm();
+  const { register, handleSubmit, control, reset, formState: { errors }  } = useForm();
   const selectedDate = useSelector(state => state.user.selectedDate);
   const incomeCategoriesList = useSelector(
     state => state.categories.incomeCategories
@@ -104,16 +107,21 @@ const DashboardFormMobile = ({ category, onCloseModal }) => {
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
         <StyledTextInputWrapper>
           <StyledDescrInput
-            {...register('description')}
+            {...register('description', {
+              required: { value: true, message: 'This field is required' },
+              minLength: { value: 1, message: 'Min length 1 character' },
+              maxLength: { value: 300, message: 'Max length 300 characters' },
+            })}
             placeholder="Description"
             autoComplete="off"
           />
+          {errors.description && <StyledErrorMobile>{errors.description.message}</StyledErrorMobile>}
           <Controller
             name="category"
             control={control}
             render={({ field }) => (
               <Select
-                {...register('category')}
+                {...register('category', {required: { value: true, message: 'This field is required' }})}
                 placeholder="Category"
                 styles={customStyles}
                 {...field}
@@ -124,6 +132,7 @@ const DashboardFormMobile = ({ category, onCloseModal }) => {
               />
             )}
           />
+          {errors.category && <StyledErrorSelectMobile>{errors.category.message}</StyledErrorSelectMobile>}
         </StyledTextInputWrapper>
 
         <CalcWrapper>
@@ -131,10 +140,15 @@ const DashboardFormMobile = ({ category, onCloseModal }) => {
             type="tel"
             inputMode="numeric"
             pattern="[0-9]*\.?[0-9]*"
-            {...register('amount')}
+            {...register('amount', {
+              required: { value: true, message: 'This field is required' },
+              min: { value: 1, message: 'Min value must be 1 and more' },
+              max: { value: 1000000000, message: 'Max value is 1000000000' },
+            })}
             placeholder="00.00 UAH"
             autoComplete="off"
           />
+          {errors.amount && <StyledErrorSumMobile>{errors.amount.message}</StyledErrorSumMobile>}
           <Div>
             <SvgCalc width="20" height="20">
               <use href={`${sprite}#icon-calculator`} />
