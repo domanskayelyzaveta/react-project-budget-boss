@@ -9,10 +9,11 @@ import {
   ParagraphNotif,
   ParagraphNotific,
 } from './BalanceMessage.styled';
+import { selectBalance, selectTransaction } from 'redux/selectors';
 
 const Ballance = () => {
-  const transaction = useSelector(state => state.user.userData?.transactions);
-  const balance = useSelector(state => state.user.balance);
+  const transaction = useSelector(selectTransaction);
+  const balance = useSelector(selectBalance);
 
   return (
     <BalanceWrapper>

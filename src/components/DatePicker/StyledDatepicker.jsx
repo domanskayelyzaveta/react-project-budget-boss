@@ -11,12 +11,12 @@ import {
   CalendarGlobalStyles,
   TitleWrapper,
 } from './StyledDatePicker.styled';
-
+import { selectDate } from 'redux/selectors';
 
 const StyledDatepicker = () => {
   // const [selectedDate, setSelectedDate] = useState(Date.now());
   const dispatch = useDispatch();
-  const date = useSelector(state => state.user.selectedDate);
+  const date = useSelector(selectDate);
 
   const CustomInput = forwardRef(({ value, onClick }, ref) => {
     return (
@@ -38,7 +38,7 @@ const StyledDatepicker = () => {
           <DatePicker
             selected={date}
             onChange={date => {
-              dispatch(setSelectedDate_(date))
+              dispatch(setSelectedDate_(date));
             }}
             customInput={<CustomInput />}
             dateFormat={'dd MM yyyy'}

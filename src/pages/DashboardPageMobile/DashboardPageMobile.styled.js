@@ -202,7 +202,7 @@ export const StyledButtonDiv = styled.div`
 
 export const TransactionMobileListWrapper = styled.div`
   height: 190px;
-  overflow: hidden;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   height: 140px;
