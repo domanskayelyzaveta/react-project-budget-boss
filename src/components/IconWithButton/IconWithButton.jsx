@@ -1,10 +1,8 @@
-import React from 'react';
 import sprite from '../../images/sprite.svg';
-import styled from 'styled-components';
 import {
   StyledBtn,
   StyledReportsIconWrapper,
-  StyledReportsParagraph,
+  StyledReportsParagraph
 } from './IconWithButton.styled';
 
 const IconWithButton = ({ iconName }) => {

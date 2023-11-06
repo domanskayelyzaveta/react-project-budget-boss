@@ -1,8 +1,7 @@
 import DashboardBalanceForm from 'components/DashboardBalanceForm/DashboardBalanceForm';
-import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import notification from '../../images/balance-notification.webp';
 import { BalanceWrapper, StyledBalanceAmount } from './Balance.styled';
-import BalanceMessage from './BalanceMessage';
 import {
   Img,
   ImgWrapper,
@@ -10,16 +9,11 @@ import {
   ParagraphNotif,
   ParagraphNotific,
 } from './BalanceMessage.styled';
-import notification from '../../images/balance-notification.webp';
 
 const Ballance = () => {
   const transaction = useSelector(state => state.user.userData?.transactions);
   const balance = useSelector(state => state.user.balance);
-  // useEffect(() => {
-  //   if (balance) {
-  //     console.log(balance);
-  //   }
-  // }, [balance]);
+
   return (
     <BalanceWrapper>
       Ballance:

@@ -64,6 +64,11 @@ export const StyledBalanceWrapper = styled.div`
     margin-left: 40%;
   }
 `;
-export const StyledLinkWrapper = styled.div``;
+export const StyledLinkWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 35px;
+`;
 
 export const StyledTabs = styled(Tabs)``;

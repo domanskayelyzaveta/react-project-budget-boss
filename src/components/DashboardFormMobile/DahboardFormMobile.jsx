@@ -21,6 +21,7 @@ import {
 } from 'components/DashboardForm/DashboardForm.styled';
 import {
   CalcWrapper,
+  Div,
   StyledButtonsWrapper,
   StyledDescrInput,
   StyledForm,
@@ -42,8 +43,6 @@ const DashboardFormMobile = ({ category, onCloseModal }) => {
   category === 'income'
     ? (categoriesList = incomeCategoriesList)
     : (categoriesList = expenseCategoriesList);
-  // const selectedDate = useSelector(state=> parseISO(state.user.selectedDate))
-  // const selectedDate = parseISO(selectedISODate);
   const dispatch = useDispatch();
 
   const onSubmit = data => {
@@ -96,14 +95,6 @@ const DashboardFormMobile = ({ category, onCloseModal }) => {
     reset();
   };
 
-  // const handleChange = dateChange => {
-  //   setValue('date', dateChange, {
-  //     shouldDirty: true,
-  //   });
-
-  //   dispatch(setSelectedDate_(dateChange));
-  // };
-
   const handelClearForm = () => {
     reset();
   };
@@ -141,12 +132,14 @@ const DashboardFormMobile = ({ category, onCloseModal }) => {
             inputMode="numeric"
             pattern="[0-9]*\.?[0-9]*"
             {...register('amount')}
-            placeholder="0,00"
+            placeholder="00.00 UAH"
             autoComplete="off"
           />
-          <SvgCalc width="20" height="20">
-            <use href={`${sprite}#icon-calculator`} />
-          </SvgCalc>
+          <Div>
+            <SvgCalc width="20" height="20">
+              <use href={`${sprite}#icon-calculator`} />
+            </SvgCalc>
+          </Div>
         </CalcWrapper>
 
         <StyledButtonsWrapper>
