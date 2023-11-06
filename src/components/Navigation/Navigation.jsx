@@ -13,11 +13,13 @@ import {
   Wrapper,
   P,
   Line,
+  ButtonExit,
 } from './Navigation.styled';
 import { useSelector, useDispatch } from 'react-redux';
 import { logoutThunk } from 'redux/thunks';
 import { selectEmail, selectToken } from 'redux/selectors';
 import Modal from 'components/Modal/Modal';
+import { Button } from 'antd';
 
 const Navigation = () => {
   const [isModalExitOpen, setIsModalExitOpen] = useState(false);
@@ -81,9 +83,9 @@ const Navigation = () => {
                 </NavLink>
               </Line>
 
-              <StyledComponent to="/" end>
-                <P onClick={handleModalOpen}>Exit</P>
-              </StyledComponent>
+              <ButtonExit to="/" onClick={handleModalOpen}>
+                Exit
+              </ButtonExit>
             </Wrapper>
           </>
         ) : (

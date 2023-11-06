@@ -59,11 +59,28 @@ const PeriodSwitch = () => {
     )}`;
   };
 
+  // useEffect(() => {
+  //   const newDate = new Date();
+  //   newDate.setMonth(newDate.getMonth());
+  //   const periodData = formatPeriod(newDate);
+  //   dispatch(requestPeriodData(periodData));
+  // }, [dispatch]);
+
   useEffect(() => {
     const newDate = new Date();
     newDate.setMonth(newDate.getMonth());
     const periodData = formatPeriod(newDate);
-    dispatch(requestPeriodData(periodData));
+
+    const delayedDispatch = () => {
+      dispatch(requestPeriodData(periodData));
+    };
+
+    const delayInMilliseconds = 200;
+    const timerId = setTimeout(delayedDispatch, delayInMilliseconds);
+
+    return () => {
+      clearTimeout(timerId);
+    };
   }, [dispatch]);
 
   const handlePrevMonthClick = () => {
