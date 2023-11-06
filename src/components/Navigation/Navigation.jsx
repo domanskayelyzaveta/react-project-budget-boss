@@ -19,7 +19,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { logoutThunk } from 'redux/thunks';
 import { selectEmail, selectToken } from 'redux/selectors';
 import Modal from 'components/Modal/Modal';
-import { Button } from 'antd';
 
 const Navigation = () => {
   const [isModalExitOpen, setIsModalExitOpen] = useState(false);

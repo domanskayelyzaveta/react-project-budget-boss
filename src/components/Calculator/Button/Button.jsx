@@ -1,5 +1,4 @@
-import "./Button.css";
-import { StyledButton } from "./Button.styled";
+import './Button.css';
 
 const Button = ({ className, value, onClick }) => {
   return (
