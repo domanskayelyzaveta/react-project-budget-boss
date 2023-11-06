@@ -17,6 +17,7 @@ import {
   StyledMobTransactionDescription,
   StyledPriceDiv,
 } from './MobileTransactionList.styled';
+import { AbsoluteLine } from 'components/CategoriesList/CategoriesList.styled';
 
 const MobileTransactionList = ({ category }) => {
   const incomeTransactionList = useSelector(state => state.income.incomes);

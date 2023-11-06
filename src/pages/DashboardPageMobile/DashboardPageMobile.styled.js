@@ -205,7 +205,7 @@ export const TransactionMobileListWrapper = styled.div`
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  height: 170px;
+  height: 140px;
   width: 100%;
   padding: 0px 16px 0px 20px;
 `;
