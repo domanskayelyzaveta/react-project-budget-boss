@@ -1,13 +1,7 @@
 import styled from 'styled-components';
 
-const media = {
-  tablet: '(min-width: 768px)',
-  mobile: '(max-width: 767px)',
-  desktop: '(min-width: 1280px)',
-};
-
 export const Container = styled.div`
-  @media ${media.mobile} {
+  @media screen and (max-width: 767px) {
     max-width: 767px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -31,7 +25,7 @@ export const Container = styled.div`
 `;
 
 export const StatisticsWrapLeft = styled.div`
-  @media ${media.mobile} {
+  @media screen and (max-width: 767px) {
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -47,7 +41,7 @@ export const StatisticsWrapLeft = styled.div`
 `;
 
 export const StatisticsWrapRight = styled.div`
-  @media ${media.mobile} {
+  @media screen and (max-width: 767px) {
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -58,7 +52,7 @@ export const StatisticsWrapRight = styled.div`
 `;
 
 export const ExpenseText = styled.p`
-  @media ${media.mobile} {
+  @media screen and (max-width: 767px) {
     padding-right: 0;
     text-align: center;
   }
@@ -69,7 +63,7 @@ export const ExpenseText = styled.p`
 `;
 
 export const IncomeText = styled.p`
-  @media ${media.mobile} {
+  @media screen and (max-width: 767px) {
     padding-right: 0;
     text-align: center;
   }
@@ -101,11 +95,11 @@ export const IncomeTotal = styled.p`
 `;
 
 export const ReportPageWrapper = styled.div`
-  @media ${media.mobile} {
+  @media screen and (max-width: 767px) {
     margin-bottom: 60px;
   }
 
-  @media ${media.desktop} {
+  @media screen and (min-width: 1280px) {
     padding-bottom: 60px;
     margin-left: auto;
     margin-right: auto;

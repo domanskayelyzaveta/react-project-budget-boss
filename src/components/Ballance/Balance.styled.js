@@ -28,4 +28,10 @@ export const BalanceWrapper = styled.div`
   font-weight: 500;
   line-height: normal;
   letter-spacing: 0.24px;
+
+  @media screen and (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
 `;

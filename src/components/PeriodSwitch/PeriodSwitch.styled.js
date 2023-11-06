@@ -1,13 +1,8 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const media = {
-  tablet: '(min-width: 768px)',
-  mobile: '(max-width: 767px)',
-};
-
 export const Container = styled.div`
-  @media ${media.mobile} {
+  @media screen and (max-width: 767px) {
     display: flex;
     flex-direction: column;
     max-width: 767px;
@@ -23,7 +18,7 @@ export const Container = styled.div`
 `;
 
 export const BackBtn = styled(Link)`
-  @media ${media.mobile} {
+  @media screen and (max-width: 767px) {
     display: flex;
     margin-right: auto;
     gap: 4px;
@@ -35,7 +30,7 @@ export const BackBtn = styled(Link)`
 `;
 
 export const Back = styled.svg`
-  @media ${media.mobile} {
+  @media screen and (max-width: 767px) {
     width: 18px;
     height: 18px;
   }
@@ -45,7 +40,7 @@ export const Back = styled.svg`
 `;
 
 export const BackText = styled.span`
-  @media ${media.mobile} {
+  @media screen and (max-width: 767px) {
     text-align: center;
     font-size: 10px;
     font-weight: 700;
@@ -60,7 +55,7 @@ export const BackText = styled.span`
 `;
 
 export const MobileWrapPeriod = styled.div`
-  @media ${media.mobile} {
+  @media screen and (max-width: 767px) {
     display: flex;
     flex-direction: column;
     margin-top: 25px;

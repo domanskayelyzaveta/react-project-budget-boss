@@ -19,6 +19,7 @@ import {
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { useMediaQuery } from '@react-hook/media-query';
+import { BalanceWrapper } from 'components/Ballance/Balance.styled';
 
 const PeriodSwitch = () => {
   const currentDate = new Date();
@@ -122,7 +123,9 @@ const PeriodSwitch = () => {
               </PeriodBtn>
             </Period>
           </MobileWrapPeriod>
-          <Ballance />
+          <BalanceWrapper>
+            <Ballance />
+          </BalanceWrapper>
         </>
       ) : (
         <>
