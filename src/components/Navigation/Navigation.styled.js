@@ -80,7 +80,16 @@ const StyledComponent = styled(NavLink)`
 
 // const Auth = styled.div``;
 
-export { Div, Ellipse, Wrapper, LogOut, StyledComponent, P, Line };
+const ButtonExit = styled.button`
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: block;
+    background-color: transparent;
+    border: none;
+    color: var(--text-color);
+  }
+`;
+export { Div, Ellipse, Wrapper, LogOut, StyledComponent, P, Line, ButtonExit };
 
 // @media screen and(min - width: 768px) { }
 // @media screen and(min - width: 1280px) { }
