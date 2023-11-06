@@ -90,7 +90,8 @@ export const CategoriesList = ({
     if (currentCategoryType === 'expense' && expensesArray.length > 0) {
       handleClick(expensesArray[0].categories, 0);
     }
-  }, []);
+    // eslint-disable-next-line
+  }, [data, currentCategoryType]);
 
   return (
     <DivContainer>
