@@ -18,6 +18,7 @@ export const StyledMobTransactionDate = styled.div`
   font-weight: 400;
   line-height: normal;
   letter-spacing: 0.32px;
+  margin-top: 10px;
   text-transform: uppercase;
   color: var(--white-1);
 `;
@@ -28,6 +29,7 @@ export const StyledMobTransactionCategory = styled.div`
   font-weight: 400;
   line-height: normal;
   letter-spacing: 0.32px;
+  margin-left: 20px;
   color: var(--white-1);
 `;
 

@@ -1,13 +1,23 @@
 import styled from 'styled-components';
 
 export const StyledFormMobileWrapper = styled.div`
-  /* outline: 1px solid tomato; */
+  position: relative;
 `;
 
-export const StyledForm = styled.form``;
-export const StyledTextInputWrapper = styled.div``;
+export const StyledTextInputWrapper = styled.div`
+  position: relative;
+  padding-top: 30px;
+`;
+export const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 82px;
+`;
 
 export const CalcWrapper = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   margin-bottom: 80px;
@@ -23,7 +33,8 @@ export const StyledInputButton = styled.div`
 export const Select = styled.div``;
 
 export const StyledDescrInput = styled.input`
-  margin-top: 30px;
+  /* margin-top: 30px; */
+  position: relative;
 
   width: 280px;
   font-size: 12px;
@@ -58,3 +69,28 @@ export const Div = styled.div`
 `;
 
 export const SvgWrapper = styled.svg``;
+
+export const StyledErrorMobile = styled.div`
+  font-size: 0.5rem;
+  position: absolute;
+  top: 51%;
+  left: 10%;
+  margin: 0;
+  color: var(--red);
+`;
+export const StyledErrorSumMobile = styled.div`
+  font-size: 0.5rem;
+  position: absolute;
+  top: 75%;
+  left: 19%;
+  margin: 0;
+  color: var(--red);
+`;
+export const StyledErrorSelectMobile = styled.div`
+  font-size: 0.5rem;
+  position: absolute;
+  top: 89%;
+  left: 10%;
+  margin: 0;
+  color: var(--red);
+`;

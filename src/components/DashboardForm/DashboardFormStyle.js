@@ -80,19 +80,20 @@ const selectStyles = {
   }),
   container: styles => ({
     ...styles,
+    outline: 'none',
     marginBottom: '32px',
-    marginLeft: '6px',
+    marginLeft: '0',
     '@media only screen and (min-width: 768px)': {
       ...styles['@media only screen and (max-width: 768px)'],
       height: '44px',
-      width: '200px',
+      width: '170px',
       borderRadius: '30px',
       marginBottom: '0',
       marginLeft: '0',
     },
     '@media only screen and (min-width: 1280px)': {
       ...styles['@media only screen and (min-width: 1280px)'],
-      width: '280px',
+      width: '172px',
     },
   }),
 };
