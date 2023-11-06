@@ -7,6 +7,16 @@ import {
   deleteIncomeTransactionThunk,
 } from 'redux/thunks';
 import Modal from 'components/Modal/Modal';
+import {
+  DivMobTransaction,
+  MobileTransactionListDiv,
+  StyledDataAndCategoryDiv,
+  StyledLi,
+  StyledMobTransactionCategory,
+  StyledMobTransactionDate,
+  StyledMobTransactionDescription,
+  StyledPriceDiv,
+} from './MobileTransactionList.styled';
 
 const MobileTransactionList = ({ category }) => {
   const incomeTransactionList = useSelector(state => state.income.incomes);
@@ -39,35 +49,45 @@ const MobileTransactionList = ({ category }) => {
   const transactionListForRender = transactionList
     ?.toReversed()
     .map(transaction => (
-      <li key={transaction._id}>
-        <div>
-          <div>{transaction.description}</div>
+      <StyledLi key={transaction._id}>
+        <MobileTransactionListDiv>
           <div>
-            <div>{transaction.date}</div>
-            <div>{transaction.category}</div>
+            <StyledMobTransactionDescription>
+              {transaction.description}
+            </StyledMobTransactionDescription>
+            <StyledDataAndCategoryDiv>
+              <StyledMobTransactionDate>
+                {transaction.date}
+              </StyledMobTransactionDate>
+              <StyledMobTransactionCategory>
+                {transaction.category}
+              </StyledMobTransactionCategory>
+            </StyledDataAndCategoryDiv>
           </div>
-        </div>
-        <div
-          style={{
-            color: category === 'income' ? '#60C470' : '#FE4566',
-          }}
-          align="center"
-        >
-          {category === 'income'
-            ? `${transaction.amount.toFixed(2)} UAH`
-            : `- ${transaction.amount.toFixed(2)} UAH`}
-        </div>
-        <StyledBtn
-          onClick={() => {
-            handleModalOpen();
-            setId(transaction._id);
-          }}
-        >
-          <svg width="16" height="16">
-            <use href={`${sprite}#icon-trash-bin`} />
-          </svg>
-        </StyledBtn>
-      </li>
+          <DivMobTransaction>
+            <StyledPriceDiv
+              style={{
+                color: category === 'income' ? '#60C470' : '#FE4566',
+              }}
+              align="center"
+            >
+              {category === 'income'
+                ? `${transaction.amount.toFixed(2)} UAH`
+                : `- ${transaction.amount.toFixed(2)} UAH`}
+            </StyledPriceDiv>
+            <StyledBtn
+              onClick={() => {
+                handleModalOpen();
+                setId(transaction._id);
+              }}
+            >
+              <svg width="16" height="16">
+                <use href={`${sprite}#icon-trash-bin`} />
+              </svg>
+            </StyledBtn>
+          </DivMobTransaction>
+        </MobileTransactionListDiv>
+      </StyledLi>
     ));
 
   return (

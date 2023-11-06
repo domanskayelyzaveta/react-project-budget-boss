@@ -29,6 +29,8 @@ import {
   StyledMobileButtonRight,
   StyledPlusSvg,
   StyledSpan,
+  StyledUl,
+  TransactionMobileListWrapper,
 } from './DashboardPageMobile.styled';
 import {
   getExpensesTransactionsThunk,
@@ -123,9 +125,11 @@ const DashboardPageMobile = () => {
               placeholderText="Select date"
               onClick={handleChange}
             />
-            <ul>
-              <MobileTransactionList category={category} />
-            </ul>
+            <TransactionMobileListWrapper>
+              <StyledUl>
+                <MobileTransactionList category={category} />
+              </StyledUl>
+            </TransactionMobileListWrapper>
 
             <StyledButtonDiv>
               <StyledMobileButtonLeft

@@ -199,3 +199,26 @@ export const StyledSpan = styled.span`
 export const StyledButtonDiv = styled.div`
   display: flex;
 `;
+
+export const TransactionMobileListWrapper = styled.div`
+  height: 190px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 170px;
+  width: 100%;
+  padding: 0px 16px 0px 20px;
+`;
+
+// export const TransactionMobileListWrapper = styled.ul`
+//   height: 190px;
+//   overflow: hidden;
+//   display: flex;
+//   flex-direction: column;
+//   height: 180px;
+//   width: 100%;
+// `;
+
+export const StyledUl = styled.ul`
+  padding-left: 0px;
+`;

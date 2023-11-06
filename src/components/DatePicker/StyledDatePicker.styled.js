@@ -247,7 +247,7 @@ export const CalendWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 182px;
+  margin-bottom: 40px;
 
   @media screen and (min-width: 768px) {
     margin-top: 3px;
