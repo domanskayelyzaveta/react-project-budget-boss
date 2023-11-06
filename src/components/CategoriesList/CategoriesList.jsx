@@ -1,23 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import sprite from '../../images/sprite.svg';
-import Products from '../../images/icons/Products.webp';
-import Transport from '../../images/icons/Transport.webp';
-import ForHome from '../../images/icons/For-home.webp';
-import Alcohol from '../../images/icons/Alcohol.webp';
-import Entertainment from '../../images/icons/Entertainment.webp';
-import Health from '../../images/icons/Health.webp';
-import Technics from '../../images/icons/Technics.webp';
-import Utilities from '../../images/icons/Utilities.webp';
-import SportsAndHobby from '../../images/icons/Sports-and-hobby.webp';
-import Education from '../../images/icons/Education.webp';
-import Other from '../../images/icons/Other.webp';
-import Salary from '../../images/icons/Salary.webp';
+import { useEffect, useState } from 'react';
 import AdditionalIncome from '../../images/icons/Additional-income.webp';
+import Alcohol from '../../images/icons/Alcohol.webp';
+import Education from '../../images/icons/Education.webp';
+import Entertainment from '../../images/icons/Entertainment.webp';
+import ForHome from '../../images/icons/For-home.webp';
+import Health from '../../images/icons/Health.webp';
+import Other from '../../images/icons/Other.webp';
+import Products from '../../images/icons/Products.webp';
+import Salary from '../../images/icons/Salary.webp';
+import SportsAndHobby from '../../images/icons/Sports-and-hobby.webp';
+import Technics from '../../images/icons/Technics.webp';
+import Transport from '../../images/icons/Transport.webp';
+import Utilities from '../../images/icons/Utilities.webp';
+import sprite from '../../images/sprite.svg';
 import {
-  AbsoluteLine,
-  AbsoluteLine1,
-  AbsoluteLine2,
-  AbsoluteLine3,
   Btn,
   BtnContainer,
   CategoryP,
@@ -71,7 +67,7 @@ export const CategoriesList = ({
       image: image,
     }))
     .sort((a, b) => b.total - a.total);
-    
+
   const handleToggleCategoryType = () => {
     setCurrentCategoryType(
       currentCategoryType === 'expense' ? 'income' : 'expense'
