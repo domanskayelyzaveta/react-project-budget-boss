@@ -24,17 +24,32 @@ const selectStyles = {
       outline: 'none',
       boxShadow: 'rgba(102, 204, 102, 0.5)',
     },
-    border: 'none',
-    borderRadius: '0',
+
+    //*
+    borderTop: 'none',
+    borderBottom: '2px solid var(--grey, #474759)',
+    borderLeft: '2px solid var(--grey, #474759)',
+    borderRadius: '0 0 15px 0px ;',
     borderRight: '2px solid var(--grey, #474759)',
+    //*
+
     background: 'transparent',
     height: '46px',
-    width: '170px',
+
+    //*
+    width: '280px',
+    textAlign: 'start',
+    //*
+
     fontSize: '12px',
     color: '#C7CCDC80',
-    '@media only screen and (max-width: 768px)': {
+
+    '@media only screen and (min-width: 768px)': {
       height: '44px',
       width: '170px',
+      borderLeft: 'none',
+      borderBottom: 'none',
+      borderRadius: '0',
     },
   }),
   valueContainer: (customStyles, state) => ({
@@ -65,11 +80,15 @@ const selectStyles = {
   }),
   container: styles => ({
     ...styles,
-    '@media only screen and (max-width: 768px)': {
+    marginBottom: '32px',
+    marginLeft: '6px',
+    '@media only screen and (min-width: 768px)': {
       ...styles['@media only screen and (max-width: 768px)'],
       height: '44px',
       width: '200px',
       borderRadius: '30px',
+      marginBottom: '0',
+      marginLeft: '0',
     },
     '@media only screen and (min-width: 1280px)': {
       ...styles['@media only screen and (min-width: 1280px)'],

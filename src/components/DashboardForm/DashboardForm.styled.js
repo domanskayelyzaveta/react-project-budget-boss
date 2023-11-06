@@ -7,13 +7,13 @@ export const StyledWrapper = styled.div`
 export const StyledFormWrapper = styled.div`
   display: flex;
   justify-content: center;
-  align-items:center;
-  gap:32px;
+  align-items: center;
+  gap: 32px;
 `;
 
 export const StyledForm = styled.form`
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   align-items: center;
   gap: 32px;
 
@@ -24,18 +24,17 @@ export const StyledForm = styled.form`
     flex-wrap: nowrap;
   }
   @media screen and (min-width: 768px) {
-    flex-direction:row;
+    flex-direction: row;
   }
 `;
 
 export const Wrapper = styled.div`
-display:flex;
-flex-direction:column;
-@media screen and (min-width: 768px) {
-  flex-direction:row;
+  display: flex;
+  flex-direction: column;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
   }
-
-`
+`;
 
 export const StyledDescrInput = styled.input`
   color: var(--white-3, rgba(199, 204, 220, 0.5));
@@ -84,10 +83,9 @@ export const StyledOption = styled.option`
 
 export const StyledSumInput = styled.input`
   color: var(--white-DC);
-  width: 40px;
+  width: 50px;
   // padding-left: 20px;
   // padding-right: 20px;
-  margin: 15px 0;
   font-family: Roboto;
   font-size: 12px;
   font-style: normal;
@@ -95,14 +93,13 @@ export const StyledSumInput = styled.input`
   line-height: normal;
   letter-spacing: 0.24px;
   border: none;
-  margin: 0;
   background: transparent;
 `;
 
 export const StyledInputWrapper = styled.div`
   display: flex;
-  gap:32px;
-  flex-direction:column;
+  gap: 32px;
+  flex-direction: column;
   box-sizing: border-box;
   // gap: 20px;
   /* padding: 15px 20px; */
@@ -117,7 +114,7 @@ export const StyledInputWrapper = styled.div`
   border: 2px solid var(--grey, #474759);
 
   @media screen and (min-width: 768px) {
-    flex-direction:row;
+    flex-direction: row;
     gap: 0;
   }
 `;
@@ -179,7 +176,7 @@ export const CalcWrapper = styled.div`
   width: 90px;
   display: flex;
   align-items: center;
-  margin-left: 30px;
+  /* margin-left: 30px; */
 `;
 
 export const SvgCalc = styled.svg``;
