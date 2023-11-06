@@ -53,6 +53,8 @@ const DashboardForm = ({ categoriesList, category }) => {
   const selectedDate = useSelector(selectDate);
   const dispatch = useDispatch();
 
+
+
   const onSubmit = data => {
     const dataToDispatch = { ...data, date: formatDate(selectedDate) };
 
@@ -96,7 +98,13 @@ const DashboardForm = ({ categoriesList, category }) => {
         });
     }
 
-    reset();
+    reset(defaultValues);
+  };
+
+  const defaultValues = {
+    description: null,
+    category: "",
+    amount: null,
   };
 
   const handleChange = dateChange => {
@@ -107,8 +115,10 @@ const DashboardForm = ({ categoriesList, category }) => {
     dispatch(setSelectedDate_(dateChange));
   };
 
+
   const handelClearForm = () => {
-    reset();
+    reset(defaultValues);
+    // setValue('category', null);
   };
 
   return (
