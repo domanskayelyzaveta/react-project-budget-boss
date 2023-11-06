@@ -71,12 +71,12 @@ export const CategoriesList = ({
       image: image,
     }))
     .sort((a, b) => b.total - a.total);
-
+    
   const handleToggleCategoryType = () => {
     setCurrentCategoryType(
       currentCategoryType === 'expense' ? 'income' : 'expense'
     );
-    setActiveItem(null);
+    setActiveItem(0);
   };
 
   const handleClick = (element, index) => {
@@ -89,6 +89,9 @@ export const CategoriesList = ({
   useEffect(() => {
     if (currentCategoryType === 'expense' && expensesArray.length > 0) {
       handleClick(expensesArray[0].categories, 0);
+    }
+    if (currentCategoryType === 'income' && expensesArray.length > 0) {
+      handleClick(incomesArray[0].categories, 0);
     }
     // eslint-disable-next-line
   }, [data, currentCategoryType]);
@@ -125,7 +128,6 @@ export const CategoriesList = ({
                       onClick={() => handleClick(element.categories, index)}
                       $primaryImage={activeItem === index}
                     />
-
                     <CategoryP>{element.categories.toUpperCase()}</CategoryP>
                   </ItemLi>
                 );
@@ -146,18 +148,6 @@ export const CategoriesList = ({
               })}
         </ComponentUl>
       </ContainerList>
-      <AbsoluteLine width="265" height="13">
-        <use href={`${sprite}#horizontal-line`} />
-      </AbsoluteLine>
-      <AbsoluteLine1 width="265" height="13">
-        <use href={`${sprite}#horizontal-line`} />
-      </AbsoluteLine1>
-      <AbsoluteLine2 width="265" height="13">
-        <use href={`${sprite}#horizontal-line`} />
-      </AbsoluteLine2>
-      <AbsoluteLine3 width="265" height="13">
-        <use href={`${sprite}#horizontal-line`} />
-      </AbsoluteLine3>
     </DivContainer>
   );
 };
