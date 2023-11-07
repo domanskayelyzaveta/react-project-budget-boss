@@ -14,14 +14,12 @@ import {
 import { selectDate } from 'redux/selectors';
 
 const StyledDatepicker = () => {
-  // const [selectedDate, setSelectedDate] = useState(Date.now());
   const dispatch = useDispatch();
   const date = useSelector(selectDate);
-
   const CustomInput = forwardRef(({ value, onClick }, ref) => {
     return (
       <TitleWrapper onClick={onClick} ref={ref}>
-        {format(date, 'dd.MM.yyyy')}
+        {format(new Date(date), 'dd.MM.yyyy')}
       </TitleWrapper>
     );
   });
@@ -36,9 +34,9 @@ const StyledDatepicker = () => {
         </div>
         <div>
           <DatePicker
-            selected={date}
+            selected={new Date(date)}
             onChange={date => {
-              dispatch(setSelectedDate_(date));
+              dispatch(setSelectedDate_(format(new Date(date), 'yyyy-MM-dd')));
             }}
             customInput={<CustomInput />}
             dateFormat={'dd MM yyyy'}

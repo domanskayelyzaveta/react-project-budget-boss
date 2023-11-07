@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 export const MobileDashboardBalanceFormWrapper = styled.div`
+  width: 100%;
   // display: flex;
   // flex-direction: column;
   // justify-content: center;
@@ -96,10 +97,27 @@ export const StyledAddTransactionButtonText = styled.span`
   text-transform: uppercase;
 `;
 
-export const StyledMobileButtonLeft = styled.button`
+export const StyledMobileButton = styled.button`
+  margin-top: auto;
+  /* background: ${props => (props.$active ? 'green' : 'transparent')}; */
   border: none;
-  border-radius: 0px 16px 0px 0px;
-  width: 159px;
+  box-shadow: ${props => (props.$active ? '0px 0px 6px 0px #41a350' : 'none')};
+  background: #383847;
+  color: ${props =>
+    props.$active ? 'var(--button) !important' : 'var(--text-color)!important'};
+  border-top: ${props => (props.$active ? '1px solid var(--button)' : 'none')};
+  border-right: ${props =>
+    props.$name === 'expense' && props.$active
+      ? '1px solid var(--button)'
+      : 'none'};
+  border-left: ${props =>
+    props.$name === 'income' && props.$active
+      ? '1px solid var(--button)'
+      : 'none'};
+  width: 50%;
+  border-radius: ${props =>
+    props.$name === 'income' ? '16px 0px 0px 0px' : '0px 16px 0px 0px'};
+
   height: 53px;
   text-align: center;
   font-size: 12px;
@@ -107,75 +125,88 @@ export const StyledMobileButtonLeft = styled.button`
   letter-spacing: 0.24px;
   text-transform: uppercase;
   color: var(--text-color);
-  background: linear-gradient(245deg, #383847 14.1%, #2d2d38 89.51%);
-  &:hover {
-    border-radius: 0px 16px 0px 0px;
-    border-top: 1px solid var(--button);
-    border-right: 1px solid var(--button);
-    box-shadow: 0px 0px 6px 0px #41a350;
-    background: #383847;
-    color: var(--button);
-  }
-
-  &:focus {
-    border-radius: 0px 16px 0px 0px;
-    border-top: 1px solid var(--button);
-    border-right: 1px solid var(--button);
-    box-shadow: 0px 0px 6px 0px #41a350;
-    background: #383847;
-    color: var(--button);
-  }
-
-  &:active {
-    border-radius: 0px 16px 0px 0px;
-    border-top: 1px solid var(--button);
-    border-right: 1px solid var(--button);
-    box-shadow: 0px 0px 6px 0px #41a350;
-    background: #383847;
-    color: var(--button);
-  }
 `;
-export const StyledMobileButtonRight = styled.button`
-  border: none;
-  border-right: transparent !important;
-  border-radius: 16px 0px 0px 0px;
-  width: 159px;
-  height: 53px;
-  text-align: center;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.24px;
-  text-transform: uppercase;
-  color: var(--text-color);
-  background: linear-gradient(245deg, #383847 14.1%, #2d2d38 89.51%);
 
-  &:hover {
-    border-radius: 16px 0px 0px 0px;
-    border-top: 1px solid var(--button);
-    border-right: 1px solid var(--button);
-    box-shadow: 0px 0px 6px 0px #41a350;
-    background: #383847;
-    color: var(--button);
-  }
+// export const StyledMobileButtonLeft = styled.button`
+//   border: none;
+//   border-radius: 0px 16px 0px 0px;
+// width: 159px;
+// height: 53px;
+// text-align: center;
+// font-size: 12px;
+// font-weight: 700;
+// letter-spacing: 0.24px;
+// text-transform: uppercase;
+// color: var(--text-color);
+//   background: linear-gradient(245deg, #383847 14.1%, #2d2d38 89.51%);
+//   &:hover {
+//     border-radius: 0px 16px 0px 0px;
+//     border-top: 1px solid var(--button);
+//     border-right: 1px solid var(--button);
+//     box-shadow: 0px 0px 6px 0px #41a350;
+//     background: #383847;
+//     color: var(--button);
+//   }
 
-  &:focus {
-    border-radius: 16px 0px 0px 0px;
-    border-top: 1px solid var(--button);
-    border-right: 1px solid var(--button);
-    box-shadow: 0px 0px 6px 0px #41a350;
-    background: #383847;
-    color: var(--button);
-  }
+//   &:focus {
+//     border-radius: 0px 16px 0px 0px;
+//     border-top: 1px solid var(--button);
+//     border-right: 1px solid var(--button);
+//     box-shadow: 0px 0px 6px 0px #41a350;
+//     background: #383847;
+//     color: var(--button);
+//   }
 
-  &:active {
-    border-radius: 16px 0px 0px 0px;
-    border-top: 1px solid var(--button);
-    border-right: 1px solid var(--button);
-    box-shadow: 0px 0px 6px 0px #41a350;
-    background: #383847;
-    color: var(--button);
-  }
-`;
+// &:active {
+//   border-radius: 0px 16px 0px 0px;
+//   border-top: 1px solid var(--button);
+//   border-right: 1px solid var(--button);
+//   box-shadow: 0px 0px 6px 0px #41a350;
+//   background: #383847;
+//   color: var(--button);
+// }
+// `;
+// export const StyledMobileButtonRight = styled.button`
+//   border: none;
+//   border-right: transparent !important;
+//   border-radius: 16px 0px 0px 0px;
+//   width: 159px;
+//   height: 53px;
+//   text-align: center;
+//   font-size: 12px;
+//   font-weight: 700;
+//   letter-spacing: 0.24px;
+//   text-transform: uppercase;
+//   color: var(--text-color);
+//   background: linear-gradient(245deg, #383847 14.1%, #2d2d38 89.51%);
+
+//   &:hover {
+//     border-radius: 16px 0px 0px 0px;
+//     border-top: 1px solid var(--button);
+//     border-right: 1px solid var(--button);
+//     box-shadow: 0px 0px 6px 0px #41a350;
+//     background: #383847;
+//     color: var(--button);
+//   }
+
+//   &:focus {
+//     border-radius: 16px 0px 0px 0px;
+//     border-top: 1px solid var(--button);
+//     border-right: 1px solid var(--button);
+//     box-shadow: 0px 0px 6px 0px #41a350;
+//     background: #383847;
+//     color: var(--button);
+//   }
+
+//   &:active {
+//     border-radius: 16px 0px 0px 0px;
+//     border-top: 1px solid var(--button);
+//     border-right: 1px solid var(--button);
+//     box-shadow: 0px 0px 6px 0px #41a350;
+//     background: #383847;
+//     color: var(--button);
+//   }
+// `;
 
 export const StyledPlusSvg = styled.svg`
   border: 1px solid var(--green);
@@ -197,17 +228,20 @@ export const StyledSpan = styled.span`
 `;
 
 export const StyledButtonDiv = styled.div`
+  width: 100%;
   display: flex;
+  position: absolute;
+  bottom: 0;
+  margin-top: 20px;
 `;
 
 export const TransactionMobileListWrapper = styled.div`
-  height: 190px;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
   height: 140px;
+  overflow-y: auto;
+  justify-content: space-evenly;
   width: 100%;
   padding: 0px 16px 0px 20px;
+  margin-bottom: 10px;
 `;
 
 // export const TransactionMobileListWrapper = styled.ul`

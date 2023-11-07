@@ -7,9 +7,13 @@ import { StyledLinkWrapper } from 'pages/Dashboard/DashboardPage.styled';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { selectBalance, selectDate, selectTransaction } from 'redux/selectors';
+import {
+  getExpensesTransactionsThunk,
+  getIncomeTransactionsThunk,
+} from 'redux/thunks';
 import { setSelectedDate_ } from 'redux/userReducer';
 import { StyledBalanceAmount } from '../../components/Ballance/Balance.styled';
-import notification from '../../images/balance-notification.webp';
 import {
   Img,
   ImgWrapper,
@@ -18,6 +22,8 @@ import {
   ParagraphNotific,
 } from '../../components/Ballance/BalanceMessage.styled';
 import MobileTransactionList from '../../components/MobileTransactionList/MobileTransactionList';
+import notification from '../../images/balance-notification.webp';
+import sprite from '../../images/sprite.svg';
 import {
   BalanceWrapperMobil,
   MobileDashboardBalanceFormWrapper,
@@ -25,19 +31,12 @@ import {
   StyledAddTransactionButtonIcon,
   StyledAddTransactionButtonText,
   StyledButtonDiv,
-  StyledMobileButtonLeft,
-  StyledMobileButtonRight,
+  StyledMobileButton,
   StyledPlusSvg,
   StyledSpan,
   StyledUl,
   TransactionMobileListWrapper,
 } from './DashboardPageMobile.styled';
-import {
-  getExpensesTransactionsThunk,
-  getIncomeTransactionsThunk,
-} from 'redux/thunks';
-import sprite from '../../images/sprite.svg';
-import { selectBalance, selectDate, selectTransaction } from 'redux/selectors';
 
 const DashboardPageMobile = () => {
   const balance = useSelector(selectBalance);
@@ -129,20 +128,24 @@ const DashboardPageMobile = () => {
             </TransactionMobileListWrapper>
 
             <StyledButtonDiv>
-              <StyledMobileButtonLeft
+              <StyledMobileButton
                 onClick={() => {
                   handleChangePage('expense');
                 }}
+                $active={category === 'expense'}
+                $name={'expense'}
               >
                 EXPENSES
-              </StyledMobileButtonLeft>
-              <StyledMobileButtonRight
+              </StyledMobileButton>
+              <StyledMobileButton
                 onClick={() => {
                   handleChangePage('income');
                 }}
+                $active={category === 'income'}
+                $name={'income'}
               >
                 INCOME
-              </StyledMobileButtonRight>
+              </StyledMobileButton>
             </StyledButtonDiv>
           </MobileDashboardBalanceFormWrapper>
         )}

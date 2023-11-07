@@ -1,3 +1,5 @@
+import { format } from 'date-fns';
+
 const { createSlice } = require('@reduxjs/toolkit');
 const {
   registerThunk,
@@ -9,6 +11,7 @@ const {
   deleteExpenseTransactionThunk,
   deleteIncomeTransactionThunk,
   userSetBalanceThunk,
+  refreshAccessTokenThunk,
 } = require('./thunks');
 
 const initialState = {
@@ -17,14 +20,17 @@ const initialState = {
   error: null,
   accessToken: null,
   isSignedIn: false,
+  isRefreshing: false,
   id: null,
   balance: null,
-  selectedDate: new Date(Date.now()),
-  // selectedDate: new Date(Date.now()).toISOString()
+  selectedDate: format(new Date(), 'yyyy-MM-dd'),
+  refreshToken: null,
+  sid: null,
 };
 
 const userSlice = createSlice({
   name: 'user',
+
   initialState,
   reducers: {
     setBalance: (state, action) => {
@@ -32,11 +38,29 @@ const userSlice = createSlice({
     },
     setSelectedDate_: (state, action) => {
       state.selectedDate = action.payload;
-      // state.selectedDate = action.payload.toISOString()
     },
   },
   extraReducers: builder => {
     builder
+      //------------ REFRESH -------------//
+      .addCase(refreshAccessTokenThunk.fulfilled, (state, action) => {
+        state.accessToken = action.payload.newAccessToken;
+        state.userData = action.payload.user;
+        state.refreshToken = action.payload.newRefreshToken;
+        state.sid = action.payload.newSid;
+        state.isSignedIn = true;
+        state.isRefreshing = false;
+        state.isLoading = false;
+      })
+      .addCase(refreshAccessTokenThunk.pending, (state, action) => {
+        state.isRefreshing = true;
+        state.isLoading = true;
+      })
+      .addCase(refreshAccessTokenThunk.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isSignedIn = false;
+        state.error = action.payload;
+      })
       //------------ Registration -------------//
 
       .addCase(registerThunk.pending, state => {
@@ -67,6 +91,8 @@ const userSlice = createSlice({
         state.isSignedIn = true;
         state.userData = action.payload.userData;
         state.accessToken = action.payload.accessToken;
+        state.refreshToken = action.payload.refreshToken;
+        state.sid = action.payload.sid;
         state.balance = action.payload.userData.balance;
       })
       .addCase(loginThunk.rejected, (state, action) => {

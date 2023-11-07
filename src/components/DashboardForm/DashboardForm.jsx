@@ -9,7 +9,7 @@ import {
   addExpenseTransactionThunk,
   addIncomeTransactionThunk,
 } from 'redux/thunks';
-import formatDate from 'service/helpers';
+
 import {
   CalcWrapper,
   StyledButtonsWrapper,
@@ -34,6 +34,7 @@ import { toast } from 'react-toastify';
 import { setSelectedDate_ } from 'redux/userReducer';
 import Modal from '../Modal/Modal';
 import { selectDate } from 'redux/selectors';
+import { format } from 'date-fns';
 
 const DashboardForm = ({ categoriesList, category }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -54,7 +55,10 @@ const DashboardForm = ({ categoriesList, category }) => {
   const dispatch = useDispatch();
 
   const onSubmit = data => {
-    const dataToDispatch = { ...data, date: formatDate(selectedDate) };
+    const dataToDispatch = {
+      ...data,
+      date: format(new Date(selectedDate), 'yyyy-MM-dd'),
+    };
 
     //*DESCRIPTION
     if (!dataToDispatch.description) {
@@ -96,7 +100,13 @@ const DashboardForm = ({ categoriesList, category }) => {
         });
     }
 
-    reset();
+    reset(defaultValues);
+  };
+
+  const defaultValues = {
+    description: null,
+    category: '',
+    amount: null,
   };
 
   const handleChange = dateChange => {
@@ -108,7 +118,8 @@ const DashboardForm = ({ categoriesList, category }) => {
   };
 
   const handelClearForm = () => {
-    reset();
+    reset(defaultValues);
+    // setValue('category', null);
   };
 
   return (

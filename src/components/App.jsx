@@ -6,7 +6,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { userThunk } from 'redux/thunks';
+import { refreshAccessTokenThunk } from 'redux/thunks';
 import { Loader } from './Loader/Loader';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import PublicRoute from './PublicRoute/PublicRoute';
@@ -20,7 +20,7 @@ export const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(userThunk());
+    dispatch(refreshAccessTokenThunk());
   }, [dispatch]);
 
   const isLoading = useSelector(selectIsLoading);

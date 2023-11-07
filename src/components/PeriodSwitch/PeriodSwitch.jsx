@@ -20,6 +20,7 @@ import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { useMediaQuery } from '@react-hook/media-query';
 import { BalanceWrapper } from 'components/Ballance/Balance.styled';
+import { format } from 'date-fns';
 
 const PeriodSwitch = () => {
   const currentDate = new Date();
@@ -132,7 +133,9 @@ const PeriodSwitch = () => {
                   <use href={`${sprite}#arrow-toleft`} />
                 </PeriodArrow>
               </PeriodBtn>
-              <PeriodText>{formatData(selectedDate)}</PeriodText>
+              <PeriodText>
+                {format(new Date(selectedDate), 'yyyy-MM-dd')}
+              </PeriodText>
               <PeriodBtn onClick={handleNextMonthClick}>
                 <PeriodArrow width="15" height="15">
                   <use href={`${sprite}#arrow-toright`} />

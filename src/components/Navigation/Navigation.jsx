@@ -1,25 +1,24 @@
-import React, { useState } from 'react';
+import Modal from 'components/Modal/Modal';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { selectEmail, selectToken } from 'redux/selectors';
+import { logoutThunk } from 'redux/thunks';
 import logo1x from '../../images/mobile/logo-mobile-1x.webp';
 import logo2x from '../../images/mobile/logo-mobile-2x.webp';
+import sprite from '../../images/sprite.svg';
 import logotablet1x from '../../images/tablet/logo-tablet-1x.webp';
 import logotablet2x from '../../images/tablet/logo-tablet-2x.webp';
-import sprite from '../../images/sprite.svg';
 import {
+  ButtonExit,
   Div,
   Ellipse,
+  Line,
   LogOut,
+  P,
   StyledComponent,
   Wrapper,
-  P,
-  Line,
-  ButtonExit,
 } from './Navigation.styled';
-import { useSelector, useDispatch } from 'react-redux';
-import { logoutThunk } from 'redux/thunks';
-import { selectEmail, selectToken } from 'redux/selectors';
-import Modal from 'components/Modal/Modal';
-import { Button } from 'antd';
 
 const Navigation = () => {
   const [isModalExitOpen, setIsModalExitOpen] = useState(false);

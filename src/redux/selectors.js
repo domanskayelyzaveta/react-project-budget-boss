@@ -14,3 +14,4 @@ export const selectExpenseList_ = state =>
   state.expenses.expenses?.toReversed();
 export const selectExpensesSummary_ = state => state.expenses.monthsStats;
 export const selectIncomeSummary_ = state => state.income.monthsStats;
+export const selectRefreshToken = state => state.auth.refreshToken;
