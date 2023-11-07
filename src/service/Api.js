@@ -9,10 +9,6 @@ export const setToken = token => {
   $instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 };
 
-// const clearToken = () => {
-//   $instance.defaults.headers.Authorization = '';
-// };
-
 export const fetchUser = async () => {
   const { data } = await $instance.get('/user');
   return data;
@@ -34,7 +30,16 @@ export const fetchLogin = async userData => {
   return data;
 };
 
-export const fetchLogout = async token => {
+//=============refresh token==================================
+
+export const fetchRefreshToken = async sid => {
+  const { data } = await $instance.post('/auth/refresh', { sid });
+  return data;
+};
+
+//============================================================
+
+export const fetchLogout = async () => {
   const { data } = await $instance.post('/auth/logout');
   return data;
 };
@@ -49,33 +54,6 @@ export const fetchExpenseCategories = async () => {
   return data;
 };
 
-// export const fetchExpenseCategories = async token => {
-//   const { data } = await $instance.get('/transaction/expense-categories', {
-//     headers: { Authorization: Bearer ${token} },
-//   });
-//   
-//   return data;
-// };
-
-// export const fetchCurrentUser = async () => {
-//   const { data } = await $instance.get('/users/current');
-//   
-//   return data;
-// };
-
-// export const fetchPhoneBook = async () => {
-//   const { data } = await $instance.get('/contacts');
-//   return data;
-// };
-// export const addContact = async newContact => {
-//   const { data } = await $instance.post('/contacts', newContact);
-//   return data;
-// };
-
-// export const deleteContact = async contactId => {
-//   const { data } = await $instance.delete(`/contacts/${contactId}`);
-//   return data;
-// };
 /*
 │ =========================
 │     Dashboard queries
@@ -99,22 +77,9 @@ export async function deleteTransaction(id) {
 
 export const getTransactions = async category => {
   const { data } = await $instance.get(`/transaction/${category}`);
-  // const { data } = await $instance.get(`/transaction/${category}`, {
-  //   headers: { Authorization: `Bearer ${token}` },
-  // });
 
   return data;
 };
-
-// export const GoogleAuth = async () => {
-//   const { data } = await $instance.get('/auth/google');
-//   return data;
-// };
-
-// export const GoogleAuth = async () => {
-//   const { data } = await $instance.get('/auth/google');
-//   return data;
-// };
 
 export const fetchPeriodData = async date => {
   const { data } = await $instance.get(`/transaction/period-data?date=${date}`);

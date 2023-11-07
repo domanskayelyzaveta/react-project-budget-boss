@@ -9,6 +9,7 @@ import {
   fetchLogin,
   fetchLogout,
   fetchPeriodData,
+  fetchRefreshToken,
   fetchRegister,
   fetchUser,
   getTransactions,
@@ -31,7 +32,6 @@ export const registerThunk = createAsyncThunk(
     }
   }
 );
-//---------------AUTO-login------------------//
 
 //---------------logout------------------//
 // const clearAuthHeader = () => {
@@ -62,6 +62,25 @@ export const loginThunk = createAsyncThunk(
     }
   }
 );
+
+//=============================REFRESH===========================================================================
+
+export const refreshAccessTokenThunk = createAsyncThunk(
+  'user/refreshAccessToken',
+  async (_, thunkAPI) => {
+    const { refreshToken, sid } = thunkAPI.getState().user;
+    setToken(refreshToken);
+    try {
+      const response = await fetchRefreshToken(sid);
+      setToken(response.newAccessToken);
+      const user = await fetchUser();
+      return { user, ...response };
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+//===============================================================================================================
 
 //-----------------user-----------------//
 

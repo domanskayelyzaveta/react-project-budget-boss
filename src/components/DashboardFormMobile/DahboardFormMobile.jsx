@@ -6,7 +6,6 @@ import {
   addExpenseTransactionThunk,
   addIncomeTransactionThunk,
 } from 'redux/thunks';
-import formatDate from 'service/helpers';
 
 import Select from 'react-select';
 import sprite from '../../images/sprite.svg';
@@ -33,6 +32,7 @@ import {
   StyledTextInputWrapper,
 } from './DahboardFormMobile.styled';
 import { selectDate } from 'redux/selectors';
+import { format } from 'date-fns';
 
 const DashboardFormMobile = ({ category, onCloseModal }) => {
   const {
@@ -57,12 +57,15 @@ const DashboardFormMobile = ({ category, onCloseModal }) => {
 
   const defaultValues = {
     description: null,
-    category: "",
+    category: '',
     amount: null,
   };
 
   const onSubmit = data => {
-    const dataToDispatch = { ...data, date: formatDate(selectedDate) };
+    const dataToDispatch = {
+      ...data,
+      date: format(new Date(selectedDate), 'yyyy-MM-dd'),
+    };
 
     //*DESCRIPTION
     if (!dataToDispatch.description) {

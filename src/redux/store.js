@@ -19,7 +19,7 @@ import { periodInfoReducer } from './periodDataReducer';
 const userPersistConfig = {
   key: 'user',
   storage,
-  whitelist: ['accessToken'],
+  whitelist: ['refreshToken', 'sid'],
 };
 
 const store = configureStore({
@@ -34,12 +34,9 @@ const store = configureStore({
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-        ignoredPaths: ['user.selectedDate'],
       },
     }),
 });
 
 export const persistor = persistStore(store);
 export default store;
-
-//userData

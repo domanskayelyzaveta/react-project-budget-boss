@@ -132,8 +132,8 @@ const DashboardPageMobile = () => {
                 onClick={() => {
                   handleChangePage('expense');
                 }}
-                active={category === 'expense'}
-                name={'expense'}
+                $active={category === 'expense'}
+                $name={'expense'}
               >
                 EXPENSES
               </StyledMobileButton>
@@ -141,8 +141,8 @@ const DashboardPageMobile = () => {
                 onClick={() => {
                   handleChangePage('income');
                 }}
-                active={category === 'income'}
-                name={'income'}
+                $active={category === 'income'}
+                $name={'income'}
               >
                 INCOME
               </StyledMobileButton>

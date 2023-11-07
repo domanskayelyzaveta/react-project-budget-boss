@@ -99,24 +99,24 @@ export const StyledAddTransactionButtonText = styled.span`
 
 export const StyledMobileButton = styled.button`
   margin-top: auto;
-  /* background: ${props => (props.active ? 'green' : 'transparent')}; */
+  /* background: ${props => (props.$active ? 'green' : 'transparent')}; */
   border: none;
-  box-shadow: ${props => (props.active ? '0px 0px 6px 0px #41a350' : 'none')};
+  box-shadow: ${props => (props.$active ? '0px 0px 6px 0px #41a350' : 'none')};
   background: #383847;
   color: ${props =>
-    props.active ? 'var(--button) !important' : 'var(--text-color)!important'};
-  border-top: ${props => (props.active ? '1px solid var(--button)' : 'none')};
+    props.$active ? 'var(--button) !important' : 'var(--text-color)!important'};
+  border-top: ${props => (props.$active ? '1px solid var(--button)' : 'none')};
   border-right: ${props =>
-    props.name === 'expense' && props.active
+    props.$name === 'expense' && props.$active
       ? '1px solid var(--button)'
       : 'none'};
   border-left: ${props =>
-    props.name === 'income' && props.active
+    props.$name === 'income' && props.$active
       ? '1px solid var(--button)'
       : 'none'};
   width: 50%;
   border-radius: ${props =>
-    props.name === 'income' ? '16px 0px 0px 0px' : '0px 16px 0px 0px'};
+    props.$name === 'income' ? '16px 0px 0px 0px' : '0px 16px 0px 0px'};
 
   height: 53px;
   text-align: center;
@@ -230,9 +230,9 @@ export const StyledSpan = styled.span`
 export const StyledButtonDiv = styled.div`
   width: 100%;
   display: flex;
-  position:absolute;
+  position: absolute;
   bottom: 0;
-  margin-top:20px;
+  margin-top: 20px;
 `;
 
 export const TransactionMobileListWrapper = styled.div`
