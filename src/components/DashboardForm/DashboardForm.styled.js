@@ -205,7 +205,7 @@ export const StyledSelectError = styled.p`
   font-size: 0.5rem;
   position: absolute;
   top: 115%;
-  left: 50%;
+  left: 65%;
   margin: 0;
   color: var(--red);
 `;

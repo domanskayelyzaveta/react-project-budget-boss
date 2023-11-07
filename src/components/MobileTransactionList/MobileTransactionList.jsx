@@ -1,12 +1,16 @@
 import { StyledBtn } from 'components/IconWithButton/IconWithButton.styled';
-import React, { useState } from 'react';
+import Modal from 'components/Modal/Modal';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import sprite from '../../images/sprite.svg';
+import {
+  selectorExpenseTransaction,
+  selectorIncomeTransaction,
+} from 'redux/selectors';
 import {
   deleteExpenseTransactionThunk,
   deleteIncomeTransactionThunk,
 } from 'redux/thunks';
-import Modal from 'components/Modal/Modal';
+import sprite from '../../images/sprite.svg';
 import {
   DivMobTransaction,
   MobileTransactionListDiv,
@@ -17,11 +21,10 @@ import {
   StyledMobTransactionDescription,
   StyledPriceDiv,
 } from './MobileTransactionList.styled';
-import { AbsoluteLine } from 'components/CategoriesList/CategoriesList.styled';
 
 const MobileTransactionList = ({ category }) => {
-  const incomeTransactionList = useSelector(state => state.income.incomes);
-  const expenseTransactionList = useSelector(state => state.expenses.expenses);
+  const incomeTransactionList = useSelector(selectorIncomeTransaction);
+  const expenseTransactionList = useSelector(selectorExpenseTransaction);
   const [id, setId] = useState(null);
 
   const dispatch = useDispatch();

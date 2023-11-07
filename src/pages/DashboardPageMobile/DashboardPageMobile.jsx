@@ -37,10 +37,11 @@ import {
   getIncomeTransactionsThunk,
 } from 'redux/thunks';
 import sprite from '../../images/sprite.svg';
+import { selectBalance, selectDate, selectTransaction } from 'redux/selectors';
 
 const DashboardPageMobile = () => {
-  const balance = useSelector(state => state.user.balance);
-  const transaction = useSelector(state => state.user.userData?.transactions);
+  const balance = useSelector(selectBalance);
+  const transaction = useSelector(selectTransaction);
   const [category, setCategory] = useState('expense');
 
   const [
@@ -50,11 +51,7 @@ const DashboardPageMobile = () => {
 
   const [isOpenAddTransactionModalIncome, setIsOpenAddTransactionModalIncome] =
     useState(false);
-  const selectedDate = useSelector(state => state.user.selectedDate);
-  // const selectedDate = useSelector(state => parseISO(state.user.selectedDate));
-  // const selectedDate = new Date(selectedISODate);
-  // const selectedDate = new Date(selectedISODate);
-
+  const selectedDate = useSelector(selectDate);
   const dispatch = useDispatch();
 
   const handleModalOpen = category => {
