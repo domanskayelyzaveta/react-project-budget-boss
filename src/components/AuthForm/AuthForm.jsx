@@ -55,43 +55,47 @@ const AuthForm = () => {
   };
 
   return (
-    <FormWrapper>
-      <Img src={money} alt=""></Img>
-      <Form onSubmit={handleSubmit(onSubmit)}>
-        <GoogleAuthButton />
-        <div>
-          <Label>{errors.email && <Span>*</Span>}Email:</Label>
-        </div>
-        <InputEmail
-          type="email"
-          placeholder="Email"
-          {...register('email', {
-            required: { value: true, message: 'This field is required' },
-            minLength: { value: 3, message: 'Minimum 3 characters' },
-            pattern: /^\S+@\S+$/i,
-          })}
-        />
-        {errors.email && <RequiredP>{errors.email.message}</RequiredP>}
-        <div>
-          <Label>{errors.password && <Span>*</Span>}Password:</Label>
-        </div>
-        <InputPassword
-          type="password"
-          placeholder="Password"
-          {...register('password', {
-            required: { value: true, message: 'This field is required' },
-            minLength: { value: 8, message: 'Minimum 8 characters' },
-          })}
-        />
-        {errors.password && <RequiredP>{errors.password.message}</RequiredP>}
-        <LogInBtn name="Log in" type="submit">
-          Log in
-        </LogInBtn>
-        <RegisterBtn name="Registration" type="submit">
-          Registration
-        </RegisterBtn>
-      </Form>
-    </FormWrapper>
+    <div>
+      <FormWrapper>
+        <Img src={money} alt=""></Img>
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          <GoogleAuthButton />
+          <div>
+            <Label>{errors.email && <Span>*</Span>}Email:</Label>
+      
+          <InputEmail
+            type="email"
+            placeholder="Email"
+            {...register('email', {
+              required: { value: true, message: 'This field is required' },
+              minLength: { value: 3, message: 'Minimum 3 characters' },
+              pattern: /^\S+@\S+$/i,
+            })}
+          />
+          {errors.email && <RequiredP>{errors.email.message}</RequiredP>}
+          </div>
+          <div>
+            <Label>{errors.password && <Span>*</Span>}Password:</Label>
+      
+          <InputPassword
+            type="password"
+            placeholder="Password"
+            {...register('password', {
+              required: { value: true, message: 'This field is required' },
+              minLength: { value: 8, message: 'Minimum 8 characters' },
+            })}
+          />
+          {errors.password && <RequiredP>{errors.password.message}</RequiredP>}
+          </div>
+          <LogInBtn name="Log in" type="submit">
+            Log in
+          </LogInBtn>
+          <RegisterBtn name="Registration" type="submit">
+            Registration
+          </RegisterBtn>
+        </Form>
+      </FormWrapper>
+    </div>
   );
 };
 
