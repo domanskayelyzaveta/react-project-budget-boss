@@ -56,7 +56,7 @@ export const Form = styled.form`
     padding: 52px;
     border-radius: 30px;
     box-sizing: border-box;
-    margin-bottom: 120px;
+    /* margin-bottom: 120px; */
   }
 
   @media screen and (min-width: 1280px) {
