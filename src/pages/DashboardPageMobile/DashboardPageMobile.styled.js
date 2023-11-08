@@ -236,7 +236,7 @@ export const StyledButtonDiv = styled.div`
 `;
 
 export const TransactionMobileListWrapper = styled.div`
-  height: 140px;
+  height: 21vh;
   overflow-y: auto;
   justify-content: space-evenly;
   width: 100%;
