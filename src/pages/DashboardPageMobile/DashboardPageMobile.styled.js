@@ -227,21 +227,39 @@ export const StyledSpan = styled.span`
   margin-bottom: 30px;
 `;
 
+export const DatePickerWrapper = styled.div`
+  /* margin-bottom:auto; */
+`;
+
 export const StyledButtonDiv = styled.div`
+  display: flex;
+  /* position: absolute;
+  bottom: 0; */
+  /* margin-top: 20px; */
+  margin-top: auto;
+`;
+
+export const StyledBottom = styled.div`
   width: 100%;
   display: flex;
-  position: absolute;
-  bottom: 0;
-  margin-top: 20px;
+  flex-direction: column;
+  margin-bottom: auto;
+  /* position:absolute;
+  bottom: 0; */
+  width: 100%;
+  height: 40vh;
+  overflow-y: scroll;
+  gap: 20px;
 `;
 
 export const TransactionMobileListWrapper = styled.div`
-  height: 21vh;
+  /* height: 21vh; */
   overflow-y: auto;
   justify-content: space-evenly;
   width: 100%;
   padding: 0px 16px 0px 20px;
   margin-bottom: 10px;
+  flex: 1;
 `;
 
 // export const TransactionMobileListWrapper = styled.ul`
@@ -255,4 +273,5 @@ export const TransactionMobileListWrapper = styled.div`
 
 export const StyledUl = styled.ul`
   padding-left: 0px;
+  padding-top: 20px;
 `;
