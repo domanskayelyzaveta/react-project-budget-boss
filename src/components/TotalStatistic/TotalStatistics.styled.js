@@ -95,8 +95,12 @@ export const IncomeTotal = styled.p`
 `;
 
 export const ReportPageWrapper = styled.div`
-  @media screen and (max-width: 767px) {
+padding-left: 20px;
+padding-right: 20px;
+
+  @media screen and (min-width: 768px) {
     margin-bottom: 60px;
+    padding-left: 20px;
   }
 
   @media screen and (min-width: 1280px) {
