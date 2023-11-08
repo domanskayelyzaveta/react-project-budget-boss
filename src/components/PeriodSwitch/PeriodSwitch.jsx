@@ -134,7 +134,7 @@ const PeriodSwitch = () => {
                 </PeriodArrow>
               </PeriodBtn>
               <PeriodText>
-                {format(new Date(selectedDate), 'yyyy-MM-dd')}
+                {formatData(selectedDate)}
               </PeriodText>
               <PeriodBtn onClick={handleNextMonthClick}>
                 <PeriodArrow width="15" height="15">
