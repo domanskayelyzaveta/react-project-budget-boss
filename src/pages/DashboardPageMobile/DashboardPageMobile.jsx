@@ -26,10 +26,12 @@ import notification from '../../images/balance-notification.webp';
 import sprite from '../../images/sprite.svg';
 import {
   BalanceWrapperMobil,
+  DatePickerWrapper,
   MobileDashboardBalanceFormWrapper,
   StyledAddTransactionButton,
   StyledAddTransactionButtonIcon,
   StyledAddTransactionButtonText,
+  StyledBottom,
   StyledButtonDiv,
   StyledMobileButton,
   StyledPlusSvg,
@@ -116,37 +118,40 @@ const DashboardPageMobile = () => {
                 </StyledBalanceAmount>
               )}
             </BalanceWrapperMobil>
-            <StyledDatepicker
-              value={selectedDate}
-              placeholderText="Select date"
-              onClick={handleChange}
-            />
-            <TransactionMobileListWrapper>
-              <StyledUl>
-                <MobileTransactionList category={category} />
-              </StyledUl>
-            </TransactionMobileListWrapper>
-
-            <StyledButtonDiv>
-              <StyledMobileButton
-                onClick={() => {
-                  handleChangePage('expense');
-                }}
-                $active={category === 'expense'}
-                $name={'expense'}
-              >
-                EXPENSES
-              </StyledMobileButton>
-              <StyledMobileButton
-                onClick={() => {
-                  handleChangePage('income');
-                }}
-                $active={category === 'income'}
-                $name={'income'}
-              >
-                INCOME
-              </StyledMobileButton>
-            </StyledButtonDiv>
+            <DatePickerWrapper>
+              <StyledDatepicker
+                value={selectedDate}
+                placeholderText="Select date"
+                onClick={handleChange}
+              />
+            </DatePickerWrapper>
+            <StyledBottom>
+              <TransactionMobileListWrapper>
+                <StyledUl>
+                  <MobileTransactionList category={category} />
+                </StyledUl>
+              </TransactionMobileListWrapper>
+              <StyledButtonDiv>
+                <StyledMobileButton
+                  onClick={() => {
+                    handleChangePage('expense');
+                  }}
+                  $active={category === 'expense'}
+                  $name={'expense'}
+                >
+                  EXPENSES
+                </StyledMobileButton>
+                <StyledMobileButton
+                  onClick={() => {
+                    handleChangePage('income');
+                  }}
+                  $active={category === 'income'}
+                  $name={'income'}
+                >
+                  INCOME
+                </StyledMobileButton>
+              </StyledButtonDiv>
+            </StyledBottom>
           </MobileDashboardBalanceFormWrapper>
         )}
       {(isOpenAddTransactionModalExpense ||
