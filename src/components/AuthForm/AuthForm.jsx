@@ -61,7 +61,7 @@ const AuthForm = () => {
         <GoogleAuthButton />
         <div>
           <Label>{errors.email && <Span>*</Span>}Email:</Label>
-        </div>
+        
         <InputEmail
           type="email"
           placeholder="Email"
@@ -72,9 +72,10 @@ const AuthForm = () => {
           })}
         />
         {errors.email && <RequiredP>{errors.email.message}</RequiredP>}
+        </div>
         <div>
           <Label>{errors.password && <Span>*</Span>}Password:</Label>
-        </div>
+        
         <InputPassword
           type="password"
           placeholder="Password"
@@ -84,6 +85,7 @@ const AuthForm = () => {
           })}
         />
         {errors.password && <RequiredP>{errors.password.message}</RequiredP>}
+        </div>
         <LogInBtn name="Log in" type="submit">
           Log in
         </LogInBtn>
