@@ -4,15 +4,14 @@ import moneyTab from '../../images/tablet/money-tablet-1x.webp';
 // import ellipse from '../../images/desktop/ellipse-desktop-1x.webp';
 
 export const FormWrapper = styled.div`
-/* display: grid;
+  /* display: grid;
 place-items:center; */
   display: flex;
   margin-top: 12px;
-  margin:auto;
   justify-content: center;
   align-items: center;
   background-repeat: no-repeat;
-  overflow:hidden;
+  /* overflow:hidden; */
 
   @media screen and (min-width: 768px) {
     background-image: url(${moneyTab});
@@ -23,11 +22,11 @@ place-items:center; */
   @media screen and (min-width: 1280px) {
     display: flex;
     justify-content: space-around;
-    gap: 5%;
+    gap: 4%;
 
-    // margin-right: 125px;
+    margin-top: 100px;
     // padding-top: 0px;
-    padding: 120px 125px;
+    padding: 0 125px;
     background-image: none;
   }
 `;

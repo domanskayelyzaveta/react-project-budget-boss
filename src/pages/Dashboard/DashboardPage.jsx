@@ -29,6 +29,7 @@ import {
   StyledBalanceWrapper,
   StyledLinkWrapper,
   StyledTop,
+  TabsWrapper,
 } from './DashboardPage.styled';
 import './Tabs.css';
 // import Calculator from 'components/Calculator/Calculator';
@@ -102,7 +103,7 @@ const Dashboard = () => {
     <>
       {isMobail && <DashboardPageMobile />}
       {isTabletAndDestop && (
-        <div>
+        <TabsWrapper>
           <StyledTop>
             <StyledBalanceWrapper>
               <Ballance />
@@ -123,7 +124,7 @@ const Dashboard = () => {
             defaultActiveKey="1"
             items={items}
           />
-        </div>
+        </TabsWrapper>
       )}
     </>
   );

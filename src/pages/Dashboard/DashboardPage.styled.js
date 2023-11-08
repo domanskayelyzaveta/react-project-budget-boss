@@ -72,3 +72,7 @@ export const StyledLinkWrapper = styled.div`
 `;
 
 export const StyledTabs = styled(Tabs)``;
+
+export const TabsWrapper = styled.div`
+margin-bottom:38px;
+`

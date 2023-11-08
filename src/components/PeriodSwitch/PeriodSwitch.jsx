@@ -1,9 +1,12 @@
-import React, { useRef, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useMediaQuery } from '@react-hook/media-query';
+import { BalanceWrapper } from 'components/Ballance/Balance.styled';
 import Ballance from 'components/Ballance/Ballance';
-import sprite from '../../images/sprite.svg';
-import { requestPeriodData } from 'redux/thunks';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { requestPeriodData } from 'redux/thunks';
+import sprite from '../../images/sprite.svg';
 import {
   Back,
   BackBtn,
@@ -16,11 +19,6 @@ import {
   PeriodText,
   PeriodTitle,
 } from './PeriodSwitch.styled';
-import { useEffect } from 'react';
-import { toast } from 'react-toastify';
-import { useMediaQuery } from '@react-hook/media-query';
-import { BalanceWrapper } from 'components/Ballance/Balance.styled';
-import { format } from 'date-fns';
 
 const PeriodSwitch = () => {
   const currentDate = new Date();

@@ -51,6 +51,7 @@ const userSlice = createSlice({
         state.isSignedIn = true;
         state.isRefreshing = false;
         state.isLoading = false;
+        state.balance = action.payload.user.balance;
       })
       .addCase(refreshAccessTokenThunk.pending, (state, action) => {
         state.isRefreshing = true;
