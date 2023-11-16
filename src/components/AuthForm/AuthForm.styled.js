@@ -4,8 +4,6 @@ import moneyTab from '../../images/tablet/money-tablet-1x.webp';
 // import ellipse from '../../images/desktop/ellipse-desktop-1x.webp';
 
 export const FormWrapper = styled.div`
-  /* display: grid;
-place-items:center; */
   display: flex;
   /* margin-top: 12px; */
   justify-content: center;
