@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react-project-budget-boss/static/css/main.e2ce9402.css",
-    "main.js": "/react-project-budget-boss/static/js/main.16faef42.js",
+    "main.css": "/react-project-budget-boss/static/css/main.fc72a044.css",
+    "main.js": "/react-project-budget-boss/static/js/main.157dc8d5.js",
     "static/media/Rectangle-2.png": "/react-project-budget-boss/static/media/Rectangle-2.ffa9ab2d416523be32b7.png",
     "static/media/ellipse-tablet-1x.webp": "/react-project-budget-boss/static/media/ellipse-tablet-1x.1cb30ebb34364fb38a7e.webp",
     "static/media/money-tablet-1x.webp": "/react-project-budget-boss/static/media/money-tablet-1x.53be8a4cc862e56c2266.webp",
@@ -27,11 +27,11 @@
     "index.html": "/react-project-budget-boss/index.html",
     "static/media/Additional-income.webp": "/react-project-budget-boss/static/media/Additional-income.c189590c1baf3a0a58ec.webp",
     "static/media/Salary.webp": "/react-project-budget-boss/static/media/Salary.bb0eb9f75b47dcc1b026.webp",
-    "main.e2ce9402.css.map": "/react-project-budget-boss/static/css/main.e2ce9402.css.map",
-    "main.16faef42.js.map": "/react-project-budget-boss/static/js/main.16faef42.js.map"
+    "main.fc72a044.css.map": "/react-project-budget-boss/static/css/main.fc72a044.css.map",
+    "main.157dc8d5.js.map": "/react-project-budget-boss/static/js/main.157dc8d5.js.map"
   },
   "entrypoints": [
-    "static/css/main.e2ce9402.css",
-    "static/js/main.16faef42.js"
+    "static/css/main.fc72a044.css",
+    "static/js/main.157dc8d5.js"
   ]
 }
