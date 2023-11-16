@@ -37,6 +37,7 @@ import {
   StyledPlusSvg,
   StyledSpan,
   StyledUl,
+  StyledUpperWrapper,
   TransactionMobileListWrapper,
 } from './DashboardPageMobile.styled';
 
@@ -77,54 +78,57 @@ const DashboardPageMobile = () => {
       {!isOpenAddTransactionModalExpense &&
         !isOpenAddTransactionModalIncome && (
           <MobileDashboardBalanceFormWrapper>
-            <StyledAddTransactionButton
-              onClick={() => handleModalOpen(category)}
-            >
-              <StyledSpan>
-                <StyledPlusSvg width="20" height="20">
-                  <use href={`${sprite}#icon-plus`} />
-                </StyledPlusSvg>
-              </StyledSpan>
-              <StyledAddTransactionButtonIcon />
-              <StyledAddTransactionButtonText>
-                Add transaction
-              </StyledAddTransactionButtonText>
-            </StyledAddTransactionButton>
+            <StyledUpperWrapper>
+              <StyledAddTransactionButton
+                onClick={() => handleModalOpen(category)}
+              >
+                <StyledSpan>
+                  <StyledPlusSvg width="12" height="12">
+                    <use href={`${sprite}#icon-plus`} />
+                  </StyledPlusSvg>
+                </StyledSpan>
+                <StyledAddTransactionButtonIcon />
+                <StyledAddTransactionButtonText>
+                  Add transaction
+                </StyledAddTransactionButtonText>
+              </StyledAddTransactionButton>
+              <StyledLinkWrapper>
+                <Link to="/reports">
+                  <IconWithButton iconName={'#icon-bar_chart-24px'} />
+                </Link>
+              </StyledLinkWrapper>
+              <BalanceWrapperMobil>
+                Ballance:
+                {!transaction?.length && balance === 0 ? (
+                  <InitialBalanceWrapper>
+                    <DashboardBalanceForm />
+                    <ImgWrapper>
+                      <Img src={notification} alt="notification" />
+                      <ParagraphNotif>
+                        Hello! To get started, enter the current balance of your
+                        account!
+                      </ParagraphNotif>
+                      <ParagraphNotific>
+                        You can`t spend money until you have it:)
+                      </ParagraphNotific>
+                    </ImgWrapper>
+                  </InitialBalanceWrapper>
+                ) : (
+                  <StyledBalanceAmount>
+                    {balance?.toFixed(2)} UAH
+                  </StyledBalanceAmount>
+                )}
+              </BalanceWrapperMobil>
+              <DatePickerWrapper>
+                <StyledDatepicker
+                  value={selectedDate}
+                  placeholderText="Select date"
+                  onClick={handleChange}
+                />
+              </DatePickerWrapper>
+            </StyledUpperWrapper>
 
-            <StyledLinkWrapper>
-              <Link to="/reports">
-                <IconWithButton iconName={'#icon-bar_chart-24px'} />
-              </Link>
-            </StyledLinkWrapper>
-            <BalanceWrapperMobil>
-              Ballance:
-              {!transaction?.length && balance === 0 ? (
-                <InitialBalanceWrapper>
-                  <DashboardBalanceForm />
-                  <ImgWrapper>
-                    <Img src={notification} alt="notification" />
-                    <ParagraphNotif>
-                      Hello! To get started, enter the current balance of your
-                      account!
-                    </ParagraphNotif>
-                    <ParagraphNotific>
-                      You can`t spend money until you have it:)
-                    </ParagraphNotific>
-                  </ImgWrapper>
-                </InitialBalanceWrapper>
-              ) : (
-                <StyledBalanceAmount>
-                  {balance?.toFixed(2)} UAH
-                </StyledBalanceAmount>
-              )}
-            </BalanceWrapperMobil>
-            <DatePickerWrapper>
-              <StyledDatepicker
-                value={selectedDate}
-                placeholderText="Select date"
-                onClick={handleChange}
-              />
-            </DatePickerWrapper>
+
             <StyledBottom>
               <TransactionMobileListWrapper>
                 <StyledUl>

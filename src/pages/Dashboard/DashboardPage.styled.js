@@ -68,11 +68,14 @@ export const StyledLinkWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 35px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 35px;
+  }
 `;
 
 export const StyledTabs = styled(Tabs)``;
 
 export const TabsWrapper = styled.div`
-margin-bottom:38px;
-`
+  margin-bottom: 38px;
+`;
