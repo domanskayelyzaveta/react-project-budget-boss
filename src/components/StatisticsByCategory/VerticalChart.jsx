@@ -85,7 +85,7 @@ export function VerticalChart({ keysArray, valuesArray }) {
     elements: {
       bar: {
         borderWidth: 0,
-        borderRadius: 20,
+        borderRadius: 8,
       },
     },
     plugins: {
