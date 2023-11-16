@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 export const MobileDashboardBalanceFormWrapper = styled.div`
   width: 100%;
-  height: calc(100vh - 6vh);
+  /* height: calc(100vh - 6vh); */
+  height: calc(var(--vh, 1vh) * 94);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -212,7 +213,8 @@ export const StyledBottom = styled.div`
   flex-direction: column;
   bottom: 0;
   width: 100%;
-  height: 40%;
+  /* height: 40%; */
+  height: calc(var(--vh, 1vh) * 40);
   overflow-y: scroll;
   gap: 20px;
 `;
