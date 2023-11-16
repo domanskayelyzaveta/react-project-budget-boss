@@ -7,7 +7,7 @@ export const FormWrapper = styled.div`
   /* display: grid;
 place-items:center; */
   display: flex;
-  margin-top: 12px;
+  /* margin-top: 12px; */
   justify-content: center;
   align-items: center;
   background-repeat: no-repeat;
