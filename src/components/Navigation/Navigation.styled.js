@@ -8,7 +8,8 @@ const Div = styled.div`
   background-color: var(--background);
   color: #fff;
   padding: 12px 20px;
-  height: 6%;
+  height: 6vh;
+  height: calc(var(--vh, 1vh) * 6);
 
   @media screen and (min-width: 768px) {
     padding: 8px 32px;
