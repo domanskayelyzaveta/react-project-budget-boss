@@ -11,7 +11,7 @@ export const Content = styled.div`
   box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.2);
   position: absolute;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   left: 0;
 `;
 export const Childrens = styled.div`

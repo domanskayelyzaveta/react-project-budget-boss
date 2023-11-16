@@ -212,7 +212,7 @@ export const StyledBottom = styled.div`
   flex-direction: column;
   bottom: 0;
   width: 100%;
-  height: 40vh;
+  height: 40%;
   overflow-y: scroll;
   gap: 20px;
 `;
