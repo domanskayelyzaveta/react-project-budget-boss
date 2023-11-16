@@ -1,36 +1,21 @@
 import styled from 'styled-components';
 export const MobileDashboardBalanceFormWrapper = styled.div`
   width: 100%;
-  height:94vh;
+  height: 94vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  // height: 511px;
-  // width: 320px;
-  // background-color: var(--grey47);
-  // outline: 2px solid red;
 `;
 
-export const AddTransahtionWrapper = styled.div`
+export const StyledUpperWrapper = styled.div`
   display: flex;
-  gap: 8px;
-  width: 145px;
-  height: 24px;
-  margin: 20px 87px 24px 88px;
-  /* outline: 2px solid green; */
+  flex-direction: column;
+  gap: 38px;
 `;
+export const AddTransactionWrapper = styled.div``;
 
-export const ReportAndStatisticsWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  width: 84px;
-  height: 24px;
-  margin: 0 118px 30px 118px;
-`;
+export const ReportAndStatisticsWrapper = styled.div``;
 
 export const BalanceWrapperMobil = styled.div`
   display: flex;
@@ -45,28 +30,23 @@ export const BalanceWrapperMobil = styled.div`
 `;
 
 export const StyledAddTransactionButton = styled.button`
-  // position: relative;
-  // background-color: transparent;
-  // color: #fff;
-  // padding: 10px 20px;
-  // border: none;
-  // cursor: pointer;
-  // font-size: 16px;
-  // border-radius: 4px;
-  // display: flex;
-  // align-items: center;
-
-  background-color: transparent;
-  color: var(--text-color);
-  border: none;
-  font-size: 12px;
-  font-weight: 700;
   display: flex;
+  justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  gap: 8px;
   margin-top: 20px;
-  margin-bottom: 30px;
-  align-items: flex-start;
+  border: none;
+  background: transparent;
+  color: var(--text-color);
+
+  text-align: center;
+
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.24px;
+  text-transform: uppercase;
 `;
 
 export const StyledAddTransactionButtonIcon = styled.span`
@@ -81,25 +61,10 @@ export const StyledAddTransactionButtonIcon = styled.span`
   // margin-right: 10px;
 `;
 
-export const StyledAddTransactionButtonText = styled.span`
-  flex: 1;
-  flex-wrap: nowrap;
-  text-transform: uppercase;
-  color: #f6f7fb;
-
-  margin-left: 8px;
-  margin-top: 4px;
-  text-align: center;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: 0.24px;
-  text-transform: uppercase;
-`;
+export const StyledAddTransactionButtonText = styled.span``;
 
 export const StyledMobileButton = styled.button`
-  margin-top: auto;
+  /* margin-top: auto; */
   /* background: ${props => (props.$active ? 'green' : 'transparent')}; */
   border: none;
   box-shadow: ${props => (props.$active ? '0px 0px 6px 0px #41a350' : 'none')};
@@ -210,22 +175,23 @@ export const StyledMobileButton = styled.button`
 // `;
 
 export const StyledPlusSvg = styled.svg`
-  border: 1px solid var(--green);
+  /* border: 1px solid var(--green);
   border-radius: 50%;
   width: 16px;
   height: 16px;
-  top: 0px;
+  top: 0px; */
 `;
 
 export const StyledSpan = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   border: none;
   border-radius: 50%;
   background-color: var(--button);
   width: 24px;
   height: 24px;
-  padding-top: 4px;
-  margin-bottom: 30px;
 `;
 
 export const DatePickerWrapper = styled.div`
@@ -244,9 +210,7 @@ export const StyledBottom = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  /* margin-bottom: auto; */
-  /* position:absolute;
-  bottom: 0; */
+  bottom: 0;
   width: 100%;
   height: 40vh;
   overflow-y: scroll;
