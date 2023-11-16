@@ -47,26 +47,27 @@ export function HorizontalChart({ keysArray, valuesArray }) {
   }
   const data = {
     labels: keysArray,
+
     datasets: [
       {
         data: valuesArray,
-        datalabels: {
-          color: 'rgb(199, 204, 220)',
-          anchor: 'end',
-          align: 'top',
-          offset: 8,
-          labels: {
-            title: {
-              font: {
-                size: '10px',
-              },
-            },
-          },
+        // datalabels: {
+        //   color: 'rgb(199, 204, 220)',
+        //   anchor: 'end',
+        //   align: 'top',
+        //   offset: 8,
+        //   labels: {
+        //     title: {
+        //       font: {
+        //         size: '10px',
+        //       },
+        //     },
+        //   },
 
-          formatter: function (value, context) {
-            return `${value} UAH`;
-          },
-        },
+        //   formatter: function (value, context) {
+        //     return `${value} UAH`;
+        //   },
+        // },
       },
     ],
   };
@@ -87,7 +88,7 @@ export function HorizontalChart({ keysArray, valuesArray }) {
   };
   const options = {
     layout: {
-      padding: 25,
+      padding: 5,
     },
     maintainAspectRatio: false,
     responsive: true,
@@ -99,7 +100,44 @@ export function HorizontalChart({ keysArray, valuesArray }) {
       },
     },
     plugins: {
+      datalabels: {
+        labels: {
+          label1: {
+            anchor: 'start',
+            align: 'top',
+            offset: 5,
+
+            color: '#C7CCDC',
+            formatter: (value, context) => {
+              const label1 = `            ${
+                context.chart.data.labels[context.dataIndex]
+              }`;
+
+              return `${label1} `;
+            },
+            font: {
+              family: 'Roboto',
+              size: 10,
+            },
+          },
+          label2: {
+            anchor: 'end',
+            align: 'top',
+            offset: 5,
+            color: '#C7CCDC',
+            formatter: (value, context) => {
+              const label2 = `${value} UAH`;
+              return ` ${label2}`;
+            },
+            font: {
+              family: 'Roboto',
+              size: 10,
+            },
+          },
+        },
+      },
       labels: {
+        display:false,
         title: {
           font: {
             size: '20',
@@ -129,7 +167,8 @@ export function HorizontalChart({ keysArray, valuesArray }) {
         },
       },
       y: {
-        // position: 'start',
+        // position: 'center',
+
         max: 9,
         border: {
           display: false,
@@ -141,7 +180,7 @@ export function HorizontalChart({ keysArray, valuesArray }) {
         ticks: {
           crossAlign: 'far',
           color: '#C7CCDC',
-          display: true,
+          display: false,
         },
       },
     },
@@ -151,20 +190,20 @@ export function HorizontalChart({ keysArray, valuesArray }) {
   const dynamicOptions = {
     ...options,
   };
-  const media = {
-    mobile: '(max-width: 767px)',
-  };
+  // const media = {
+  //   mobile: '(max-width: 768px)',
+  // };
 
   const ChartContainer = styled.div`
-    /* margin-top: 20px; */
     min-height: 450px;
-    @media ${media.mobile} {
-      width: 280px;
+      width: 320px;
       margin-left: auto;
       margin-right: auto;
       background-color: transparent;
       height: 300px;
       padding-top: 20px;
+    @media screen and (min-width: 768px){
+      width:700px;
     }
   `;
 

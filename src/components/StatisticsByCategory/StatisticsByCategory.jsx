@@ -5,7 +5,7 @@ import { VerticalChart } from './VerticalChart';
 import { NoTransactionsChart } from './NoTransactions';
 
 export const StatisticsByCategory = ({ keysArray, valuesArray }) => {
-  const isSmallScreen = useMediaQuery('(max-width: 768px)');
+  const isSmallScreen = useMediaQuery('(max-width: 767px)');
 
   return (
     <div>
