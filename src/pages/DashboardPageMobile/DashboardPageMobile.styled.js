@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 export const MobileDashboardBalanceFormWrapper = styled.div`
   width: 100%;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
+  height:94vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   // height: 511px;
   // width: 320px;
   // background-color: var(--grey47);
@@ -243,7 +244,7 @@ export const StyledBottom = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-bottom: auto;
+  /* margin-bottom: auto; */
   /* position:absolute;
   bottom: 0; */
   width: 100%;
