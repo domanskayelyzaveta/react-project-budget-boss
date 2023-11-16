@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 export const MobileDashboardBalanceFormWrapper = styled.div`
   width: 100%;
-  height: 94vh;
+  height: calc(100vh - 6vh);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -218,12 +218,11 @@ export const StyledBottom = styled.div`
 `;
 
 export const TransactionMobileListWrapper = styled.div`
-  /* height: 21vh; */
   overflow-y: auto;
   justify-content: space-evenly;
   width: 100%;
   padding: 0px 16px 0px 20px;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   flex: 1;
 `;
 
