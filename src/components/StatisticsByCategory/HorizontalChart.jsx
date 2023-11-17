@@ -88,7 +88,7 @@ export function HorizontalChart({ keysArray, valuesArray }) {
   };
   const options = {
     layout: {
-      padding: 5,
+      padding: {right:35},
     },
     maintainAspectRatio: false,
     responsive: true,
@@ -102,24 +102,24 @@ export function HorizontalChart({ keysArray, valuesArray }) {
     plugins: {
       datalabels: {
         labels: {
-          label1: {
-            anchor: 'start',
-            align: 'top',
-            offset: 5,
+          // label1: {
+          //   anchor: 'start',
+          //   align: 'top',
+          //   offset: 5,
 
-            color: '#C7CCDC',
-            formatter: (value, context) => {
-              const label1 = `            ${
-                context.chart.data.labels[context.dataIndex]
-              }`;
+          //   color: '#C7CCDC',
+          //   formatter: (value, context) => {
+          //     const label1 = `            ${
+          //       context.chart.data.labels[context.dataIndex]
+          //     }`;
 
-              return `${label1} `;
-            },
-            font: {
-              family: 'Roboto',
-              size: 10,
-            },
-          },
+          //     return `${label1} `;
+          //   },
+          //   font: {
+          //     family: 'Roboto',
+          //     size: 10,
+          //   },
+          // },
           label2: {
             anchor: 'end',
             align: 'top',
@@ -180,7 +180,7 @@ export function HorizontalChart({ keysArray, valuesArray }) {
         ticks: {
           crossAlign: 'far',
           color: '#C7CCDC',
-          display: false,
+          display: true,
         },
       },
     },
